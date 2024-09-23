@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "gutenify/container",
+  "category": "gutenify",
+  "title": "Container",
+  "version": "2",
+  "attributes": {
+    "blockClientId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockAdvanceOptions": {
+      "type": "object",
+      "default": {
+        "backgroundColor": "",
+        "backgroundGradient": "",
+        "padding": {
+          "desktop": {}
+        },
+        "shapeDividers": {
+          "bottom": {
+            "invert": true
+          }
+        }
+      }
+    },
+    "stretchContainer": {
+      "type": "boolean",
+      "default": false
+    },
+    "fullWidthStretchContainer": {
+      "type": "boolean",
+      "default": false
+    },
+    "maxWidth": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "html": false,
+    "inserter": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json.schemastore.org/block.json",
+  "apiVersion": 2,
+  "name": "gutenify/social-share-esnext",
+  "title": "Social Share",
+  "textdomain": "gutenify",
+  "category": "jsx-examples",
+  "attributes": {
+    "socials": {
+      "type": "array",
+      "default": [
+        {
+          "type": "Wordpress",
+          "enable": true,
+          "labelText": "Wordpress",
+          "selectedIcon": null
+        },
+        {
+          "type": "Email",
+          "enable": true,
+          "labelText": "Email",
+          "selectedIcon": null
+        },
+        {
+          "type": "Whatsapp",
+          "enable": true,
+          "labelText": "Whatsapp",
+          "selectedIcon": null
+        },
+        {
+          "type": "Reddit",
+          "enable": true,
+          "labelText": "Reddit",
+          "selectedIcon": null
+        },
+        {
+          "type": "Facebook",
+          "enable": true,
+          "selectedIcon": null,
+          "labelText": "Facebook"
+        },
+        {
+          "type": "Twitter",
+          "enable": true,
+          "labelText": "Twitter",
+          "selectedIcon": null
+        },
+        {
+          "type": "Pinterest",
+          "enable": true,
+          "labelText": "Pinterest",
+          "selectedIcon": null
+        },
+        {
+          "type": "Linkedin",
+          "enable": true,
+          "labelText": "Linkedin",
+          "selectedIcon": null
+        }
+      ]
+    },
+    "showLabelText": {
+      "type": "boolean",
+      "default": false
+    },
+    "verticleIcons": {
+      "type": "string",
+      "default": "row"
+    },
+    "uploadedIcon": {
+      "type": "array",
+      "default": []
+    },
+    "iconSize": {
+      "type": "string",
+      "default": "24",
+      "source": "attribute",
+      "attribute": "data-iconsize",
+      "selector": "ul"
+    },
+    "borderStyle": {
+      "type": "string",
+      "default": "outset",
+      "source": "attribute",
+      "attribute": "data-borderstyle",
+      "selector": "ul"
+    },
+    "borderColor": {
+      "type": "string",
+      "default": "#29D6E3",
+      "selector": "ul",
+      "attribute": "data-bordercolor",
+      "source": "attribute"
+    },
+    "borderWidth": {
+      "type": "string",
+      "default": "2",
+      "source": "attribute",
+      "attribute": "data-borderwidth",
+      "selector": "ul"
+    },
+    "borderRadius": {
+      "type": "string",
+      "default": "12",
+      "source": "attribute",
+      "attribute": "data-borderradius",
+      "selector": "ul"
+    },
+    "iconGap": {
+      "type": "number",
+      "default": "12"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "#15929F"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#73461A"
+    },
+    "iconBackgroundColor": {
+      "type": "string",
+      "default": "#ECECEC"
+    },
+    "iconPadding": {
+      "type": "string",
+      "default": "6",
+      "source": "attribute",
+      "selector": "ul",
+      "attribute": "data-iconpadding"
+    },
+    "justifyContent": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view-script.js"
+}
