@@ -34,15 +34,28 @@
     "columnSize": {
       "type": "number",
       "default": 2
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundGradient": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundGradient": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {
     "anchor": true,
     "html": false,
-    "align": [
-      "wide",
-      "full"
-    ]
+    "align": true
   },
   "editorScript": [
     "file:./index.js"

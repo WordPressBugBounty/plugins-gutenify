@@ -79,6 +79,10 @@
         "numberOfItems": 3
       }
     },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
     "spaceBetween": {
       "type": "number",
       "default": 30
@@ -100,11 +104,16 @@
       "default": "layout-1"
     }
   },
+  "supports": {
+    "html": false,
+    "align": [
+      "center",
+      "wide",
+      "full"
+    ]
+  },
   "editorScript": [
     "file:./index.js"
-  ],
-  "viewScript": [
-    "gutenify-common-scripts-slider"
   ],
   "style": [
     "file:./style-index.css",

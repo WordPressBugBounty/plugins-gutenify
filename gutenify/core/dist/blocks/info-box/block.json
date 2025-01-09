@@ -38,13 +38,21 @@
     "titleAlign": {
       "type": "string"
     },
-    "borderRadius": {
+    "backgroundColor": {
       "type": "string",
-      "default": 0
+      "default": ""
     },
-    "borderWidth": {
-      "type": "number",
-      "default": 0
+    "backgroundGradient": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundGradient": {
+      "type": "string",
+      "default": ""
     }
   },
   "editorScript": [

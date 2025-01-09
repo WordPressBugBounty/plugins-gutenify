@@ -43,6 +43,22 @@
     "hideRating": {
       "type": "boolean",
       "default": false
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundGradient": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundGradient": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {

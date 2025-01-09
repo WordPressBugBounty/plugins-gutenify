@@ -39,6 +39,9 @@ class Helpers {
 			'wc-product-carousel',
 			'wc-product-list',
 			'countup',
+			// 'notice-bar',
+			// 'social-share'
+			// 'slider-v2',
 		) );
 	}
 

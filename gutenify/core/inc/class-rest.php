@@ -935,7 +935,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 			$plugin_settings_file_path = $downloader->download_file( $plugin_settings_file,  $name . '-plugin-settings.json' );
 
 			$logs = call_user_func( array( $importer, 'import' ), $xml_file_path );
-			error_log( print_r( $logs, true ));
+			// error_log( print_r( $logs, true ));
 			// if ( $logs ) {
 			// 	if ( $global_style_file_path ) {
 			// 		$string = file_get_contents( $global_style_file_path );

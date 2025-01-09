@@ -1,41 +1,117 @@
 <?php
-/**
- * Plugin Name: Gutenify Button
- * Plugin URI: https://gutenify.com
- * Description: Button block.
- * Version: 1.0.0
- * Author: Gutenify
- *
- * @package gutenify
- */
 
-defined( 'ABSPATH' ) || exit;
+namespace gutenify;
 
-/**
- * Load all translations for our plugin from the MO file.
- */
-function gutenify_load_textdomain_block_button() {
-	load_plugin_textdomain( 'gutenify', false, basename( __DIR__ ) . '/languages' );
-}
-add_action( 'init', 'gutenify_load_textdomain_block_button' );
 
-/**
- * Registers all block assets so that they can be enqueued through Gutenberg in
- * the corresponding context.
- *
- * Passes translations to JavaScript.
- */
-function gutenify_register_block_button() {
-	// Register the block by passing the location of block.json to register_block_type.
-	register_block_type( __DIR__ );
+defined('ABSPATH') || exit;
 
-	if ( function_exists( 'wp_set_script_translations' ) ) {
+class Button{
+	public static function init() {
+		add_action('init', array(__CLASS__, 'register_block'));
+		add_filter('gutenify_render_block_gutenify/button', array(__CLASS__, 'render_block'), 10, 4);
+	}
+
+	public static function register_block() {
+		register_block_type(__DIR__);
+	}
+
+	public static function render_block($block_content, $block, $instance, $block_id){
+
+		$root_selector = '.' . $block_id;
+		$css = '';
+
 		/**
-		 * May be extended to wp_set_script_translations( 'my-handle', 'my-domain',
-		 * plugin_dir_path( MY_PLUGIN ) . 'languages' ) ). For details see
-		 * https://make.wordpress.org/core/2018/11/09/new-javascript-i18n-support-in-wordpress/
+		 * Padding.
 		 */
-		wp_set_script_translations( 'gutenify-block-button', 'gutenify' );
+		if ( ! empty( $block['attrs']['blockAdvanceOptions']['padding']  ) ) {
+			$css .= Dynamic_Styles::get_spacing_with_media( $root_selector . ' .gutenify-button-link.wp-block-button__link', $block['attrs']['blockAdvanceOptions']['padding'], 'padding-' );
+		}
+
+		/**
+		 * Margin.
+		 */
+		if ( ! empty( $block['attrs']['blockAdvanceOptions']['margin']  ) ) {
+			$css .= Dynamic_Styles::get_spacing_with_media( $root_selector . ' .gutenify-button-link.wp-block-button__link', $block['attrs']['blockAdvanceOptions']['margin'], 'margin-' );
+		}
+
+		$css .= $root_selector . ' .gutenify-button-link.wp-block-button__link{font: inherit;';
+
+	/**
+	 * Normal state.
+	 */
+	if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
+		$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';
+	}
+	if (!empty($block['attrs']['backgroundGradient'])) {
+		$css .= 'background:' . $block['attrs']['backgroundGradient'] . ';';
+	}elseif (!empty($block['attrs']['backgroundColor'])) {
+		$css .= 'background:' . $block['attrs']['backgroundColor'] . ';';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundGradient'])) {
+		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['backgroundGradient'] . ';';
+	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundColor'])) {
+		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['backgroundColor'] . ';';
+	} else {
+		$css .= '';
+	}
+
+	// Border.
+	if (!empty($block['attrs']['blockAdvanceOptions']['borderColor'])) {
+		$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['borderColor'] . ';';
+	}
+	if ( ! empty( $block['attrs']['blockAdvanceOptions']['borderWidth'] )  ) {
+		$css .= 'border-style:solid;';
+		if ( ! is_array( $block['attrs']['blockAdvanceOptions']['borderWidth'] ) ) {
+			$css .= 'border-width: ' . $block['attrs']['blockAdvanceOptions']['borderWidth'] . 'px;';
+		} else {
+			$css .= \gutenify\Style_Helpers::box_control( $block['attrs']['blockAdvanceOptions']['borderWidth'], 'border-', '-width');
+		}
+	}
+
+	if ( ! empty( $block['attrs']['blockAdvanceOptions']['borderRadius'] ) ) {
+		$css .= \gutenify\Style_Helpers::border_radius_control( $block['attrs']['blockAdvanceOptions']['borderRadius'] );
+	}
+	// Icon.
+	if (!empty($block['attrs']['icon']['position']) && 'after' === $block['attrs']['icon']['position']) {
+		$css .= 'flex-direction: row-reverse;';
+	}
+	if (!empty($block['attrs']['icon']['spacing'])) {
+		$css .= 'gap: ' . $block['attrs']['icon']['spacing'] . 'px;';
+	}
+
+	$css .= '}';
+
+	/**
+	 * Hover state.
+	 */
+	$css .= $root_selector . ' .wp-block-button__link:hover{ ';
+	if (!empty($block['attrs']['blockAdvanceOptions']['hoverTextColor'])) {
+		$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['hoverTextColor'] . ';';
+	}
+
+
+	if (!empty($block['attrs']['hoverBackgroundGradient'])) {
+		$css .= 'background:' . $block['attrs']['hoverBackgroundGradient'] . ';';
+	} elseif (!empty($block['attrs']['hoverBackgroundColor'])) {
+		$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+	}elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'])) {
+		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] . ';';
+	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'])) {
+		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] . ';';
+	} else {
+		$css .= '';
+	}
+
+	// Border.
+	if (!empty($block['attrs']['blockAdvanceOptions']['hoverBorderColor'])) {
+		$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] . ';';
+	}
+	$css .= '}';
+
+	$handle = 'gutenify_'. str_replace( '/', '_', $block['blockName'] ) . '_' . $block_id;
+		wp_add_inline_style( $handle, $css);
+		return $block_content;
 	}
 }
-add_action( 'init', 'gutenify_register_block_button' );
+
+Button::init();
+

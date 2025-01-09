@@ -23,6 +23,22 @@
     "layout": {
       "type": "string",
       "default": "layout-1"
+    },
+    "hoverBackgroundGradient": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundGradient": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
     }
   },
   "editorScript": [

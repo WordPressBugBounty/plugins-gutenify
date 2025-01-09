@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json.schemastore.org/block.json",
+  "apiVersion": 2,
+  "name": "gutenify/notice-bar",
+  "category": "gutenify",
+  "title": "Notice Bar",
+  "description": "The Notice Bar block allows you to display customizable notifications.",
+  "version": "2",
+  "attributes": {
+    "statusType": {
+      "type": "string",
+      "default": ""
+    },
+    "showCloseBtn": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeBtnAlignment": {
+      "type": "string",
+      "default": "top right"
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "2px",
+        "right": "2px",
+        "left": "2px",
+        "bottom": "2px"
+      }
+    },
+    "border": {
+      "type": "object",
+      "default": {
+        "width": "1px"
+      }
+    },
+    "borderRadius": {
+      "type": "object",
+      "default": {
+        "topLeft": "4px",
+        "topRight": "4px",
+        "bottomLeft": "4px",
+        "bottomRight": "4px"
+      }
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "color": {
+          "text": "",
+          "background": ""
+        }
+      }
+    }
+  },
+  "example": {
+    "attributes": {
+      "content": "Notice Bar"
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "gradients": false,
+      "__experimentalBorder": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    },
+    "typography": {
+      "__experimentalFontFamily": true,
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": true
+    }
+  },
+  "style": [
+    "file:./style-index.css"
+  ],
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view-script.js"
+}

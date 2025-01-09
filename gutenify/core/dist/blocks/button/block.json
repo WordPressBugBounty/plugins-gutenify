@@ -17,6 +17,18 @@
         "buttonBorderWidth": 0
       }
     },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "hoverBackgroundColor": {
+      "type": "string"
+    },
+    "backgroundGradient": {
+      "type": "string"
+    },
+    "hoverBackgroundGradient": {
+      "type": "string"
+    },
     "text": {
       "type": "string",
       "default": ""
@@ -47,7 +59,7 @@
       "type": "object",
       "default": {
         "name": "",
-        "positon": "before",
+        "position": "before",
         "spacing": ""
       }
     }

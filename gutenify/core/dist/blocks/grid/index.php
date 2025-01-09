@@ -1,42 +1,109 @@
 <?php
-/**
- * Plugin Name: Gutenify Grid
- * Plugin URI: https://gutenify.com
- * Description: Grid block.
- * Version: 1.0.0
- * Author: Gutenify
- *
- * @package gutenify
- */
+namespace gutenify;
 
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Load all translations for our plugin from the MO file.
- */
-function gutenify_load_textdomain_block_grid() {
-	load_plugin_textdomain( 'gutenify', false, basename( __DIR__ ) . '/languages' );
-}
-add_action( 'init', 'gutenify_load_textdomain_block_grid' );
-
-/**
- * Registers all block assets so that they can be enqueued through Gutenberg in
- * the corresponding context.
- *
- * Passes translations to JavaScript.
- */
-function gutenify_register_block_grid() {
-
-	// Register the block by passing the location of block.json to register_block_type.
-	register_block_type( __DIR__ );
-
-	if ( function_exists( 'wp_set_script_translations' ) ) {
-		/**
-		 * May be extended to wp_set_script_translations( 'my-handle', 'my-domain',
-		 * plugin_dir_path( MY_PLUGIN ) . 'languages' ) ). For details see
-		 * https://make.wordpress.org/core/2018/11/09/new-javascript-i18n-support-in-wordpress/
-		 */
-		wp_set_script_translations( 'gutenify-block-grid', 'gutenify' );
+class Grid{
+	public static function init() {
+		add_action( 'init', array( __CLASS__, 'register_block' ) );
+		add_filter( 'gutenify_render_block_gutenify/grid', array( __CLASS__, 'render_block' ), 10, 4 );
 	}
+
+	public static function register_block() {
+		register_block_type( __DIR__ );
+	}
+
+	public static function render_block( $block_content, $block, $instance, $block_id ) {
+		$root_selector = '.' . $block_id ;
+		$css='';
+
+	$css = $root_selector . '{ display: grid;';
+
+	if (!empty($block['attrs']['blockAdvanceOptions']['gap']['rowGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] . ';';
+	} else {
+		$css .= 'row-gap: 40px;';
+
+	}
+	if (!empty($block['attrs']['blockAdvanceOptions']['gap']['columnGap'])) {
+		$css .= 'column-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] . ';';
+	} else {
+		$css .= 'column-gap: 40px;';
+
+	}
+	if (!empty($block['attrs']['blockAdvanceOptions']['columns'])) {
+		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['columns'] . ',1fr);';
+	} else {
+		$css .= 'grid-template-columns: repeat(3,1fr);';
+
+	}
+	$css .= '}';
+
+	//tablet styling
+	$css .= '@media screen and (max-width: 780px){'. $root_selector . '{';
+
+	if (!empty($block['attrs']['blockAdvanceOptions']['tablet']['columns'])) {
+		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['tablet']['columns'] . ',1fr);';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['columns'])) {
+		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['columns'] . ',1fr);';
+	} else {
+		$css .= 'grid-template-columns: repeat(3,1fr);';
+	}
+	if (!empty($block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'] . ';';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['gap']['rowGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] . ';';
+	} else {
+		$css .= 'row-gap: 40px;';
+	}
+	if (!empty($block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'] . ';';
+	} else if (!empty($block['attrs']['blockAdvanceOptions']['gap']['columnGap'])) {
+		$css .= 'column-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] . ';';
+	} else {
+		$css .= 'column-gap: 40px;';
+	}
+	$css .= '}}';
+
+	//mobile styling
+	$css .= '@media screen and (max-width: 360px){ '. $root_selector. '{';
+
+	if (!empty($block['attrs']['blockAdvanceOptions']['mobile']['columns'])) {
+		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['mobile']['columns'] . ',1fr);';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['tablet']['columns'])) {
+		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['tablet']['columns'] . ',1fr);';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['columns'])) {
+		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['columns'] . ',1fr);';
+	} else {
+		$css .= 'grid-template-columns: repeat(3,1fr);';
+	}
+	if (!empty($block['attrs']['blockAdvanceOptions']['mobile']['gap']['rowGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['mobile']['gap']['rowGap'] . ';';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'] . ';';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['gap']['rowGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] . ';';
+	} else {
+		$css .= 'row-gap: 40px;';
+	}
+	if (!empty($block['attrs']['blockAdvanceOptions']['mobile']['gap']['columnGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['mobile']['gap']['columnGap'] . ';';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'])) {
+		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'] . ';';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['gap']['columnGap'])) {
+		$css .= 'column-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] . ';';
+	} else {
+		$css .= 'column-gap: 40px;';
+	}
+
+	$css .= '}}';
+
+
+	$handle = 'gutenify_'. str_replace( '/', '_', $block['blockName'] ) . '_' . $block_id;
+	wp_add_inline_style( $handle, $css);
+	return $block_content;
 }
-add_action( 'init', 'gutenify_register_block_grid' );
+}
+
+Grid::init();
+

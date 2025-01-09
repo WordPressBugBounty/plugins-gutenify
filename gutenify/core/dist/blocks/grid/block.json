@@ -19,17 +19,17 @@
           "columnGap": "40px"
         },
         "tablet": {
-          "columns": 3,
+          "columns": null,
           "gap": {
-            "rowGap": "40px",
-            "columnGap": "40px"
+            "rowGap": null,
+            "columnGap": null
           }
         },
         "mobile": {
-          "columns": 3,
+          "columns": null,
           "gap": {
-            "rowGap": "40px",
-            "columnGap": "40px"
+            "rowGap": null,
+            "columnGap": null
           }
         }
       }
@@ -41,7 +41,8 @@
     "align": [
       "wide",
       "full"
-    ]
+    ],
+    "inserter": false
   },
   "editorScript": [
     "file:./index.js"

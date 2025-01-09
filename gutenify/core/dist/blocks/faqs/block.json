@@ -29,6 +29,30 @@
     "gap": {
       "type": "string",
       "default": "10px"
+    },
+    "headerBackground": {
+      "type": "string",
+      "default": ""
+    },
+    "headerHoverBackground": {
+      "type": "string",
+      "default": ""
+    },
+    "headerBackgroundGradient": {
+      "type": "string",
+      "default": ""
+    },
+    "headerHoverBackgroundGradient": {
+      "type": "string",
+      "default": ""
+    },
+    "contentBackground": {
+      "type": "string",
+      "default": ""
+    },
+    "contentBackgroundGradient": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {
@@ -43,7 +67,7 @@
     "file:./index.js"
   ],
   "style": [
-    "file:./index.css"
+    "file:./style-index.css"
   ],
   "viewScript": [
     "file:./view-script.js"

@@ -14,7 +14,11 @@ require 'class-actions.php';
 include 'styles.php';
 include 'demo-importer.php';
 include 'class-rest-demo-importer-v2.php';
-include 'extend/custom-css.php';
+
+include 'extend/dynamic-block-classname.php';
+include 'extend/class-dynamic-styles.php';
+include 'extend/class-slider-blocks.php';
+include 'extend/class-post-list.php';
 include 'woocommerce-template-functions.php';
 include 'class-assets.php';
 include 'site-templates/class-global-code.php';
@@ -33,6 +37,9 @@ if ( ! empty( $active_blocks ) ) {
 }
 
 $required_files = array(
+
+	'inc/class-style-helpers.php',
+
 	'inc/interfaces/class-main-class-wrapper.php',
 	'inc/class-fix-third-party-block-issues.php',
 	'inc/class-meta-fields.php',
@@ -42,7 +49,9 @@ $required_files = array(
 	// 'dist/non-blocks/extend/save-template/index.php',
 	// 'dist/non-blocks/extend/responsive-display-control/index.php',
 	'dist/non-blocks/extend/toolbar-templates-button/index.php',
-	'dist/non-blocks/common-scripts/slider/index.php',
+	'dist/non-blocks/extend/block-custom-css/index.php',
+	'dist/non-blocks/extend/sliders/index.php',
+	// 'dist/non-blocks/common-scripts/slider/index.php',
 	'dist/non-blocks/admin/pages/getting-started/index.php',
 	'dist/non-blocks/admin/pages/demo-importer-v2/index.php',
 	'dist/non-blocks/admin/pages/settings/index.php',

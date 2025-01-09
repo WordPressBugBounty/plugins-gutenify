@@ -26,7 +26,6 @@ function gutenify_render_block_post_list( $attributes ) {
 		'order'            => ! empty( $attributes['query']['order'] ) ? $attributes['query']['order'] : 'desc',
 		'orderby'          => ! empty( $attributes['query']['orderBy'] ) ? $attributes['query']['orderBy'] : 'date',
 		'suppress_filters' => false,
-		// 'post__not_in'     => array( $post->ID ),
 		'post_type'        => ! empty( $attributes['query']['postTypes'] ) ? (array) $attributes['query']['postTypes'] : 'post',
 		'category__in'     => array(),
 		'post__not_in'     => array( get_the_ID() ),
@@ -299,3 +298,178 @@ function gutenify_register_block_post_list() {
 	}
 }
 add_action( 'init', 'gutenify_register_block_post_list' );
+
+
+function gutenify_post_list_render_block ($block_content, $block){
+	if ((isset($block['blockName']) && 'gutenify/post-list' !== $block['blockName'])|| is_admin()) {
+		return $block_content;
+	}
+
+	$block_id = wp_unique_id('gtfy-');
+	$block_client_id = !empty($block['attrs']['blockClientId']) ? 'gutenify-section-' . esc_attr($block['attrs']['blockClientId']) : $block_id;
+
+	$block_content = new WP_HTML_Tag_Processor($block_content);
+	$block_content->next_tag();
+	$block_content->add_class($block_client_id);
+
+	//selector
+	$root_selector = '.' . $block_client_id . '.wp-block-gutenify-post-list' ;
+	$inner_block_selector = $root_selector . ' .gutenify-post-list-item-inner-wrapper';
+	$css ='';
+	// echo '<pre>';
+	// var_dump($css);
+	$css .= $inner_block_selector . '{';
+
+	//color
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'])){
+		$css .= 'color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] . ';';
+	}
+
+	//background Color
+	if(!empty($block['attrs']['backgroundGradient'])){
+		$css .= 'background:' . $block['attrs']['backgroundGradient'] . ';';
+	}elseif(!empty($block['attrs']['backgroundColor'])){
+		$css .= 'background:' . $block['attrs']['backgroundColor'] . ';';
+	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'])){
+		$css .= 'background: ' .$block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] . ';';
+	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'])){
+		$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'] . ';';
+	}
+
+	//border color
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'])){
+		$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] . ';';
+		// var_dump($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor']);
+	}
+
+	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] )  ) {
+		$css .= 'border-style:solid;';
+		if ( ! is_array( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] ) ) {
+			$css .= 'border-width: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] . 'px;';
+		} else {
+			$css .= \gutenify\Style_Helpers::box_control( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'], 'border-', '-width');
+		}
+	}
+
+	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] ) ) {
+		$css .= \gutenify\Style_Helpers::border_radius_control( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] );
+	}
+
+	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['boxShadow'] ) ) {
+		$css .= \gutenify\Style_Helpers::custom_box_shadow_control( $block['attrs']['blockAdvanceOptions']['innerBlock']['boxShadow'] );
+	}
+	$css .='}';
+
+
+	//thumbnail
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['thumbnailMinHeight'])){
+		$css .= $root_selector . '.wp-block-gutenify-post-list .gutenify-post-list-item-inner-wrapper .gutenify-post-list-thumb img {';
+		$css .= 'height:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['thumbnailMinHeight'] . ';}';
+	}
+	//padding
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding'])){
+		// echo '<pre>';
+		// var_dump($block['attrs']);
+
+		$css .= $inner_block_selector . ' .gutenify-post-list-text-content{';
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['top'])){
+			$css .= 'padding-top:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['top'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['bottom'])){
+			$css .= 'padding-bottom:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['bottom'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['left'])){
+			$css .= 'padding-left:' .  $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['left'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['right'])){
+			$css .= 'padding-right:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['right'] . ';';
+		}
+		$css .='}';
+
+		$css .= '@media only screen and (max-width: 992px) {';
+		$css .= $inner_block_selector . ' .gutenify-post-list-text-content{';
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['top'])){
+			$css .= 'padding-top:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['top'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['bottom'])){
+			$css .= 'padding-bottom:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['bottom'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['left'])){
+			$css .= 'padding-left:' .  $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['left'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['right'])){
+			$css .= 'padding-right:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['right'] . ';';
+		}
+		$css .='}';
+		$css .='}';
+
+		$css .= '@media only screen and (max-width: 768px) {';
+
+		$css .= $inner_block_selector . ' .gutenify-post-list-text-content{';
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['top'])){
+			$css .= 'padding-top:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['top'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['bottom'])){
+			$css .= 'padding-bottom:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['bottom'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['left'])){
+			$css .= 'padding-left:' .  $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['left'] . ';';
+		}
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['right'])){
+			$css .= 'padding-right:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['right'] . ';';
+		}
+		$css .='}';
+		$css .='}';
+
+
+
+	}
+
+
+	if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'])) {
+		$css .= $inner_block_selector . ' .gutenify-post-carousel-title { font-size: ' . esc_attr($block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize']) . '; }';
+	}
+
+	//hover style
+	$css .= $inner_block_selector . ':hover {';
+
+	//color
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'])){
+		$css .= ' color: ' .$block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'] . ';';
+	}
+
+	//background
+	if(!empty($block['attrs']['hoverBackgroundGradient'])){
+		$css .= 'background:' . $block['attrs']['hoverBackgroundGradient'] . ';';
+	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'])){
+		$css .= 'background: ' .$block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] . ';';
+	}elseif(!empty($block['attrs']['hoverBackgroundColor'])){
+		$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'])){
+		$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] . ';';
+	}
+
+
+	//border color
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'])){
+		$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] . ';';
+	}
+
+	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBoxShadow'] ) ) {
+		$css .= \gutenify\Style_Helpers::custom_box_shadow_control( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBoxShadow'] );
+	}
+
+	$css .= '}';
+
+
+	//font size
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'])){
+		$css .= $root_selector . ' .gutenify-post-list-title{ font-size:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize']. ';}';
+	}
+
+	$handle = 'gutenify-block-inline-handle';
+	wp_add_inline_style('wp-block-library', $css);
+	return $block_content->get_updated_html();
+}
+
+add_filter('render_block', 'gutenify_post_list_render_block', 200, 2);

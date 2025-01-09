@@ -51,16 +51,46 @@
       "default": true
     },
     "borderRadius": {
-      "type": "string",
-      "default": 0
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ]
     },
     "borderWidth": {
-      "type": "number",
-      "default": 0
+      "anyOf": [
+        {
+          "type": "number",
+          "default": 1
+        },
+        {
+          "type": "object",
+          "default": {}
+        }
+      ]
     },
     "padding": {
       "type": "number",
       "default": 0
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundGradient": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBackgroundGradient": {
+      "type": "string",
+      "default": ""
     }
   },
   "editorScript": [

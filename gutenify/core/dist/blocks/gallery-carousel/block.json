@@ -29,6 +29,10 @@
       "type": "number",
       "default": 1
     },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
     "spaceBetween": {
       "type": "number",
       "default": 10

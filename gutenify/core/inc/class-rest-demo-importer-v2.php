@@ -238,7 +238,7 @@ class Rest_Demo_Importer_V2 {
 			$theme = wp_get_theme()->get_stylesheet();
 			foreach ( $navs as $old_key => $id ) {
 				// replace id.
-				$pattern = '/<!--[ \t]+wp:navigation[ \t]+{.*"ref".*:.*' . absint( $old_key ) . ',/m';
+				$pattern = '/<!--[ \t]+wp:navigation[ \t]+{.*"ref":' . absint( $old_key ) . ',/m';
 				$content = preg_replace( $pattern, '<!-- wp:navigation {"ref":' . absint( $id ) . ',', $content );
 			}
 		}

@@ -17,6 +17,10 @@
       "type": "number",
       "default": 1
     },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
     "spaceBetween": {
       "type": "number",
       "default": 10
@@ -34,6 +38,15 @@
       "default": false
     }
   },
+  "supports": {
+    "html": false,
+    "align": [
+      "center",
+      "wide",
+      "full"
+    ],
+    "inserter": false
+  },
   "editorScript": [
     "file:./index.js"
   ],
@@ -41,8 +54,7 @@
     "file:./style-index.css",
     "gutenify-swiper"
   ],
-  "viewScript": [
-    "gutenify-swiper",
-    "gutenify-common-scripts-slider"
+  "script": [
+    "gutenify-swiper"
   ]
 }

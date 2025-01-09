@@ -65,8 +65,8 @@ class Block_Assets {
 			wp_enqueue_script( $plugin_main_slug . '-components' );
 			wp_enqueue_script( $plugin_main_slug . '-extend-block-inspector-controls' );
 			wp_enqueue_script( $plugin_main_slug . '-extend-block-dynamic-css' );
-			wp_enqueue_script( $plugin_main_slug . '-extend-block-custom-attributes' );
-			wp_enqueue_script( $plugin_main_slug . '-extend-block-custom-classname' );
+			// wp_enqueue_script( $plugin_main_slug . '-extend-block-custom-attributes' );
+			// wp_enqueue_script( $plugin_main_slug . '-extend-block-custom-classname' );
 			wp_enqueue_script( $plugin_main_slug . '-extend-block-spacing' );
 			wp_enqueue_script( $plugin_main_slug . '-extend-block-pro-notice' );
 			wp_enqueue_script( $plugin_main_slug . '-admin-global' );

@@ -108,3 +108,98 @@ function gutenify_register_block_wc_product_list() {
 	}
 }
 add_action( 'init', 'gutenify_register_block_wc_product_list' );
+
+
+function gutenify_wc_product_list_render_block($block_content, $block){
+	if ((isset($block['blockName']) && 'gutenify/wc-product-list' !== $block['blockName'])|| is_admin()) {
+		return $block_content;
+	}
+
+	$block_id = wp_unique_id('gtfy-');
+	$block_client_id = !empty($block['attrs']['blockClientId']) ? 'gutenify-section-' . esc_attr($block['attrs']['blockClientId']) : $block_id;
+
+	$block_content = new WP_HTML_Tag_Processor($block_content);
+	$block_content->next_tag();
+	$block_content->add_class($block_client_id);
+
+	//selector
+	$root_selector = '.' . $block_client_id ;
+	$inner_block_selector = $root_selector . ' .gutenify--wc-product--item';
+	$color='';
+	$css =$inner_block_selector . '{' ;
+
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'])){
+		$color .= $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] ;
+	}
+	if($color){
+		$css .= 'color:' . $color . ';';
+	}
+
+	//background
+	if(!empty($block['attrs']['backgroundGradient'])){
+		$css .= 'background: ' . $block['attrs']['backgroundGradient'] . ';';
+		}elseif(!empty($block['attrs']['backgroundColor'])){
+		$css .= 'background:' . $block['attrs']['backgroundColor']. ';';
+	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'])){
+		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] . ';';
+	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'])){
+		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'] . ';';
+	}
+
+	//border color
+	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'])){
+		$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] . ';';
+	}
+
+	//border width
+	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] )  ) {
+		$css .= 'border-style:solid;';
+		$css .= \gutenify\Style_Helpers::box_control( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'], 'border-', '-width');
+	}
+
+	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] ) ) {
+		$css .= \gutenify\Style_Helpers::border_radius_control( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] );
+	}
+	$css .= '}';
+
+	//hoverstyle
+	$css .=$inner_block_selector . ':hover{' ;
+	//hover color
+	$hover_color='';
+	if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'])) {
+		$hover_color .= $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'];
+	}
+	if($hover_color){
+		$css .= 'color:' . $hover_color . ';';
+	}
+
+	//hover background
+	if (!empty($block['attrs']['hoverBackgroundGradient'])) {
+		$css .= 'background: ' . $block['attrs']['hoverBackgroundGradient'] . ';';
+		} elseif (!empty($block['attrs']['hoverBackgroundColor'])) {
+		$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'])) {
+		$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] . ';';
+	} elseif (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'])) {
+		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] . ';';
+	}
+
+	//hover border
+	if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'])) {
+		$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] . ';';
+	}
+	$css .= '}';
+
+	if($color){
+		$css .= $inner_block_selector . ' .gutenify--wc-product--title>a {color: ' . $color . ';}';
+	}
+	if($hover_color){
+		$css .= $inner_block_selector . ':hover .gutenify--wc-product--title>a {color: ' . $hover_color . ';}';
+	}
+
+
+	$handle = 'gutenify-block-inline-handle';
+	wp_add_inline_style('wp-block-library', $css);
+	return $block_content->get_updated_html();
+}
+add_action('render_block', 'gutenify_wc_product_list_render_block', 200, 2);

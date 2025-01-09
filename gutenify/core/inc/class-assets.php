@@ -97,7 +97,7 @@ class Assets {
 		wp_register_style( $plugin_main_slug . '-fontawesome', $plugin_main_base_url . 'assets/fontawesome/css/all.css', array(), 'v4' );
 
 		// Swiper JS.
-		wp_register_script( $plugin_main_slug . '-swiper', $plugin_main_base_url . 'assets/js/lib/swiper-bundle.js', array( 'jquery' ), '6.8.2', false );
+		wp_register_script( $plugin_main_slug . '-swiper', $plugin_main_base_url . 'assets/js/lib/swiper-bundle.js', array( 'jquery' ), '6.8.2', true );
 
 		// Swiper styles.
 		wp_register_style( $plugin_main_slug . '-swiper', $plugin_main_base_url . 'assets/css/lib/swiper-bundle.min.css', array(), '6.8.2' );
@@ -122,12 +122,12 @@ class Assets {
 			'extend-block-dynamic-css' => array(
 				'path' => 'dist/non-blocks/extend/block-dynamic-css'
 			),
-			'extend-block-custom-attributes' => array(
-				'path' => 'dist/non-blocks/extend/block-custom-attributes'
-			),
-			'extend-block-custom-classname' => array(
-				'path' => 'dist/non-blocks/extend/block-custom-classname'
-			),
+			// 'extend-block-custom-attributes' => array(
+			// 	'path' => 'dist/non-blocks/extend/block-custom-attributes'
+			// ),
+			// 'extend-block-custom-classname' => array(
+			// 	'path' => 'dist/non-blocks/extend/block-custom-classname'
+			// ),
 			'extend-block-spacing' => array(
 				'path' => 'dist/non-blocks/extend/block-spacing'
 			),
@@ -137,14 +137,9 @@ class Assets {
 			'extend-block-pro-notice' => array(
 				'path' => 'dist/non-blocks/extend/block-pro-notice'
 			),
-			'extend-block-core-group' => array(
-				'path' => 'dist/non-blocks/extend/block-core-group'
-			),
-
-			// Common scripts
-			'common-scripts-slider' => array(
-				'path' => 'dist/non-blocks/common-scripts/slider'
-			),
+			// 'extend-block-core-group' => array(
+			// 	'path' => 'dist/non-blocks/extend/block-core-group'
+			// ),
 
 			// Admin.
 			// 'admin-settings' => array(
@@ -174,7 +169,7 @@ class Assets {
 			// Frontend.
 			'frontend' => array(
 				'path' => 'dist/non-blocks/frontend',
-				'js_dependencies' => array( $plugin_main_slug . '-swiper', $plugin_main_slug . '-scrollmagic' ),
+				'js_dependencies' => array( $plugin_main_slug . '-scrollmagic' ),
 				'style_dependencies' => array( $plugin_main_slug . '-fontawesome', $plugin_main_slug . '-fonts' ) //, 'global-styles', 'woocommerce-layout'
 			),
 		);

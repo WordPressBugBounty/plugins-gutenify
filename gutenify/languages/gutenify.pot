@@ -1,14 +1,14 @@
-# Copyright (c) 2024 Gutenify. All Rights Reserved.
+# Copyright (c) 2025 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.4.7\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.4.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-24T11:32:24+00:00\n"
+"POT-Creation-Date: 2025-01-09T07:53:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: gutenify\n"
@@ -85,13 +85,15 @@ msgstr ""
 #: svn_folder/tags/1.4.5/core/inc/get-dynamic-blocks.php:64
 #: svn_folder/tags/1.4.6/core/inc/class-blocks.php:16
 #: svn_folder/tags/1.4.6/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.7/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.7/core/inc/get-dynamic-blocks.php:64
 #: svn_folder/trunk/core/inc/class-blocks.php:16
 #: svn_folder/trunk/core/inc/get-dynamic-blocks.php:64
 msgid "Gutenify Blocks"
 msgstr ""
 
-#: core/src/blocks/post-carousel/index.php:163
-#: core/src/blocks/post-list/index.php:186
+#: core/src/blocks/post-carousel/index.php:95
+#: core/src/blocks/post-list/index.php:185
 #: svn_folder/tags/1.0.1/src/blocks/post-carousel/index.php:149
 #: svn_folder/tags/1.0.2/src/blocks/post-carousel/index.php:149
 #: svn_folder/tags/1.0.2/src/blocks/post-list/index.php:152
@@ -169,19 +171,19 @@ msgctxt "placeholder when a post has no title"
 msgid "(no title)"
 msgstr ""
 
-#: core/src/blocks/advance-slider/inspector/tab-content.js:57
+#: core/src/blocks/advance-slider/inspector/tab-content.js:58
 #: core/src/blocks/gallery-carousel/inspector/tab-content.js:135
 #: core/src/blocks/slider/inspector/tab-content.js:76
 msgid "Enable Pagination"
 msgstr ""
 
-#: core/src/blocks/advance-slider/inspector/tab-content.js:61
+#: core/src/blocks/advance-slider/inspector/tab-content.js:62
 #: core/src/blocks/gallery-carousel/inspector/tab-content.js:142
 #: core/src/blocks/slider/inspector/tab-content.js:80
 msgid "Showing slider pagination."
 msgstr ""
 
-#: core/src/blocks/advance-slider/inspector/tab-content.js:65
+#: core/src/blocks/advance-slider/inspector/tab-content.js:66
 #: core/src/blocks/gallery-carousel/inspector/tab-content.js:146
 #: core/src/blocks/slider/inspector/tab-content.js:81
 msgid "Toggle to enable slider pagination."
@@ -502,15 +504,15 @@ msgstr ""
 msgid "Toggle to show the prefix."
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:141
+#: core/src/blocks/section-title/inspector/tab-content.js:140
 msgid "Display suffix"
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:145
+#: core/src/blocks/section-title/inspector/tab-content.js:144
 msgid "Showing the suffix."
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:146
+#: core/src/blocks/section-title/inspector/tab-content.js:145
 msgid "Toggle to show the suffix."
 msgstr ""
 
@@ -542,6 +544,11 @@ msgctxt "block title"
 msgid "Advance Slider"
 msgstr ""
 
+#: core/src/blocks/advance-slider/block.json
+msgctxt "block description"
+msgid "Slider for images or content with customizable options."
+msgstr ""
+
 #: core/src/blocks/button/block.json
 msgctxt "block title"
 msgid "Button"
@@ -565,6 +572,11 @@ msgstr ""
 #: core/src/blocks/countup/block.json
 msgctxt "block title"
 msgid "Count up"
+msgstr ""
+
+#: core/src/blocks/countup/block.json
+msgctxt "block description"
+msgid "Used in showing quantified achievement in smooth animated number."
 msgstr ""
 
 #: core/src/blocks/faqs/block.json
@@ -602,6 +614,16 @@ msgctxt "block title"
 msgid "Map"
 msgstr ""
 
+#: core/src/blocks/notice-bar/block.json
+msgctxt "block title"
+msgid "Notice Bar"
+msgstr ""
+
+#: core/src/blocks/notice-bar/block.json
+msgctxt "block description"
+msgid "The Notice Bar block allows you to display customizable notifications."
+msgstr ""
+
 #: core/src/blocks/post-carousel/block.json
 msgctxt "block title"
 msgid "Post Carousel"
@@ -627,9 +649,20 @@ msgctxt "block title"
 msgid "Slide Item"
 msgstr ""
 
+#: core/src/blocks/slider-v2/block.json
 #: core/src/blocks/slider/block.json
 msgctxt "block title"
 msgid "Slider"
+msgstr ""
+
+#: core/src/blocks/slider-v2/block.json
+msgctxt "block description"
+msgid "Slide any block."
+msgstr ""
+
+#: core/src/blocks/social-share/block.json
+msgctxt "block description"
+msgid "Enables to share pages on different social platforms."
 msgstr ""
 
 #: core/src/blocks/social-share/block.json
@@ -653,8 +686,38 @@ msgid "Team"
 msgstr ""
 
 #: core/src/blocks/templates-browser/block.json
+msgctxt "block description"
+msgid "Browse Templates that you have created or pick from prebuild Libarary."
+msgstr ""
+
+#: core/src/blocks/templates-browser/block.json
 msgctxt "block title"
 msgid "Templates Browser"
+msgstr ""
+
+#: core/src/blocks/templates-browser/block.json
+msgctxt "block keyword"
+msgid "gutenify"
+msgstr ""
+
+#: core/src/blocks/templates-browser/block.json
+msgctxt "block keyword"
+msgid "Template"
+msgstr ""
+
+#: core/src/blocks/templates-browser/block.json
+msgctxt "block keyword"
+msgid "Library"
+msgstr ""
+
+#: core/src/blocks/templates-browser/block.json
+msgctxt "block keyword"
+msgid "Templates"
+msgstr ""
+
+#: core/src/blocks/templates-browser/block.json
+msgctxt "block keyword"
+msgid "Browser"
 msgstr ""
 
 #: core/src/blocks/testimonial/block.json

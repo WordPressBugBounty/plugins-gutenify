@@ -35,7 +35,7 @@ function gutenify_wc_get_add_to_cart( $product ) {
 function gutenify_get_wc_product_item( $product_id ) {
 		$product = wc_get_product( $product_id );
 		$permalink = get_the_permalink( $product->get_id() );
-		echo '<div class="gutenify--wc-product--item has-no-hover-shadow-dark">';
+		echo '<div class="gutenify--wc-product--item">';
 		echo '<div class="gutenify--wc-product--item-wrapper">';
 
 

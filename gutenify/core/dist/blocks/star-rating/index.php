@@ -1,42 +1,57 @@
 <?php
-/**
- * Plugin Name: Gutenify Star Rating
- * Plugin URI: https://gutenify.com
- * Description: Star Rating block.
- * Version: 1.0.0
- * Author: Gutenify
- *
- * @package gutenify
- */
+namespace gutenify;
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-/**
- * Load all translations for our plugin from the MO file.
- */
-function gutenify_load_textdomain_block_star_rating() {
-	load_plugin_textdomain( 'gutenify', false, basename( __DIR__ ) . '/languages' );
-}
-add_action( 'init', 'gutenify_load_textdomain_block_star_rating' );
+class Star_Rating
+{
+	public static function init()
+	{
+		add_action('init', array(__CLASS__, 'register_block'));
+		add_filter('gutenify_render_block_gutenify/star-rating', array(__CLASS__, 'render_block'), 10, 4);
+	}
 
-/**
- * Registers all block assets so that they can be enqueued through Gutenberg in
- * the corresponding context.
- *
- * Passes translations to JavaScript.
- */
-function gutenify_register_block_star_rating() {
+	public static function register_block()
+	{
+		register_block_type(__DIR__);
+	}
 
-	// Register the block by passing the location of block.json to register_block_type.
-	register_block_type( __DIR__ );
+	public static function render_block($block_content, $block, $instance, $block_id)
+	{
+		$root_selector = '.' . $block_id;
+		$css = '';
 
-	if ( function_exists( 'wp_set_script_translations' ) ) {
-		/**
-		 * May be extended to wp_set_script_translations( 'my-handle', 'my-domain',
-		 * plugin_dir_path( MY_PLUGIN ) . 'languages' ) ). For details see
-		 * https://make.wordpress.org/core/2018/11/09/new-javascript-i18n-support-in-wordpress/
-		 */
-		wp_set_script_translations( 'gutenify-block-star-rating', 'gutenify' );
+		$css .= $root_selector . ' .gutenify-star-rating-filled,' . $root_selector . ' .gutenify-star-rating-half{';
+		if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
+			$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';
+		} else {
+			$css .= 'color: #ff9800;';
+		}
+		$css .= '}';
+
+		$css .= $root_selector . ' .gutenify-star-rating-empty{';
+		if (!empty($block['attrs']['blockAdvanceOptions']['iconUnmarkedColor'])) {
+			$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['iconUnmarkedColor'] . ';';
+		}
+		$css .= '}';
+
+		$css .= $root_selector . ' span{';
+		if (!empty($block['attrs']['blockAdvanceOptions']['iconSize'])) {
+			$css .= 'font-size:' . $block['attrs']['blockAdvanceOptions']['iconSize'] . 'px;';
+		}
+		$css .= '}';
+
+		$css .= $root_selector . ' .gutenify-star-rating-section{';
+		if (!empty($block['attrs']['blockAdvanceOptions']['iconGap'])) {
+			$css .= 'gap:' . $block['attrs']['blockAdvanceOptions']['iconGap'] . 'px;';
+		}
+		$css .= '}';
+
+
+		$handle = 'gutenify_' . str_replace('/', '_', $block['blockName']) . '_' . $block_id;
+		wp_add_inline_style($handle, $css);
+		return $block_content;
 	}
 }
-add_action( 'init', 'gutenify_register_block_star_rating' );
+
+Star_Rating::init();
