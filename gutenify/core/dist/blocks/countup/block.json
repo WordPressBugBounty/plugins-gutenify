@@ -90,6 +90,7 @@
     }
   },
   "supports": {
+    "inserter": true,
     "typography": {
       "__experimentalFontFamily": true,
       "__experimentalFontWeight": true,

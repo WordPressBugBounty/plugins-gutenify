@@ -5,6 +5,13 @@
   "category": "gutenify",
   "title": "Post List",
   "version": "2",
+  "description": "Gutenify Post List.",
+  "keywords": [
+    "gutenify",
+    "Post List",
+    "Posts",
+    "Post"
+  ],
   "attributes": {
     "blockClientId": {
       "type": "string",
@@ -86,6 +93,15 @@
       "type": "string",
       "default": "layout-1"
     }
+  },
+  "supports": {
+    "html": false,
+    "inserter": false,
+    "align": [
+      "center",
+      "wide",
+      "full"
+    ]
   },
   "editorScript": [
     "file:./index.js"

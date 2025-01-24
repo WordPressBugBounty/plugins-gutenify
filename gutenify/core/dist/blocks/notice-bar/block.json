@@ -15,32 +15,44 @@
       "type": "boolean",
       "default": true
     },
+    "closeIcon": {
+      "type": "string"
+    },
+    "closeSize": {
+      "type": "string",
+      "default": "14px"
+    },
+    "closeBorderRadius": {
+      "type": "string",
+      "default": "18px"
+    },
+    "closeColor": {
+      "type": "string",
+      "default": "#ff0101"
+    },
+    "closeBackground": {
+      "type": "string",
+      "default": "#fffafa"
+    },
+    "closeBorderColor": {
+      "default": "#ffbaba",
+      "type": "string"
+    },
+    "closeBorderWidth": {
+      "type": "string",
+      "default": "0px"
+    },
     "closeBtnAlignment": {
       "type": "string",
       "default": "top right"
     },
-    "padding": {
+    "margin": {
       "type": "object",
       "default": {
-        "top": "2px",
-        "right": "2px",
-        "left": "2px",
-        "bottom": "2px"
-      }
-    },
-    "border": {
-      "type": "object",
-      "default": {
-        "width": "1px"
-      }
-    },
-    "borderRadius": {
-      "type": "object",
-      "default": {
-        "topLeft": "4px",
-        "topRight": "4px",
-        "bottomLeft": "4px",
-        "bottomRight": "4px"
+        "top": "8px",
+        "right": "8px",
+        "left": "8px",
+        "bottom": "8px"
       }
     },
     "style": {
@@ -49,8 +61,17 @@
         "color": {
           "text": "",
           "background": ""
-        }
+        },
+        "elements": {}
       }
+    },
+    "enableCookie": {
+      "type": "boolean",
+      "default": false
+    },
+    "cookieTime": {
+      "type": "string",
+      "default": "0"
     }
   },
   "example": {
@@ -59,13 +80,16 @@
     }
   },
   "supports": {
+    "inserter": true,
     "align": [
       "wide",
-      "full"
+      "full",
+      "center"
     ],
     "color": {
       "gradients": false,
-      "__experimentalBorder": true
+      "__experimentalBorder": true,
+      "button": true
     },
     "spacing": {
       "margin": true,
@@ -75,8 +99,20 @@
     "typography": {
       "__experimentalFontFamily": true,
       "fontSize": true,
-      "lineHeight": true,
-      "textAlign": true
+      "lineHeight": true
+    },
+    "shadow": true,
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
     }
   },
   "style": [

@@ -16,9 +16,7 @@ class Icon{
 	public static function render_block( $block_content, $block, $instance, $block_id ) {
 		$root_selector = '.' . $block_id ;
 		$css='';
-
-
-	$root_selector .= ' .gutenify-icon-wrapper';
+		$root_selector .= ' .gutenify-icon-wrapper';
 	// echo '<pre>';
 	// var_dump($root_selector);
 	// echo '</pre>';

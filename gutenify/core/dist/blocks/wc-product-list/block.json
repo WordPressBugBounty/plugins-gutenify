@@ -4,6 +4,16 @@
   "name": "gutenify/wc-product-list",
   "category": "gutenify",
   "title": "WooCommerce Product List",
+  "description": "WooCommerce Product List.",
+  "keywords": [
+    "gutenify",
+    "Product List",
+    "Products",
+    "Product",
+    "WooCommerce",
+    "WooCommerce Products",
+    "WooCommerce Product"
+  ],
   "version": "2",
   "attributes": {
     "blockClientId": {
@@ -59,7 +69,13 @@
     }
   },
   "supports": {
-    "align": true
+    "html": false,
+    "inserter": false,
+    "align": [
+      "center",
+      "wide",
+      "full"
+    ]
   },
   "editorScript": [
     "file:./index.js"

@@ -4,6 +4,11 @@
   "name": "gutenify/info-box",
   "category": "gutenify",
   "title": "Info Box",
+  "description": "Gutenify Info Box",
+  "keywords": [
+    "gutenify",
+    "Info Box"
+  ],
   "version": "2",
   "attributes": {
     "className": {
@@ -54,6 +59,10 @@
       "type": "string",
       "default": ""
     }
+  },
+  "supports": {
+    "html": false,
+    "inserter": false
   },
   "editorScript": [
     "file:./index.js"

@@ -30,9 +30,10 @@ class Gutenify_block_inline_styles {
 				     ( 'gutenify/post-ticker' !== $block['blockName'] )&&
 				     ( 'gutenify/related-posts' !== $block['blockName'] )&&
 				     ( 'gutenify/slider' !== $block['blockName'] )&&
-				     ( 'gutenify/advance-slider' !== $block['blockName'] )
-					 &&
-				     ( 'gutenify/advance-gallery' !== $block['blockName'] )) {
+				     ( 'gutenify/advance-slider' !== $block['blockName'] )&&
+				     ( 'gutenify/advance-gallery' !== $block['blockName'])&&
+				     ( 'gutenify/notice-bar' !== $block['blockName'])
+					 ) {
 					self::$all_styles .= $block['attrs']['gutenifyStyles'];
 				}
 			}

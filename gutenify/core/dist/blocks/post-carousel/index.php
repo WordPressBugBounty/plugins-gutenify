@@ -169,8 +169,8 @@ class Post_Carousel {
 
 	public static function render_block( $block_content, $block, $instance, $block_id ) {
 
-		$css_thread = '';
 
+		$css_thread = '';
 		//color
 		$css_chunk = '';
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'])) {
@@ -200,7 +200,6 @@ class Post_Carousel {
 
 		//borderWidth
 		if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] )  ) {
-			$css_chunk .= 'border-style:solid;';
 			$css_chunk .= \gutenify\Style_Helpers::border_radius_control( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] );
 		}
 
@@ -220,6 +219,7 @@ class Post_Carousel {
 		if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding'] ) ) {
 			$css_thread .= Dynamic_Styles::get_spacing_with_media( '.' . $block_id . '.wp-block-gutenify-post-carousel .gutenify-post-carousel-item .gutenify-post-carousel-item-inner-wrapper .gutenify-post-carousel-text-content', $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding'], 'padding-' );
 		}
+
 
 		/**
 		 * Hover
@@ -258,6 +258,15 @@ class Post_Carousel {
 		$thumbnail_selector = '.' . $block_id . ' .gutenify-post-carousel-item-inner-wrapper .gutenify-post-carousel-thumb img';
 
 		$css_thread .= $thumbnail_selector . '{';
+		$css_thread .= $css_chunk;
+		$css_thread .= '}';
+
+		$css_chunk = '';
+		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'])){
+			$css_chunk .= 'font-size:'. $block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'];
+		}
+		$post_title_selector = '.' . $block_id . ' .gutenify-post-carousel-title';
+		$css_thread .= $post_title_selector . '{';
 		$css_thread .= $css_chunk;
 		$css_thread .= '}';
 

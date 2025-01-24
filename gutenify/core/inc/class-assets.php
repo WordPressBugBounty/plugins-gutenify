@@ -190,6 +190,9 @@ class Assets {
 
 		// Localize vars.
 		wp_localize_script( $plugin_main_slug . '-global-inline-handle', '_' . $plugin_main_function_prefix . '_vars', apply_filters( $plugin_main_slug . '--editor--localized-vars', $localized_vars ) );
+
+		wp_register_script( $plugin_main_slug . '-lib-aos', $plugin_main_base_url . '/assets/js/lib/aos.js', array(), '2.3.4', true );
+		wp_register_style( $plugin_main_slug . '-lib-aos', $plugin_main_base_url . '/assets/css/lib/aos.css', array(), '2.3.4' );
 	}
 
 	/**

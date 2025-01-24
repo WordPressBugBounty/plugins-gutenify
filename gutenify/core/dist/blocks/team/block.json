@@ -4,6 +4,11 @@
   "name": "gutenify/team",
   "category": "gutenify",
   "title": "Team",
+  "description": "Gutenify Team",
+  "keywords": [
+    "gutenify",
+    "team"
+  ],
   "version": "2",
   "attributes": {
     "blockClientId": {
@@ -55,7 +60,8 @@
   "supports": {
     "anchor": true,
     "html": false,
-    "align": true
+    "align": true,
+    "inserter": false
   },
   "editorScript": [
     "file:./index.js"

@@ -459,22 +459,24 @@ class Gutenify_Rest extends WP_REST_Controller {
 				$template_data = get_transient( 'gutenify_template_' . $type . '_' . $id, false );
 
 				if ( ! $template_data ) {
-					$requested_template_data = wp_remote_get(
-						add_query_arg(
-							apply_filters(
-								'gutenify_rest_template_data_url_args',
-								array(
-									'id'               => $id,
-									'gutenify_version' => GUTENIFY_VERSION,
-									'site_url'    => site_url( '/' ),
-								)
-							),
-							$url
-						)
+					$url = add_query_arg(
+						apply_filters(
+							'gutenify_rest_template_data_url_args',
+							array(
+								'id'               => $id,
+								'gutenify_version' => GUTENIFY_VERSION,
+								'site_url'    => site_url( '/' ),
+							)
+						),
+						$url
 					);
+					error_log( $url );
+					$requested_template_data = wp_remote_get( $url );
+
 
 					if ( ! is_wp_error( $requested_template_data ) ) {
 						$new_template_data = wp_remote_retrieve_body( $requested_template_data );
+						error_log( print_r( $new_template_data, true ));
 						$new_template_data = json_decode( $new_template_data, true );
 
 						if ( $new_template_data && isset( $new_template_data['response'] ) && is_array( $new_template_data['response'] ) ) {

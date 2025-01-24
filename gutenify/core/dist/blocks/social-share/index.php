@@ -1,20 +1,18 @@
 <?php
 
-namespace gutenify;
-
 defined( 'ABSPATH' ) || exit;
 
-class Social_Share
-	{
-	public static function init() {
-		add_action( 'init', array( __CLASS__, 'register_block' ) );
+/**
+ * Registers all block assets so that they can be enqueued through Gutenberg in
+ * the corresponding context.
+ *
+ * Passes translations to JavaScript.
+ */
+function gutenify_social_share_register_block() {
 
-	}
+	// Register the block by passing the location of block.json to register_block_type.
+	register_block_type( __DIR__ );
 
-	public static function register_block() {
-		register_block_type( __DIR__ );
-	}
+
 }
-
-Social_Share::init();
-
+add_action( 'init', 'gutenify_social_share_register_block' );

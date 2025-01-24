@@ -51,6 +51,8 @@ $required_files = array(
 	'dist/non-blocks/extend/toolbar-templates-button/index.php',
 	'dist/non-blocks/extend/block-custom-css/index.php',
 	'dist/non-blocks/extend/sliders/index.php',
+	// 'dist/non-blocks/extend/masonry/index.php',
+	'dist/non-blocks/extend/aos/index.php',
 	// 'dist/non-blocks/common-scripts/slider/index.php',
 	'dist/non-blocks/admin/pages/getting-started/index.php',
 	'dist/non-blocks/admin/pages/demo-importer-v2/index.php',

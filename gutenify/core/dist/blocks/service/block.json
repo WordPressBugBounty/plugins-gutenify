@@ -4,6 +4,12 @@
   "name": "gutenify/service",
   "category": "gutenify",
   "title": "Service",
+  "description": "Gutenify Service.",
+  "keywords": [
+    "gutenify",
+    "Service",
+    "Services"
+  ],
   "version": "2",
   "attributes": {
     "blockClientId": {
@@ -58,7 +64,8 @@
     "align": [
       "wide",
       "full"
-    ]
+    ],
+    "inserter": false
   },
   "editorScript": [
     "file:./index.js"

@@ -4,6 +4,13 @@
   "name": "gutenify/testimonial",
   "category": "gutenify",
   "title": "Testimonial",
+  "description": "Gutenify Testimonial",
+  "keywords": [
+    "gutenify",
+    "Testimonial",
+    "Testimonial Item",
+    "Testimonials"
+  ],
   "version": "2",
   "attributes": {
     "blockClientId": {
@@ -40,6 +47,10 @@
       "type": "string",
       "default": ""
     }
+  },
+  "supports": {
+    "inserter": false,
+    "html": false
   },
   "editorScript": [
     "file:./index.js"

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/icon-v2",
+  "category": "gutenify",
+  "title": "Icon v2",
+  "version": "2",
+  "description": "Gutenify New Icon",
+  "keywords": [
+    "gutenify",
+    "New Icon"
+  ],
+  "attributes": {
+    "iconName": {
+      "default": "",
+      "type": "string"
+    },
+    "iconSize": {
+      "default": "24px",
+      "type": "string"
+    },
+    "iconPadding": {
+      "type": "object",
+      "default": {}
+    },
+    "color": {
+      "type": "string",
+      "default": "#000"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundGradient": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "anyOf": [
+        {
+          "type": "object",
+          "default": {}
+        },
+        {
+          "type": "string",
+          "default": ""
+        }
+      ]
+    },
+    "borderRadius": {
+      "anyOf": [
+        {
+          "type": "object",
+          "default": {}
+        },
+        {
+          "type": "string",
+          "default": ""
+        }
+      ]
+    },
+    "hoverBackgroundColor": {
+      "type": "string"
+    },
+    "hoverBackgroundGradient": {
+      "type": "string"
+    },
+    "hoverColor": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "justifyIcon": {
+      "default": "",
+      "type": "string"
+    },
+    "url": {
+      "type": "object",
+      "default": null
+    },
+    "rotate": {
+      "type": "number",
+      "default": 0
+    },
+    "transformHorizontal": {
+      "type": "boolean",
+      "default": false
+    },
+    "transformVertical": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "align": [
+      "full",
+      "wide"
+    ],
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalSkipSerialization": true,
+      "__experimentalDefaultControls": {
+        "color": false,
+        "radius": false,
+        "style": false,
+        "width": false
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "__experimentalSelector": ".gutenify-icon-v2-wrapper",
+      "__experimentalDefaultControls": {
+        "margin": false,
+        "padding": false
+      }
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ]
+}

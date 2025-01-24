@@ -4,6 +4,12 @@
   "name": "gutenify/testimonials",
   "category": "gutenify",
   "title": "Testimonials",
+  "description": "Gutenify Testimonials",
+  "keywords": [
+    "gutenify",
+    "Testimonial",
+    "Testimonials"
+  ],
   "version": "2",
   "attributes": {
     "blockClientId": {
@@ -64,6 +70,7 @@
   "supports": {
     "anchor": true,
     "html": false,
+    "inserter": false,
     "align": [
       "wide",
       "full"

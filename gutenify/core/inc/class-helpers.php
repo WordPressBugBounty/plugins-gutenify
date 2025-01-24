@@ -39,7 +39,10 @@ class Helpers {
 			'wc-product-carousel',
 			'wc-product-list',
 			'countup',
-			// 'notice-bar',
+			'notice-bar',
+			// 'link-wrapper',
+			// 'masonry',
+			// 'icon-v2'
 			// 'social-share'
 			// 'slider-v2',
 		) );

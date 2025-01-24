@@ -5,6 +5,11 @@
   "category": "gutenify",
   "title": "Icon",
   "version": "2",
+  "description": "Gutenify Icon",
+  "keywords": [
+    "gutenify",
+    "Icon"
+  ],
   "attributes": {
     "blockClientId": {
       "type": "string",
@@ -92,6 +97,11 @@
       "type": "string",
       "default": ""
     }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": true,
+    "inserter": true
   },
   "editorScript": [
     "file:./index.js"
