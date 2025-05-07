@@ -21,7 +21,7 @@ class Admin_Menu {
 	}
 
 	public function redirect_template_kit_page() {
-		if( ! is_admin() ) {
+		if ( ! is_admin() ) {
 			return false;
 		}
 		if ( ! empty( $_GET['page'] ) && 'gutenify-template-kits' === $_GET['page'] ) {
@@ -44,12 +44,12 @@ class Admin_Menu {
 			90
 		);
 		// add_submenu_page(
-		// 	'gutenify',
-		// 	__( 'Gutenify Template Kits' ),
-		// 	__( 'Template Kits' ),
-		// 	'manage_options',
-		// 	'gutenify-template-kits',
-		// 	array( &$this, 'template_kits_page_callback' )
+		// 'gutenify',
+		// __( 'Gutenify Template Kits' ),
+		// __( 'Template Kits' ),
+		// 'manage_options',
+		// 'gutenify-template-kits',
+		// array( &$this, 'template_kits_page_callback' )
 		// );
 
 		add_submenu_page(
@@ -62,16 +62,15 @@ class Admin_Menu {
 		);
 
 		// if ( defined( 'WP_CY_DEBUG' ) ) {
-		// 	add_submenu_page(
-		// 		'gutenify',
-		// 		__( 'Gutenify Startup' ),
-		// 		__( 'Start Up' ),
-		// 		'manage_options',
-		// 		'gutenify-start-up',
-		// 		array( &$this, 'startup_page_callback' )
-		// 	);
+		// add_submenu_page(
+		// 'gutenify',
+		// __( 'Gutenify Startup' ),
+		// __( 'Start Up' ),
+		// 'manage_options',
+		// 'gutenify-start-up',
+		// array( &$this, 'startup_page_callback' )
+		// );
 		// }
-
 
 		// add_submenu_page( 'gutenify', __( 'Gutenify Templates' ), __( 'Templates' ), 'manage_options', 'edit.php?post_type=gutenify_template' );
 		add_submenu_page(
@@ -132,9 +131,9 @@ class Admin_Menu {
 	 * @return void
 	 */
 	// public function template_kits_page_callback() {
-	// 	echo '<div class="wrap">';
-	// 	echo '<div id="gutenify-template-kit-app">Loading...</div>';
-	// 	echo '</div>';
+	// echo '<div class="wrap">';
+	// echo '<div id="gutenify-template-kit-app">Loading...</div>';
+	// echo '</div>';
 	// }
 
 	/**
@@ -147,7 +146,7 @@ class Admin_Menu {
 		wp_enqueue_script( $handle );
 		wp_enqueue_style( $handle );
 
-		$output = '<div class="wrap">';
+		$output  = '<div class="wrap">';
 		$output .= '<div id="gutenify-getting-started-app">Loading...</div>';
 		$output .= '</div>';
 		echo apply_filters( 'gutenify-getting-started-callback', $output );
@@ -159,11 +158,10 @@ class Admin_Menu {
 	 * @return void
 	 */
 	// public function site_options_page_callback() {
-	// 	echo '<div class="wrap">';
-	// 	echo '<div id="gutenify-site-options-app">Loading...</div>';
-	// 	echo '</div>';
+	// echo '<div class="wrap">';
+	// echo '<div id="gutenify-site-options-app">Loading...</div>';
+	// echo '</div>';
 	// }
-
 }
 
 new Admin_Menu();
