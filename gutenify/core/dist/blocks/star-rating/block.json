@@ -23,6 +23,10 @@
     "textAlignment": {
       "type": "string",
       "default": "center"
+    },
+    "direction": {
+      "type": "string",
+      "default": "row"
     }
   },
   "editorScript": [

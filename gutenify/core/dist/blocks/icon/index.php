@@ -14,12 +14,10 @@ class Icon{
 	}
 
 	public static function render_block( $block_content, $block, $instance, $block_id ) {
-		$root_selector = '.' . $block_id ;
+		$root_selector = '.' . $block_id . '.wp-block-gutenify-icon' ;
 		$css='';
 		$root_selector .= ' .gutenify-icon-wrapper';
-	// echo '<pre>';
-	// var_dump($root_selector);
-	// echo '</pre>';
+
 
 	$css .= $root_selector . '{';
 	//icon color

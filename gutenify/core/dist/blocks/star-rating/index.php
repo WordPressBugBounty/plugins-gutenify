@@ -45,6 +45,13 @@ class Star_Rating
 		if (!empty($block['attrs']['blockAdvanceOptions']['iconGap'])) {
 			$css .= 'gap:' . $block['attrs']['blockAdvanceOptions']['iconGap'] . 'px;';
 		}
+
+		/**
+		 * Pro direction feature.
+		 */
+		if (!empty($block['attrs']['direction'] )) {
+			$css .= 'flex-direction:' . $block['attrs']['direction'] . ';';
+		}
 		$css .= '}';
 
 

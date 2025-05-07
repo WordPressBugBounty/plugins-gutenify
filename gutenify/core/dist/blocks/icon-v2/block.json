@@ -3,7 +3,7 @@
   "apiVersion": 3,
   "name": "gutenify/icon-v2",
   "category": "gutenify",
-  "title": "Icon v2",
+  "title": "Icon",
   "version": "2",
   "description": "Gutenify New Icon",
   "keywords": [
@@ -16,7 +16,7 @@
       "type": "string"
     },
     "iconSize": {
-      "default": "24px",
+      "default": "40px",
       "type": "string"
     },
     "iconPadding": {
@@ -25,7 +25,7 @@
     },
     "color": {
       "type": "string",
-      "default": "#000"
+      "default": ""
     },
     "backgroundColor": {
       "type": "string",

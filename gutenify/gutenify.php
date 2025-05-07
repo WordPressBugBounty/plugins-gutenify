@@ -5,10 +5,10 @@
  * Author: Gutenify
  * Author URI: https://www.gutenify.com
  * Plugin URI: https://www.gutenify.com
- * Version: 1.4.9
+ * Version: 1.5.0
  * Text Domain: gutenify
  * Domain Path: /languages
- * Tested up to: 6.7
+ * Tested up to: 6.8
  * Requires at least: 6.4
  * Requires PHP: 5.5
  *
@@ -27,7 +27,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Define constants.
-define( 'GUTENIFY_VERSION', '1.4.9' );
+define( 'GUTENIFY_VERSION', '1.5.0' );
 define( 'GUTENIFY_BASE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GUTENIFY_BASE_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'GUTENIFY_BASE_FILE', __FILE__ );
@@ -97,10 +97,10 @@ function gutenify_constants() {
 		'authorDemoWebSite'            => 'https://demo.gutenify.com',
 		'authorWebSiteProPage'         => 'https://gutenify.com/pricing',
 		'authorWebSiteSupport'         => 'https://gutenify.com/product-support',
-		'defaultTheme'                 => array(
-			'slug'  => 'gutenify-starter',
-			'title' => 'Gutenify Starter',
-		),
+		// 'defaultTheme'                 => array(
+		// 	'slug'  => 'gutenify-starter',
+		// 	'title' => 'Gutenify Starter',
+		// ),
 		'plugin_main_slug'             => 'gutenify',
 		'plugin_main_camel_case_name'  => 'gutenify',
 		'plugin_main_function_prefix'  => 'gutenify',

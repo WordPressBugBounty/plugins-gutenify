@@ -54,7 +54,7 @@ class Notice_Bar{
 
 		if (!empty($block['showCloseBtn']) && $block['showCloseBtn'] === true) {
 
-		$close_icon = !empty($block['closeIcon']) ? $block['closeIcon'] : '<svg class="wp-block-button__link gutenify-notice-bar-close" fill="#8e2828" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z"></path></svg>';
+		$close_icon = !empty($block['closeIcon']) ? $block['closeIcon'] : '<svg class="gutenify-notice-bar-close" fill="#8e2828" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z"></path></svg>';
 		$output .= '<div class="gutenify-notice-bar-close" style = "position: absolute; ' . $close_alignment . '">';
 		$output .='<span>'.$close_icon.'</span>';
 		$output .='</div>';
@@ -64,10 +64,7 @@ class Notice_Bar{
 	}
 
 	public static function render_block($block_content, $block, $instance, $block_id) {
-		// echo '<pre>';
-		// var_dump($block);
-		// echo '</pre>';
-		 // Retrieve cookie time and check if cookies are enabled
+
 		 $cookie_id = 'notice-bar-' . esc_attr($block_id);
 		if( ! empty( $block['attrs']['enableCookie'] ) && ! empty( $_COOKIE[ $cookie_id ] ) && 'true' === $_COOKIE[ $cookie_id ] ) {
 			return '';
@@ -80,9 +77,15 @@ class Notice_Bar{
 			$css .= $root_selector.'{ background-color:' .$wrapper_background.';}';
 		}
 
-		$color = !empty( $instance->attributes['closeColor'] ) ?  esc_attr( $instance->attributes['closeColor']) : '#ff0101';
-		$background = !empty( $instance->attributes['closeBackground'] ) ?  esc_attr( $instance->attributes['closeBackground']) : '#fffafa';
-		$border_color = !empty( $instance->attributes['closeBorderColor'] ) ?  esc_attr( $instance->attributes['closeBorderColor']) : '#ffbaba';
+		$color =  !empty($block['attrs']['closeColor'])
+       				? esc_attr($block['attrs']['closeColor'])
+        			: '';
+
+
+		// $background = !empty( $instance->attributes['closeBackground'] ) ?  esc_attr( $instance->attributes['closeBackground']) : '';
+		$background = !empty( $block['attrs']['closeBackground']) ? esc_attr($block['attrs']['closeBackground']):'';
+		$border_color = !empty( $block['attrs']['closeBorderColor']) ? esc_attr($block['attrs']['closeBorderColor']):'';
+		// $border_color = !empty( $instance->attributes['closeBorderColor'] ) ?  esc_attr( $instance->attributes['closeBorderColor']) : '';
 		$border_width = !empty( $instance->attributes['closeBorderWidth'] ) ?  esc_attr( $instance->attributes['closeBorderWidth']) : '0px';
 		$border_radius = !empty( $instance->attributes['closeBorderRadius'] ) ?  esc_attr( $instance->attributes['closeBorderRadius']) : '14px';
 		$size = !empty( $instance->attributes['closeSize'] ) ?  esc_attr( $instance->attributes['closeSize']) : '14px';
@@ -95,7 +98,6 @@ class Notice_Bar{
 		$css .= $root_selector .' .gutenify-notice-bar-close svg{';
 		if(!empty($color)){
 			$css .='fill:' .$color.';';
-			$css .='stroke:' .$color.';';
 		}
 		if(!empty($size)){
 			$css .='width:' .$size.';';

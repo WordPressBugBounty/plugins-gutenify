@@ -2,8 +2,17 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "gutenify/content-toggle-item",
+  "parent": [
+    "gutenify/faqs"
+  ],
   "category": "gutenify",
   "title": "Content toggle item",
+  "description": "Gutenify Content toggle item",
+  "keywords": [
+    "gutenify",
+    "Content Toggle item",
+    "Content Toggle"
+  ],
   "version": "2",
   "attributes": {
     "blockClientId": {

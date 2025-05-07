@@ -137,6 +137,9 @@ class Assets {
 			'extend-block-pro-notice' => array(
 				'path' => 'dist/non-blocks/extend/block-pro-notice'
 			),
+			'extend-custom-list' => array(
+				'path' => 'dist/non-blocks/extend/custom-list'
+			),
 			// 'extend-block-core-group' => array(
 			// 	'path' => 'dist/non-blocks/extend/block-core-group'
 			// ),

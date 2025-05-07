@@ -37,8 +37,6 @@ class Info_Box
 			$css_chunk .= 'background: ' . $block['attrs']['blockAdvanceOptions']['backgroundGradient'] . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundColor'])) {
 			$css_chunk .= 'background: ' . $block['attrs']['blockAdvanceOptions']['backgroundColor'] . ';';
-		} else {
-			$css_chunk .= 'background: #ffffff;';
 		}
 
 		//border

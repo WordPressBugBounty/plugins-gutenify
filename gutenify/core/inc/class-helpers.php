@@ -38,11 +38,13 @@ class Helpers {
 			'testimonials',
 			'wc-product-carousel',
 			'wc-product-list',
-			'countup',
+			// 'countup',
 			'notice-bar',
+			'countup-v2',
 			// 'link-wrapper',
 			// 'masonry',
-			// 'icon-v2'
+			'icon-v2',
+			// 'custom-list'
 			// 'social-share'
 			// 'slider-v2',
 		) );

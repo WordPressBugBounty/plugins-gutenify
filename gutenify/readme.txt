@@ -3,9 +3,9 @@ Contributors: codeyatri
 Tags: block, blocks, editor, gutenberg, gutenberg blocks
 Donate link: https://gutenify.com/
 Requires at least: 6.4
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 5.5
-Stable tag: 1.4.9
+Stable tag: 1.5.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -199,6 +199,9 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2025-05-07 - version 1.5.0 =
+* Compatibility Check.
 
 = 2025-01-24 - version 1.4.9 =
 * Notice Block

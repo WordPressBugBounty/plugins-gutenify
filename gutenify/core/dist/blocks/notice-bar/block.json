@@ -32,7 +32,7 @@
     },
     "closeBackground": {
       "type": "string",
-      "default": "#fffafa"
+      "default": ""
     },
     "closeBorderColor": {
       "default": "#ffbaba",

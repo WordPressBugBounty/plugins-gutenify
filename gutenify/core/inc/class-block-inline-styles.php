@@ -32,7 +32,8 @@ class Gutenify_block_inline_styles {
 				     ( 'gutenify/slider' !== $block['blockName'] )&&
 				     ( 'gutenify/advance-slider' !== $block['blockName'] )&&
 				     ( 'gutenify/advance-gallery' !== $block['blockName'])&&
-				     ( 'gutenify/notice-bar' !== $block['blockName'])
+				     ( 'gutenify/notice-bar' !== $block['blockName']) &&
+				     ( 'gutenify/custom-list' !== $block['blockName'])
 					 ) {
 					self::$all_styles .= $block['attrs']['gutenifyStyles'];
 				}

@@ -101,7 +101,7 @@
   "supports": {
     "html": false,
     "customClassName": true,
-    "inserter": true
+    "inserter": false
   },
   "editorScript": [
     "file:./index.js"

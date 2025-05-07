@@ -56,6 +56,10 @@ class Post_Carousel {
 
 
 		$list_items_markup = '';
+		// echo '<pre>';
+		// var_dump($attributes['displayFeaturedImage']);
+		// echo '</pre>';
+		$has_image = !$attributes['displayFeaturedImage'] ? 'has-no-feature-image': '';
 
 		$default_image_url = $constants['core_base_url'] . 'assets/images/placeholder-attachment.png';
 
@@ -64,8 +68,8 @@ class Post_Carousel {
 			$list_class = '';
 			$align_self_class = '';
 
-			$list_items_markup .= '<div class="gutenify-post-carousel-item gutenify-post-carousel-item-wrapper swiper-slide">';
-			$list_items_markup .= '<div class="gutenify-post-carousel-item-inner-wrapper">';
+			$list_items_markup .= '<div class="gutenify-post-carousel-item gutenify-post-carousel-item-wrapper swiper-slide ">';
+			$list_items_markup .= '<div class="gutenify-post-carousel-item-inner-wrapper ' . $has_image . '">';
 
 			if (!empty($attributes['displayFeaturedImage'])) {
 				$thumbnail_url = $default_image_url;
@@ -304,6 +308,8 @@ function gutenify_post_carousel_render_block($block_content, $block)
 	$block_content->add_class($block_client_id);
 
 	//selector
+	// $has_image = $block['attrs']
+	// var_dump($block['attrs']);
 	$root_selector = '.' . $block_client_id . '.wp-block-gutenify-post-carousel';
 	$inner_block_selector = $root_selector . ' .gutenify-post-carousel-item-inner-wrapper';
 	$css = '';
