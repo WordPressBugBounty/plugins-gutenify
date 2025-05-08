@@ -5,7 +5,7 @@
  * Author: Gutenify
  * Author URI: https://www.gutenify.com
  * Plugin URI: https://www.gutenify.com
- * Version: 1.5.1
+ * Version: 1.5.2
  * Text Domain: gutenify
  * Domain Path: /languages
  * Tested up to: 6.8
@@ -27,7 +27,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Define constants.
-define( 'GUTENIFY_VERSION', '1.5.1' );
+define( 'GUTENIFY_VERSION', '1.5.2' );
 define( 'GUTENIFY_BASE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GUTENIFY_BASE_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'GUTENIFY_BASE_FILE', __FILE__ );

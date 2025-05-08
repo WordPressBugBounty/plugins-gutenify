@@ -13,7 +13,7 @@ class Rest_Demo_Importer_V2 {
 	 * @return void
 	 */
 	public static function init() {
-		add_action( 'rest_api_init', array( __class__, 'add_endpoint' ) );
+		add_action( 'rest_api_init', array( __CLASS__, 'add_endpoint' ) );
 	}
 
 	/**
@@ -22,11 +22,11 @@ class Rest_Demo_Importer_V2 {
 	 * @return void
 	 */
 	public static function add_endpoint() {
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
-		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
-		$plugin_main_base_url = $constants['plugin_main_base_url'];
-		$plugin_main_version = $constants['plugin_main_version'];
+		$constants                    = Helpers::plugin_constants();
+		$plugin_main_slug             = $constants['plugin_main_slug'];
+		$plugin_main_function_prefix  = $constants['plugin_main_function_prefix'];
+		$plugin_main_base_url         = $constants['plugin_main_base_url'];
+		$plugin_main_version          = $constants['plugin_main_version'];
 		$plugin_main_post_type_prefix = $constants['plugin_main_post_type_prefix'];
 
 		register_rest_route(
@@ -34,8 +34,8 @@ class Rest_Demo_Importer_V2 {
 			'/import',
 			array(
 				'methods'             => 'POST',
-				'callback'            => array( __class__, 'import' ),
-				'permission_callback' => array( __class__, 'update_settings_permission' ),
+				'callback'            => array( __CLASS__, 'import' ),
+				'permission_callback' => array( __CLASS__, 'update_settings_permission' ),
 			)
 		);
 
@@ -44,7 +44,7 @@ class Rest_Demo_Importer_V2 {
 			'/demos',
 			array(
 				'methods'             => 'GET',
-				'callback'            => array( __class__, 'get_demos' ),
+				'callback'            => array( __CLASS__, 'get_demos' ),
 				'permission_callback' => '__return_true',
 			)
 		);
@@ -54,8 +54,8 @@ class Rest_Demo_Importer_V2 {
 			'/demo-content',
 			array(
 				'methods'             => 'GET',
-				'callback'            => array( __class__, 'get_demo_content' ),
-				'permission_callback' => array( __class__, 'update_settings_permission' ),
+				'callback'            => array( __CLASS__, 'get_demo_content' ),
+				'permission_callback' => array( __CLASS__, 'update_settings_permission' ),
 			)
 		);
 
@@ -64,8 +64,8 @@ class Rest_Demo_Importer_V2 {
 			'/activate-theme',
 			array(
 				'methods'             => 'POST',
-				'callback'            => array( __class__, 'activate_theme' ),
-				'permission_callback' => array( __class__, 'update_settings_permission' ),
+				'callback'            => array( __CLASS__, 'activate_theme' ),
+				'permission_callback' => array( __CLASS__, 'update_settings_permission' ),
 			)
 		);
 
@@ -74,7 +74,7 @@ class Rest_Demo_Importer_V2 {
 			'/verify-theme-installation',
 			array(
 				'methods'             => 'POST',
-				'callback'            => array( __class__, 'verify_theme_installation' ),
+				'callback'            => array( __CLASS__, 'verify_theme_installation' ),
 				'permission_callback' => '__return_true',
 			)
 		);
@@ -97,10 +97,10 @@ class Rest_Demo_Importer_V2 {
 		$response_data = array();
 		if ( ! empty( $params['type'] ) ) {
 			if ( in_array( $params['type'], array( 'pages', 'posts', 'navigations', 'plugin_templates' ), true ) ) {
-				$response = self::import_posts( $req );
+				$response      = self::import_posts( $req );
 				$response_data = ! empty( $params['data'] ) ? $response : array( 'success' => true );
 			} elseif ( in_array( $params['type'], array( 'template_parts', 'templates' ), true ) ) {
-				$response = self::import_templates( $req );
+				$response      = self::import_templates( $req );
 				$response_data = ! empty( $params['data'] ) ? $response : array( 'success' => true );
 			} elseif ( 'plugin_settings' === $params['type'] ) {
 				$response_data = self::import_plugin_settings( $req );
@@ -121,8 +121,8 @@ class Rest_Demo_Importer_V2 {
 
 	public static function import_posts( \WP_REST_Request $req ) {
 
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
+		$constants                    = Helpers::plugin_constants();
+		$plugin_main_slug             = $constants['plugin_main_slug'];
 		$plugin_main_post_type_prefix = $constants['plugin_main_post_type_prefix'];
 
 		$types['posts']            = 'post';
@@ -157,9 +157,9 @@ class Rest_Demo_Importer_V2 {
 
 	private static function import_plugin_settings( \WP_REST_Request $req ) {
 
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
-		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
+		$constants                    = Helpers::plugin_constants();
+		$plugin_main_slug             = $constants['plugin_main_slug'];
+		$plugin_main_function_prefix  = $constants['plugin_main_function_prefix'];
 		$plugin_main_post_type_prefix = $constants['plugin_main_post_type_prefix'];
 
 		$params = (array) $req->get_params();
@@ -187,16 +187,16 @@ class Rest_Demo_Importer_V2 {
 	public static function import_global_styles_settings( \WP_REST_Request $req ) {
 		$post_id   = \WP_Theme_JSON_Resolver::get_user_global_styles_post_id();
 		$post_data = false;
-		$params = (array) $req->get_params();
+		$params    = (array) $req->get_params();
 		if ( ! empty( $params['data'] ) ) {
 			$data = (array) json_decode( $params['data'], true );
 
 			// Remove font families as its not required.
 			if ( ! empty( $data['settings']['typography']['fontFamilies']['theme'] ) ) {
-				unset( $data['settings']['typography']['fontFamilies']['theme']  );
+				unset( $data['settings']['typography']['fontFamilies']['theme'] );
 			}
 			$settings = ! empty( $data['settings'] ) ? $data['settings'] : array();
-			$styles = ! empty( $data['styles'] ) ? $data['styles'] : array();
+			$styles   = ! empty( $data['styles'] ) ? $data['styles'] : array();
 			gutenify_update_global_styles( $settings, $styles );
 		}
 
@@ -218,7 +218,7 @@ class Rest_Demo_Importer_V2 {
 			'post_content' => wp_json_encode( $post_content ),
 		);
 
-		  // Update the post into the database.
+			// Update the post into the database.
 		$response = wp_update_post( $my_post );
 
 		delete_transient( 'global_styles' );
@@ -287,9 +287,9 @@ class Rest_Demo_Importer_V2 {
 	}
 
 	private static function create_post( $data, $type = 'post' ) {
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
-		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
+		$constants                    = Helpers::plugin_constants();
+		$plugin_main_slug             = $constants['plugin_main_slug'];
+		$plugin_main_function_prefix  = $constants['plugin_main_function_prefix'];
 		$plugin_main_post_type_prefix = $constants['plugin_main_post_type_prefix'];
 
 		$theme   = wp_get_theme()->get_stylesheet();
@@ -336,8 +336,8 @@ class Rest_Demo_Importer_V2 {
 				}
 			}
 
-			update_post_meta( $post_id, '_is_' . $plugin_main_function_prefix. '_demo_imported', true );
-			update_post_meta( $post_id, '_' . $plugin_main_function_prefix. '_demo_imported_data', $data );
+			update_post_meta( $post_id, '_is_' . $plugin_main_function_prefix . '_demo_imported', true );
+			update_post_meta( $post_id, '_' . $plugin_main_function_prefix . '_demo_imported_data', $data );
 			// if ( ! empty( $data['area'] ) ) {
 			// $result = wp_set_post_terms( $post_id, 'wp_template_part_area', _filter_block_template_part_area( $data['area'] ) );
 			// error_log( print_r( $result, true ) );
@@ -356,20 +356,21 @@ class Rest_Demo_Importer_V2 {
 	 * @return void
 	 */
 	public static function get_demos() {
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
+		$constants                   = Helpers::plugin_constants();
+		$plugin_main_slug            = $constants['plugin_main_slug'];
 		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
-		$plugin_main_site_domain = $constants['plugin_main_site_domain'];
-		$demo_import_base_url = ! empty( $constants['demo_import_base_url'] ) ? $constants['demo_import_base_url'] : 'https://demo.'.$plugin_main_site_domain;
+		$plugin_main_site_domain     = $constants['plugin_main_site_domain'];
+		$demo_import_base_url        = ! empty( $constants['demo_import_base_url'] ) ? $constants['demo_import_base_url'] : 'https://demo.' . $plugin_main_site_domain;
 
 		$filters = array();
 		if ( ! empty( $constants['demo_importer']['api_filters']['theme_category'] ) ) {
 			$filters['theme_category'] = $constants['demo_importer']['api_filters']['theme_category'];
 		}
-		$url = add_query_arg( $filters, $demo_import_base_url .'/wp-json/liger/v1/demos' );
+		$url = add_query_arg( $filters, $demo_import_base_url . '/wp-json/liger/v1/demos' );
 
 		// [TODO] Update url.
-		$json_data = wp_remote_get( $url,
+		$json_data = wp_remote_get(
+			$url,
 			array(
 				'timeout' => 10,
 				'headers' => array(
@@ -388,18 +389,18 @@ class Rest_Demo_Importer_V2 {
 	}
 
 	public static function get_demo_content( $request ) {
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
+		$constants                   = Helpers::plugin_constants();
+		$plugin_main_slug            = $constants['plugin_main_slug'];
 		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
-		$plugin_main_site_domain = $constants['plugin_main_site_domain'];
-		$demo_import_base_url = ! empty( $constants['demo_import_base_url'] ) ? $constants['demo_import_base_url'] : 'https://demo.'.$plugin_main_site_domain;
+		$plugin_main_site_domain     = $constants['plugin_main_site_domain'];
+		$demo_import_base_url        = ! empty( $constants['demo_import_base_url'] ) ? $constants['demo_import_base_url'] : 'https://demo.' . $plugin_main_site_domain;
 
 		$params = (array) $request->get_params();
 		$name   = ! empty( $params['name'] ) ? $params['name'] : '';
 		$json   = array();
 		if ( ! empty( $name ) ) {
 			$json_data = wp_remote_get(
-				$demo_import_base_url .'/' . $name . '/wp-json/liger/v1/demo-content',
+				$demo_import_base_url . '/' . $name . '/wp-json/liger/v1/demo-content',
 				array(
 					'timeout' => 10,
 					'headers' => array(
@@ -422,7 +423,7 @@ class Rest_Demo_Importer_V2 {
 		$params = (array) $req->get_params();
 		$result = false;
 		if ( ! empty( $params['slug'] ) ) {
-			$theme  = trim( $params['slug'] );
+			$theme = trim( $params['slug'] );
 			switch_theme( $theme );
 			$result = true;
 		}

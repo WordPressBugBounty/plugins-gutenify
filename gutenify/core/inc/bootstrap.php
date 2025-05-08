@@ -25,46 +25,115 @@ require_once 'class-helpers.php';
  * @var string[] Array of relative file paths.
  */
 $required_files = array(
+
+	// Core helpers and utilities.
 	'inc/helpers.php',
 	'inc/typography-helpers.php',
+	'inc/styles.php',
+	'inc/class-style-helpers.php',
+	'inc/class-assets.php',
+
+	// Gutenberg block handling.
+	'inc/class-blocks-categories.php',
 	'inc/class-block-inline-styles.php',
 	'inc/class-block-assets.php',
+
+	// Template and site structure management.
 	'inc/class-templates.php',
+	'inc/site-templates/class-global-code.php',
+
+	// REST API endpoints.
 	'inc/class-rest.php',
-	'inc/class-actions.php',
-	'inc/styles.php',
-	'inc/demo-importer.php',
 	'inc/class-rest-demo-importer-v2.php',
-	'inc/extend/dynamic-block-classname.php',
+
+	// Demo importing tools.
+	'inc/demo-importer.php',
+
+	// Admin interface and backend logic.
+	'inc/class-admin-menu.php',
+	'inc/class-actions.php',
+	'inc/class-meta-fields.php',
+	'inc/class-fix-third-party-block-issues.php',
+
+	// Extensions for dynamic functionality.
+	'inc/extend/class-dynamic-block-classname.php',
 	'inc/extend/class-dynamic-styles.php',
 	'inc/extend/class-slider-blocks.php',
 	'inc/extend/class-post-list.php',
+
+	// WooCommerce support.
 	'inc/woocommerce-template-functions.php',
-	'inc/class-assets.php',
-	'inc/site-templates/class-global-code.php',
 
-	'inc/class-style-helpers.php',
-
+	// Interface definitions and wrappers.
 	'inc/interfaces/class-main-class-wrapper.php',
-	'inc/class-fix-third-party-block-issues.php',
-	'inc/class-meta-fields.php',
-	'inc/class-blocks.php',
 
+	// React-based non-block components and admin pages.
 	'dist/non-blocks/components/index.php',
-	// 'dist/non-blocks/extend/save-template/index.php',
-	// 'dist/non-blocks/extend/responsive-display-control/index.php',
+
+
+	// Block editor extensions.
 	'dist/non-blocks/extend/toolbar-templates-button/index.php',
 	'dist/non-blocks/extend/custom-list/index.php',
 	'dist/non-blocks/extend/block-custom-css/index.php',
 	'dist/non-blocks/extend/sliders/index.php',
-	// 'dist/non-blocks/extend/masonry/index.php',
 	'dist/non-blocks/extend/aos/index.php',
-	// 'dist/non-blocks/common-scripts/slider/index.php',
+
+	// Admin page interfaces.
 	'dist/non-blocks/admin/pages/getting-started/index.php',
 	'dist/non-blocks/admin/pages/demo-importer-v2/index.php',
 	'dist/non-blocks/admin/pages/settings/index.php',
 
-	'inc/class-admin-menu.php',
+	// Optionally excluded files for future use.
+	/**
+	 * 'dist/non-blocks/extend/save-template/index.php',
+	 * 'dist/non-blocks/extend/responsive-display-control/index.php',
+	 * 'dist/non-blocks/extend/masonry/index.php',
+	 * 'dist/non-blocks/common-scripts/slider/index.php',
+	 */
+
+
+	// ----
+
+	// 'inc/helpers.php',
+	// 'inc/typography-helpers.php',
+	// 'inc/class-block-inline-styles.php',
+	// 'inc/class-block-assets.php',
+	// 'inc/class-templates.php',
+	// 'inc/class-rest.php',
+	// 'inc/class-actions.php',
+	// 'inc/styles.php',
+	// 'inc/demo-importer.php',
+	// 'inc/class-rest-demo-importer-v2.php',
+	// 'inc/extend/class-dynamic-block-classname.php',
+	// 'inc/extend/class-dynamic-styles.php',
+	// 'inc/extend/class-slider-blocks.php',
+	// 'inc/extend/class-post-list.php',
+	// 'inc/woocommerce-template-functions.php',
+	// 'inc/class-assets.php',
+	// 'inc/site-templates/class-global-code.php',
+
+	// 'inc/class-style-helpers.php',
+
+	// 'inc/interfaces/class-main-class-wrapper.php',
+	// 'inc/class-fix-third-party-block-issues.php',
+	// 'inc/class-meta-fields.php',
+	// 'inc/class-blocks.php',
+
+	// 'dist/non-blocks/components/index.php',
+		// 'dist/non-blocks/extend/save-template/index.php',
+		// 'dist/non-blocks/extend/responsive-display-control/index.php',
+	// 'dist/non-blocks/extend/toolbar-templates-button/index.php',
+	// 'dist/non-blocks/extend/custom-list/index.php',
+	// 'dist/non-blocks/extend/block-custom-css/index.php',
+	// 'dist/non-blocks/extend/sliders/index.php',
+		// 'dist/non-blocks/extend/masonry/index.php',
+	// 'dist/non-blocks/extend/aos/index.php',
+		// 'dist/non-blocks/common-scripts/slider/index.php',
+	// 'dist/non-blocks/admin/pages/getting-started/index.php',
+	// 'dist/non-blocks/admin/pages/demo-importer-v2/index.php',
+	// 'dist/non-blocks/admin/pages/settings/index.php',
+
+	// 'inc/class-admin-menu.php',
 );
 
 // Import the Helpers class to simplify references.
