@@ -1,14 +1,14 @@
 # Copyright (c) 2025 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.5.2\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.5.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-08T10:04:33+00:00\n"
+"POT-Creation-Date: 2025-05-19T11:50:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -96,6 +96,7 @@ msgstr ""
 #: svn_folder/tags/1.4.9/core/inc/get-dynamic-blocks.php:64
 #: svn_folder/tags/1.5.0/core/inc/class-blocks.php:16
 #: svn_folder/tags/1.5.1/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.5.2/core/inc/class-blocks-categories.php:42
 #: svn_folder/trunk/core/inc/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
