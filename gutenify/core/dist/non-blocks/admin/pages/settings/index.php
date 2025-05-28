@@ -19,13 +19,12 @@ class Settings_Admin_Page {
 		$deps[]            = 'updates';
 		$deps[]            = Components::$handle;
 
-		$ver               = $asset_file_values['version'];
-		$src               = $base_url . 'dist/non-blocks/admin/pages/settings/index.js';
+		$ver = $asset_file_values['version'];
+		$src = $base_url . 'dist/non-blocks/admin/pages/settings/index.js';
 		wp_register_script( self::$handle, $src, $deps, $ver, true );
 
 		$src = $base_url . 'dist/non-blocks/admin/pages/settings/index.css';
-		// [TODO: Avoid use of fontawesome in admin. use wordpress/icons for any icons or use svg].
-		wp_register_style( self::$handle, $src, array( 'wp-components', $plugin_main_slug . '-fontawesome' ), $ver );
+		wp_register_style( self::$handle, $src, array( 'wp-components' ), $ver );
 	}
 }
 

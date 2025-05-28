@@ -90,7 +90,7 @@
     }
   },
   "supports": {
-    "inserter": true,
+    "inserter": false,
     "typography": {
       "__experimentalFontFamily": true,
       "__experimentalFontWeight": true,

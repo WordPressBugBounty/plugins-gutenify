@@ -1,13 +1,15 @@
 <?php
 /**
  * Function to add style variables.
+ * 
+ * [TODO: Depricate this file.]
  *
  * @return void
  */
 function gutenify_get_color_value( $value ) {
-	if ( strpos($value, 'var:') !== false ) {
+	if ( strpos( $value, 'var:' ) !== false ) {
 		// var:preset|color|vivid-red
-		$value = str_replace( 'var:','', $value );
+		$value = str_replace( 'var:', '', $value );
 		$value = str_replace( '|', '--', $value );
 		return 'var( --wp--' . $value . ')';
 	}
@@ -102,6 +104,5 @@ function gutenify_global_styles_vars() {
 
 	set_transient( $transient_name, $css_styles, MINUTE_IN_SECONDS );
 	wp_add_inline_style( 'global-styles', $css_styles );
-
 }
 add_action( 'wp_enqueue_scripts', 'gutenify_global_styles_vars', 200 );

@@ -22,24 +22,24 @@ class Assets {
 	 * @return void
 	 */
 	public static function register_assets() {
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
-		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
-		$plugin_main_base_url =  Helpers::core_base_url();
-		$plugin_main_base_dir =  Helpers::core_base_dir();
-		$plugin_main_version = $constants['plugin_main_version'];
+		$constants                    = Helpers::plugin_constants();
+		$plugin_main_slug             = $constants['plugin_main_slug'];
+		$plugin_main_function_prefix  = $constants['plugin_main_function_prefix'];
+		$plugin_main_base_url         = Helpers::core_base_url();
+		$plugin_main_base_dir         = Helpers::core_base_dir();
+		$plugin_main_version          = $constants['plugin_main_version'];
 		$plugin_main_post_type_prefix = $constants['plugin_main_post_type_prefix'];
 
 		global $wp_version;
 
 		// Admin and Frontend localized vars.
 		$localized_vars = array(
-			'site_url'             => esc_url( site_url() ),
-			$plugin_main_function_prefix . '_version'     => $plugin_main_version,
-			'is_woocommerce_activated' => class_exists( 'woocommerce' ),
-			'wp_version'              => $wp_version,
-			'add_template_url'         => esc_url( admin_url( 'post-new.php?post_type=' . $plugin_main_post_type_prefix . '_template' ) ),
-			'pro_account_url' => esc_url( admin_url( 'admin.php?page=' . $plugin_main_slug . '-pro-license' ) )
+			'site_url'                                => esc_url( site_url() ),
+			$plugin_main_function_prefix . '_version' => $plugin_main_version,
+			'is_woocommerce_activated'                => class_exists( 'woocommerce' ),
+			'wp_version'                              => $wp_version,
+			'add_template_url'                        => esc_url( admin_url( 'post-new.php?post_type=' . $plugin_main_post_type_prefix . '_template' ) ),
+			'pro_account_url'                         => esc_url( admin_url( 'admin.php?page=' . $plugin_main_slug . '-pro-license' ) ),
 		);
 
 		// Register anonymous handle.
@@ -48,22 +48,25 @@ class Assets {
 		wp_register_script( $handle, false );
 
 		if ( is_admin() ) {
-			$localized_vars = array_merge( $localized_vars, array(
-				'site_url'             => esc_url( site_url() ),
-				'plugin_directory_url' => esc_url( $plugin_main_base_url ),
-				$plugin_main_function_prefix . '_version'     => $plugin_main_version,
-				'pro_license_status'   => apply_filters( $plugin_main_function_prefix . '_pro_license_status', false ),
-				'is_pro_activated'     => Helpers::is_pro_active(),
-				'is_block_theme'           => wp_is_block_theme(), // function_exists( 'wp_get_theme' ) && ! empty( wp_get_theme()->is_block_theme() ),
-				'is_woocommerce_activated' => class_exists( 'woocommerce' ),
-				'gutenify_com_server_url'  => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
-				'font_families'            => gutenify_font_families(),
-				'wp_version'              => $wp_version,
-				'active_blocks' => Helpers::active_blocks(),
-			) );
+			$localized_vars = array_merge(
+				$localized_vars,
+				array(
+					'site_url'                 => esc_url( site_url() ),
+					'plugin_directory_url'     => esc_url( $plugin_main_base_url ),
+					$plugin_main_function_prefix . '_version' => $plugin_main_version,
+					'pro_license_status'       => apply_filters( $plugin_main_function_prefix . '_pro_license_status', false ),
+					'is_pro_activated'         => Helpers::is_pro_active(),
+					'is_block_theme'           => wp_is_block_theme(), // function_exists( 'wp_get_theme' ) && ! empty( wp_get_theme()->is_block_theme() ),
+					'is_woocommerce_activated' => class_exists( 'woocommerce' ),
+					'gutenify_com_server_url' => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
+					'font_families'            => gutenify_font_families(),
+					'wp_version'               => $wp_version,
+					'active_blocks'            => Helpers::active_blocks(),
+				)
+			);
 
 		}
-		$defaults = Helpers::plugin_constants();
+		$defaults       = Helpers::plugin_constants();
 		$localized_vars = wp_parse_args( $localized_vars, $defaults );
 
 		// Components
@@ -75,9 +78,8 @@ class Assets {
 		// wp_register_style( $name, $plugin_main_base_url . 'dist/components/index.css', array('wp-components'), $asset_file['version'] );
 
 		// wp_localize_script( $name, 'gutenify_components_vars', array(
-		// 		'brand_color'     => '#2196f3',
+		// 'brand_color'     => '#2196f3',
 		// ) );
-
 
 		// Scrollmagic JS.
 		$name     = $plugin_main_slug . '-scrollmagic';
@@ -113,81 +115,81 @@ class Assets {
 
 		$asset_paths = array(
 			// Admin.
-			'admin-global' => array(
-				'path' => 'dist/non-blocks/admin/global'
+			'admin-global'                    => array(
+				'path' => 'dist/non-blocks/admin/global',
 			),
 			'extend-block-inspector-controls' => array(
-				'path' => 'dist/non-blocks/extend/block-inspector-controls'
+				'path' => 'dist/non-blocks/extend/block-inspector-controls',
 			),
-			'extend-block-dynamic-css' => array(
-				'path' => 'dist/non-blocks/extend/block-dynamic-css'
+			'extend-block-dynamic-css'        => array(
+				'path' => 'dist/non-blocks/extend/block-dynamic-css',
 			),
 			// 'extend-block-custom-attributes' => array(
-			// 	'path' => 'dist/non-blocks/extend/block-custom-attributes'
+			// 'path' => 'dist/non-blocks/extend/block-custom-attributes'
 			// ),
 			// 'extend-block-custom-classname' => array(
-			// 	'path' => 'dist/non-blocks/extend/block-custom-classname'
+			// 'path' => 'dist/non-blocks/extend/block-custom-classname'
 			// ),
-			'extend-block-spacing' => array(
-				'path' => 'dist/non-blocks/extend/block-spacing'
+			'extend-block-spacing'            => array(
+				'path' => 'dist/non-blocks/extend/block-spacing',
 			),
-			'extend-block-custom-css' => array(
-				'path' => 'dist/non-blocks/extend/block-custom-css'
+			'extend-block-custom-css'         => array(
+				'path' => 'dist/non-blocks/extend/block-custom-css',
 			),
-			'extend-block-pro-notice' => array(
-				'path' => 'dist/non-blocks/extend/block-pro-notice'
+			'extend-block-pro-notice'         => array(
+				'path' => 'dist/non-blocks/extend/block-pro-notice',
 			),
-			'extend-custom-list' => array(
-				'path' => 'dist/non-blocks/extend/custom-list'
+			'extend-custom-list'              => array(
+				'path' => 'dist/non-blocks/extend/custom-list',
 			),
 			// 'extend-block-core-group' => array(
-			// 	'path' => 'dist/non-blocks/extend/block-core-group'
+			// 'path' => 'dist/non-blocks/extend/block-core-group'
 			// ),
 
 			// Admin.
 			// 'admin-settings' => array(
-			// 	'path' => 'dist/admin/pages/settings',
-			// 	'js_dependencies' => array( $plugin_main_slug . '-admin-global', $plugin_main_slug . '-components' ),
-			// 	'style_dependencies' => array( $plugin_main_slug . '-fontawesome', $plugin_main_slug . '-admin-global', 'wp-components' )
+			// 'path' => 'dist/admin/pages/settings',
+			// 'js_dependencies' => array( $plugin_main_slug . '-admin-global', $plugin_main_slug . '-components' ),
+			// 'style_dependencies' => array( $plugin_main_slug . '-fontawesome', $plugin_main_slug . '-admin-global', 'wp-components' )
 			// ),
 
 			// 'admin-getting-started' => array(
-			// 	'path' => 'dist/non-blocks/admin/pages/getting-started',
-			// 	'js_dependencies' => array( $plugin_main_slug . '-global-inline-handle', $plugin_main_slug . '-components' ),
-			// 	'style_dependencies' => array( $plugin_main_slug . '-fontawesome', $plugin_main_slug . '-admin-global', 'wp-components' )
+			// 'path' => 'dist/non-blocks/admin/pages/getting-started',
+			// 'js_dependencies' => array( $plugin_main_slug . '-global-inline-handle', $plugin_main_slug . '-components' ),
+			// 'style_dependencies' => array( $plugin_main_slug . '-fontawesome', $plugin_main_slug . '-admin-global', 'wp-components' )
 			// ),
 
 			// 'admin-demo-importer' => array(
-			// 	'path' => 'dist/admin/pages/demo-importer',
-			// 	'js_dependencies' => array( $plugin_main_slug . '-global-inline-handle', $plugin_main_slug . '-components' ),
-			// 	'style_dependencies' => array( 'wp-components' )
+			// 'path' => 'dist/admin/pages/demo-importer',
+			// 'js_dependencies' => array( $plugin_main_slug . '-global-inline-handle', $plugin_main_slug . '-components' ),
+			// 'style_dependencies' => array( 'wp-components' )
 			// ),
 
 			// 'admin-demo-importer-v2' => array(
-			// 	'path' => 'dist/admin/pages/demo-importer-v2',
-			// 	'js_dependencies' => array( $plugin_main_slug . '-global-inline-handle', $plugin_main_slug . '-components', 'updates'  ),
-			// 	'style_dependencies' => array( 'wp-components' )
+			// 'path' => 'dist/admin/pages/demo-importer-v2',
+			// 'js_dependencies' => array( $plugin_main_slug . '-global-inline-handle', $plugin_main_slug . '-components', 'updates'  ),
+			// 'style_dependencies' => array( 'wp-components' )
 			// ),
 
 			// Frontend.
-			'frontend' => array(
-				'path' => 'dist/non-blocks/frontend',
-				'js_dependencies' => array( $plugin_main_slug . '-scrollmagic' ),
-				'style_dependencies' => array( $plugin_main_slug . '-fontawesome', $plugin_main_slug . '-fonts' ) //, 'global-styles', 'woocommerce-layout'
+			'frontend'                        => array(
+				'path'               => 'dist/non-blocks/frontend',
+				'js_dependencies'    => array( $plugin_main_slug . '-scrollmagic' ),
+				'style_dependencies' => array( $plugin_main_slug . '-fontawesome', $plugin_main_slug . '-fonts' ), // , 'global-styles', 'woocommerce-layout'
 			),
 		);
 
-		foreach( $asset_paths as $handle => $asset ) {
-			$path = $asset['path'];
+		foreach ( $asset_paths as $handle => $asset ) {
+			$path       = $asset['path'];
 			$asset_file = gutenify_get_block_asset_file_values( sprintf( '%s' . $path . '/index.asset.php', $plugin_main_base_dir ) );
-			$handle = $plugin_main_slug . '-' . str_replace( '/', '-', $handle );
+			$handle     = $plugin_main_slug . '-' . str_replace( '/', '-', $handle );
 
 			$deps = ! empty( $asset['js_dependencies'] ) ? array_merge( $asset_file['dependencies'], $asset['js_dependencies'] ) : $asset_file['dependencies'];
-			wp_register_script( $handle, $plugin_main_base_url . $path .'/index.js', $deps, $asset_file['version'], true );
+			wp_register_script( $handle, $plugin_main_base_url . $path . '/index.js', $deps, $asset_file['version'], true );
 
-			if ( file_exists( $plugin_main_base_dir . $path .'/index.css' )) {
+			if ( file_exists( $plugin_main_base_dir . $path . '/index.css' ) ) {
 				$deps = ! empty( $asset['style_dependencies'] ) ? $asset['style_dependencies'] : array();
-				wp_register_style( $handle, $plugin_main_base_url . $path .'/index.css', $deps, $asset_file['version'] );
+				wp_register_style( $handle, $plugin_main_base_url . $path . '/index.css', $deps, $asset_file['version'] );
 			}
 		}
 
@@ -216,10 +218,10 @@ class Assets {
 	 * @access public
 	 */
 	public static function editor_assets() {
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
+		$constants                   = Helpers::plugin_constants();
+		$plugin_main_slug            = $constants['plugin_main_slug'];
 		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
-		$plugin_main_base_url =  Helpers::core_base_url();
+		$plugin_main_base_url        = Helpers::core_base_url();
 
 		wp_localize_script(
 			'gutenify-editor',
@@ -245,11 +247,11 @@ class Assets {
 		);
 
 		$localized_vars = array(
-			'site_url'             => esc_url( site_url() ),
-			'plugin_directory_url' => esc_url( $plugin_main_base_url ),
-			'gutenify_version'     => GUTENIFY_VERSION,
-			'pro_license_status'   => apply_filters( 'gutenify_pro_license_status', false ),
-			'is_pro_activated'     => apply_filters( 'gutenify_pro_activation_status', false ),
+			'site_url'                           => esc_url( site_url() ),
+			'plugin_directory_url'               => esc_url( $plugin_main_base_url ),
+			'gutenify_version' => GUTENIFY_VERSION,
+			'pro_license_status'                 => apply_filters( 'gutenify_pro_license_status', false ),
+			'is_pro_activated'                   => apply_filters( 'gutenify_pro_activation_status', false ),
 		);
 
 		wp_localize_script( 'gutenify-editor', '_gutenify_vars', apply_filters( 'gutenify--editor--localized-vars', $localized_vars ) );
@@ -261,19 +263,12 @@ class Assets {
 	 * @return void
 	 */
 	public static function add_block_inline_css() {
-		if ( is_singular() ) {
-			global $post;
-			$post_meta           = get_post_meta( $post->ID );
-			$custom_css = ! empty( $post_meta['gutenify_custom_css'][0] ) ? $post_meta['gutenify_custom_css'][0] : '';
-			wp_add_inline_style( 'gutenify-frontend', $custom_css );
-		}
-		$gutenify_global_style = get_option( 'gutenify_global_style' );
+		$global_style = get_option( 'gutenify_global_style' );
 
-
-		if ( $gutenify_global_style ) {
+		if ( ! empty( $global_style ) ) {
 			$handle = 'gutenify-global-inline-handle';
 			wp_enqueue_style( $handle );
-			wp_add_inline_style( $handle, $gutenify_global_style );
+			wp_add_inline_style( $handle, $global_style );
 		}
 	}
 
@@ -299,20 +294,19 @@ class Assets {
 	 * @return mixed
 	 */
 	public static function admin_scripts() {
-		$constants = Helpers::plugin_constants();
-		$plugin_main_slug = $constants['plugin_main_slug'];
+		$constants                   = Helpers::plugin_constants();
+		$plugin_main_slug            = $constants['plugin_main_slug'];
 		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
-		$plugin_main_base_url =  Helpers::core_base_url();
-		$plugin_main_base_dir =  Helpers::core_base_dir();
-		$plugin_main_version = $constants['plugin_main_version'];
-
+		$plugin_main_base_url        = Helpers::core_base_url();
+		$plugin_main_base_dir        = Helpers::core_base_dir();
+		$plugin_main_version         = $constants['plugin_main_version'];
 
 		global $wp_version;
 
 		// Getting Started.
 		if ( ( ! empty( $_GET['page'] ) && $plugin_main_slug === $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			// Scripts.
-			$handle       = $plugin_main_slug . '-admin-getting-started';
+			$handle = $plugin_main_slug . '-admin-getting-started';
 			wp_enqueue_script( $handle );
 			wp_enqueue_style( $handle );
 		}
@@ -350,7 +344,7 @@ class Assets {
 				'_gutenify_site_options',
 				array(
 					'site_url'                 => esc_url( site_url() ),
-					'gutenify_com_server_url'  => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
+					'gutenify_com_server_url' => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
 					'is_block_theme'           => function_exists( 'wp_get_theme' ) && ! empty( wp_get_theme()->is_block_theme() ),
 					'is_woocommerce_activated' => class_exists( 'woocommerce' ),
 					'pro_license_status'       => apply_filters( 'gutenify_pro_license_status', false ),
@@ -392,7 +386,7 @@ class Assets {
 				array(
 					'plugin_directory_url'     => esc_url( $plugin_main_base_url ),
 					'site_url'                 => esc_url( site_url() ),
-					'gutenify_com_server_url'  => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
+					'gutenify_com_server_url' => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
 					'is_block_theme'           => wp_is_block_theme(), // function_exists( 'wp_get_theme' ) && ! empty( wp_get_theme()->is_block_theme() ),
 					'is_woocommerce_activated' => class_exists( 'woocommerce' ),
 					'pro_license_status'       => apply_filters( 'gutenify_pro_license_status', false ),
@@ -405,7 +399,7 @@ class Assets {
 				array(
 					'plugin_directory_url'     => esc_url( $plugin_main_base_url ),
 					'site_url'                 => esc_url( site_url() ),
-					'gutenify_com_server_url'  => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
+					'gutenify_com_server_url' => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
 					'is_block_theme'           => wp_is_block_theme(), // function_exists( 'wp_get_theme' ) && ! empty( wp_get_theme()->is_block_theme() ),
 					'is_woocommerce_activated' => class_exists( 'woocommerce' ),
 					'pro_license_status'       => apply_filters( 'gutenify_pro_license_status', false ),
@@ -420,7 +414,7 @@ class Assets {
 			// $handle       = $plugin_main_slug . '-admin-demo-importer';
 			// wp_enqueue_style( $handle );
 
-			$handle       = $plugin_main_slug . '-admin-demo-importer-v2';
+			$handle = $plugin_main_slug . '-admin-demo-importer-v2';
 			wp_enqueue_script( $handle );
 			wp_enqueue_style( $handle );
 		}
@@ -428,7 +422,7 @@ class Assets {
 		if ( ( ! empty( $_GET['page'] ) && 'gutenify-start-up' === $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			// Scripts.
 			$name       = 'start-up-admin';
-			$handle       = 'gutenify-' . $name;
+			$handle     = 'gutenify-' . $name;
 			$filepath   = 'dist/admin/' . $name;
 			$asset_file = gutenify_get_block_asset_file_values( sprintf( '%s' . $filepath . '.asset.php', $plugin_main_base_dir ) );
 
@@ -437,19 +431,20 @@ class Assets {
 			$deps[] = 'wp-components';
 			wp_enqueue_style( $handle, $plugin_main_base_url . $filepath . '/index.css', $deps, $asset_file['version'] );
 
-			$theme = wp_get_theme();
+			$theme          = wp_get_theme();
 			$localized_vars = array(
-				'site_url' => esc_url( site_url() ),
+				'site_url'   => esc_url( site_url() ),
 				'theme_slug' => $theme->template,
 			);
 
 			wp_localize_script( $handle, '_gutenify_start_up_vars', apply_filters( 'gutenify--start-up--localized-vars', $localized_vars ) );
-			wp_localize_script( $handle,
+			wp_localize_script(
+				$handle,
 				'_gutenify_vars',
 				array(
 					'plugin_directory_url'     => esc_url( $plugin_main_base_url ),
 					'site_url'                 => esc_url( site_url() ),
-					'gutenify_com_server_url'  => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
+					'gutenify_com_server_url' => defined( 'GUTENIFY_COM_SERVER_URL' ) ? trailingslashit( GUTENIFY_COM_SERVER_URL ) : trailingslashit( 'https://api.gutenify.com/' ),
 					'is_block_theme'           => wp_is_block_theme(), // function_exists( 'wp_get_theme' ) && ! empty( wp_get_theme()->is_block_theme() ),
 					'is_woocommerce_activated' => class_exists( 'woocommerce' ),
 					'pro_license_status'       => apply_filters( 'gutenify_pro_license_status', false ),
@@ -459,7 +454,7 @@ class Assets {
 			);
 		}
 
-		if ( ( ! empty( $_GET['page'] ) &&  $plugin_main_slug . '-settings' === $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( ( ! empty( $_GET['page'] ) && $plugin_main_slug . '-settings' === $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$handle = $plugin_main_slug . '-admin-settings';
 			wp_enqueue_script( $handle );
 			wp_enqueue_style( $handle );
