@@ -433,6 +433,11 @@ class Gutenify_Rest extends WP_REST_Controller {
 		$type          = $request->get_param( 'type' );
 		$template_data = false;
 
+		if ( 1 > absint( $id ) || empty( $type ) ) {
+			return $this->error( 'no_template_data', __( 'Template data not found.', '@@text_domain' ) );
+		}
+
+		$id = absint( $id );
 		switch ( $type ) {
 			case 'remote':
 				$template_data = get_transient( 'gutenify_template_' . $type . '_' . $id, false );
@@ -449,12 +454,11 @@ class Gutenify_Rest extends WP_REST_Controller {
 						),
 						$url
 					);
-					error_log( $url );
+
 					$requested_template_data = wp_remote_get( $url );
 
 					if ( ! is_wp_error( $requested_template_data ) ) {
 						$new_template_data = wp_remote_retrieve_body( $requested_template_data );
-						error_log( print_r( $new_template_data, true ) );
 						$new_template_data = json_decode( $new_template_data, true );
 
 						if ( $new_template_data && isset( $new_template_data['response'] ) && is_array( $new_template_data['response'] ) ) {
@@ -475,34 +479,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 					);
 				}
 
-				break;
-			case 'theme':
-				$template_content_file = get_stylesheet_directory() . '/gutenify/templates/' . $id . '/content.php';
-
-				if ( ! file_exists( $template_content_file ) ) {
-					$template_content_file = get_template_directory() . '/gutenify/templates/' . $id . '/content.php';
-				}
-
-				if ( file_exists( $template_content_file ) ) {
-					ob_start();
-					include $template_content_file;
-					$template_content = ob_get_clean();
-
-					if ( $template_content ) {
-						$template_data = get_file_data(
-							$template_content_file,
-							array(
-								'name' => 'Name',
-							)
-						);
-
-						$template_data = array(
-							'id'      => $id,
-							'title'   => $template_data['name'],
-							'content' => $template_content,
-						);
-					}
-				}
 				break;
 		}
 
@@ -959,7 +935,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 					if ( ! in_array( $template->post_name, $do_not_duplicate ) ) {
 						$count   = 0;
 						$content = preg_replace( $patterns, $replace, $template->post_content, -1, $count );
-						error_log( print_r( $count, true ) );
 
 						$data = array(
 							'ID'           => $template->ID,

@@ -30,10 +30,11 @@ $required_files = array(
 	'inc/helpers/helpers.php',
 	'inc/helpers/class-style-helpers.php',
 	'inc/helpers/class-dynamic-styles.php',
-	'inc/helpers/typography-helpers.php',
-	'inc/styles.php',
+	'inc/helpers/class-typography-helpers.php',
+	'inc/depricated/styles.php', // [TODO: Depricated].
 	'inc/class-assets.php',
 	'inc/helpers/class-post-list.php',
+	'inc/depricated/helpers/typography-helpers.php', // [TODO: Depricated].
 
 	// WooCommerce support.
 	'inc/helpers/woocommerce-template-functions.php',
@@ -46,6 +47,7 @@ $required_files = array(
 	'inc/blocks/class-fix-third-party-block-issues.php',
 	'inc/blocks/class-dynamic-block-classname.php',
 	'inc/blocks/class-slider-blocks.php',
+	'inc/blocks/class-editor-control.php',
 
 	// Template and site structure management.
 	'inc/frontend/class-global-code.php',
@@ -55,16 +57,15 @@ $required_files = array(
 	'inc/rest-api/class-rest-demo-importer-v2.php',
 
 	// Demo importing tools.
-	// 'inc/demo-importer.php',
+	// 'inc/depricated/demo-importer.php', // [TODO: Depricated].
 
 	// Admin interface and backend logic.
 	'inc/admin/class-menu.php',
 	'inc/admin/class-demo-importer-v2.php',
 	'inc/admin/class-register-templates-post-type.php',
-	'inc/class-actions.php',
 
 	// Interface definitions and wrappers.
-	'inc/interfaces/class-main-class-wrapper.php',
+	'inc/depricated/interfaces/class-main-class-wrapper.php', // [TODO: depricated]
 
 	// React-based non-block components and admin pages.
 	'dist/non-blocks/components/index.php',

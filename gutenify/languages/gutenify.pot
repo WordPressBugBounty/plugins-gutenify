@@ -1,14 +1,14 @@
 # Copyright (c) 2025 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.5.4\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.5.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-28T11:37:51+00:00\n"
+"POT-Creation-Date: 2025-05-30T11:24:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -35,31 +35,47 @@ msgstr ""
 #: svn_folder/tags/0.0.1/inc/class-blocks-loader.php:30
 #: svn_folder/tags/0.0.2/inc/class-blocks-loader.php:30
 #: svn_folder/tags/0.0.3/inc/class-blocks-loader.php:30
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:55
+#: svn_folder/trunk/core/inc/admin/class-menu.php:55
 msgid "Gutenify"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:54
 #: core/inc/admin/class-menu.php:66
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:54
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:66
+#: svn_folder/trunk/core/inc/admin/class-menu.php:54
+#: svn_folder/trunk/core/inc/admin/class-menu.php:66
 msgid "Gutenify: Getting Started"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:67
+#: svn_folder/trunk/core/inc/admin/class-menu.php:67
 msgid "Getting Started"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:76
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:76
+#: svn_folder/trunk/core/inc/admin/class-menu.php:76
 msgid "Gutenify Demo Importer"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:77
+#: svn_folder/trunk/core/inc/admin/class-menu.php:77
 msgid "Demo Importer"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:100
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:100
+#: svn_folder/trunk/core/inc/admin/class-menu.php:100
 msgid "Gutenify Settings"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:101
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:101
+#: svn_folder/trunk/core/inc/admin/class-menu.php:101
 msgid "Settings"
 msgstr ""
 
@@ -124,7 +140,8 @@ msgstr ""
 #: svn_folder/tags/1.5.1/core/inc/class-blocks.php:16
 #: svn_folder/tags/1.5.2/core/inc/class-blocks-categories.php:42
 #: svn_folder/tags/1.5.3/core/inc/class-blocks-categories.php:42
-#: svn_folder/trunk/core/inc/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.4/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
 

@@ -65,6 +65,9 @@ class Helpers {
 			'icon-v2',
 
 			// Optional blocks (can be enabled via filters or config).
+			/**
+			 * Depricated.
+			 */
 			'countup',
 			// 'link-wrapper',
 			// 'masonry',
@@ -85,7 +88,8 @@ class Helpers {
 		$defaults = array();
 
 		// Filters allow other components or themes to define these constants.
-		return apply_filters( 'gutenify_plugin_constants', $defaults );
+		$filter_name = 'gutenify_plugin_constants';
+		return apply_filters( $filter_name, $defaults );
 	}
 
 	/**

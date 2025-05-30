@@ -1,6 +1,13 @@
 <?php
 
 /**
+ * Prevent direct access to the file.
+ *
+ * Ensures this file is being loaded within the WordPress environment.
+ */
+defined( 'ABSPATH' ) || exit;
+
+/**
  * Helpers file.
  *
  * @package Gutenify
@@ -65,7 +72,7 @@ function gutenify_get_block_asset_file_values( $path ) {
 }
 
 function gutenify_update_global_styles( $new_settings, $new_styles ) {
-	// Get the user's global styles CPT id
+	// Get the user's global styles CPT id.
 	$user_custom_post_type_id = WP_Theme_JSON_Resolver::get_user_global_styles_post_id();
 	$global_styles_controller = new WP_REST_Global_Styles_Controller();
 
