@@ -5,7 +5,7 @@ Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 5.5
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -199,6 +199,9 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2025-05-31 - version 1.5.6 =
+* Fix font "src" fatal issue.
 
 = 2025-05-30 - version 1.5.5 =
 * Fix API issue.

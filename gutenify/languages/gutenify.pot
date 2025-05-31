@@ -1,81 +1,61 @@
 # Copyright (c) 2025 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.5.5\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.5.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-30T11:24:46+00:00\n"
+"POT-Creation-Date: 2025-05-31T11:30:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: gutenify\n"
 
 #. Plugin Name of the plugin
-#: gutenify.php
 msgid "Gutenify - Visual Site Builder Blocks & Site Templates"
 msgstr ""
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
-#: gutenify.php
 msgid "https://www.gutenify.com"
 msgstr ""
 
 #. Description of the plugin
-#: gutenify.php
 msgid "Gutenify - Visual Site Builder Blocks & Site Templates is a collection of Gutenberg Advance Fullsite Editing Blocks & site templates that is compatible with WordPress Full Site Editing to help you create the website you always wanted."
 msgstr ""
 
 #. Author of the plugin
-#: gutenify.php
 #: core/inc/admin/class-menu.php:55
 #: svn_folder/tags/0.0.1/inc/class-blocks-loader.php:30
 #: svn_folder/tags/0.0.2/inc/class-blocks-loader.php:30
 #: svn_folder/tags/0.0.3/inc/class-blocks-loader.php:30
-#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:55
-#: svn_folder/trunk/core/inc/admin/class-menu.php:55
 msgid "Gutenify"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:54
 #: core/inc/admin/class-menu.php:66
-#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:54
-#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:66
-#: svn_folder/trunk/core/inc/admin/class-menu.php:54
-#: svn_folder/trunk/core/inc/admin/class-menu.php:66
 msgid "Gutenify: Getting Started"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:67
-#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:67
-#: svn_folder/trunk/core/inc/admin/class-menu.php:67
 msgid "Getting Started"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:76
-#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:76
-#: svn_folder/trunk/core/inc/admin/class-menu.php:76
 msgid "Gutenify Demo Importer"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:77
-#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:77
-#: svn_folder/trunk/core/inc/admin/class-menu.php:77
 msgid "Demo Importer"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:100
-#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:100
-#: svn_folder/trunk/core/inc/admin/class-menu.php:100
 msgid "Gutenify Settings"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:101
-#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:101
-#: svn_folder/trunk/core/inc/admin/class-menu.php:101
 msgid "Settings"
 msgstr ""
 
@@ -136,12 +116,8 @@ msgstr ""
 #: svn_folder/tags/1.4.8/core/inc/get-dynamic-blocks.php:64
 #: svn_folder/tags/1.4.9/core/inc/class-blocks.php:16
 #: svn_folder/tags/1.4.9/core/inc/get-dynamic-blocks.php:64
-#: svn_folder/tags/1.5.0/core/inc/class-blocks.php:16
-#: svn_folder/tags/1.5.1/core/inc/class-blocks.php:16
-#: svn_folder/tags/1.5.2/core/inc/class-blocks-categories.php:42
-#: svn_folder/tags/1.5.3/core/inc/class-blocks-categories.php:42
-#: svn_folder/tags/1.5.4/core/inc/blocks/class-blocks-categories.php:42
-#: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/trunk/core/inc/class-blocks.php:16
+#: svn_folder/trunk/core/inc/get-dynamic-blocks.php:64
 msgid "Gutenify Blocks"
 msgstr ""
 
@@ -543,11 +519,6 @@ msgstr ""
 
 #: core/src/blocks/map/inspector/tab-content.js:52
 msgid "Language"
-msgstr ""
-
-#: core/src/blocks/post-carousel/edit.js:171
-#: core/src/blocks/post-list/edit.js:159
-msgid "Read more"
 msgstr ""
 
 #: core/src/blocks/section-title/inspector/tab-content.js:62
@@ -1012,214 +983,4 @@ msgstr ""
 #: svn_folder/tags/1.1.7/src/blocks/advance-slider/block.json
 msgctxt "block title"
 msgid "Advance Slider"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Blank"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Page (Large Header)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Page (No Title)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Single Post (No Separators)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Page (No Separators)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Foreground and background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Foreground and secondary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Foreground and tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Primary and background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Primary and secondary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Primary and tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Vertical secondary to tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Vertical secondary to background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Vertical tertiary to background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal primary to foreground"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal secondary to background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal background to secondary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal tertiary to background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal background to tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Foreground"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Primary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Secondary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Boulder"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "System Font"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Source Serif Pro"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Gilda Display"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Nunito Sans"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Lato Sans Serif"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Roboto Sans Serif"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Poppins Sans Serif"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Small"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Normal"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Medium"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Large"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Huge"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Gigantic"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Colossal"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Template part name"
-msgid "Header"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Template part name"
-msgid "Header (Dark)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Template part name"
-msgid "Footer"
 msgstr ""

@@ -76,10 +76,16 @@ class Typography_Helpers {
 			foreach ( $data['settings']['typography']['fontFamilies'] as $font ) {
 				if ( ! empty( $font['fontFace'] ) ) {
 					foreach ( $font['fontFace'] as $font_face ) {
+						$src = '';
+						if( ! empty( $font_face['src'] ) && is_string( $font_face['src'] ) ) {
+							$src = $font_face['src'];
+						} else if ( ! empty( $font_face['src'] ) && is_array( $font_face['src'] ) ) {
+							$src = $font_face['src'][0];
+						}
 						// Include fonts hosted on demo url or those without a 'src' attribute.
-						if ( ! empty( $font_face['src'] ) && false !== strpos( $font_face['src'], $demo_url ) ) {
+						if ( ! empty( $src ) && false !== strpos( $src, $demo_url ) ) {
 							$font_settings[ $font['slug'] ] = self::generate_google_fonts_url_parts( $font );
-						} elseif ( empty( $font_face['src'] ) ) {
+						} elseif ( empty( $src ) ) {
 							$font_settings[ $font['slug'] ] = self::generate_google_fonts_url_parts( $font );
 						}
 					}
@@ -102,6 +108,9 @@ class Typography_Helpers {
 	 * @return WP_Theme_JSON Modified theme JSON data.
 	 */
 	public static function update_theme_json( $theme_json ) {
+		$constants       = Helpers::plugin_constants();
+		$demo_url        = $constants['authorDemoWebSite'];
+
 		// Get current theme.json data as array.
 		$data = $theme_json->get_data();
 
@@ -110,7 +119,13 @@ class Typography_Helpers {
 			foreach ( $data['settings']['typography']['fontFamilies']['custom'] as $font_key => $font ) {
 				if ( ! empty( $font['fontFace'] ) ) {
 					foreach ( $font['fontFace'] as $font_face_key => $font_face ) {
-						if ( ! empty( $font_face['src'] ) && false !== strpos( $font_face['src'], 'demo.gutenify.com' ) ) {
+						$src = '';
+						if( ! empty( $font_face['src'] ) && is_string( $font_face['src'] ) ) {
+							$src = $font_face['src'];
+						} else if ( ! empty( $font_face['src'] ) && is_array( $font_face['src'] ) ) {
+							$src = $font_face['src'][0];
+						}
+						if ( ! empty( $src ) && false !== strpos( $src, $demo_url ) ) {
 							unset( $data['settings']['typography']['fontFamilies']['custom'][ $font_key ]['fontFace'][ $font_face_key ]['src'] );
 						}
 					}
