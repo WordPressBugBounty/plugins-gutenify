@@ -5,7 +5,7 @@ Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 5.5
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -148,6 +148,10 @@ Before updating plugin please check [our latest release notes](https://gutenify.
 
 
 == Frequently Asked Questions ==
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the Gutenify plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/0e3bff4c-192a-4a43-a27f-5697b5de4ff8). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 = How to add Blocks in your theme using Gutenify? =
 
 Gutenify Plugin allows you to create your own block sections in your page or post. Here are the steps how you add it:
@@ -199,6 +203,11 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2025-06-20 - version 1.5.7 =
+* Fix demo import issue for some themes.
+* Improve compatibility with WordPress 6.8.
+* Minor bug fixes and code cleanup.
 
 = 2025-05-31 - version 1.5.6 =
 * Fix font "src" fatal issue.

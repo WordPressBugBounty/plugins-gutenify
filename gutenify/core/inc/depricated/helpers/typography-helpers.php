@@ -6909,15 +6909,13 @@ function gutenify_fonts_url() {
 	$google_font_url = 'https://fonts.googleapis.com/css2?' . implode( '&', array_unique( $_selected_font_families ) ) . '&display=swap';
 
 	if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
-		$base_dir = \gutenify\Helpers::core_base_dir();
-		// Load Google fonts from Local.
-		require_once $base_dir . 'inc/lib/wptt-webfont-loader.php';
+		$webfont_file = GUTENIFY_BASE_DIR . 'core/' . 'inc/lib/wptt-webfont-loader.php';
+		if ( file_exists( $webfont_file ) ) {
+			require_once $webfont_file;
+		}
 	}
 
 	return esc_url( wptt_get_webfont_url( $google_font_url ) );
-
-	// Make a single request for the theme or user fonts.
-	// return esc_url_raw( 'https://fonts.googleapis.com/css2?' . implode( '&', array_unique( $_selected_font_families ) ) . '&display=swap' );
 }
 
 function gutenify_add_fonts_to_theme_json( $theme_json ) {

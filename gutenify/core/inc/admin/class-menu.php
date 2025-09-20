@@ -37,8 +37,9 @@ class Menu {
 		if ( ! is_admin() ) {
 			return;
 		}
-		if ( ! empty( $_GET['page'] ) && 'gutenify-template-kits' === $_GET['page'] ) {
-			wp_redirect( admin_url( 'admin.php?page=gutenify-demo-importer' ) );
+		$page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+		if ( ! empty( $page ) && 'gutenify-template-kits' === $page ) {
+			wp_safe_redirect( admin_url( 'admin.php?page=gutenify-demo-importer' ) );
 			exit;
 		}
 	}
@@ -79,20 +80,6 @@ class Menu {
 			'gutenify-demo-importer',
 			array( $this, 'demo_importer_page_callback' )
 		);
-
-		// Uncomment below to add the "Start Up" submenu for debugging.
-		/*
-		if ( defined( 'WP_CY_DEBUG' ) ) {
-			add_submenu_page(
-				'gutenify',
-				__( 'Gutenify Startup', 'gutenify' ),
-				__( 'Start Up', 'gutenify' ),
-				'manage_options',
-				'gutenify-start-up',
-				array( $this, 'startup_page_callback' )
-			);
-		}
-		*/
 
 		// Settings submenu.
 		add_submenu_page(

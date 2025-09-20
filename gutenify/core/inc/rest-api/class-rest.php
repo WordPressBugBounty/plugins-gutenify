@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require 'class-template-kits.php';
+require GUTENIFY_BASE_DIR . 'core/' . 'inc/rest-api/class-template-kits.php';
 
 /**
  * Class Gutenify_Rest
@@ -115,7 +115,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 			array(
 				'methods'             => WP_REST_Server::EDITABLE,
 				'callback'            => array( $this, 'create_kit' ),
-				'permission_callback' => array( $this, 'create_kit_permission' ),
+				'permission_callback' => array( $this, 'update_settings_permission' ),
 			)
 		);
 
@@ -174,24 +174,13 @@ class Gutenify_Rest extends WP_REST_Controller {
 			)
 		);
 
-		// Get Demo Thumbnail
-		register_rest_route(
-			$namespace,
-			'/get_theme_demo_thumb/',
-			array(
-				'methods'             => WP_REST_Server::READABLE,
-				'callback'            => array( $this, 'get_theme_demo_thumb' ),
-				'permission_callback' => array( $this, 'update_settings_permission' ),
-			)
-		);
-
 		register_rest_route(
 			$namespace,
 			'/get_theme_import_demo_set_pages/',
 			array(
 				'methods'             => WP_REST_Server::EDITABLE,
 				'callback'            => array( $this, 'get_theme_import_demo_set_pages' ),
-				'permission_callback' => array( $this, 'create_kit_permission' ),
+				'permission_callback' => array( $this, 'update_settings_permission' ),
 			)
 		);
 	}
@@ -656,18 +645,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 		}
 	}
 
-	/**
-	 * Get edit options permissions.
-	 *
-	 * @return bool
-	 */
-	public function create_kit_permission() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return $this->error( 'user_dont_have_permission', __( 'User don\'t have permissions to change options.', '@@text_domain' ) );
-		}
-		return true;
-	}
-
 	public function create_kit( WP_REST_Request $request ) {
 		$data                                     = $request->get_params();
 		$gutenify_template_kits = new Gutenify_Template_Kits();
@@ -753,10 +730,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 			update_option( 'gutenify_global_style', $options['css'] );
 		}
 
-		if ( isset( $options['adminCss'] ) ) {
-			update_option( 'gutenify_admin_global_style', $options['adminCss'] );
-		}
-
 		return $this->success( $options );
 	}
 
@@ -830,14 +803,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 						$themes       = array();
 						if ( ! empty( $responseBody ) && ! empty( $responseBody->response ) ) {
 							$themes = (array) $responseBody->response;
-							// $index = 0;
-							// foreach( $responseBody as $theme ) {
-							// $themes[ $index ]['title'] = ucwords( str_replace( '-', ' ', $theme->name ) );
-							// $themes[ $index ]['name'] = $theme->name;
-							// $themes[ $index ]['thumb'] = $this->get_theme_demo_thumb( $theme->name );
-							// $index++;
-							// }
-
 						}
 						set_transient( 'gutenify_demo_import_list', json_encode( $themes ), DAY_IN_SECONDS );
 						return $this->success( $themes );
@@ -849,18 +814,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 			}
 		}
 		return $this->success( json_decode( $demo_list ) );
-	}
-
-	public function get_theme_demo_thumb( $name ) {
-		if ( ! empty( $name ) ) {
-			$name   = $options['name'];
-			$path   = 'https://raw.githubusercontent.com/gutenify/demo-content/main/themes/' . $name . '/screenshot.png';
-			$type   = pathinfo( $path, PATHINFO_EXTENSION );
-			$data   = file_get_contents( $path );
-			$base64 = 'data:image/' . $type . ';base64,' . base64_encode( $data );
-			return $base64;
-		}
-		return false;
 	}
 
 

@@ -43,6 +43,7 @@ $required_files = array(
 	'inc/blocks/class-blocks-categories.php',
 	'inc/blocks/class-block-inline-styles.php',
 	'inc/blocks/class-block-assets.php',
+	'inc/blocks/class-block-editor-assets.php',
 	'inc/blocks/class-extend-attributes.php',
 	'inc/blocks/class-fix-third-party-block-issues.php',
 	'inc/blocks/class-dynamic-block-classname.php',
@@ -94,12 +95,12 @@ $required_files = array(
 use gutenify\Helpers;
 
 // Get the base directory path where block files are located.
-$base_dir = Helpers::core_base_dir();
+$base_dir = GUTENIFY_BASE_DIR . 'core/';
 
 // Loop through the list of required file paths.
 foreach ( $required_files as $file ) {
 	// Build the full path to the file by prepending the base directory.
-	$full_path = $base_dir . $file;
+	$full_path = wp_normalize_path( $base_dir . $file );
 
 	// Check if the file exists and is a regular file before including it.
 	if ( is_file( $full_path ) ) {
@@ -115,7 +116,7 @@ if ( ! empty( $active_blocks ) ) {
 	// Loop through each active block and include its index.php file if it exists.
 	foreach ( $active_blocks as $block ) {
 		// Build the full path to the block's index.php file.
-		$file = "{$base_dir}dist/blocks/{$block}/index.php";
+		$file = wp_normalize_path( "{$base_dir}dist/blocks/{$block}/index.php" );
 
 		// Include the file only if it exists and is a regular file.
 		if ( is_file( $file ) ) {

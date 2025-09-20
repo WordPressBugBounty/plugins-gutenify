@@ -43,17 +43,24 @@ class Demo_Importer_V2 {
 		$constants        = Helpers::plugin_constants();
 		$plugin_main_slug = $constants['plugin_main_slug'];
 
-		$base_url          = Helpers::core_base_url();
-		$base_dir          = Helpers::core_base_dir();
-		$path              = 'dist/non-blocks/admin/pages/demo-importer-v2/';
-		$asset_file_values = include_once $base_dir . $path . 'index.asset.php';
-		$deps              = $asset_file_values['dependencies'];
-		$deps[]            = $plugin_main_slug . '-global-inline-handle';
-		$deps[]            = 'updates';
-		$ver               = $asset_file_values['version'];
+		$base_url   = Helpers::core_base_url();
+		$base_dir   = Helpers::core_base_dir();
+		$path       = 'dist/non-blocks/admin/pages/demo-importer-v2/';
+		$asset_file = wp_normalize_path( $base_dir . $path . 'index.asset.php' );
 
-		wp_register_script( self::$handle, $base_url . 'dist/non-blocks/admin/pages/demo-importer-v2/index.js', $deps, $ver, true );
-		wp_register_style( self::$handle, $base_url . 'dist/non-blocks/admin/pages/demo-importer-v2/index.css', array( 'wp-components' ), $ver );
+		// Ensure the asset file is inside the expected directory.
+		if ( strpos( realpath( $asset_file ), realpath( $base_dir . $path ) ) === 0 && file_exists( $asset_file ) ) {
+			$asset_file_values = include_once $asset_file;
+			$deps              = ( isset( $asset_file_values['dependencies'] ) && is_array( $asset_file_values['dependencies'] ) )
+			? $asset_file_values['dependencies']
+			: array();
+			$deps[]            = $plugin_main_slug . '-global-inline-handle';
+			$deps[]            = 'updates';
+			$ver               = isset( $asset_file_values['version'] ) ? sanitize_text_field( $asset_file_values['version'] ) : '1.5.6';
+
+			wp_register_script( self::$handle, esc_url( $base_url . 'dist/non-blocks/admin/pages/demo-importer-v2/index.js' ), $deps, $ver, true );
+			wp_register_style( self::$handle, esc_url( $base_url . 'dist/non-blocks/admin/pages/demo-importer-v2/index.css' ), array( 'wp-components' ), $ver );
+		}
 	}
 }
 

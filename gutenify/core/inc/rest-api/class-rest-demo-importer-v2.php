@@ -45,7 +45,7 @@ class Rest_Demo_Importer_V2 {
 			array(
 				'methods'             => 'GET',
 				'callback'            => array( __CLASS__, 'get_demos' ),
-				'permission_callback' => '__return_true',
+				'permission_callback' => array( __CLASS__, 'update_settings_permission' ),
 			)
 		);
 
@@ -75,7 +75,7 @@ class Rest_Demo_Importer_V2 {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( __CLASS__, 'verify_theme_installation' ),
-				'permission_callback' => '__return_true',
+				'permission_callback' => array( __CLASS__, 'update_settings_permission' ),
 			)
 		);
 	}
@@ -298,13 +298,11 @@ class Rest_Demo_Importer_V2 {
 		if ( in_array( $type, array( 'wp_navigation' ) ) ) {
 			$old_theme = ! empty( $data['theme'] ) ? $data['theme'] : '';
 			$content   = str_replace( '/' . $old_theme . '/', '/', $data['post_content'] );
-			// error_log( $old_theme );
-			// error_log( $content );
 		}
 		// Create post object.
 		$my_post = array(
 			'post_title'   => wp_strip_all_tags( $data['post_title'] ),
-			'post_content' => $content,
+			'post_content' => wp_kses_post( $content ),
 			'post_status'  => 'publish',
 			'post_type'    => $type,
 		);
@@ -326,11 +324,10 @@ class Rest_Demo_Importer_V2 {
 		$post_id = wp_insert_post( $my_post );
 		if ( ! is_wp_error( $post_id ) ) {
 			if ( in_array( $type, array( 'post', 'page', $plugin_main_post_type_prefix . '_template' ), true ) ) {
-				// if ( ! empty( $data['_meta_data']['_wp_page_template'] ) ) {
-				// update_post_meta( $post_id, '_wp_page_template', $data['_meta_data']['_wp_page_template'] );
-				// }
 				if ( ! empty( $data['_meta_data'] ) ) {
 					foreach ( $data['_meta_data'] as $meta_key => $meta ) {
+						$meta_key = sanitize_key( $meta_key );
+						$meta     = is_array( $meta ) ? array_map( 'sanitize_text_field', $meta ) : sanitize_text_field( $meta );
 						update_post_meta( $post_id, $meta_key, $meta );
 					}
 				}
@@ -400,7 +397,7 @@ class Rest_Demo_Importer_V2 {
 		$json   = array();
 		if ( ! empty( $name ) ) {
 			$json_data = wp_remote_get(
-				$demo_import_base_url . '/' . $name . '/wp-json/liger/v1/demo-content',
+				$demo_import_base_url . '/' . sanitize_title( $name ) . '/wp-json/liger/v1/demo-content',
 				array(
 					'timeout' => 10,
 					'headers' => array(
@@ -411,7 +408,6 @@ class Rest_Demo_Importer_V2 {
 			try {
 				$json = json_decode( $json_data['body'] );
 				$json = ! empty( $json ) ? $json : array();
-				// error_log( print_r( $json, true ) );
 			} catch ( Exception $ex ) {
 				$json = array();
 			}
@@ -423,7 +419,7 @@ class Rest_Demo_Importer_V2 {
 		$params = (array) $req->get_params();
 		$result = false;
 		if ( ! empty( $params['slug'] ) ) {
-			$theme = trim( $params['slug'] );
+			$theme = sanitize_text_field( trim( $params['slug'] ) );
 			switch_theme( $theme );
 			$result = true;
 		}

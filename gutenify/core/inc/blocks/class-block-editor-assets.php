@@ -1,6 +1,6 @@
 <?php
 /**
- * Enqueue global block-related assets for both frontend and admin.
+ * Enqueue global block-related assets for admin.
  *
  * @package gutenify
  * @subpackage Assets
@@ -19,29 +19,22 @@ namespace gutenify;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Class Block_Assets
+ * Class Block_Editor_Assets
  *
  * Handles registration and enqueueing of scripts/styles
  * used by custom Gutenberg block enhancements.
  */
-class Block_Assets {
-
+class Block_Editor_Assets {
 	/**
 	 * Hook into WordPress.
 	 *
 	 * @return void
 	 */
 	public static function init() {
-		add_action( 'enqueue_block_assets', array( __CLASS__, 'enqueue_block_assets' ), 1 );
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'add_block_inline_css' ), 200 );
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_block_editor_assets' ) );
 	}
 
-	/**
-	 * Enqueue global scripts/styles for block editor and admin UI.
-	 *
-	 * @return void
-	 */
-	public static function enqueue_block_assets() {
+	public static function enqueue_block_editor_assets() {
 		// Plugin constants and flags.
 		$constants            = Helpers::plugin_constants();
 		$is_pro_active        = Helpers::is_pro_active();
@@ -49,15 +42,36 @@ class Block_Assets {
 		$plugin_main_base_url = Helpers::core_base_url();
 		$plugin_main_base_dir = Helpers::core_base_dir();
 
-		// Global inline script (common dependency).
-		wp_enqueue_script( $plugin_main_slug . '-global-inline-handle' );
-
-		// Extended blocks.
 		$asset_paths = array(
-			'extend-custom-list' => array(
-				'path' => 'dist/non-blocks/extend/custom-list',
+			// Admin.
+			'admin-global'                    => array(
+				'path' => 'dist/non-blocks/admin/global',
 			),
+			'extend-block-inspector-controls' => array(
+				'path' => 'dist/non-blocks/extend/block-inspector-controls',
+			),
+			'extend-block-dynamic-css'        => array(
+				'path' => 'dist/non-blocks/extend/block-dynamic-css',
+			),
+			'extend-block-spacing'            => array(
+				'path' => 'dist/non-blocks/extend/block-spacing',
+			),
+			// 'extend-block-custom-css'         => array(
+			// 'path' => 'dist/non-blocks/extend/block-custom-css',
+			// ),
+			'extend-block-pro-notice'         => array(
+				'path' => 'dist/non-blocks/extend/block-pro-notice',
+			),
+			// 'extend-custom-list'              => array(
+			// 'path' => 'dist/non-blocks/extend/custom-list',
+			// ),
 		);
+
+		if ( $is_pro_active ) {
+			$asset_paths['extend-block-custom-css'] = array(
+				'path' => 'dist/non-blocks/extend/block-custom-css',
+			);
+		}
 
 		foreach ( $asset_paths as $handle => $asset ) {
 			$path       = $asset['path'];
@@ -72,23 +86,11 @@ class Block_Assets {
 				wp_enqueue_style( $handle, $plugin_main_base_url . $path . '/index.css', $deps, $asset_file['version'] );
 			}
 		}
-	}
 
-	/**
-	 * Add inline css
-	 *
-	 * @return void
-	 */
-	public static function add_block_inline_css() {
-		$global_style = get_option( 'gutenify_global_style' );
-
-		if ( ! empty( $global_style ) ) {
-			$handle = 'gutenify-global-inline-handle';
-			wp_enqueue_style( $handle );
-			wp_add_inline_style( $handle, $global_style );
-		}
+		wp_enqueue_style( $plugin_main_slug . '-fontawesome' );
+		wp_enqueue_style( $plugin_main_slug . '-fonts' );
 	}
 }
 
 // Initialize the asset loader.
-Block_Assets::init();
+Block_Editor_Assets::init();
