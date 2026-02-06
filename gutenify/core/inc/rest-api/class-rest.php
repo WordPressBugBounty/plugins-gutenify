@@ -499,10 +499,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 	 * @return bool
 	 */
 	public function update_settings_permission() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return $this->error( 'user_dont_have_permission', __( 'User don\'t have permissions to change options.', '@@text_domain' ) );
-		}
-		return true;
+		return current_user_can( 'manage_options' );
 	}
 
 	/**

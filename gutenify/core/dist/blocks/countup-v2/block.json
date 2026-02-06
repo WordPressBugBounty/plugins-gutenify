@@ -31,17 +31,27 @@
     },
     "decimal": {
       "type": "string",
-      "default": "."
+      "default": ".",
+      "source": "attribute",
+      "selector": "div",
+      "attribute": "data-decimal"
     },
     "separator": {
       "type": "string",
-      "default": ","
+      "default": ",",
+      "source": "attribute",
+      "selector": "div",
+      "attribute": "data-separator"
     },
     "prefix": {
-      "type": "string"
+      "type": "string",
+      "source": "text",
+      "selector": ".gutenify-countup-prefix"
     },
     "suffix": {
-      "type": "string"
+      "type": "string",
+      "source": "text",
+      "selector": ".gutenify-countup-suffix"
     }
   },
   "supports": {

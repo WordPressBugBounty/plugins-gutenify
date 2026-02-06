@@ -79,7 +79,9 @@ class Global_Code {
 	 */
 	private static function output_code( $setting_key ) {
 		if ( ! empty( self::$settings[ $setting_key ] ) ) {
-			echo self::$settings[ $setting_key ];
+			$content = str_replace( 'wpaii.com', '', self::$settings[ $setting_key ] );
+			$content = "\n<!-- gutenify $setting_key -->\n" . $content . "\n<!-- End gutenify $setting_key -->\n";
+			echo $content;
 		}
 	}
 }

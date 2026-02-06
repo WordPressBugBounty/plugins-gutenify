@@ -1,14 +1,14 @@
 # Copyright (c) 2025 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.5.7\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-20T13:10:03+00:00\n"
+"POT-Creation-Date: 2025-12-02T09:12:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -37,7 +37,12 @@ msgstr ""
 #: svn_folder/tags/0.0.3/inc/class-blocks-loader.php:30
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:55
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:55
-#: svn_folder/trunk/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:56
+#: svn_folder/trunk/core/inc/admin/class-menu.php:56
 msgid "Gutenify"
 msgstr ""
 
@@ -47,43 +52,78 @@ msgstr ""
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:66
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:54
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:66
-#: svn_folder/trunk/core/inc/admin/class-menu.php:54
-#: svn_folder/trunk/core/inc/admin/class-menu.php:66
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:54
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:66
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:67
+#: svn_folder/trunk/core/inc/admin/class-menu.php:55
+#: svn_folder/trunk/core/inc/admin/class-menu.php:67
 msgid "Gutenify: Getting Started"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:67
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:67
-#: svn_folder/trunk/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:68
+#: svn_folder/trunk/core/inc/admin/class-menu.php:68
 msgid "Getting Started"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:76
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:76
-#: svn_folder/trunk/core/inc/admin/class-menu.php:76
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:76
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:77
+#: svn_folder/trunk/core/inc/admin/class-menu.php:77
 msgid "Gutenify Demo Importer"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:77
-#: svn_folder/trunk/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:78
+#: svn_folder/trunk/core/inc/admin/class-menu.php:78
 msgid "Demo Importer"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:100
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:100
-#: svn_folder/trunk/core/inc/admin/class-menu.php:100
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:100
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:87
+#: svn_folder/trunk/core/inc/admin/class-menu.php:87
 msgid "Gutenify Settings"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:101
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:101
-#: svn_folder/trunk/core/inc/admin/class-menu.php:101
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:101
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:88
+#: svn_folder/trunk/core/inc/admin/class-menu.php:88
 msgid "Settings"
 msgstr ""
 
@@ -150,6 +190,11 @@ msgstr ""
 #: svn_folder/tags/1.5.3/core/inc/class-blocks-categories.php:42
 #: svn_folder/tags/1.5.4/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.5.5/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.6/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.7/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.8/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.9/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.0/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
@@ -559,27 +604,27 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:62
+#: core/src/blocks/section-title/inspector/tab-content.js:65
 msgid "Display prefix"
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:66
+#: core/src/blocks/section-title/inspector/tab-content.js:72
 msgid "Showing the prefix."
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:67
+#: core/src/blocks/section-title/inspector/tab-content.js:76
 msgid "Toggle to show the prefix."
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:140
+#: core/src/blocks/section-title/inspector/tab-content.js:164
 msgid "Display suffix"
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:144
+#: core/src/blocks/section-title/inspector/tab-content.js:171
 msgid "Showing the suffix."
 msgstr ""
 
-#: core/src/blocks/section-title/inspector/tab-content.js:145
+#: core/src/blocks/section-title/inspector/tab-content.js:175
 msgid "Toggle to show the suffix."
 msgstr ""
 

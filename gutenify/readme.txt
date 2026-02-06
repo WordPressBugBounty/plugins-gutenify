@@ -5,7 +5,7 @@ Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 5.5
-Stable tag: 1.5.7
+Stable tag: 1.6.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -150,7 +150,7 @@ Before updating plugin please check [our latest release notes](https://gutenify.
 == Frequently Asked Questions ==
 = Where do I report security bugs found in this plugin? =
 
-Please report security bugs found in the source code of the Gutenify plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/0e3bff4c-192a-4a43-a27f-5697b5de4ff8). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+Please report security bugs found in the source code of the Gutenify plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/74b1790d-883e-4f78-b4a8-c5b4a4b15046). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
 
 = How to add Blocks in your theme using Gutenify? =
 
@@ -203,6 +203,18 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2025-12-02 - version 1.6.1 =
+* Fix version.
+
+= 2025-12-02 - version 1.6.0 =
+* Security: Fix XSS issues.
+
+= 2025-10-18 - version 1.5.9 =
+* Security: Fix remove unwanted script.
+
+= 2025-10-13 - version 1.5.8 =
+* Security: Fixed stored XSS vulnerability in Section Title block by restricting allowed heading tags.
 
 = 2025-06-20 - version 1.5.7 =
 * Fix demo import issue for some themes.

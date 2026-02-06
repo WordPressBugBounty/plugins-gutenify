@@ -86,10 +86,7 @@ class Rest_Demo_Importer_V2 {
 	 * @return bool
 	 */
 	public static function update_settings_permission() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return false;
-		}
-		return true;
+		return current_user_can( 'manage_options' );
 	}
 
 	public static function import( \WP_REST_Request $req ) {
