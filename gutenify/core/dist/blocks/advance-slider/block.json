@@ -1,6 +1,6 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "$schema": "https://json.schemastore.org/block.json",
+  "apiVersion": 3,
   "name": "gutenify/advance-slider",
   "title": "Advanced Slider",
   "description": "Slider for images or content with customizable options.",
@@ -32,6 +32,16 @@
           "backgroundColor": "#959595"
         }
       }
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "color": {
+          "text": "",
+          "background": ""
+        },
+        "elements": {}
+      }
     }
   },
   "supports": {
@@ -39,8 +49,51 @@
     "anchor": true,
     "align": [
       "wide",
-      "full"
-    ]
+      "full",
+      "center"
+    ],
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true,
+      "__experimentalBorder": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "margin": true,
+        "padding": true
+      }
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true,
+        "lineHeight": true
+      }
+    },
+    "shadow": true,
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    }
   },
   "editorScript": [
     "file:./index.js"

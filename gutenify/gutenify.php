@@ -5,10 +5,10 @@
  * Author: Gutenify
  * Author URI: https://www.gutenify.com
  * Plugin URI: https://www.gutenify.com
- * Version: 1.6.1
+ * Version: 1.6.2
  * Text Domain: gutenify
  * Domain Path: /languages
- * Tested up to: 6.8
+ * Tested up to: 6.9
  * Requires at least: 6.4
  * Requires PHP: 5.5
  *
@@ -24,21 +24,22 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 // Define constants.
-define( 'GUTENIFY_VERSION', '1.6.1' );
-define( 'GUTENIFY_BASE_DIR', plugin_dir_path( __FILE__ ) );
-define( 'GUTENIFY_BASE_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
-define( 'GUTENIFY_BASE_FILE', __FILE__ );
+define('GUTENIFY_VERSION', '1.6.2');
+define('GUTENIFY_BASE_DIR', plugin_dir_path(__FILE__));
+define('GUTENIFY_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
+define('GUTENIFY_BASE_FILE', __FILE__);
 define(
 	'GUTENIFY_BRAND_LOGO',
 	'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDEwODAgMTA4MCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTA4MCAxMDgwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KICAuc3QwIHsNCiAgICBmaWxsOiAjRkZGRkZGOw0KICB9DQoNCiAgLnN0MSB7DQogICAgZmlsbDogIzY3QkM0NTsNCiAgfQ0KDQo8L3N0eWxlPg0KPGc+DQogIDxnPg0KICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04MjguNSw1NTIuOWMtNi44LDE1Mi45LTEzMy4zLDI3NS4xLTI4Ny45LDI3NS4xYy0xNTguOSwwLTI4OC4yLTEyOS4zLTI4OC4yLTI4OC4yDQoJCSAgICAgIGMwLTE1MC42LDExNi4yLTI3NC41LDI2My41LTI4Ny4xVjAuNEMyMjkuMSwxMy4yLDAuNSwyNDkuOSwwLjUsNTM5LjljMCwyOTguMiwyNDEuNyw1NDAuMSw1NDAuMSw1NDAuMQ0KCQkgICAgICBjMjkzLjksMCw1MzMtMjM0LjgsNTM5LjgtNTI3SDgyOC41VjU1Mi45eiIgLz4NCiAgICA8cmVjdCB4PSI1MTguOSIgeT0iMjU0LjYiIGNsYXNzPSJzdDEiIHdpZHRoPSIzMDkuOCIgaGVpZ2h0PSIyOTguMiIgLz4NCiAgPC9nPg0KPC9nPg0KPC9zdmc+DQo='
 );
 
-if ( ! class_exists( 'Gutenify' ) ) {
+if (!class_exists('Gutenify')) {
 
-	final class Gutenify {
+	final class Gutenify
+	{
 
 		/**
 		 * Holds the class instance.
@@ -59,8 +60,9 @@ if ( ! class_exists( 'Gutenify' ) ) {
 		 *
 		 * @return Gutenify
 		 */
-		public static function instance() {
-			if ( is_null( self::$instance ) ) {
+		public static function instance()
+		{
+			if (is_null(self::$instance)) {
 				self::$instance = new self();
 			}
 			return self::$instance;
@@ -69,7 +71,8 @@ if ( ! class_exists( 'Gutenify' ) ) {
 		/**
 		 * Gutenify constructor.
 		 */
-		private function __construct() {
+		private function __construct()
+		{
 			self::$base_url = GUTENIFY_BASE_URL;
 			$this->define_hooks();
 			$this->bootstrap();
@@ -78,8 +81,9 @@ if ( ! class_exists( 'Gutenify' ) ) {
 		/**
 		 * Define plugin hooks.
 		 */
-		private function define_hooks() {
-			add_filter( 'gutenify_plugin_constants', array( $this, 'add_plugin_constants' ) );
+		private function define_hooks()
+		{
+			add_filter('gutenify_plugin_constants', array($this, 'add_plugin_constants'));
 			// Uncomment if you want activation redirect.
 			// add_action( 'activated_plugin', array( $this, 'activation_redirect' ) );
 		}
@@ -90,8 +94,9 @@ if ( ! class_exists( 'Gutenify' ) ) {
 		 * @param array $args
 		 * @return array
 		 */
-		public function add_plugin_constants( $args ) {
-			return wp_parse_args( $args, $this->get_constants() );
+		public function add_plugin_constants($args)
+		{
+			return wp_parse_args($args, $this->get_constants());
 		}
 
 		/**
@@ -99,40 +104,42 @@ if ( ! class_exists( 'Gutenify' ) ) {
 		 *
 		 * @return array
 		 */
-		public function get_constants() {
+		public function get_constants()
+		{
 			$title = 'Gutenify';
 			return array(
-				'title'                        => $title,
-				'prefix'                       => 'gutenify',
-				'slug'                         => 'gutenify',
-				'authorWebSite'                => 'https://gutenify.com',
-				'authorDemoWebSite'            => 'https://demo.gutenify.com',
-				'authorWebSiteProPage'         => 'https://gutenify.com/pricing',
-				'authorWebSiteSupport'         => 'https://gutenify.com/product-support',
-				'plugin_main_slug'             => 'gutenify',
-				'plugin_main_camel_case_name'  => 'gutenify',
-				'plugin_main_function_prefix'  => 'gutenify',
-				'plugin_main_base_url'         => GUTENIFY_BASE_URL,
-				'plugin_main_base_dir'         => GUTENIFY_BASE_DIR,
-				'plugin_main_version'          => GUTENIFY_VERSION,
+				'title' => $title,
+				'prefix' => 'gutenify',
+				'slug' => 'gutenify',
+				'authorWebSite' => 'https://gutenify.com',
+				'authorDemoWebSite' => 'https://demo.gutenify.com',
+				'authorWebSiteProPage' => 'https://gutenify.com/pricing',
+				'authorWebSiteSupport' => 'https://gutenify.com/product-support',
+				'plugin_main_slug' => 'gutenify',
+				'plugin_main_camel_case_name' => 'gutenify',
+				'plugin_main_function_prefix' => 'gutenify',
+				'plugin_main_base_url' => GUTENIFY_BASE_URL,
+				'plugin_main_base_dir' => GUTENIFY_BASE_DIR,
+				'plugin_main_version' => GUTENIFY_VERSION,
 				'plugin_main_post_type_prefix' => 'gutenify',
-				'plugin_main_site_domain'      => 'gutenify.com',
-				'core_base_dir'                => GUTENIFY_BASE_DIR . 'core/',
-				'core_base_url'                => GUTENIFY_BASE_URL . 'core/',
-				'brand_color'                  => '#2196f3',
-				'pro_title'                    => $title . ' Pro',
+				'plugin_main_site_domain' => 'gutenify.com',
+				'core_base_dir' => GUTENIFY_BASE_DIR . 'core/',
+				'core_base_url' => GUTENIFY_BASE_URL . 'core/',
+				'brand_color' => '#2196f3',
+				'pro_title' => $title . ' Pro',
 			);
 		}
 
 		/**
 		 * Load bootstrap and pro if available.
 		 */
-		private function bootstrap() {
+		private function bootstrap()
+		{
 			require_once GUTENIFY_BASE_DIR . 'core/inc/bootstrap.php';
 			if (
-				function_exists( 'gutenify_pro' )
-				&& defined( 'GUTENIFY_PRO_VERSION' )
-				&& version_compare( GUTENIFY_PRO_VERSION, '1.1.5', '>' )
+				function_exists('gutenify_pro')
+				&& defined('GUTENIFY_PRO_VERSION')
+				&& version_compare(GUTENIFY_PRO_VERSION, '1.1.5', '>')
 			) {
 				gutenify_pro();
 			}
@@ -143,15 +150,16 @@ if ( ! class_exists( 'Gutenify' ) ) {
 		 *
 		 * @param string $plugin Plugin basename.
 		 */
-		public function activation_redirect( $plugin ) {
-			if ( function_exists( 'get_current_screen' ) ) {
+		public function activation_redirect($plugin)
+		{
+			if (function_exists('get_current_screen')) {
 				$screen = get_current_screen();
-				if ( ! empty( $screen->id ) && 'appearance_page_tgmpa-install-plugins' === $screen->id ) {
+				if (!empty($screen->id) && 'appearance_page_tgmpa-install-plugins' === $screen->id) {
 					return false;
 				}
 			}
-			if ( $plugin === plugin_basename( __FILE__ ) ) {
-				wp_safe_redirect( admin_url( 'admin.php?page=gutenify' ) );
+			if ($plugin === plugin_basename(__FILE__)) {
+				wp_safe_redirect(admin_url('admin.php?page=gutenify'));
 				exit;
 			}
 		}
@@ -161,7 +169,8 @@ if ( ! class_exists( 'Gutenify' ) ) {
 /**
  * Initialize the Gutenify plugin.
  */
-function gutenify() {
+function gutenify()
+{
 	return Gutenify::instance();
 }
 

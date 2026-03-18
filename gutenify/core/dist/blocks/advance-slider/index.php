@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 class Advanced_Slider{
 	public static function init() {
 		add_action('init', array(__CLASS__, 'register_block'));
-
+		add_filter('gutenify_render_block_gutenify/advance-slider', array(__CLASS__, 'render_block'), 10, 4);
 	}
 
 	public static function register_block() {
@@ -45,6 +45,60 @@ class Advanced_Slider{
 		$new_content .= '</div>';
 		return $new_content;
 	}
+
+	public static function render_block( $block_content, $block, $instance, $block_id ) {
+		$css = '';
+		$root_selector = '.' . $block_id;
+
+		// Handle Standard Shadow support
+		if ( ! empty( $block['attrs']['style']['shadow'] ) ) {
+			$shadow = $block['attrs']['style']['shadow'];
+			if ( strpos( $shadow, 'var:preset|shadow|' ) === 0 ) {
+				$slug = str_replace( 'var:preset|shadow|', '', $shadow );
+				$css .= "box-shadow: var(--wp--preset--shadow--$slug);";
+			} else {
+				$css .= "box-shadow: $shadow;";
+			}
+		}
+
+		// Handle Standard Border support
+		if ( ! empty( $block['attrs']['style']['border'] ) ) {
+			$border = $block['attrs']['style']['border'];
+			if ( ! empty( $border['width'] ) ) {
+				$css .= 'border-width: ' . $border['width'] . '; border-style: solid;';
+			}
+			if ( ! empty( $border['color'] ) ) {
+				$color = $border['color'];
+				if ( strpos( $color, 'var:preset|color|' ) === 0 ) {
+					$slug = str_replace( 'var:preset|color|', '', $color );
+					$css .= "border-color: var(--wp--preset--color--$slug);";
+				} else {
+					$css .= "border-color: $color;";
+				}
+			}
+			if ( ! empty( $border['radius'] ) ) {
+				$css .= \gutenify\Style_Helpers::border_radius_control( $border['radius'] );
+			}
+		}
+
+		// Handle Standard Spacing support
+		if ( ! empty( $block['attrs']['style']['spacing'] ) ) {
+			$spacing = $block['attrs']['style']['spacing'];
+			if ( ! empty( $spacing['margin'] ) ) {
+				$css .= \gutenify\Style_Helpers::box_control( $spacing['margin'], 'margin-' );
+			}
+			if ( ! empty( $spacing['padding'] ) ) {
+				$css .= \gutenify\Style_Helpers::box_control( $spacing['padding'], 'padding-' );
+			}
+		}
+
+		if ( ! empty( $css ) ) {
+			$handle = 'gutenify_' . str_replace( '/', '_', $block['blockName'] ) . '_' . $block_id;
+			wp_add_inline_style( $handle, "$root_selector { $css }" );
+		}
+
+		return $block_content;
+	}
 }
-// Initialize the Advance_Slider class
+// Initialize the Advanced_Slider class
 Advanced_Slider::init();

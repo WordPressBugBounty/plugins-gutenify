@@ -1,14 +1,14 @@
-# Copyright (c) 2025 Gutenify. All Rights Reserved.
+# Copyright (c) 2026 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.1\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-12-02T09:12:31+00:00\n"
+"POT-Creation-Date: 2026-03-18T10:21:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -42,6 +42,7 @@ msgstr ""
 #: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:56
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:56
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:56
 #: svn_folder/trunk/core/inc/admin/class-menu.php:56
 msgid "Gutenify"
 msgstr ""
@@ -62,6 +63,8 @@ msgstr ""
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:67
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:55
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:67
 #: svn_folder/trunk/core/inc/admin/class-menu.php:55
 #: svn_folder/trunk/core/inc/admin/class-menu.php:67
 msgid "Gutenify: Getting Started"
@@ -75,6 +78,7 @@ msgstr ""
 #: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:68
 #: svn_folder/trunk/core/inc/admin/class-menu.php:68
 msgid "Getting Started"
 msgstr ""
@@ -87,6 +91,7 @@ msgstr ""
 #: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:77
 #: svn_folder/trunk/core/inc/admin/class-menu.php:77
 msgid "Gutenify Demo Importer"
 msgstr ""
@@ -99,6 +104,7 @@ msgstr ""
 #: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:78
 #: svn_folder/trunk/core/inc/admin/class-menu.php:78
 msgid "Demo Importer"
 msgstr ""
@@ -111,6 +117,7 @@ msgstr ""
 #: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:87
 #: svn_folder/trunk/core/inc/admin/class-menu.php:87
 msgid "Gutenify Settings"
 msgstr ""
@@ -123,6 +130,7 @@ msgstr ""
 #: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:88
 #: svn_folder/trunk/core/inc/admin/class-menu.php:88
 msgid "Settings"
 msgstr ""
@@ -195,6 +203,7 @@ msgstr ""
 #: svn_folder/tags/1.5.8/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.5.9/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.0/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.1/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
@@ -599,6 +608,177 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+#: core/src/blocks/popup/edit.js:25
+msgid "Add popup content..."
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:103
+msgid "Hide Content"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:103
+msgid "Show Content"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:108
+msgid "Popup Settings"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:110
+msgid "Animation"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:113
+msgid "Fade"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:114
+msgid "Zoom In"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:115
+msgid "Zoom Out"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:116
+msgid "Slide"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:121
+msgid "Show Close Button"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:126
+msgid "Show Content in Editor"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:129
+msgid "Toggle visibility of the popup content in the editor."
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:132
+msgid "Close on Background Click"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:142
+msgid "Close Button Color"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:149
+msgid "Icon Settings"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:153
+msgid "Button Icon"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:167
+msgid "Select Icon"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:177
+msgid "Remove"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:193
+msgid "Icon Position"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:196
+msgid "Left"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:197
+msgid "Right"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:202
+msgid "Icon Size (px)"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:212
+msgid "Content Settings"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:214
+msgid "Max Width (px)"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:220
+msgid "Set the maximum width of the popup content."
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:224
+msgid "Button Settings"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:230
+msgid "Normal"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:235
+msgid "Hover"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:245
+msgid "Normal Colors"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:252
+#: core/src/blocks/popup/edit.js:277
+msgid "Text Color"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:257
+#: core/src/blocks/popup/edit.js:282
+msgid "Background Color"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:262
+#: core/src/blocks/popup/edit.js:287
+msgid "Border Color"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:270
+msgid "Hover Colors"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:299
+msgid "Border Radius (px)"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:306
+msgid "Padding"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:311
+msgid "Border Width (px)"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:318
+msgid "Enable Pulse Effect"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:324
+msgid "Pulse Settings"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:331
+msgid "Pulse Color"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:336
+msgid "Pulse Duration (s)"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:344
+msgid "Pulse Size (px)"
+msgstr ""
+
+#: core/src/blocks/popup/edit.js:386
+msgid "Open Popup"
+msgstr ""
+
 #: core/src/blocks/post-carousel/edit.js:171
 #: core/src/blocks/post-list/edit.js:159
 msgid "Read more"
@@ -803,6 +983,16 @@ msgstr ""
 #: core/src/blocks/notice-bar/block.json
 msgctxt "block description"
 msgid "The Notice Bar block allows you to display customizable notifications."
+msgstr ""
+
+#: core/src/blocks/popup/block.json
+msgctxt "block title"
+msgid "Popup"
+msgstr ""
+
+#: core/src/blocks/popup/block.json
+msgctxt "block description"
+msgid "Display a button that opens a popup with custom content."
 msgstr ""
 
 #: core/src/blocks/post-carousel/block.json

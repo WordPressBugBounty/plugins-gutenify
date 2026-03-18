@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "gutenify/slider-v2",
   "title": "Slider",
   "description": "Slide any block.",

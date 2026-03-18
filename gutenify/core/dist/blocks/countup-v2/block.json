@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "gutenify/countup-v2",
   "title": "Count up",
   "description": "Used in showing quantified achievement in smooth animated number.",
@@ -56,12 +56,27 @@
   },
   "supports": {
     "inserter": true,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true,
+      "__experimentalBorder": true
+    },
     "typography": {
+      "lineHeight": true,
+      "fontSize": true,
       "__experimentalFontFamily": true,
       "__experimentalFontWeight": true,
       "__experimentalFontStyle": true,
       "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalLetterSpacing": true,
       "textAlign": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
     }
   },
   "editorScript": [

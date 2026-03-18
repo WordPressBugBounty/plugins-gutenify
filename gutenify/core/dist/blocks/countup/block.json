@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "gutenify/count-up",
   "title": "Count up",
   "description": "Used in showing quantified achievement in smooth animated number.",

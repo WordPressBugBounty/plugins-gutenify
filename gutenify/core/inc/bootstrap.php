@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Load the Helpers class file containing utility methods.
  */
-require_once 'helpers/class-helpers.php';
+require_once __DIR__ . '/helpers/class-helpers.php';
 
 /**
  * List of PHP files to be required for initializing core functionality.

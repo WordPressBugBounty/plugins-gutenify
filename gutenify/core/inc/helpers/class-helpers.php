@@ -63,6 +63,7 @@ class Helpers {
 			'notice-bar',
 			'countup-v2',
 			'icon-v2',
+			// 'popup',
 
 			// Optional blocks (can be enabled via filters or config).
 			/**
