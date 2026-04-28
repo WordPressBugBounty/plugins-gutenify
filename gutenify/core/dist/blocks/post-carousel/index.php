@@ -56,9 +56,7 @@ class Post_Carousel {
 
 
 		$list_items_markup = '';
-		// echo '<pre>';
-		// var_dump($attributes['displayFeaturedImage']);
-		// echo '</pre>';
+		
 		$has_image = !$attributes['displayFeaturedImage'] ? 'has-no-feature-image': '';
 
 		$default_image_url = $constants['core_base_url'] . 'assets/images/placeholder-attachment.png';
@@ -309,7 +307,7 @@ function gutenify_post_carousel_render_block($block_content, $block)
 
 	//selector
 	// $has_image = $block['attrs']
-	// var_dump($block['attrs']);
+
 	$root_selector = '.' . $block_client_id . '.wp-block-gutenify-post-carousel';
 	$inner_block_selector = $root_selector . ' .gutenify-post-carousel-item-inner-wrapper';
 	$css = '';

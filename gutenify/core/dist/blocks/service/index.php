@@ -15,8 +15,6 @@ class Service{
 
 	public static function render_block( $block_content, $block, $instance, $block_id ) {
 
-		// var_dump( $block );
-
 		$root_selector = '.' . $block_id ;
 		$css='';
 

@@ -5,6 +5,8 @@
  *
  * @package WordPress
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 function gutenify_wc_get_add_to_cart( $product ) {
 	$attributes = array(
 		'aria-label'       => $product->add_to_cart_description(),
@@ -58,7 +60,7 @@ function gutenify_get_wc_product_item( $product_id ) {
 
 		echo '<div class="wp-block-button wc-block-grid__product-add-to-cart">';
 		echo gutenify_wc_get_add_to_cart( $product );
-		// var_dump( $product );
+
 		echo '</div>'; // Product add to cart wrapper
 		echo '</div>'; // Product individual wrapper
 		echo '</div>'; // Product individual wrapper

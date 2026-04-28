@@ -21,8 +21,7 @@ class Team
 		$root_selector = '.' . $block_id;
 		$css = '';
 		$css .= $root_selector . '{';
-		// echo '<pre>';
-		// var_dump($block);
+
 		//color
 		if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
 			$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';

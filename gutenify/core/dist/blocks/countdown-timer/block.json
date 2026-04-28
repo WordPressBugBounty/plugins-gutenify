@@ -1,0 +1,150 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "gutenify/countdown-timer",
+  "category": "gutenify",
+  "apiVersion": 3,
+  "title": "Countdown Timer",
+  "description": "Flexible Countdown Timer with Block, Page, and Site level storage options.",
+  "keywords": [
+    "countdown",
+    "timer",
+    "evergreen"
+  ],
+  "textdomain": "gutenify",
+  "version": "1.0.1",
+  "usesContext": [
+    "postId"
+  ],
+  "attributes": {
+    "storageLevel": {
+      "type": "string",
+      "default": "blockLevel"
+    },
+    "countdownTimerType": {
+      "type": "string",
+      "default": "fixed"
+    },
+    "evergreenHours": {
+      "type": "number",
+      "default": 24
+    },
+    "evergreenMinutes": {
+      "type": "number",
+      "default": 0
+    },
+    "evergreenRestart": {
+      "type": "boolean",
+      "default": false
+    },
+    "date": {
+      "type": "string",
+      "default": ""
+    },
+    "endAction": {
+      "type": "string",
+      "default": "none"
+    },
+    "hideSelector": {
+      "type": "string",
+      "default": ".gutenify-countdown-timer-hide"
+    },
+    "redirectUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "daysLabel": {
+      "type": "string",
+      "default": "Days"
+    },
+    "hoursLabel": {
+      "type": "string",
+      "default": "Hours"
+    },
+    "minutesLabel": {
+      "type": "string",
+      "default": "Minutes"
+    },
+    "secondsLabel": {
+      "type": "string",
+      "default": "Seconds"
+    },
+    "separator": {
+      "type": "string",
+      "default": ""
+    },
+    "itemGap": {
+      "type": "string",
+      "default": ""
+    },
+    "labelColor": {
+      "type": "string",
+      "default": ""
+    },
+    "labelFontSize": {
+      "type": "string",
+      "default": ""
+    },
+    "labelLineHeight": {
+      "type": "string",
+      "default": ""
+    },
+    "itemBorder": {
+      "type": "object",
+      "default": {}
+    },
+    "itemBorderRadius": {
+      "type": "string",
+      "default": ""
+    },
+    "itemPadding": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "align": [],
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "margin": true,
+        "padding": true
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextTransform": true
+    },
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "file:./scripts/script.js"
+  ]
+}

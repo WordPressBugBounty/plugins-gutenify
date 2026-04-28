@@ -316,8 +316,7 @@ function gutenify_post_list_render_block ($block_content, $block){
 	$root_selector = '.' . $block_client_id . '.wp-block-gutenify-post-list' ;
 	$inner_block_selector = $root_selector . ' .gutenify-post-list-item-inner-wrapper';
 	$css ='';
-	// echo '<pre>';
-	// var_dump($css);
+
 	$css .= $inner_block_selector . '{';
 
 	//color
@@ -339,7 +338,7 @@ function gutenify_post_list_render_block ($block_content, $block){
 	//border color
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'])){
 		$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] . ';';
-		// var_dump($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor']);
+
 	}
 
 	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] )  ) {
@@ -368,8 +367,6 @@ function gutenify_post_list_render_block ($block_content, $block){
 	}
 	//padding
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding'])){
-		// echo '<pre>';
-		// var_dump($block['attrs']);
 
 		$css .= $inner_block_selector . ' .gutenify-post-list-text-content{';
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['top'])){

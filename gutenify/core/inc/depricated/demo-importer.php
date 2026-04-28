@@ -5,6 +5,8 @@
  *
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 function gutenify_after_content_import_setup() {
 	// Set static homepage.
 	$homepage = get_page_by_title( apply_filters( 'gutenify_content_home_page_title', 'Home' ) );

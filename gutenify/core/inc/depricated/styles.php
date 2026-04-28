@@ -6,6 +6,8 @@
  *
  * @return void
  */
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 function gutenify_get_color_value( $value ) {
 	if ( strpos( $value, 'var:' ) !== false ) {
 		// var:preset|color|vivid-red

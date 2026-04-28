@@ -397,7 +397,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		if ( is_array( $templates ) ) {
 			return $this->success( $templates );
 		} else {
-			return $this->error( 'no_templates', __( 'Templates not found.', '@@text_domain' ) );
+			return $this->error( 'no_templates', __( 'Templates not found.', 'gutenify' ) );
 		}
 	}
 
@@ -423,7 +423,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		$template_data = false;
 
 		if ( 1 > absint( $id ) || empty( $type ) ) {
-			return $this->error( 'no_template_data', __( 'Template data not found.', '@@text_domain' ) );
+			return $this->error( 'no_template_data', __( 'Template data not found.', 'gutenify' ) );
 		}
 
 		$id = absint( $id );
@@ -474,7 +474,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		if ( is_array( $template_data ) ) {
 			return $this->success( $template_data );
 		} else {
-			return $this->error( 'no_template_data', __( 'Template data not found.', '@@text_domain' ) );
+			return $this->error( 'no_template_data', __( 'Template data not found.', 'gutenify' ) );
 		}
 	}
 
@@ -489,7 +489,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		if ( is_array( $settings ) ) {
 			return $this->success( $settings );
 		} else {
-			return $this->error( 'no_settings', __( 'Settings data not found.', '@@text_domain' ) );
+			return $this->error( 'no_settings', __( 'Settings data not found.', 'gutenify' ) );
 		}
 	}
 
@@ -581,7 +581,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		if ( is_array( $templates ) ) {
 			return $this->success( $templates );
 		} else {
-			return $this->error( 'no_template_kits', __( 'Template kit not found.' . $url, '@@text_domain' ) );
+			return $this->error( 'no_template_kits', __( 'Template kit not found.' . $url, 'gutenify' ) );
 		}
 	}
 
@@ -638,7 +638,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		if ( is_array( $template_data ) ) {
 			return $this->success( $template_data );
 		} else {
-			return $this->error( 'no_template_data', __( 'Template data not found.', '@@text_domain' ) );
+			return $this->error( 'no_template_data', __( 'Template data not found.', 'gutenify' ) );
 		}
 	}
 
@@ -650,7 +650,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		if ( $response ) {
 			return $this->success( $response );
 		}
-		return $this->error( 'error_creating_kit', __( 'Error creating Kit', '@@text_domain' ) );
+		return $this->error( 'error_creating_kit', __( 'Error creating Kit', 'gutenify' ) );
 	}
 
 	public function get_site_options() {
@@ -737,7 +737,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 			$demo_categories = get_transient( 'gutenify_demo_categories', false );
 		}
 		if ( false === $demo_categories ) {
-			$error = $this->error( 'error_demo_categories', __( 'Error listing demo', '@@text_domain' ) );
+			$error = $this->error( 'error_demo_categories', __( 'Error listing demo', 'gutenify' ) );
 
 			try {
 				$url = 'https://demo.gutenify.com/wp-json/demo-api/v1/get_demo_categories';
@@ -779,7 +779,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 			$demo_list = get_transient( 'gutenify_demo_import_list', false );
 		}
 		if ( false === $demo_list ) {
-			$error = $this->error( 'error_demo_list', __( 'Error listing demo', '@@text_domain' ) );
+			$error = $this->error( 'error_demo_list', __( 'Error listing demo', 'gutenify' ) );
 
 			try {
 				$url = 'https://demo.gutenify.com/wp-json/demo-api/v1/get_demos';
@@ -908,7 +908,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 				)
 			);
 		}
-		$error = $this->error( 'error_demo_set_pages', __( 'Error demo set pages.', '@@text_domain' ) );
+		$error = $this->error( 'error_demo_set_pages', __( 'Error demo set pages.', 'gutenify' ) );
 	}
 
 	/**

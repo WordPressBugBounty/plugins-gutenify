@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 function gutenify_font_families() {
 	$font_families = array(
 		array(

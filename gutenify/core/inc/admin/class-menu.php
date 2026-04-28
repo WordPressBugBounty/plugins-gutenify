@@ -9,6 +9,8 @@
 
 namespace gutenify;
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * Class Menu
  *

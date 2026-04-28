@@ -1,11 +1,11 @@
-=== Gutenify - Visual Site Builder Blocks & Site Templates. ===
+=== Gutenify - Visual Site Builder Blocks & Site Templates ===
 Contributors: codeyatri
 Tags: block, blocks, editor, gutenberg, gutenberg blocks
 Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 5.5
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -203,6 +203,12 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-04-29 - version 1.6.3 =
+* Added Countdown Timer block.
+* Improve plugin header compliance with License and License URI declarations.
+* Enhance security by adding ABSPATH protection to framework PHP files.
+
 
 = 2026-03-18 - version 1.6.2 =
 * Update block API version to 3 and standardize script/style declarations.

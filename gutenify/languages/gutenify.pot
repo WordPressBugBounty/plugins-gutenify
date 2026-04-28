@@ -1,14 +1,14 @@
 # Copyright (c) 2026 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.2\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-18T10:21:59+00:00\n"
+"POT-Creation-Date: 2026-04-28T12:59:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #. Author of the plugin
 #: gutenify.php
-#: core/inc/admin/class-menu.php:56
+#: core/inc/admin/class-menu.php:58
 #: svn_folder/tags/0.0.1/inc/class-blocks-loader.php:30
 #: svn_folder/tags/0.0.2/inc/class-blocks-loader.php:30
 #: svn_folder/tags/0.0.3/inc/class-blocks-loader.php:30
@@ -43,12 +43,13 @@ msgstr ""
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:56
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:56
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:56
 #: svn_folder/trunk/core/inc/admin/class-menu.php:56
 msgid "Gutenify"
 msgstr ""
 
-#: core/inc/admin/class-menu.php:55
-#: core/inc/admin/class-menu.php:67
+#: core/inc/admin/class-menu.php:57
+#: core/inc/admin/class-menu.php:69
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:54
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:66
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:54
@@ -65,12 +66,14 @@ msgstr ""
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:67
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:55
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:67
 #: svn_folder/trunk/core/inc/admin/class-menu.php:55
 #: svn_folder/trunk/core/inc/admin/class-menu.php:67
 msgid "Gutenify: Getting Started"
 msgstr ""
 
-#: core/inc/admin/class-menu.php:68
+#: core/inc/admin/class-menu.php:70
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:67
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:67
 #: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:67
@@ -79,11 +82,12 @@ msgstr ""
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:68
 #: svn_folder/trunk/core/inc/admin/class-menu.php:68
 msgid "Getting Started"
 msgstr ""
 
-#: core/inc/admin/class-menu.php:77
+#: core/inc/admin/class-menu.php:79
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:76
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:76
 #: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:76
@@ -92,11 +96,12 @@ msgstr ""
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:77
 #: svn_folder/trunk/core/inc/admin/class-menu.php:77
 msgid "Gutenify Demo Importer"
 msgstr ""
 
-#: core/inc/admin/class-menu.php:78
+#: core/inc/admin/class-menu.php:80
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:77
@@ -105,11 +110,12 @@ msgstr ""
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:78
 #: svn_folder/trunk/core/inc/admin/class-menu.php:78
 msgid "Demo Importer"
 msgstr ""
 
-#: core/inc/admin/class-menu.php:87
+#: core/inc/admin/class-menu.php:89
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:100
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:100
 #: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:100
@@ -118,11 +124,12 @@ msgstr ""
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:87
 #: svn_folder/trunk/core/inc/admin/class-menu.php:87
 msgid "Gutenify Settings"
 msgstr ""
 
-#: core/inc/admin/class-menu.php:88
+#: core/inc/admin/class-menu.php:90
 #: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:101
 #: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:101
 #: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:101
@@ -131,6 +138,7 @@ msgstr ""
 #: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:88
 #: svn_folder/trunk/core/inc/admin/class-menu.php:88
 msgid "Settings"
 msgstr ""
@@ -204,11 +212,57 @@ msgstr ""
 #: svn_folder/tags/1.5.9/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.0/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.1/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.2/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
 
-#: core/src/blocks/post-carousel/index.php:99
+#: core/inc/rest-api/class-rest.php:400
+msgid "Templates not found."
+msgstr ""
+
+#: core/inc/rest-api/class-rest.php:426
+#: core/inc/rest-api/class-rest.php:477
+#: core/inc/rest-api/class-rest.php:641
+msgid "Template data not found."
+msgstr ""
+
+#: core/inc/rest-api/class-rest.php:492
+msgid "Settings data not found."
+msgstr ""
+
+#: core/inc/rest-api/class-rest.php:584
+msgid "Template kit not found."
+msgstr ""
+
+#: core/inc/rest-api/class-rest.php:653
+msgid "Error creating Kit"
+msgstr ""
+
+#: core/inc/rest-api/class-rest.php:740
+#: core/inc/rest-api/class-rest.php:782
+msgid "Error listing demo"
+msgstr ""
+
+#: core/inc/rest-api/class-rest.php:911
+msgid "Error demo set pages."
+msgstr ""
+
+#: core/src/blocks/notice-bar/index.php:146
+msgid "Two buttons"
+msgstr ""
+
+#: core/src/blocks/notice-bar/index.php:149
+#: core/src/blocks/notice-bar/index.php:178
+msgctxt "Block pattern description"
+msgid "Two horizontal buttons, the left button is filled in, and the right button is outlined."
+msgstr ""
+
+#: core/src/blocks/notice-bar/index.php:175
+msgid "Two buttons 2"
+msgstr ""
+
+#: core/src/blocks/post-carousel/index.php:97
 #: core/src/blocks/post-list/index.php:185
 #: svn_folder/tags/1.0.1/src/blocks/post-carousel/index.php:149
 #: svn_folder/tags/1.0.2/src/blocks/post-carousel/index.php:149
@@ -303,6 +357,105 @@ msgstr ""
 #: core/src/blocks/gallery-carousel/inspector/tab-content.js:146
 #: core/src/blocks/slider/inspector/tab-content.js:81
 msgid "Toggle to enable slider pagination."
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:218
+msgid "Timer Settings"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:222
+msgid "Data Storage Level"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:223
+msgid "Store timer settings globally across this page (Post Meta) or locally on this block."
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:226
+msgid "Block Level (Attributes)"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:227
+msgid "Page Level (Post Meta)"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:228
+msgid "Site Level (Site Settings)"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:234
+msgid "Timer Type"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:237
+msgid "Fixed Date & Time"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:238
+msgid "Evergreen Timer"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:247
+#: core/src/blocks/countdown-timer/edit.js:302
+msgid "Block Settings"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:248
+#: core/src/blocks/countdown-timer/edit.js:303
+msgid "Site Level"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:248
+#: core/src/blocks/countdown-timer/edit.js:303
+msgid "Page Level"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:253
+msgid "Unique to this specific Countdown block."
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:255
+msgid "Shared across the entire website."
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:256
+msgid "Shared across all Countdown blocks on this page."
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:307
+msgid "Starts when a visitor loads the page. Unique to each visitor."
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:311
+msgid "Hours"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:317
+msgid "Minutes"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:324
+msgid "Restart on Expiry"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:325
+msgid "If enabled, the timer will start over immediately after reaching zero."
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:372
+msgid "General Settings"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:385
+msgid "Layout"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:402
+msgid "Item Settings"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/edit.js:438
+msgid "Label Style"
 msgstr ""
 
 #: core/src/blocks/gallery-carousel/inspector/tab-content.js:111
@@ -808,6 +961,74 @@ msgstr ""
 msgid "Toggle to show the suffix."
 msgstr ""
 
+#: core/src/non-blocks/components/customizer-panel/alert-kit-apply.js:87
+msgid " Options"
+msgstr ""
+
+#: core/src/non-blocks/components/customizer-panel/alert-kit-apply.js:94
+msgid "Please choose following options you want to apply."
+msgstr ""
+
+#: core/src/non-blocks/components/customizer-panel/index.js:102
+msgid "Gutenify Template Kits"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:145
+msgid "-- Select Category --"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:339
+msgid "Templates"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:407
+msgid "Templates from the theme."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:413
+msgid "Theme"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:431
+msgid "Simple blocks to construct your page."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:437
+msgid "Blocks"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:455
+msgid "Pre-designed ready to use pages."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:461
+msgid "Pages"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:479
+msgid "My Templates."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:485
+msgid "My Templates"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:527
+#: core/src/non-blocks/components/template-browser/index.js:543
+msgid "No templates found."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:536
+#: core/src/non-blocks/components/template-browser/index.js:770
+#: core/src/non-blocks/extend/toolbar-templates-button/index.js:34
+msgid "Add Template"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:566
+#, js-format
+msgid "Templates: %s"
+msgstr ""
+
 #: svn_folder/tags/0.0.1/assets/google-maps_admin.js:1
 #: svn_folder/tags/0.0.1/src/components/blocks/count-down/GutenifyCountDownInspectorControls.js:29
 #: svn_folder/tags/0.0.1/src/components/blocks/google-maps/GutenifyCountDownInspectorControls.js:14
@@ -885,6 +1106,31 @@ msgstr ""
 #: core/src/blocks/content-toggle-item/block.json
 msgctxt "block keyword"
 msgid "Content Toggle"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/block.json
+msgctxt "block title"
+msgid "Countdown Timer"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/block.json
+msgctxt "block description"
+msgid "Flexible Countdown Timer with Block, Page, and Site level storage options."
+msgstr ""
+
+#: core/src/blocks/countdown-timer/block.json
+msgctxt "block keyword"
+msgid "countdown"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/block.json
+msgctxt "block keyword"
+msgid "timer"
+msgstr ""
+
+#: core/src/blocks/countdown-timer/block.json
+msgctxt "block keyword"
+msgid "evergreen"
 msgstr ""
 
 #: core/src/blocks/countup-v2/block.json

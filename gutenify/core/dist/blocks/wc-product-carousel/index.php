@@ -123,7 +123,7 @@ class WC_Product_Carousel {
 
 				echo '<div class="wp-block-button wc-block-grid__product-add-to-cart">';
 				echo gutenify_wc_get_add_to_cart( $product );
-				// var_dump( $product );
+
 				echo '</div>'; // Product add to cart wrapper
 				echo '</div>'; // .gutenify--wc-product--item-content
 
@@ -328,7 +328,7 @@ function gutenify_render_wc_product_carousel_block( $attributes, $content, $prop
 
 			echo '<div class="wp-block-button wc-block-grid__product-add-to-cart">';
 			echo gutenify_wc_get_add_to_cart( $product );
-			// var_dump( $product );
+
 			echo '</div>'; // Product add to cart wrapper
 			echo '</div>'; // .gutenify--wc-product--item-content
 

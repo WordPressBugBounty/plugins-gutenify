@@ -26,7 +26,7 @@ class Masonry {
 	}
 	public static function add_assets( $metadata ) {
 		if ( ! empty( $metadata['name'] ) && 'core/group' === $metadata['name'] ) {
-			var_dump(  $metadata['name'] );
+
 			// foreach( $metadata as $meta ) {
 			// }
 		}

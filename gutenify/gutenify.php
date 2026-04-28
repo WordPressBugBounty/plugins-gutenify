@@ -5,20 +5,15 @@
  * Author: Gutenify
  * Author URI: https://www.gutenify.com
  * Plugin URI: https://www.gutenify.com
- * Version: 1.6.2
+ * Version: 1.6.3
  * Text Domain: gutenify
  * Domain Path: /languages
  * Tested up to: 6.9
  * Requires at least: 6.4
  * Requires PHP: 5.5
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
- * Gutenify is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * any later version.
- *
- * You should have received a copy of the GNU General Public License
- * along with Gutenify. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package Gutenify
  */
@@ -27,7 +22,7 @@
 defined('ABSPATH') || exit;
 
 // Define constants.
-define('GUTENIFY_VERSION', '1.6.2');
+define('GUTENIFY_VERSION', '1.6.3');
 define('GUTENIFY_BASE_DIR', plugin_dir_path(__FILE__));
 define('GUTENIFY_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('GUTENIFY_BASE_FILE', __FILE__);

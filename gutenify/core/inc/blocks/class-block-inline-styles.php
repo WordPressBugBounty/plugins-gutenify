@@ -2,6 +2,9 @@
 /**
  * [TODO: Depricate this class.].
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Gutenify_block_inline_styles {
 
 	private static $all_styles = '';

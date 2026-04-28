@@ -91,7 +91,7 @@ class Custom_list {
 			// }
 			// $content->next_tag();
 			if ( ! empty( $block['attrs']['activeCustomList'] ) ) {
-				// var_dump( $block['attrs'] );
+
 				$content->add_class( 'gutenify-custom-list-active' );
 			}
 
