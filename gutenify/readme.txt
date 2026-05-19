@@ -5,14 +5,14 @@ Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 5.5
-Stable tag: 1.6.3
+Stable tag: 1.6.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Gutenify is a free WordPress plugin which allows you to add different block effortlessly in your site.
 
 == Description ==
-Gutenify - Visual Site Builder & Site Templates is a collection of Gutenberg Advance Fullsite Editing Blocks & site templates that is compatible with WordPress Full Site Editing to help you create the website you always wanted.
+[Gutenify - Visual Site Builder & Site Templates](https://gutenify.com/) is a collection of Gutenberg Advance Fullsite Editing Blocks & site templates that is compatible with WordPress Full Site Editing to help you create the website you always wanted.
 Gutenify is a free WordPress plugin which allows you to add different block effortlessly in your site. With a collection of page building WordPress blocks for the new WordPress block editor you can build your site very quickly.
 
 > **🏆 [Site Demos](https://gutenify.com/site-demos/)**
@@ -29,6 +29,15 @@ With Site Demos, you will be able to import pre built demos that can setup pages
 
 == 💁‍ Block We Offer ==
 We currently offer following blocks in our Free Plugins.
+
+= 👉 Stacking Cards =
+Stacking Cards block allows you to create an engaging, interactive layout where cards dynamically stack on top of each other as the user scrolls down the page. It includes customizable offset, spacing, and multiple stacking animation modes like scale and fade.
+
+= 👉 Countdown Timer =
+Countdown Timer block helps you create urgency and drive conversions by displaying a dynamic countdown clock. Features include customizable styles, evergreen timers (PRO), smart sync, and precise control over the layout and expiration actions.
+
+= 👉 Hover Card (PRO) =
+Hover Card block lets you build highly interactive cards that reveal more information when users hover over them. Perfect for showcasing team members, services, or portfolios with advanced animation effects and full design control.
 
 = 👉 WooCommerce Product Carousel =
 WooCommerce Product Carousel block allows to disply products in slider format. You can control which product to disply based on category, tags and other parameters. Also you can do customizaton on the look.
@@ -203,6 +212,10 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-05-20 - version 1.6.4 =
+* Added Stacking Cards block.
+* Fixed Styling issues.
 
 = 2026-04-29 - version 1.6.3 =
 * Added Countdown Timer block.

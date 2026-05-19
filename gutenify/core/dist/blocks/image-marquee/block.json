@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/image-marquee",
+  "category": "gutenify",
+  "title": "Image Marquee",
+  "description": "Continuous scrolling marquee slider for images, logos, or text.",
+  "version": "1",
+  "attributes": {
+    "blockClientId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockAdvanceOptions": {
+      "type": "object",
+      "default": {
+        "speed": 5000,
+        "direction": "left",
+        "pauseOnHover": true,
+        "showArrows": false,
+        "showPagination": false,
+        "itemsPerViewDesktop": 4,
+        "itemsPerViewTablet": 3,
+        "itemsPerViewMobile": 1,
+        "itemSpacing": "20px"
+      }
+    }
+  },
+  "supports": {
+    "html": true,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "margin": true,
+        "padding": true
+      }
+    },
+    "layout": {
+      "allowEditing": false,
+      "type": "flex",
+      "orientation": "horizontal"
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "file:./view-script.js"
+  ]
+}

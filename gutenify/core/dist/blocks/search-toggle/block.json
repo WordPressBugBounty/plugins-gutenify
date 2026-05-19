@@ -1,0 +1,114 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/search-toggle",
+  "category": "gutenify",
+  "title": "Search Toggle",
+  "description": "Interactive search trigger with slide-down, popup, or toggle modes.",
+  "keywords": [
+    "search",
+    "toggle",
+    "popup",
+    "find"
+  ],
+  "version": "1",
+  "allowedBlocks": [
+    "gutenify/search-toggle-container"
+  ],
+  "attributes": {
+    "blockClientId": {
+      "type": "string",
+      "default": ""
+    },
+    "displayMode": {
+      "type": "string",
+      "default": "slide-down"
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "default": "Search..."
+    },
+    "showLabel": {
+      "type": "boolean",
+      "default": false
+    },
+    "searchLabel": {
+      "type": "string",
+      "default": "Search"
+    },
+    "animation": {
+      "type": "string",
+      "default": "slide"
+    },
+    "iconType": {
+      "type": "string",
+      "default": "default"
+    },
+    "customIcon": {
+      "type": "string",
+      "default": ""
+    },
+    "customCloseIcon": {
+      "type": "string",
+      "default": ""
+    },
+    "iconSize": {
+      "type": "number",
+      "default": 20
+    },
+    "iconColor": {
+      "type": "string",
+      "default": ""
+    },
+    "triggerStyle": {
+      "type": "object",
+      "default": {
+        "padding": "10px",
+        "fontSize": "20px",
+        "color": "",
+        "backgroundColor": ""
+      }
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "margin": true,
+        "padding": true
+      }
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    },
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true,
+      "__experimentalDefaultControls": {
+        "text": true,
+        "background": true
+      }
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view-script.js"
+}

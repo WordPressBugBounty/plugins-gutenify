@@ -64,6 +64,12 @@ class Helpers {
 			'countup-v2',
 			'icon-v2',
 			'countdown-timer',
+			'stacking-cards',
+			'stacking-card-item',
+			// 'image-marquee',
+			// 'image-marquee-item',
+			// 'search-toggle',
+			// 'search-toggle-container',
 			// 'popup',
 
 			// Optional blocks (can be enabled via filters or config).

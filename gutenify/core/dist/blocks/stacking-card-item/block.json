@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/stacking-card-item",
+  "category": "gutenify",
+  "parent": [
+    "gutenify/stacking-cards"
+  ],
+  "title": "Stacking Card Item",
+  "description": "Individual card for the stacking cards container.",
+  "version": "1",
+  "attributes": {
+    "blockClientId": {
+      "type": "string",
+      "default": ""
+    },
+    "blockAdvanceOptions": {
+      "type": "object",
+      "default": {
+        "stickyOffset": ""
+      }
+    }
+  },
+  "supports": {
+    "html": true,
+    "anchor": true,
+    "inserter": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true,
+      "__experimentalBorder": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "margin": true,
+        "padding": true
+      }
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true,
+        "lineHeight": true
+      }
+    },
+    "shadow": true,
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ]
+}

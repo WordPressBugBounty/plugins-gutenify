@@ -1,14 +1,14 @@
 # Copyright (c) 2026 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.3\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-28T12:59:25+00:00\n"
+"POT-Creation-Date: 2026-05-19T11:05:14+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -44,7 +44,8 @@ msgstr ""
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:56
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:56
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:56
-#: svn_folder/trunk/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:58
+#: svn_folder/trunk/core/inc/admin/class-menu.php:58
 msgid "Gutenify"
 msgstr ""
 
@@ -68,8 +69,10 @@ msgstr ""
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:67
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:55
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:67
-#: svn_folder/trunk/core/inc/admin/class-menu.php:55
-#: svn_folder/trunk/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:57
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:69
+#: svn_folder/trunk/core/inc/admin/class-menu.php:57
+#: svn_folder/trunk/core/inc/admin/class-menu.php:69
 msgid "Gutenify: Getting Started"
 msgstr ""
 
@@ -83,7 +86,8 @@ msgstr ""
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:68
-#: svn_folder/trunk/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:70
+#: svn_folder/trunk/core/inc/admin/class-menu.php:70
 msgid "Getting Started"
 msgstr ""
 
@@ -97,7 +101,8 @@ msgstr ""
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:77
-#: svn_folder/trunk/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:79
+#: svn_folder/trunk/core/inc/admin/class-menu.php:79
 msgid "Gutenify Demo Importer"
 msgstr ""
 
@@ -111,7 +116,8 @@ msgstr ""
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:78
-#: svn_folder/trunk/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:80
+#: svn_folder/trunk/core/inc/admin/class-menu.php:80
 msgid "Demo Importer"
 msgstr ""
 
@@ -125,7 +131,8 @@ msgstr ""
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:87
-#: svn_folder/trunk/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:89
+#: svn_folder/trunk/core/inc/admin/class-menu.php:89
 msgid "Gutenify Settings"
 msgstr ""
 
@@ -139,7 +146,8 @@ msgstr ""
 #: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:88
-#: svn_folder/trunk/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:90
+#: svn_folder/trunk/core/inc/admin/class-menu.php:90
 msgid "Settings"
 msgstr ""
 
@@ -213,38 +221,59 @@ msgstr ""
 #: svn_folder/tags/1.6.0/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.1/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.2/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.3/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:400
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:400
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:400
 msgid "Templates not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:426
 #: core/inc/rest-api/class-rest.php:477
 #: core/inc/rest-api/class-rest.php:641
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:426
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:477
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:641
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:426
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:477
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:641
 msgid "Template data not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:492
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:492
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:492
 msgid "Settings data not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:584
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:584
 msgid "Template kit not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:653
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:653
 msgid "Error creating Kit"
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:740
 #: core/inc/rest-api/class-rest.php:782
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:740
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:782
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:740
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:782
 msgid "Error listing demo"
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:911
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:911
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:911
 msgid "Error demo set pages."
 msgstr ""
 
@@ -471,6 +500,54 @@ msgstr ""
 #: core/src/blocks/gallery-carousel/inspector/tab-content.js:122
 #: core/src/blocks/slider/inspector/tab-content.js:71
 msgid "Toggle to enable slider navigation."
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:55
+msgid "Marquee Settings"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:57
+msgid "Direction"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:66
+msgid "Speed (ms)"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:72
+msgid "Higher value means slower scrolling."
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:75
+msgid "Pause on Hover"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:80
+msgid "Show Navigation Arrows"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:85
+msgid "Show Pagination Dots"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:90
+msgid "Item Spacing"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:95
+msgid "Items Per View"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:97
+msgid "Desktop"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:104
+msgid "Tablet"
+msgstr ""
+
+#: core/src/blocks/image-marquee/edit.js:111
+msgid "Mobile"
 msgstr ""
 
 #: core/src/blocks/map/constants.js:21
@@ -961,6 +1038,54 @@ msgstr ""
 msgid "Toggle to show the suffix."
 msgstr ""
 
+#: core/src/blocks/stacking-card-item/edit.js:41
+msgid "Card Settings"
+msgstr ""
+
+#: core/src/blocks/stacking-card-item/edit.js:43
+msgid "Sticky Offset Override"
+msgstr ""
+
+#: core/src/blocks/stacking-card-item/edit.js:46
+msgid "Leave empty to use container default."
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:90
+msgid "Add Card Item"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:96
+msgid "Stacking Options"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:98
+msgid "Top Offset"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:101
+msgid "Offset from top of viewport (e.g. 50px or 10vh)"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:104
+msgid "Stacking Mode"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:115
+msgid "Scale Intensity"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:124
+msgid "Fade Intensity"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:132
+msgid "Disable on Mobile"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/edit.js:137
+msgid "Card Spacing (Gap)"
+msgstr ""
+
 #: core/src/non-blocks/components/customizer-panel/alert-kit-apply.js:87
 msgid " Options"
 msgstr ""
@@ -1191,6 +1316,26 @@ msgctxt "block keyword"
 msgid "Icon"
 msgstr ""
 
+#: core/src/blocks/image-marquee-item/block.json
+msgctxt "block title"
+msgid "Marquee Item"
+msgstr ""
+
+#: core/src/blocks/image-marquee-item/block.json
+msgctxt "block description"
+msgid "Individual item for the image marquee."
+msgstr ""
+
+#: core/src/blocks/image-marquee/block.json
+msgctxt "block title"
+msgid "Image Marquee"
+msgstr ""
+
+#: core/src/blocks/image-marquee/block.json
+msgctxt "block description"
+msgid "Continuous scrolling marquee slider for images, logos, or text."
+msgstr ""
+
 #: core/src/blocks/info-box/block.json
 msgctxt "block title"
 msgid "Info Box"
@@ -1271,6 +1416,46 @@ msgctxt "block keyword"
 msgid "Post"
 msgstr ""
 
+#: core/src/blocks/search-toggle-container/block.json
+msgctxt "block title"
+msgid "Toggle Content Container"
+msgstr ""
+
+#: core/src/blocks/search-toggle-container/block.json
+msgctxt "block description"
+msgid "Container for Search Toggle content."
+msgstr ""
+
+#: core/src/blocks/search-toggle/block.json
+msgctxt "block title"
+msgid "Search Toggle"
+msgstr ""
+
+#: core/src/blocks/search-toggle/block.json
+msgctxt "block description"
+msgid "Interactive search trigger with slide-down, popup, or toggle modes."
+msgstr ""
+
+#: core/src/blocks/search-toggle/block.json
+msgctxt "block keyword"
+msgid "search"
+msgstr ""
+
+#: core/src/blocks/search-toggle/block.json
+msgctxt "block keyword"
+msgid "toggle"
+msgstr ""
+
+#: core/src/blocks/search-toggle/block.json
+msgctxt "block keyword"
+msgid "popup"
+msgstr ""
+
+#: core/src/blocks/search-toggle/block.json
+msgctxt "block keyword"
+msgid "find"
+msgstr ""
+
 #: core/src/blocks/section-title/block.json
 msgctxt "block title"
 msgid "Section Title"
@@ -1340,6 +1525,26 @@ msgstr ""
 #: core/src/blocks/social-share/block.json
 msgctxt "block title"
 msgid "Social Share"
+msgstr ""
+
+#: core/src/blocks/stacking-card-item/block.json
+msgctxt "block title"
+msgid "Stacking Card Item"
+msgstr ""
+
+#: core/src/blocks/stacking-card-item/block.json
+msgctxt "block description"
+msgid "Individual card for the stacking cards container."
+msgstr ""
+
+#: core/src/blocks/stacking-cards/block.json
+msgctxt "block title"
+msgid "Stacking Cards"
+msgstr ""
+
+#: core/src/blocks/stacking-cards/block.json
+msgctxt "block description"
+msgid "Container for stacking cards with sticky scroll effect."
 msgstr ""
 
 #: core/src/blocks/star-rating/block.json
