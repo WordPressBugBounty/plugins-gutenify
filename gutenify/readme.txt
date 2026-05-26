@@ -3,9 +3,9 @@ Contributors: codeyatri
 Tags: block, blocks, editor, gutenberg, gutenberg blocks
 Donate link: https://gutenify.com/
 Requires at least: 6.4
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 5.5
-Stable tag: 1.6.4
+Stable tag: 1.6.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -212,6 +212,11 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-05-26 - version 1.6.5 =
+* Major style and layout updates to Demo Importer V2.
+* Added search, pagination, categories filtering sidebar, and skeleton loading card animation to Demo Importer.
+* Updated Getting Started page styling.
 
 = 2026-05-20 - version 1.6.4 =
 * Added Stacking Cards block.

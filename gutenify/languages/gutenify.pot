@@ -1,14 +1,14 @@
 # Copyright (c) 2026 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.4\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-19T11:05:14+00:00\n"
+"POT-Creation-Date: 2026-05-26T07:24:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -45,6 +45,7 @@ msgstr ""
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:56
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:56
 #: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:58
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:58
 #: svn_folder/trunk/core/inc/admin/class-menu.php:58
 msgid "Gutenify"
 msgstr ""
@@ -71,6 +72,8 @@ msgstr ""
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:67
 #: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:57
 #: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:69
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:57
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:69
 #: svn_folder/trunk/core/inc/admin/class-menu.php:57
 #: svn_folder/trunk/core/inc/admin/class-menu.php:69
 msgid "Gutenify: Getting Started"
@@ -87,6 +90,7 @@ msgstr ""
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:68
 #: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:70
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:70
 #: svn_folder/trunk/core/inc/admin/class-menu.php:70
 msgid "Getting Started"
 msgstr ""
@@ -102,6 +106,7 @@ msgstr ""
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:77
 #: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:79
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:79
 #: svn_folder/trunk/core/inc/admin/class-menu.php:79
 msgid "Gutenify Demo Importer"
 msgstr ""
@@ -117,6 +122,7 @@ msgstr ""
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:78
 #: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:80
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:80
 #: svn_folder/trunk/core/inc/admin/class-menu.php:80
 msgid "Demo Importer"
 msgstr ""
@@ -132,6 +138,7 @@ msgstr ""
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:87
 #: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:89
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:89
 #: svn_folder/trunk/core/inc/admin/class-menu.php:89
 msgid "Gutenify Settings"
 msgstr ""
@@ -147,6 +154,7 @@ msgstr ""
 #: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:88
 #: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:90
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:90
 #: svn_folder/trunk/core/inc/admin/class-menu.php:90
 msgid "Settings"
 msgstr ""
@@ -222,12 +230,14 @@ msgstr ""
 #: svn_folder/tags/1.6.1/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.2/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.3/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.4/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:400
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:400
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:400
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:400
 msgid "Templates not found."
 msgstr ""
@@ -238,6 +248,9 @@ msgstr ""
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:426
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:477
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:641
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:426
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:477
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:641
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:426
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:477
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:641
@@ -246,18 +259,21 @@ msgstr ""
 
 #: core/inc/rest-api/class-rest.php:492
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:492
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:492
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:492
 msgid "Settings data not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:584
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:584
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:584
 msgid "Template kit not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:653
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:653
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:653
 msgid "Error creating Kit"
 msgstr ""
@@ -266,6 +282,8 @@ msgstr ""
 #: core/inc/rest-api/class-rest.php:782
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:740
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:782
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:740
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:782
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:740
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:782
 msgid "Error listing demo"
@@ -273,6 +291,7 @@ msgstr ""
 
 #: core/inc/rest-api/class-rest.php:911
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:911
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:911
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:911
 msgid "Error demo set pages."
 msgstr ""
