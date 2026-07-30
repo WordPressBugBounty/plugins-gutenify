@@ -42,36 +42,11 @@ class Block_Assets {
 	 * @return void
 	 */
 	public static function enqueue_block_assets() {
-		// Plugin constants and flags.
-		$constants            = Helpers::plugin_constants();
-		$is_pro_active        = Helpers::is_pro_active();
-		$plugin_main_slug     = $constants['plugin_main_slug'];
-		$plugin_main_base_url = Helpers::core_base_url();
-		$plugin_main_base_dir = Helpers::core_base_dir();
+		$constants        = Helpers::plugin_constants();
+		$plugin_main_slug = $constants['plugin_main_slug'];
 
 		// Global inline script (common dependency).
 		wp_enqueue_script( $plugin_main_slug . '-global-inline-handle' );
-
-		// Extended blocks.
-		$asset_paths = array(
-			'extend-custom-list' => array(
-				'path' => 'dist/non-blocks/extend/custom-list',
-			),
-		);
-
-		foreach ( $asset_paths as $handle => $asset ) {
-			$path       = $asset['path'];
-			$asset_file = gutenify_get_block_asset_file_values( sprintf( '%s' . $path . '/index.asset.php', $plugin_main_base_dir ) );
-			$handle     = $plugin_main_slug . '-' . str_replace( '/', '-', $handle );
-
-			$deps = ! empty( $asset['js_dependencies'] ) ? array_merge( $asset_file['dependencies'], $asset['js_dependencies'] ) : $asset_file['dependencies'];
-			wp_enqueue_script( $handle, $plugin_main_base_url . $path . '/index.js', $deps, $asset_file['version'], true );
-
-			if ( file_exists( $plugin_main_base_dir . $path . '/index.css' ) ) {
-				$deps = ! empty( $asset['style_dependencies'] ) ? $asset['style_dependencies'] : array();
-				wp_enqueue_style( $handle, $plugin_main_base_url . $path . '/index.css', $deps, $asset_file['version'] );
-			}
-		}
 	}
 
 	/**
@@ -85,7 +60,7 @@ class Block_Assets {
 		if ( ! empty( $global_style ) ) {
 			$handle = 'gutenify-global-inline-handle';
 			wp_enqueue_style( $handle );
-			wp_add_inline_style( $handle, $global_style );
+			wp_add_inline_style( $handle, wp_strip_all_tags( $global_style ) );
 		}
 	}
 }

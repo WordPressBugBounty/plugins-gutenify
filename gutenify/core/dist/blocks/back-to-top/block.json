@@ -1,0 +1,92 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/back-to-top",
+  "category": "gutenify",
+  "title": "Back to Top",
+  "description": "A floating button that scrolls the page to top on click, with a circular SVG progress ring that fills as the visitor scrolls down the page.",
+  "keywords": [
+    "back to top",
+    "scroll",
+    "progress",
+    "button"
+  ],
+  "textdomain": "gutenify",
+  "version": "1.0.0",
+  "attributes": {
+    "scrollThreshold": {
+      "type": "number",
+      "default": 300
+    },
+    "position": {
+      "type": "string",
+      "default": "bottom-right"
+    },
+    "buttonSize": {
+      "type": "string",
+      "default": "48px"
+    },
+    "buttonBackgroundColor": {
+      "type": "string",
+      "default": "#1e1e1e"
+    },
+    "buttonIconColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "ringColor": {
+      "type": "string",
+      "default": "#2196f3"
+    },
+    "ringTrackColor": {
+      "type": "string",
+      "default": "rgba(0, 0, 0, 0.12)"
+    },
+    "ringThickness": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [],
+    "color": {
+      "text": true,
+      "background": true,
+      "gradients": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "__experimentalDefaultControls": {
+        "padding": true
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "width": true
+      }
+    },
+    "shadow": true
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "file:./view-script.js"
+  ]
+}

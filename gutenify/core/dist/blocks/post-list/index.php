@@ -188,8 +188,8 @@ function gutenify_post_list( $posts, $attributes ) {
 
 		$list_items_markup .= sprintf(
 			'<h3 class="gutenify-post-list-title"><a href="%1$s" rel="bookmark">%2$s</a></h3> ',
-			$post['postLink'],
-			$title
+			esc_url( $post['postLink'] ),
+			esc_html( $title )
 		);
 		$meta_data          = '';
 		if ( isset( $attributes['displayPostDate'] ) && $attributes['displayPostDate'] && 'horizontal' === $block_style ) {
@@ -321,30 +321,30 @@ function gutenify_post_list_render_block ($block_content, $block){
 
 	//color
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'])){
-		$css .= 'color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] . ';';
+		$css .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] ) . ';';
 	}
 
 	//background Color
 	if(!empty($block['attrs']['backgroundGradient'])){
-		$css .= 'background:' . $block['attrs']['backgroundGradient'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['backgroundGradient'] ) . ';';
 	}elseif(!empty($block['attrs']['backgroundColor'])){
-		$css .= 'background:' . $block['attrs']['backgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['backgroundColor'] ) . ';';
 	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'])){
-		$css .= 'background: ' .$block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] ) . ';';
 	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'])){
-		$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'] ) . ';';
 	}
 
 	//border color
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'])){
-		$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] . ';';
+		$css .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] ) . ';';
 
 	}
 
 	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] )  ) {
 		$css .= 'border-style:solid;';
 		if ( ! is_array( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] ) ) {
-			$css .= 'border-width: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] . 'px;';
+			$css .= 'border-width: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] ) . 'px;';
 		} else {
 			$css .= \gutenify\Style_Helpers::box_control( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'], 'border-', '-width');
 		}
@@ -363,39 +363,39 @@ function gutenify_post_list_render_block ($block_content, $block){
 	//thumbnail
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['thumbnailMinHeight'])){
 		$css .= $root_selector . '.wp-block-gutenify-post-list .gutenify-post-list-item-inner-wrapper .gutenify-post-list-thumb img {';
-		$css .= 'height:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['thumbnailMinHeight'] . ';}';
+		$css .= 'height:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['thumbnailMinHeight'] ) . ';}';
 	}
 	//padding
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding'])){
 
 		$css .= $inner_block_selector . ' .gutenify-post-list-text-content{';
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['top'])){
-			$css .= 'padding-top:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['top'] . ';';
+			$css .= 'padding-top:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['top'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['bottom'])){
-			$css .= 'padding-bottom:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['bottom'] . ';';
+			$css .= 'padding-bottom:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['bottom'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['left'])){
-			$css .= 'padding-left:' .  $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['left'] . ';';
+			$css .= 'padding-left:' .  esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['left'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['right'])){
-			$css .= 'padding-right:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['right'] . ';';
+			$css .= 'padding-right:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['desktop']['right'] ) . ';';
 		}
 		$css .='}';
 
 		$css .= '@media only screen and (max-width: 992px) {';
 		$css .= $inner_block_selector . ' .gutenify-post-list-text-content{';
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['top'])){
-			$css .= 'padding-top:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['top'] . ';';
+			$css .= 'padding-top:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['top'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['bottom'])){
-			$css .= 'padding-bottom:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['bottom'] . ';';
+			$css .= 'padding-bottom:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['bottom'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['left'])){
-			$css .= 'padding-left:' .  $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['left'] . ';';
+			$css .= 'padding-left:' .  esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['left'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['right'])){
-			$css .= 'padding-right:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['right'] . ';';
+			$css .= 'padding-right:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['tablet']['right'] ) . ';';
 		}
 		$css .='}';
 		$css .='}';
@@ -404,16 +404,16 @@ function gutenify_post_list_render_block ($block_content, $block){
 
 		$css .= $inner_block_selector . ' .gutenify-post-list-text-content{';
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['top'])){
-			$css .= 'padding-top:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['top'] . ';';
+			$css .= 'padding-top:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['top'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['bottom'])){
-			$css .= 'padding-bottom:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['bottom'] . ';';
+			$css .= 'padding-bottom:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['bottom'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['left'])){
-			$css .= 'padding-left:' .  $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['left'] . ';';
+			$css .= 'padding-left:' .  esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['left'] ) . ';';
 		}
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['right'])){
-			$css .= 'padding-right:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['right'] . ';';
+			$css .= 'padding-right:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['contentPadding']['mobile']['right'] ) . ';';
 		}
 		$css .='}';
 		$css .='}';
@@ -432,24 +432,24 @@ function gutenify_post_list_render_block ($block_content, $block){
 
 	//color
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'])){
-		$css .= ' color: ' .$block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'] . ';';
+		$css .= ' color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'] ) . ';';
 	}
 
 	//background
 	if(!empty($block['attrs']['hoverBackgroundGradient'])){
-		$css .= 'background:' . $block['attrs']['hoverBackgroundGradient'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundGradient'] ) . ';';
 	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'])){
-		$css .= 'background: ' .$block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] ) . ';';
 	}elseif(!empty($block['attrs']['hoverBackgroundColor'])){
-		$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundColor'] ) . ';';
 	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'])){
-		$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] ) . ';';
 	}
 
 
 	//border color
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'])){
-		$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] . ';';
+		$css .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] ) . ';';
 	}
 
 	if ( ! empty( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBoxShadow'] ) ) {
@@ -461,7 +461,7 @@ function gutenify_post_list_render_block ($block_content, $block){
 
 	//font size
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'])){
-		$css .= $root_selector . ' .gutenify-post-list-title{ font-size:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize']. ';}';
+		$css .= $root_selector . ' .gutenify-post-list-title{ font-size:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'] ) . ';}';
 	}
 
 	$handle = 'gutenify-block-inline-handle';

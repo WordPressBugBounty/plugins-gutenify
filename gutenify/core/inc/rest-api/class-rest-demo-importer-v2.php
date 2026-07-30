@@ -206,11 +206,11 @@ class Rest_Demo_Importer_V2 {
 		}
 
 		if ( ! empty( $params['data']['plugin_admin_global_style'] ) ) {
-			update_option( $plugin_main_function_prefix . '_admin_global_style', $params['data']['plugin_admin_global_style'] );
+			update_option( $plugin_main_function_prefix . '_admin_global_style', wp_strip_all_tags( $params['data']['plugin_admin_global_style'] ) );
 		}
 
 		if ( ! empty( $params['data']['plugin_global_style'] ) ) {
-			update_option( $plugin_main_function_prefix . '_global_style', $params['data']['plugin_global_style'] );
+			update_option( $plugin_main_function_prefix . '_global_style', wp_strip_all_tags( $params['data']['plugin_global_style'] ) );
 		}
 		return true;
 	}

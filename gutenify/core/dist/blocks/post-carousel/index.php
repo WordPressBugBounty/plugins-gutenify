@@ -100,8 +100,8 @@ class Post_Carousel {
 
 			$list_items_markup .= sprintf(
 				'<h3 class="gutenify-post-carousel-title"><a href="%1$s" rel="bookmark">%2$s</a></h3> ',
-				$post['postLink'],
-				$title
+				esc_url( $post['postLink'] ),
+				esc_html( $title )
 			);
 			$meta_data = '';
 			if (isset($attributes['displayPostDate']) && $attributes['displayPostDate']) {
@@ -176,7 +176,7 @@ class Post_Carousel {
 		//color
 		$css_chunk = '';
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'])) {
-			$css_chunk .= 'color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] . ';';
+			$css_chunk .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] ) . ';';
 		}
 
 		$background_color = !empty( $instance->attributes['blockAdvanceOptions']['innerBlock']['backgroundColor'] ) ? esc_attr($instance->attributes['blockAdvanceOptions']['innerBlock']['backgroundColor'] ) :  '';
@@ -187,11 +187,11 @@ class Post_Carousel {
 		}
 
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'])) {
-			$css_chunk .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] . ';';
+			$css_chunk .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] ) . ';';
 		}
 
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'])) {
-			$css_chunk .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] . ';';
+			$css_chunk .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] ) . ';';
 		}
 
 		//borderWidth
@@ -228,19 +228,19 @@ class Post_Carousel {
 		 */
 		$css_chunk = '';
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'])) {
-			$css_chunk .= 'color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'] . ';';
+			$css_chunk .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'] ) . ';';
 		}
 
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'])) {
-			$css_chunk .= 'background-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] . ';';
+			$css_chunk .= 'background-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] ) . ';';
 		}
 
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'])) {
-			$css_chunk .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] . ';';
+			$css_chunk .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] ) . ';';
 		}
 
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'])) {
-			$css_chunk .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] . ';';
+			$css_chunk .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] ) . ';';
 		}
 
 		$inner_block_selector = $inner_block_selector . ':hover';
@@ -255,7 +255,7 @@ class Post_Carousel {
 		 */
 		$css_chunk = '';
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['thumbnailMinHeight'])) {
-			$css_chunk .= 'height:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['thumbnailMinHeight'] . ';';
+			$css_chunk .= 'height:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['thumbnailMinHeight'] ) . ';';
 		}
 		$thumbnail_selector = '.' . $block_id . ' .gutenify-post-carousel-item-inner-wrapper .gutenify-post-carousel-thumb img';
 
@@ -265,7 +265,7 @@ class Post_Carousel {
 
 		$css_chunk = '';
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'])){
-			$css_chunk .= 'font-size:'. $block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'];
+			$css_chunk .= 'font-size:'. esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['postTitleSize'] );
 		}
 		$post_title_selector = '.' . $block_id . ' .gutenify-post-carousel-title';
 		$css_thread .= $post_title_selector . '{';

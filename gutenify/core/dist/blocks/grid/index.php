@@ -20,19 +20,19 @@ class Grid{
 	$css = $root_selector . '{ display: grid;';
 
 	if (!empty($block['attrs']['blockAdvanceOptions']['gap']['rowGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] ) . ';';
 	} else {
 		$css .= 'row-gap: 40px;';
 
 	}
 	if (!empty($block['attrs']['blockAdvanceOptions']['gap']['columnGap'])) {
-		$css .= 'column-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] . ';';
+		$css .= 'column-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] ) . ';';
 	} else {
 		$css .= 'column-gap: 40px;';
 
 	}
 	if (!empty($block['attrs']['blockAdvanceOptions']['columns'])) {
-		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['columns'] . ',1fr);';
+		$css .= 'grid-template-columns: repeat(' . esc_attr( $block['attrs']['blockAdvanceOptions']['columns'] ) . ',1fr);';
 	} else {
 		$css .= 'grid-template-columns: repeat(3,1fr);';
 
@@ -43,23 +43,23 @@ class Grid{
 	$css .= '@media screen and (max-width: 780px){'. $root_selector . '{';
 
 	if (!empty($block['attrs']['blockAdvanceOptions']['tablet']['columns'])) {
-		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['tablet']['columns'] . ',1fr);';
+		$css .= 'grid-template-columns: repeat(' . esc_attr( $block['attrs']['blockAdvanceOptions']['tablet']['columns'] ) . ',1fr);';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['columns'])) {
-		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['columns'] . ',1fr);';
+		$css .= 'grid-template-columns: repeat(' . esc_attr( $block['attrs']['blockAdvanceOptions']['columns'] ) . ',1fr);';
 	} else {
 		$css .= 'grid-template-columns: repeat(3,1fr);';
 	}
 	if (!empty($block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['gap']['rowGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] ) . ';';
 	} else {
 		$css .= 'row-gap: 40px;';
 	}
 	if (!empty($block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'] ) . ';';
 	} else if (!empty($block['attrs']['blockAdvanceOptions']['gap']['columnGap'])) {
-		$css .= 'column-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] . ';';
+		$css .= 'column-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] ) . ';';
 	} else {
 		$css .= 'column-gap: 40px;';
 	}
@@ -69,29 +69,29 @@ class Grid{
 	$css .= '@media screen and (max-width: 360px){ '. $root_selector. '{';
 
 	if (!empty($block['attrs']['blockAdvanceOptions']['mobile']['columns'])) {
-		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['mobile']['columns'] . ',1fr);';
+		$css .= 'grid-template-columns: repeat(' . esc_attr( $block['attrs']['blockAdvanceOptions']['mobile']['columns'] ) . ',1fr);';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['tablet']['columns'])) {
-		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['tablet']['columns'] . ',1fr);';
+		$css .= 'grid-template-columns: repeat(' . esc_attr( $block['attrs']['blockAdvanceOptions']['tablet']['columns'] ) . ',1fr);';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['columns'])) {
-		$css .= 'grid-template-columns: repeat(' . $block['attrs']['blockAdvanceOptions']['columns'] . ',1fr);';
+		$css .= 'grid-template-columns: repeat(' . esc_attr( $block['attrs']['blockAdvanceOptions']['columns'] ) . ',1fr);';
 	} else {
 		$css .= 'grid-template-columns: repeat(3,1fr);';
 	}
 	if (!empty($block['attrs']['blockAdvanceOptions']['mobile']['gap']['rowGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['mobile']['gap']['rowGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['mobile']['gap']['rowGap'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['tablet']['gap']['rowGap'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['gap']['rowGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['gap']['rowGap'] ) . ';';
 	} else {
 		$css .= 'row-gap: 40px;';
 	}
 	if (!empty($block['attrs']['blockAdvanceOptions']['mobile']['gap']['columnGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['mobile']['gap']['columnGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['mobile']['gap']['columnGap'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'])) {
-		$css .= 'row-gap: ' . $block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'] . ';';
+		$css .= 'row-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['tablet']['gap']['columnGap'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['gap']['columnGap'])) {
-		$css .= 'column-gap: ' . $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] . ';';
+		$css .= 'column-gap: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['gap']['columnGap'] ) . ';';
 	} else {
 		$css .= 'column-gap: 40px;';
 	}

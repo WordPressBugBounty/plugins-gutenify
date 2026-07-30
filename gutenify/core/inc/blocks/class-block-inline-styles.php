@@ -43,7 +43,7 @@ class Gutenify_block_inline_styles {
 					( 'gutenify/notice-bar' !== $block['blockName'] ) &&
 					( 'gutenify/custom-list' !== $block['blockName'] )
 						) {
-						self::$all_styles .= $block['attrs']['gutenifyStyles'];
+						self::$all_styles .= wp_strip_all_tags( $block['attrs']['gutenifyStyles'] );
 					}
 				}
 				return $block_content;

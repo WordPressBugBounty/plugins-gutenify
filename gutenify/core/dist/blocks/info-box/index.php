@@ -25,18 +25,18 @@ class Info_Box
 
 		//text
 		if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
-			$css_chunk .= 'color: ' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';
+			$css_chunk .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['textColor'] ) . ';';
 		}
 
 		//background
 		if (!empty($block['attrs']['backgroundGradient'])) {
-			$css_chunk .= 'background:' . $block['attrs']['backgroundGradient'] . ';';
+			$css_chunk .= 'background:' . esc_attr( $block['attrs']['backgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['backgroundColor'])) {
-			$css_chunk .= 'background: ' . $block['attrs']['backgroundColor'] . ';';
+			$css_chunk .= 'background: ' . esc_attr( $block['attrs']['backgroundColor'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundGradient'])) {
-			$css_chunk .= 'background: ' . $block['attrs']['blockAdvanceOptions']['backgroundGradient'] . ';';
+			$css_chunk .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['backgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundColor'])) {
-			$css_chunk .= 'background: ' . $block['attrs']['blockAdvanceOptions']['backgroundColor'] . ';';
+			$css_chunk .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['backgroundColor'] ) . ';';
 		}
 
 		//border
@@ -59,7 +59,7 @@ class Info_Box
 
 		//border color
 		if (!empty($block['attrs']['blockAdvanceOptions']['borderColor'])) {
-			$css_chunk .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['borderColor'] . ';';
+			$css_chunk .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['borderColor'] ) . ';';
 		}
 
 
@@ -84,25 +84,25 @@ class Info_Box
 
 		//hover color
 		if (!empty($block['attrs']['blockAdvanceOptions']['hoverTextColor'])) {
-			$css_chunk .= 'color: ' . $block['attrs']['blockAdvanceOptions']['hoverTextColor'] . ';';
+			$css_chunk .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverTextColor'] ) . ';';
 		}
 
 		//hover background
 		if (!empty($block['attrs']['hoverBackgroundGradient'])) {
-			$css_chunk .= 'background: ' . $block['attrs']['hoverBackgroundGradient'] . ';';
+			$css_chunk .= 'background: ' . esc_attr( $block['attrs']['hoverBackgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'])) {
-			$css_chunk .= 'background: ' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] . ';';
+			$css_chunk .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['hoverBackgroundColor'])) {
-			$css_chunk .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+			$css_chunk .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundColor'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'])) {
-			$css_chunk .= 'background:' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] . ';';
+			$css_chunk .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] ) . ';';
 		} else {
 			$css_chunk .= '';
 		}
 
 		//hover border
 		if (!empty($block['attrs']['blockAdvanceOptions']['hoverBorderColor'])) {
-			$css_chunk .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] . ';';
+			$css_chunk .= 'border-color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] ) . ';';
 		}
 		if (!empty($css_chunk)) {
 			$css .= $root_selector . ':hover {' . $css_chunk . '}';
@@ -113,7 +113,7 @@ class Info_Box
 		 */
 		$css_chunk = '';
 		if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
-			$css_chunk .= 'color: ' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';
+			$css_chunk .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['textColor'] ) . ';';
 		}
 		if (!empty($css_chunk)) {
 			$css .= $root_selector . ' :where(h1,h2,h3,h4,h5,h6){' . $css_chunk . '}';
@@ -122,7 +122,7 @@ class Info_Box
 		// Hover Heading
 		$css_chunk = '';
 		if (!empty($block['attrs']['blockAdvanceOptions']['hoverTextColor'])) {
-			$css_chunk .= 'color: ' . $block['attrs']['blockAdvanceOptions']['hoverTextColor'] . ';';
+			$css_chunk .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverTextColor'] ) . ';';
 		}
 		if (!empty($css_chunk)) {
 			$css .= $root_selector . ':hover .wp-block-heading{' . $css_chunk . '}';

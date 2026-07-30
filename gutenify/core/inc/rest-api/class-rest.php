@@ -724,7 +724,8 @@ class Gutenify_Rest extends WP_REST_Controller {
 		$options = (array) $request->get_params();
 
 		if ( isset( $options['css'] ) ) {
-			update_option( 'gutenify_global_style', $options['css'] );
+			// Sanitize CSS at save-time: strip any HTML tags before storing.
+			update_option( 'gutenify_global_style', wp_strip_all_tags( $options['css'] ) );
 		}
 
 		return $this->success( $options );

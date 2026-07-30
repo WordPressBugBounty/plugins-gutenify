@@ -30,9 +30,10 @@ class Section_Title {
 		$prefix_css_classes        = $prefix_css_classes . ' gutenify-section-title-prefix';
 		$prefix_wrapper_attributes = '';
 		if ( ! empty( $attr['prefixColor'] ) ) {
-			$prefix_wrapper_attributes = 'style="color:' . $attr['prefixColor'] . '"';
+			$safe_prefix_color         = sanitize_hex_color( $attr['prefixColor'] ) ? sanitize_hex_color( $attr['prefixColor'] ) : esc_attr( $attr['prefixColor'] );
+			$prefix_wrapper_attributes = 'style="color:' . $safe_prefix_color . '"';
 		}
-		$prefix_wrapper_attributes .= 'class="' . $prefix_css_classes . '"';
+		$prefix_wrapper_attributes .= ' class="' . esc_attr( $prefix_css_classes ) . '"';
 		$prefix_content             = ! empty( $attr['prefixContent'] ) ? $attr['prefixContent'] : '';
 
 		$prefix = sprintf(
@@ -49,9 +50,10 @@ class Section_Title {
 
 		$title_wrapper_attributes = '';
 		if ( ! empty( $attr['titleColor'] ) ) {
-			$title_wrapper_attributes = 'style="color:' . $attr['titleColor'] . '"';
+			$safe_title_color         = sanitize_hex_color( $attr['titleColor'] ) ? sanitize_hex_color( $attr['titleColor'] ) : esc_attr( $attr['titleColor'] );
+			$title_wrapper_attributes = 'style="color:' . $safe_title_color . '"';
 		}
-		$title_wrapper_attributes .= 'class="' . $main_css_classes . '"';
+		$title_wrapper_attributes .= ' class="' . esc_attr( $main_css_classes ) . '"';
 		$title_content             = ! empty( $attr['titleContent'] ) ? $attr['titleContent'] : '';
 
 		$safe_title_level = in_array( strtolower( $title_level ), $allowed_title_tags, true ) ? strtolower( $title_level ) : 'h2';
@@ -70,9 +72,10 @@ class Section_Title {
 
 		$suffix_wrapper_attributes = '';
 		if ( ! empty( $attr['suffixColor'] ) ) {
-			$suffix_wrapper_attributes = 'style="color:' . $attr['suffixColor'] . '"';
+			$safe_suffix_color         = sanitize_hex_color( $attr['suffixColor'] ) ? sanitize_hex_color( $attr['suffixColor'] ) : esc_attr( $attr['suffixColor'] );
+			$suffix_wrapper_attributes = 'style="color:' . $safe_suffix_color . '"';
 		}
-		$suffix_wrapper_attributes .= 'class="' . $suffix_css_classes . '"';
+		$suffix_wrapper_attributes .= ' class="' . esc_attr( $suffix_css_classes ) . '"';
 		$suffix_content             = ! empty( $attr['suffixContent'] ) ? $attr['suffixContent'] : '';
 
 		$suffix = sprintf(
@@ -141,8 +144,8 @@ class Section_Title {
 		 * Prefix
 		 */
 		$css_chunk  = '';
-		$css_chunk .= ! empty( $block['attrs']['prefixFontSize'] ) ? 'font-size:' . $block['attrs']['prefixFontSize'] . ';' : '';
-		$css_chunk .= ! empty( $block['attrs']['prefixColor'] ) ? 'color:' . $block['attrs']['prefixColor'] . ';' : '';
+		$css_chunk .= ! empty( $block['attrs']['prefixFontSize'] ) ? 'font-size:' . esc_attr( $block['attrs']['prefixFontSize'] ) . ';' : '';
+		$css_chunk .= ! empty( $block['attrs']['prefixColor'] ) ? 'color:' . esc_attr( sanitize_hex_color( $block['attrs']['prefixColor'] ) ? sanitize_hex_color( $block['attrs']['prefixColor'] ) : $block['attrs']['prefixColor'] ) . ';' : '';
 		$css_chunk .= isset( $block['attrs']['displayPrefix'] ) && false === $block['attrs']['displayPrefix'] ? 'display:none;' : '';
 		if ( ! empty( $css_chunk ) ) {
 			$css .= $root_selector . ' .gutenify-section-title-prefix{' . $css_chunk . '}';
@@ -152,8 +155,8 @@ class Section_Title {
 		 * Title
 		 */
 		$css_chunk  = '';
-		$css_chunk .= ! empty( $block['attrs']['titleFontSize'] ) ? 'font-size:' . $block['attrs']['titleFontSize'] . ';' : '';
-		$css_chunk .= ! empty( $block['attrs']['titleColor'] ) ? 'color:' . $block['attrs']['titleColor'] . ';' : '';
+		$css_chunk .= ! empty( $block['attrs']['titleFontSize'] ) ? 'font-size:' . esc_attr( $block['attrs']['titleFontSize'] ) . ';' : '';
+		$css_chunk .= ! empty( $block['attrs']['titleColor'] ) ? 'color:' . esc_attr( sanitize_hex_color( $block['attrs']['titleColor'] ) ? sanitize_hex_color( $block['attrs']['titleColor'] ) : $block['attrs']['titleColor'] ) . ';' : '';
 		if ( ! empty( $css_chunk ) ) {
 			$css .= $root_selector . ' .gutenify-section-title-main{' . $css_chunk . '}';
 		}
@@ -162,8 +165,8 @@ class Section_Title {
 		 * Suffix Title
 		 */
 		$css_chunk  = '';
-		$css_chunk .= ! empty( $block['attrs']['suffixFontSize'] ) ? 'font-size:' . $block['attrs']['suffixFontSize'] . ';' : '';
-		$css_chunk .= ! empty( $block['attrs']['suffixColor'] ) ? 'color:' . $block['attrs']['suffixColor'] . ';' : '';
+		$css_chunk .= ! empty( $block['attrs']['suffixFontSize'] ) ? 'font-size:' . esc_attr( $block['attrs']['suffixFontSize'] ) . ';' : '';
+		$css_chunk .= ! empty( $block['attrs']['suffixColor'] ) ? 'color:' . esc_attr( sanitize_hex_color( $block['attrs']['suffixColor'] ) ? sanitize_hex_color( $block['attrs']['suffixColor'] ) : $block['attrs']['suffixColor'] ) . ';' : '';
 		$css_chunk .= isset( $block['attrs']['displaySuffix'] ) && false === $block['attrs']['displaySuffix'] ? 'display:none;' : '';
 		if ( ! empty( $css_chunk ) ) {
 			$css .= $root_selector . ' .gutenify-section-title-suffix{' . $css_chunk . '}';

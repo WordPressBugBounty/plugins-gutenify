@@ -54,7 +54,61 @@ class Notice_Bar{
 
 		if (!empty($block['showCloseBtn']) && $block['showCloseBtn'] === true) {
 
-		$close_icon = !empty($block['closeIcon']) ? $block['closeIcon'] : '<svg class="gutenify-notice-bar-close" fill="#8e2828" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z"></path></svg>';
+		$close_icon_raw = !empty($block['closeIcon']) ? $block['closeIcon'] : '<svg class="gutenify-notice-bar-close" fill="#8e2828" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z"></path></svg>';
+
+		// Sanitize the close icon: allow only safe SVG/HTML tags and attributes, strip all event handlers.
+		$allowed_svg_tags = array(
+			'svg'      => array(
+				'class'       => true,
+				'fill'        => true,
+				'xmlns'       => true,
+				'viewbox'     => true,
+				'aria-hidden' => true,
+				'focusable'   => true,
+				'width'       => true,
+				'height'      => true,
+				'role'        => true,
+			),
+			'path'     => array(
+				'd'    => true,
+				'fill' => true,
+			),
+			'circle'   => array(
+				'cx'   => true,
+				'cy'   => true,
+				'r'    => true,
+				'fill' => true,
+			),
+			'rect'     => array(
+				'x'      => true,
+				'y'      => true,
+				'width'  => true,
+				'height' => true,
+				'fill'   => true,
+			),
+			'polyline' => array(
+				'points' => true,
+				'fill'   => true,
+				'stroke' => true,
+			),
+			'line'     => array(
+				'x1'     => true,
+				'y1'     => true,
+				'x2'     => true,
+				'y2'     => true,
+				'stroke' => true,
+			),
+			'g'        => array(
+				'fill'      => true,
+				'transform' => true,
+			),
+			'defs'     => array(),
+			'use'      => array(
+				'href' => true,
+			),
+		);
+		$close_icon = wp_kses( $close_icon_raw, $allowed_svg_tags );
+
 		$output .= '<div class="gutenify-notice-bar-close" style = "position: absolute; ' . $close_alignment . '">';
 		$output .='<span>'.$close_icon.'</span>';
 		$output .='</div>';
@@ -71,7 +125,7 @@ class Notice_Bar{
 		}
 		$root_selector = '.' . $block_id;
 		$css ='';
-		$wrapper_background = !empty($instance->attributes['style']['color']['background'])? $instance->attributes['style']['color']['background']: '';
+		$wrapper_background = !empty($instance->attributes['style']['color']['background'])? esc_attr( $instance->attributes['style']['color']['background'] ): '';
 
 		if(!empty($wrapper_background)){
 			$css .= $root_selector.'{ background-color:' .$wrapper_background.';}';

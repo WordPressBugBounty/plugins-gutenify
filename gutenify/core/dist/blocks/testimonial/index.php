@@ -24,18 +24,18 @@ class Testimonial
 
 		//color
 		if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
-			$css .= 'color: ' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';
+			$css .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['textColor'] ) . ';';
 		}
 
 		//background
 		if (!empty($block['attrs']['backgroundGradient'])) {
-			$css .= 'background: ' . $block['attrs']['backgroundGradient'] . ';';
+			$css .= 'background: ' . esc_attr( $block['attrs']['backgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['backgroundColor'])) {
-			$css .= 'background:' . $block['attrs']['backgroundColor'] . ';';
+			$css .= 'background:' . esc_attr( $block['attrs']['backgroundColor'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundGradient'])) {
-			$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['backgroundGradient'] . ';';
+			$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['backgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundColor'])) {
-			$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['backgroundColor'] . ';';
+			$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['backgroundColor'] ) . ';';
 		} else {
 			$css .= 'background: #ffffff;';
 		}
@@ -44,7 +44,7 @@ class Testimonial
 
 		//border color
 		if (!empty($block['attrs']['blockAdvanceOptions']['borderColor'])) {
-			$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['borderColor'] . ';';
+			$css .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['borderColor'] ) . ';';
 		}
 
 		//border width
@@ -71,18 +71,18 @@ class Testimonial
 
 		//hover color
 		if (!empty($block['attrs']['blockAdvanceOptions']['hoverTextColor'])) {
-			$css .= 'color: ' . $block['attrs']['blockAdvanceOptions']['hoverTextColor'] . ';';
+			$css .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverTextColor'] ) . ';';
 		}
 
 		//hover background
 		if (!empty($block['attrs']['hoverBackgroundGradient'])) {
-			$css .= 'background: ' . $block['attrs']['hoverBackgroundGradient'] . ';';
+			$css .= 'background: ' . esc_attr( $block['attrs']['hoverBackgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['hoverBackgroundColor'])) {
-			$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+			$css .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundColor'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'])) {
-			$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] . ';';
+			$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'])) {
-			$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] . ';';
+			$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] ) . ';';
 		} else {
 			$css .= '';
 		}
@@ -90,7 +90,7 @@ class Testimonial
 
 		//hover border
 		if (!empty($block['attrs']['blockAdvanceOptions']['hoverBorderColor'])) {
-			$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] . ';';
+			$css .= 'border-color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] ) . ';';
 		}
 		$css .= '}';
 

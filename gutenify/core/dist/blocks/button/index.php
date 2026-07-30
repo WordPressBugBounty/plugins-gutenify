@@ -40,28 +40,28 @@ class Button{
 	 * Normal state.
 	 */
 	if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
-		$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';
+		$css .= 'color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['textColor'] ) . ';';
 	}
 	if (!empty($block['attrs']['backgroundGradient'])) {
-		$css .= 'background:' . $block['attrs']['backgroundGradient'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['backgroundGradient'] ) . ';';
 	}elseif (!empty($block['attrs']['backgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['backgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['backgroundColor'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundGradient'])) {
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['backgroundGradient'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['backgroundGradient'] ) . ';';
 	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['backgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['backgroundColor'] ) . ';';
 	} else {
 		$css .= '';
 	}
 
 	// Border.
 	if (!empty($block['attrs']['blockAdvanceOptions']['borderColor'])) {
-		$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['borderColor'] . ';';
+		$css .= 'border-color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['borderColor'] ) . ';';
 	}
 	if ( ! empty( $block['attrs']['blockAdvanceOptions']['borderWidth'] )  ) {
 		$css .= 'border-style:solid;';
 		if ( ! is_array( $block['attrs']['blockAdvanceOptions']['borderWidth'] ) ) {
-			$css .= 'border-width: ' . $block['attrs']['blockAdvanceOptions']['borderWidth'] . 'px;';
+			$css .= 'border-width: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['borderWidth'] ) . 'px;';
 		} else {
 			$css .= \gutenify\Style_Helpers::box_control( $block['attrs']['blockAdvanceOptions']['borderWidth'], 'border-', '-width');
 		}
@@ -75,7 +75,7 @@ class Button{
 		$css .= 'flex-direction: row-reverse;';
 	}
 	if (!empty($block['attrs']['icon']['spacing'])) {
-		$css .= 'gap: ' . $block['attrs']['icon']['spacing'] . 'px;';
+		$css .= 'gap: ' . esc_attr( $block['attrs']['icon']['spacing'] ) . 'px;';
 	}
 
 	$css .= '}';
@@ -85,25 +85,25 @@ class Button{
 	 */
 	$css .= $root_selector . ' .wp-block-button__link:hover{ ';
 	if (!empty($block['attrs']['blockAdvanceOptions']['hoverTextColor'])) {
-		$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['hoverTextColor'] . ';';
+		$css .= 'color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverTextColor'] ) . ';';
 	}
 
 
 	if (!empty($block['attrs']['hoverBackgroundGradient'])) {
-		$css .= 'background:' . $block['attrs']['hoverBackgroundGradient'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundGradient'] ) . ';';
 	} elseif (!empty($block['attrs']['hoverBackgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundColor'] ) . ';';
 	}elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'])) {
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] ) . ';';
 	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] ) . ';';
 	} else {
 		$css .= '';
 	}
 
 	// Border.
 	if (!empty($block['attrs']['blockAdvanceOptions']['hoverBorderColor'])) {
-		$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] . ';';
+		$css .= 'border-color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] ) . ';';
 	}
 	$css .= '}';
 

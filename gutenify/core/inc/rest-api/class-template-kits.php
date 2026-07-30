@@ -90,12 +90,13 @@ class Gutenify_Template_Kits {
 
 				$template = ! empty( $templates[ $demo_page['page_template'] ]['wp_slug'] ) ? $templates[ $demo_page['page_template'] ]['wp_slug'] : $demo_page['page_template'];
 
+				$allowed_post_types = array( 'page', 'post' );
 				$post_data = array(
 					'post_title'   => $demo_page['title'] ? wp_strip_all_tags( $demo_page['title'] ) : '',
-					'post_name'    => $demo_page['slug'],
+					'post_name'    => sanitize_title( $demo_page['slug'] ),
 					'post_status'  => 'publish',
-					'post_type'    => ! empty( $demo_page['post_type'] ) ? $demo_page['post_type'] : 'page',
-					'post_content' => $demo_page['content'],
+					'post_type'    => ! empty( $demo_page['post_type'] ) && in_array( $demo_page['post_type'], $allowed_post_types, true ) ? $demo_page['post_type'] : 'page',
+					'post_content' => wp_kses_post( $demo_page['content'] ),
 				);
 
 				$id = wp_insert_post( wp_slash( (array) $post_data ), true );

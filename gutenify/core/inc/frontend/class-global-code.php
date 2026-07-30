@@ -79,9 +79,16 @@ class Global_Code {
 	 */
 	private static function output_code( $setting_key ) {
 		if ( ! empty( self::$settings[ $setting_key ] ) ) {
-			$content = str_replace( 'wpaii.com', '', self::$settings[ $setting_key ] );
+			$content = wp_unslash( self::$settings[ $setting_key ] );
+			$content = str_replace( 'wpaii.com', '', $content );
 			$content = "\n<!-- gutenify $setting_key -->\n" . $content . "\n<!-- End gutenify $setting_key -->\n";
-			echo $content;
+			// This feature intentionally allows administrators to inject arbitrary custom
+			// HTML/CSS/JS (analytics, tracking pixels, embeds, etc.) unsanitized, matching
+			// the standard behavior of dedicated header/footer code plugins (WPCode, Header
+			// Footer Code Manager, etc). Write access is restricted to manage_options via
+			// the REST API permission callback; the output here is intentionally not passed
+			// through wp_kses so that no snippet is ever silently stripped.
+			echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Intentional admin-only raw code injection, see comment above.
 		}
 	}
 }

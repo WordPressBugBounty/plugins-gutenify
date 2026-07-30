@@ -23,7 +23,7 @@ class Star_Rating
 
 		$css .= $root_selector . ' .gutenify-star-rating-filled,' . $root_selector . ' .gutenify-star-rating-half{';
 		if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
-			$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';
+			$css .= 'color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['textColor'] ) . ';';
 		} else {
 			$css .= 'color: #ff9800;';
 		}
@@ -31,26 +31,26 @@ class Star_Rating
 
 		$css .= $root_selector . ' .gutenify-star-rating-empty{';
 		if (!empty($block['attrs']['blockAdvanceOptions']['iconUnmarkedColor'])) {
-			$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['iconUnmarkedColor'] . ';';
+			$css .= 'color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['iconUnmarkedColor'] ) . ';';
 		}
 		$css .= '}';
 
 		$css .= $root_selector . ' span{';
 		if (!empty($block['attrs']['blockAdvanceOptions']['iconSize'])) {
-			$css .= 'font-size:' . $block['attrs']['blockAdvanceOptions']['iconSize'] . 'px;';
+			$css .= 'font-size:' . esc_attr( $block['attrs']['blockAdvanceOptions']['iconSize'] ) . 'px;';
 		}
 		$css .= '}';
 
 		$css .= $root_selector . ' .gutenify-star-rating-section{';
 		if (!empty($block['attrs']['blockAdvanceOptions']['iconGap'])) {
-			$css .= 'gap:' . $block['attrs']['blockAdvanceOptions']['iconGap'] . 'px;';
+			$css .= 'gap:' . esc_attr( $block['attrs']['blockAdvanceOptions']['iconGap'] ) . 'px;';
 		}
 
 		/**
 		 * Pro direction feature.
 		 */
 		if (!empty($block['attrs']['direction'] )) {
-			$css .= 'flex-direction:' . $block['attrs']['direction'] . ';';
+			$css .= 'flex-direction:' . esc_attr( $block['attrs']['direction'] ) . ';';
 		}
 		$css .= '}';
 

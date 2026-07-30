@@ -66,6 +66,7 @@ class Helpers {
 			'countdown-timer',
 			'stacking-cards',
 			'stacking-card-item',
+			// 'back-to-top',
 			// 'image-marquee',
 			// 'image-marquee-item',
 			// 'search-toggle',
@@ -83,6 +84,11 @@ class Helpers {
 			// 'social-share',
 			// 'slider-v2',
 		);
+
+		// advanced-group is still in development; only enable it when WP_DEBUG is on.
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			$blocks[] = 'advanced-group';
+		}
 
 		return apply_filters( "{$function_prefix}_active_blocks", $blocks );
 	}

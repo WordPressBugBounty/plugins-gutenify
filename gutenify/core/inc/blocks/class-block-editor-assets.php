@@ -56,6 +56,9 @@ class Block_Editor_Assets {
 			'extend-block-spacing'            => array(
 				'path' => 'dist/non-blocks/extend/block-spacing',
 			),
+			'extend-block-position'           => array(
+				'path' => 'dist/non-blocks/extend/block-position',
+			),
 			// 'extend-block-custom-css'         => array(
 			// 'path' => 'dist/non-blocks/extend/block-custom-css',
 			// ),

@@ -69,8 +69,8 @@ class Custom_list {
 
 			$css .= ! empty( $block['attrs']['listStyleSize'] ) ? 'width: ' . esc_attr( $block['attrs']['listStyleSize'] ) . '; height: ' . esc_attr( $block['attrs']['listStyleSize'] ) . ';' : '';
 
-			$css .= ! empty( $block['attrs']['listStyleColor'] ) ? 'background-color:' . $block['attrs']['listStyleColor'] . ';' : '';
-			$css .= ! empty( $block['attrs']['gap'] ) ? 'margin-right:' . $block['attrs']['gap'] . ';' : '';
+			$css .= ! empty( $block['attrs']['listStyleColor'] ) ? 'background-color:' . esc_attr( $block['attrs']['listStyleColor'] ) . ';' : '';
+			$css .= ! empty( $block['attrs']['gap'] ) ? 'margin-right:' . esc_attr( $block['attrs']['gap'] ) . ';' : '';
 			$css .= '}';
 
 			$handle = 'gutenify_' . str_replace( '/', '_', $block['blockName'] ) . '_' . $block_id;
@@ -109,8 +109,8 @@ class Custom_list {
 
 			$css .= ! empty( $block['attrs']['listStyleSize'] ) ? 'width: ' . esc_attr( $block['attrs']['listStyleSize'] ) . '; height: ' . esc_attr( $block['attrs']['listStyleSize'] ) . ';' : '';
 
-			$css .= ! empty( $block['attrs']['listStyleColor'] ) ? 'background-color:' . $block['attrs']['listStyleColor'] . ';' : '';
-			$css .= ! empty( $block['attrs']['gap'] ) ? 'margin-right:' . $block['attrs']['gap'] . ';' : '';
+			$css .= ! empty( $block['attrs']['listStyleColor'] ) ? 'background-color:' . esc_attr( $block['attrs']['listStyleColor'] ) . ';' : '';
+			$css .= ! empty( $block['attrs']['gap'] ) ? 'margin-right:' . esc_attr( $block['attrs']['gap'] ) . ';' : '';
 			$css .= '}';
 
 			$handle = 'gutenify_' . str_replace( '/', '_', $block['blockName'] ) . '_' . $block_id;

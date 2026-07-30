@@ -52,10 +52,10 @@ class Gallery_Carousel {
 					<div class="gutenify-slider-content-wrapper">
 					<div class="gutenify-slider-content-inner">';
 				if ( ! empty( $title ) ) {
-					$list_items_markup .= '<h2 class="gutenify-slider-title">' . $title . '</h2>';
+					$list_items_markup .= '<h2 class="gutenify-slider-title">' . esc_html( $title ) . '</h2>';
 				}
 				if ( ! empty( $sub_title ) ) {
-					$list_items_markup .= '<h2 class="gutenify-slider-sub-title">' . $sub_title . '</h2>';
+					$list_items_markup .= '<h2 class="gutenify-slider-sub-title">' . esc_html( $sub_title ) . '</h2>';
 				}
 
 					$list_items_markup .= '<div class="gutenify-slider-content-inner-wrapper">';

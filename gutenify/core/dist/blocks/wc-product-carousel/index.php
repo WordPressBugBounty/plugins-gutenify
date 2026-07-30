@@ -149,70 +149,70 @@ class WC_Product_Carousel {
 		//color
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'])){
 
-			$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] . ';';
+			$css .= 'color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] ) . ';';
 		}
 
 
 		//background
 		if(!empty($block['attrs']['backgroundGradient'])){
-			$css .= 'background: ' . $block['attrs']['backgroundGradient'] . ';';
+			$css .= 'background: ' . esc_attr( $block['attrs']['backgroundGradient'] ) . ';';
 		}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'])){
-			$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] . ';';
+			$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] ) . ';';
 		}
 		if(!empty($block['attrs']['backgroundColor'])){
-			$css .= 'background-color:' . $block['attrs']['backgroundColor']. ';';
+			$css .= 'background-color:' . esc_attr( $block['attrs']['backgroundColor'] ). ';';
 		}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'])){
-			$css .= 'background-color:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'] . ';';
+			$css .= 'background-color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'] ) . ';';
 		}
 
 		//border color
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'])){
-			$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] . ';';
+			$css .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] ) . ';';
 		}
 
 		//border width
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'])){
 			if(is_numeric($block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'])){
-					$css .= 'border-width:' .$block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] . 'px; border-style: solid;';
+					$css .= 'border-width:' .esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] ) . 'px; border-style: solid;';
 			}
 			if(is_string($block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'])){
-				$css .= 'border-width:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] . ';';
+				$css .= 'border-width:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'] ) . ';';
 			}
 			if(is_array($block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth'])){
 				if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['top'])){
-					$css .='border-top-width:'. $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['top']. '; border-top-style: solid;';
+					$css .='border-top-width:'. esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['top'] ). '; border-top-style: solid;';
 				}
 				if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['bottom'])){
-					$css .='border-bottom-width:'. $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['bottom']. '; border-bottom-style: solid;';
+					$css .='border-bottom-width:'. esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['bottom'] ). '; border-bottom-style: solid;';
 				}
 				if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['left'])){
-					$css .='border-left-width:'. $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['left']. '; border-left-style: solid;';
+					$css .='border-left-width:'. esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['left'] ). '; border-left-style: solid;';
 				}
 				if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['right'])){
-					$css .='border-right-width:'. $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['right']. '; border-right-style: solid;';
+					$css .='border-right-width:'. esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderWidth']['right'] ). '; border-right-style: solid;';
 				}
 			}
 		}
 		//border radius
 		if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'])){
 			if(is_string($block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'])){
-				$css .= ' border-radius:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] . ';';
+				$css .= ' border-radius:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] ) . ';';
 			}
 			if(is_numeric($block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'])){
-				$css .= 'border-radius:'. $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] . 'px;';
+				$css .= 'border-radius:'. esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'] ) . 'px;';
 			}
 			if(is_object($block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius'])){
 				if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['topleft'])){
-					$css .= 'border-top-left-radius:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['topLeft'] .';';
+					$css .= 'border-top-left-radius:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['topLeft'] ) .';';
 				}
 				if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['bottomLeft'])){
-					$css .= 'border-bottom-left-radius:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['bottomLeft'] .';';
+					$css .= 'border-bottom-left-radius:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['bottomLeft'] ) .';';
 				}
 				if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['topRight'])){
-					$css .= 'border-top-right-radius:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['topRight'] .';';
+					$css .= 'border-top-right-radius:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['topRight'] ) .';';
 				}
 				if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['bottomRight'])){
-					$css .= 'border-bottom-right-radius:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['bottomRight'] .';';
+					$css .= 'border-bottom-right-radius:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderRadius']['bottomRight'] ) .';';
 				}
 			}
 		}
@@ -222,26 +222,26 @@ class WC_Product_Carousel {
 		$css .=$inner_block_selector . ':hover{' ;
 		//hover color
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'])) {
-			$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor']. ';';
+			$css .= 'color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'] ). ';';
 		}
 
 
 		//hover background
 		if (!empty($block['attrs']['hoverBackgroundGradient'])) {
-			$css .= 'background: ' . $block['attrs']['hoverBackgroundGradient'] . ';';
+			$css .= 'background: ' . esc_attr( $block['attrs']['hoverBackgroundGradient'] ) . ';';
 			} elseif (!empty($block['attrs']['hoverBackgroundColor'])) {
-			$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+			$css .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundColor'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'])) {
-			$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] . ';';
+			$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'])) {
-			$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] . ';';
+			$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] ) . ';';
 		} else {
 			$css .= '';
 		}
 
 		//hover border
 		if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'])) {
-			$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] . ';';
+			$css .= 'border-color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] ) . ';';
 		}
 		$css .= '}';
 

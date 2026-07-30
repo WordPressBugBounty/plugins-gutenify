@@ -22,18 +22,18 @@ class Icon{
 	$css .= $root_selector . '{';
 	//icon color
 	if (!empty($block['attrs']['blockAdvanceOptions']['textColor'])) {
-		$css .= 'color: ' . $block['attrs']['blockAdvanceOptions']['textColor'] . ';';
+		$css .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['textColor'] ) . ';';
 	}
 
 	//background color
 	if (!empty($block['attrs']['backgroundGradient'])) {
-		$css .= 'background: ' . $block['attrs']['backgroundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['backgroundGradient'] ) . ';';
 	}elseif (!empty($block['attrs']['backgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['backgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['backgroundColor'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundGradient'])) {
-		$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['backgorundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['backgorundGradient'] ) . ';';
 	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['backgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['backgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['backgroundColor'] ) . ';';
 	} else {
 		$css .= '';
 	}
@@ -41,13 +41,13 @@ class Icon{
 
 	//border color
 	if (!empty($block['attrs']['blockAdvanceOptions']['borderColor'])) {
-		$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['borderColor'] . ';';
+		$css .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['borderColor'] ) . ';';
 	}
 
 	if ( ! empty( $block['attrs']['borderWidth'] )  ) {
 		$css .= 'border-style:solid;';
 		if ( ! is_array( $block['attrs']['borderWidth'] ) ) {
-			$css .= 'border-width: ' . $block['attrs']['borderWidth'] . 'px;';
+			$css .= 'border-width: ' . esc_attr( $block['attrs']['borderWidth'] ) . 'px;';
 		} else {
 			$css .= \gutenify\Style_Helpers::box_control( $block['attrs']['borderWidth'], 'border-', '-width');
 		}
@@ -61,7 +61,7 @@ class Icon{
 	$paddingSides = ['top', 'bottom', 'left', 'right'];
 	// Loop through each padding side
 	foreach ($paddingSides as $side) {
-		$paddingValue = $block['attrs']['blockAdvanceOptions']['iconPadding']['desktop'][$side] ?? '';
+		$paddingValue = esc_attr( $block['attrs']['blockAdvanceOptions']['iconPadding']['desktop'][$side] ?? '' );
 		if (!empty($paddingValue)) {
 			$css .= "padding-$side: $paddingValue;";
 		}
@@ -69,10 +69,10 @@ class Icon{
 
 	//container size
 	if (!empty($block['attrs']['blockAdvanceOptions']['containerWidth'])) {
-		$css .= 'width: ' . $block['attrs']['blockAdvanceOptions']['containerWidth'] . 'px;';
+		$css .= 'width: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['containerWidth'] ) . 'px;';
 	}
 	if (!empty($block['attrs']['blockAdvanceOptions']['containerHeight'])) {
-		$css .= 'height: ' . $block['attrs']['blockAdvanceOptions']['containerHeight'] . 'px;';
+		$css .= 'height: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['containerHeight'] ) . 'px;';
 	}
 	;
 	$css .= '}';
@@ -81,7 +81,7 @@ class Icon{
 
 	//icon size
 	if (!empty($block['attrs']['size'])) {
-		$css .= 'font-size: ' . $block['attrs']['size'] . 'px;';
+		$css .= 'font-size: ' . esc_attr( $block['attrs']['size'] ) . 'px;';
 	}else{
 		$css .='font-size: 40px;';
 	}
@@ -90,15 +90,15 @@ class Icon{
 	//image size
 	if (!empty($block['attrs']['size'])) {
 		$css .= $root_selector . ' img{';
-		$css .= 'width: ' . $block['attrs']['size'] . 'px;';
-		$css .= 'max-width: ' . $block['attrs']['size'] . 'px;';
+		$css .= 'width: ' . esc_attr( $block['attrs']['size'] ) . 'px;';
+		$css .= 'max-width: ' . esc_attr( $block['attrs']['size'] ) . 'px;';
 		$css .= '}';
 	}
 
 	//border radius
 	if (!empty($block['attrs']['iconimgBorderRadius'])) {
 		$css .= $root_selector . '.gutenify-image-icon-content img{';
-		$css .= 'border-radius: ' . $block['attrs']['iconimgBorderRadius'] . 'px;';
+		$css .= 'border-radius: ' . esc_attr( $block['attrs']['iconimgBorderRadius'] ) . 'px;';
 		$css .= '}';
 	}
 
@@ -107,7 +107,7 @@ class Icon{
 	//icon padding tablet
 	$css .= $root_selector . '{';
 	foreach ($paddingSides as $side) {
-		$paddingValue = $block['attrs']['blockAdvanceOptions']['iconPadding']['tablet'][$side] ?? '';
+		$paddingValue = esc_attr( $block['attrs']['blockAdvanceOptions']['iconPadding']['tablet'][$side] ?? '' );
 		if (!empty($paddingValue)) {
 			$css .= "padding-$side: $paddingValue;";
 		}
@@ -121,7 +121,7 @@ class Icon{
 	//icon padding mobile
 	$css .= $root_selector . '{';
 	foreach ($paddingSides as $side) {
-		$paddingValue = $block['attrs']['blockAdvanceOptions']['iconPadding']['mobile'][$side] ?? '';
+		$paddingValue = esc_attr( $block['attrs']['blockAdvanceOptions']['iconPadding']['mobile'][$side] ?? '' );
 		if (!empty($paddingValue)) {
 			$css .= "padding-$side: $paddingValue;";
 		}
@@ -134,25 +134,25 @@ class Icon{
 
 	//hover color
 	if (!empty($block['attrs']['blockAdvanceOptions']['hoverTextColor'])) {
-		$css .= 'color: ' . $block['attrs']['blockAdvanceOptions']['hoverTextColor'] . ';';
+		$css .= 'color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverTextColor'] ) . ';';
 	}
 
 	//hover background
 	if (!empty($block['attrs']['hoverBackgroundGradient'])) {
-		$css .= 'background: ' . $block['attrs']['hoverBackgroundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['hoverBackgroundGradient'] ) . ';';
 	}elseif (!empty($block['attrs']['hoverBackgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundColor'] ) . ';';
 	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'])) {
-		$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBackgroundGradient'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBackgroundColor'] ) . ';';
 	} else {
 		$css .= '';
 	}
 
 	//hover border
 	if (!empty($block['attrs']['blockAdvanceOptions']['hoverBorderColor'])) {
-		$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] . ';';
+		$css .= 'border-color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['hoverBorderColor'] ) . ';';
 	}
 
 	$css .= '}';

@@ -23,13 +23,13 @@ class Faqs{
 	$css .= $root_selector . ' .gutenify-block-content-toggle-item-wrapper {';
 
 		if (!empty($block['attrs']['blockAdvanceOptions']['border']['color'])) {
-			$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['border']['color'] . '; ';
+			$css .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['border']['color'] ) . '; ';
 		}
 
 		if ( ! empty( $block['attrs']['blockAdvanceOptions']['border']['width'] )  ) {
 			$css .= 'border-style:solid;';
 			if ( ! is_array( $block['attrs']['blockAdvanceOptions']['border']['width'] ) ) {
-				$css .= 'border-width: ' . $block['attrs']['blockAdvanceOptions']['border']['width'] . 'px;';
+				$css .= 'border-width: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['border']['width'] ) . 'px;';
 			} else {
 				$css .= \gutenify\Style_Helpers::box_control( $block['attrs']['blockAdvanceOptions']['border']['width'], 'border-', '-width');
 			}
@@ -40,7 +40,7 @@ class Faqs{
 		}
 
 	if (!empty($block['attrs']['gap'])) {
-		$css .= 'margin-bottom: ' . $block['attrs']['gap'] . ';';
+		$css .= 'margin-bottom: ' . esc_attr( $block['attrs']['gap'] ) . ';';
 	}
 
 	$css .= '}';
@@ -48,36 +48,36 @@ class Faqs{
 
 	// Header normal
 	if (!empty($block['attrs']['blockAdvanceOptions']['header']['textColor'])) {
-		$css .= $root_selector . ' .gutenify-content-toggle-item-header>* { color:' . $block['attrs']['blockAdvanceOptions']['header']['textColor'] . ';}';
+		$css .= $root_selector . ' .gutenify-content-toggle-item-header>* { color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['header']['textColor'] ) . ';}';
 	}
 
 	// Header styles
 	$css .= $root_selector . ' .gutenify-content-toggle-item-header{';
 	if (!empty($block['attrs']['headerBackgroundGradient'])) {
-		$css .= 'background:' . ($block['attrs']['headerBackgroundGradient']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['headerBackgroundGradient'] )) . ';';
 	}elseif (!empty($block['attrs']['headerBackground'])) {
-		$css .= 'background:' . ($block['attrs']['headerBackground']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['headerBackground'] )) . ';';
 	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['header']['backgroundGradient'])) {
-		$css .= 'background:' . ($block['attrs']['blockAdvanceOptions']['header']['backgroundGradient']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['blockAdvanceOptions']['header']['backgroundGradient'] )) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['header']['backgroundColor'])) {
-		$css .= 'background:' . ($block['attrs']['blockAdvanceOptions']['header']['backgroundColor']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['blockAdvanceOptions']['header']['backgroundColor'] )) . ';';
 	}
 	$css .= '}';
 
 	// Header hover
 	if (!empty($block['attrs']['blockAdvanceOptions']['header']['hoverTextColor'])) {
-		$css .= $root_selector . ' .gutenify-content-toggle-item-header:hover>* { color:' . ($block['attrs']['blockAdvanceOptions']['header']['hoverTextColor']) . ';}';
+		$css .= $root_selector . ' .gutenify-content-toggle-item-header:hover>* { color:' . (esc_attr( $block['attrs']['blockAdvanceOptions']['header']['hoverTextColor'] )) . ';}';
 	}
 
 	$css .= $root_selector . ' .gutenify-content-toggle-item-header:hover{';
 	if (!empty($block['attrs']['headerHoverBackgroundGradient'])) {
-		$css .= 'background:' . ($block['attrs']['headerHoverBackgroundGradient']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['headerHoverBackgroundGradient'] )) . ';';
 	}elseif (!empty($block['attrs']['headerHoverBackground'])) {
-		$css .= 'background:' . ($block['attrs']['headerHoverBackground']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['headerHoverBackground'] )) . ';';
 	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['header']['hoverBackgroundGradient'])) {
-		$css .= 'background:' . ($block['attrs']['blockAdvanceOptions']['header']['hoverBackgroundGradient']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['blockAdvanceOptions']['header']['hoverBackgroundGradient'] )) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['header']['hoverBackgroundColor'])) {
-		$css .= 'background:' . ($block['attrs']['blockAdvanceOptions']['header']['hoverBackgroundColor']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['blockAdvanceOptions']['header']['hoverBackgroundColor'] )) . ';';
 	}
 	$css .= '}';
 
@@ -86,18 +86,18 @@ class Faqs{
 
 	//color
 	if (!empty($block['attrs']['blockAdvanceOptions']['content']['textColor'])) {
-		$css .= 'color:' . $block['attrs']['blockAdvanceOptions']['content']['textColor'] . ';';
+		$css .= 'color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['content']['textColor'] ) . ';';
 	}
 
 	//background
 	if (!empty($block['attrs']['contentBackgroundGradient'])) {
-		$css .= 'background:' . ($block['attrs']['contentBackgroundGradient']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['contentBackgroundGradient'] )) . ';';
 	}elseif (!empty($block['attrs']['contentBackground'])) {
-		$css .= 'background:' . ($block['attrs']['contentBackground']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['contentBackground'] )) . ';';
 	}  elseif (!empty($block['attrs']['blockAdvanceOptions']['content']['backgroundGradient'])) {
-		$css .= 'background:' . ($block['attrs']['blockAdvanceOptions']['content']['backgroundGradient']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['blockAdvanceOptions']['content']['backgroundGradient'] )) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['content']['backgroundColor'])) {
-		$css .= 'background:' . ($block['attrs']['blockAdvanceOptions']['content']['backgroundColor']) . ';';
+		$css .= 'background:' . (esc_attr( $block['attrs']['blockAdvanceOptions']['content']['backgroundColor'] )) . ';';
 	}
 	$css .= '}';
 

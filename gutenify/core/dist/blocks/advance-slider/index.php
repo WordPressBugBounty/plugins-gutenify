@@ -52,7 +52,7 @@ class Advanced_Slider{
 
 		// Handle Standard Shadow support
 		if ( ! empty( $block['attrs']['style']['shadow'] ) ) {
-			$shadow = $block['attrs']['style']['shadow'];
+			$shadow = esc_attr( $block['attrs']['style']['shadow'] );
 			if ( strpos( $shadow, 'var:preset|shadow|' ) === 0 ) {
 				$slug = str_replace( 'var:preset|shadow|', '', $shadow );
 				$css .= "box-shadow: var(--wp--preset--shadow--$slug);";
@@ -65,10 +65,10 @@ class Advanced_Slider{
 		if ( ! empty( $block['attrs']['style']['border'] ) ) {
 			$border = $block['attrs']['style']['border'];
 			if ( ! empty( $border['width'] ) ) {
-				$css .= 'border-width: ' . $border['width'] . '; border-style: solid;';
+				$css .= 'border-width: ' . esc_attr( $border['width'] ) . '; border-style: solid;';
 			}
 			if ( ! empty( $border['color'] ) ) {
-				$color = $border['color'];
+				$color = esc_attr( $border['color'] );
 				if ( strpos( $color, 'var:preset|color|' ) === 0 ) {
 					$slug = str_replace( 'var:preset|color|', '', $color );
 					$css .= "border-color: var(--wp--preset--color--$slug);";

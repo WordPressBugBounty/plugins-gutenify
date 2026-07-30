@@ -129,7 +129,7 @@ function gutenify_wc_product_list_render_block($block_content, $block){
 	$css =$inner_block_selector . '{' ;
 
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'])){
-		$color .= $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] ;
+		$color .= esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['textColor'] ) ;
 	}
 	if($color){
 		$css .= 'color:' . $color . ';';
@@ -137,18 +137,18 @@ function gutenify_wc_product_list_render_block($block_content, $block){
 
 	//background
 	if(!empty($block['attrs']['backgroundGradient'])){
-		$css .= 'background: ' . $block['attrs']['backgroundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['backgroundGradient'] ) . ';';
 		}elseif(!empty($block['attrs']['backgroundColor'])){
-		$css .= 'background:' . $block['attrs']['backgroundColor']. ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['backgroundColor'] ). ';';
 	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'])){
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundGradient'] ) . ';';
 	}elseif(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'])){
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['backgroundColor'] ) . ';';
 	}
 
 	//border color
 	if(!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'])){
-		$css .= 'border-color: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] . ';';
+		$css .= 'border-color: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['borderColor'] ) . ';';
 	}
 
 	//border width
@@ -167,7 +167,7 @@ function gutenify_wc_product_list_render_block($block_content, $block){
 	//hover color
 	$hover_color='';
 	if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'])) {
-		$hover_color .= $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'];
+		$hover_color .= esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverTextColor'] );
 	}
 	if($hover_color){
 		$css .= 'color:' . $hover_color . ';';
@@ -175,18 +175,18 @@ function gutenify_wc_product_list_render_block($block_content, $block){
 
 	//hover background
 	if (!empty($block['attrs']['hoverBackgroundGradient'])) {
-		$css .= 'background: ' . $block['attrs']['hoverBackgroundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['hoverBackgroundGradient'] ) . ';';
 		} elseif (!empty($block['attrs']['hoverBackgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['hoverBackgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['hoverBackgroundColor'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'])) {
-		$css .= 'background: ' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] . ';';
+		$css .= 'background: ' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundGradient'] ) . ';';
 	} elseif (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'])) {
-		$css .= 'background:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] . ';';
+		$css .= 'background:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBackgroundColor'] ) . ';';
 	}
 
 	//hover border
 	if (!empty($block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'])) {
-		$css .= 'border-color:' . $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] . ';';
+		$css .= 'border-color:' . esc_attr( $block['attrs']['blockAdvanceOptions']['innerBlock']['hoverBorderColor'] ) . ';';
 	}
 	$css .= '}';
 

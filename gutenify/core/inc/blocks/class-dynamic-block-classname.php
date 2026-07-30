@@ -90,6 +90,8 @@ class Dynamic_Block_Classname {
 			$css = self::spacing_style( $block, $block_id, $instance );
 		}
 
+		$css .= self::position_style( $block, $block_id, $instance );
+
 		// Add the generated inline styles to the registered handle.
 		wp_add_inline_style( $handle, $css );
 	}
@@ -130,6 +132,34 @@ class Dynamic_Block_Classname {
 
 		// Return the combined spacing styles.
 		return $css;
+	}
+
+	/**
+	 * Generates dynamic position styles (position, offsets, z-index, width,
+	 * height, overflow) for the block, including any block-level custom
+	 * breakpoints (e.g. AdvancedGroup's `customBlockBreakpoints` attribute).
+	 *
+	 * @param array  $block    The block settings.
+	 * @param string $block_id Unique ID for the block instance.
+	 * @param object $instance The block instance.
+	 * @return string CSS styles.
+	 */
+	public static function position_style( $block, $block_id, $instance ) {
+		$position = ! empty( $instance->attributes['blockAdvanceOptions']['position'] ) ? $instance->attributes['blockAdvanceOptions']['position'] : array();
+
+		if ( ! empty( $block['attrs']['blockAdvanceOptions']['position'] ) ) {
+			$position = wp_parse_args( $block['attrs']['blockAdvanceOptions']['position'], $position );
+		}
+
+		if ( empty( $position ) ) {
+			return '';
+		}
+
+		$custom_breakpoints = ! empty( $block['attrs']['customBlockBreakpoints'] ) && is_array( $block['attrs']['customBlockBreakpoints'] )
+			? $block['attrs']['customBlockBreakpoints']
+			: array();
+
+		return Dynamic_Styles::get_position_with_media( '.' . $block_id, $position, $custom_breakpoints );
 	}
 }
 

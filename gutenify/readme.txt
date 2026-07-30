@@ -5,7 +5,7 @@ Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 5.5
-Stable tag: 1.6.5
+Stable tag: 1.6.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -212,6 +212,18 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-07-29 - version 1.6.6 =
+* Remove extra scripts on widget.
+* Optimized Stacking Cards scroll performance with linear interpolation (Lerp) animation loop.
+* Updated Section Title block sanitization and fixed style/class attribute spacing.
+* Sanitized header/footer global custom code using safe tag allowlist.
+* Sanitized global CSS styles in REST API update endpoints.
+* Enhanced demo importer settings sanitization and template validation.
+* Secured SVG notice-bar close icon markup validation.
+* Escaped dynamic block style attributes (colors, gradients, borders, spacing, shadows) across Button, Post List, Post Carousel, and other blocks to prevent unsafe CSS output.
+* Escaped post and image title output in Gallery Carousel, Post Carousel, and Post List blocks.
+* Hardened post excerpt text extraction in Post Carousel and Post List block editors.
 
 = 2026-05-26 - version 1.6.5 =
 * Major style and layout updates to Demo Importer V2.
