@@ -66,12 +66,13 @@ class Helpers {
 			'countdown-timer',
 			'stacking-cards',
 			'stacking-card-item',
+			'marquee',
+			'marquee-item',
 			// 'back-to-top',
 			// 'image-marquee',
 			// 'image-marquee-item',
 			// 'search-toggle',
 			// 'search-toggle-container',
-			// 'popup',
 
 			// Optional blocks (can be enabled via filters or config).
 			/**
@@ -89,6 +90,24 @@ class Helpers {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 			$blocks[] = 'advanced-group';
 		}
+
+		// These PRO-origin blocks ship in this lite framework but stay
+		// gated (PRO active, or the active theme opts in — see
+		// Helpers::is_pro_block_active(), checked by each block's own
+		// register_block()). Always included here rather than
+		// conditionally: active_blocks() runs at plugin-file-load time,
+		// before the active theme's own after_setup_theme callback has
+		// registered its add_theme_support() calls, so a theme-support
+		// check isn't reliable this early. Including them unconditionally
+		// only means each block's class file loads (cheap — just defines
+		// the class and an `init`-hooked callback); the real gate is
+		// checked later, on `init`, once both PRO's activation state and
+		// the theme's declared support are reliably known.
+		$blocks[] = 'popup';
+		$blocks[] = 'hover-card';
+		$blocks[] = 'hover-card-normal';
+		$blocks[] = 'hover-card-hover';
+		$blocks[] = 'wc-product-images-slider';
 
 		return apply_filters( "{$function_prefix}_active_blocks", $blocks );
 	}
@@ -156,5 +175,27 @@ class Helpers {
 		$constants                   = self::plugin_constants();
 		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
 		return apply_filters( $plugin_main_function_prefix . '_pro_activation_status', false );
+	}
+
+	/**
+	 * Whether a PRO-origin block hosted in this lite framework should
+	 * register: either the PRO plugin is loaded, or the active theme has
+	 * opted in via `add_theme_support( '{plugin_main_slug}-pro-blocks' )` —
+	 * one flag shared by every block that has made this PRO-to-lite move,
+	 * not a per-block flag. Callers must check this on `init` or later
+	 * (never from Helpers::active_blocks(), which runs at plugin-file-load
+	 * time): by `init`, every active plugin has finished loading (so
+	 * `function_exists()` here is reliable regardless of plugin load
+	 * order) and the active theme's own `after_setup_theme` callback has
+	 * already run (so its `add_theme_support()` call, if any, is visible
+	 * to `current_theme_supports()`).
+	 *
+	 * @return bool
+	 */
+	public static function is_pro_block_active() {
+		$constants                   = self::plugin_constants();
+		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
+		$plugin_main_slug            = $constants['plugin_main_slug'];
+		return function_exists( $plugin_main_function_prefix . '_pro' ) || current_theme_supports( $plugin_main_slug . '-pro-blocks' );
 	}
 }

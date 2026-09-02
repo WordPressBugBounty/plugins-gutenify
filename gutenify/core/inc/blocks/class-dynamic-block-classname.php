@@ -91,6 +91,13 @@ class Dynamic_Block_Classname {
 		}
 
 		$css .= self::position_style( $block, $block_id, $instance );
+		$css .= self::transform_style( $block, $block_id, $instance );
+		$css .= self::effects_style( $block, $block_id, $instance );
+		$css .= self::colors_style( $block, $block_id, $instance );
+		$css .= self::transition_style( $block, $block_id, $instance );
+		$css .= self::box_shadow_style( $block, $block_id, $instance );
+		$css .= self::layout_style( $block, $block_id, $instance );
+		$css .= self::container_layout_style( $block, $block_id, $instance );
 
 		// Add the generated inline styles to the registered handle.
 		wp_add_inline_style( $handle, $css );
@@ -145,13 +152,187 @@ class Dynamic_Block_Classname {
 	 * @return string CSS styles.
 	 */
 	public static function position_style( $block, $block_id, $instance ) {
-		$position = ! empty( $instance->attributes['blockAdvanceOptions']['position'] ) ? $instance->attributes['blockAdvanceOptions']['position'] : array();
+		$position = ! empty( $instance->attributes['advancedStyling']['position']['normal'] ) ? $instance->attributes['advancedStyling']['position']['normal'] : array();
 
-		if ( ! empty( $block['attrs']['blockAdvanceOptions']['position'] ) ) {
-			$position = wp_parse_args( $block['attrs']['blockAdvanceOptions']['position'], $position );
+		if ( ! empty( $block['attrs']['advancedStyling']['position']['normal'] ) ) {
+			$position = wp_parse_args( $block['attrs']['advancedStyling']['position']['normal'], $position );
 		}
 
-		if ( empty( $position ) ) {
+		$custom_breakpoints = ! empty( $block['attrs']['customBlockBreakpoints'] ) && is_array( $block['attrs']['customBlockBreakpoints'] )
+			? $block['attrs']['customBlockBreakpoints']
+			: array();
+
+		$css = '';
+
+		if ( ! empty( $position ) ) {
+			$css .= Dynamic_Styles::get_position_with_media( '.' . $block_id, $position, $custom_breakpoints );
+		}
+
+		// Hover/Active/Focus-within variants — evaluated independently of the
+		// Normal bucket above, since a block can have a state-only effect
+		// (e.g. "scale up on hover") with no base position/transform at all.
+		$css .= Dynamic_Styles::get_state_variants_css(
+			'.' . $block_id,
+			$block['attrs'] ?? array(),
+			$instance->attributes,
+			'position',
+			$custom_breakpoints,
+			function ( $sel, $bucket, $cbp ) {
+				return Dynamic_Styles::get_position_with_media( $sel, $bucket, $cbp );
+			}
+		);
+
+		return $css;
+	}
+
+	/**
+	 * Generates dynamic transform styles (transform, transform-origin) for
+	 * the block, including any block-level custom breakpoints.
+	 *
+	 * @param array  $block    The block settings.
+	 * @param string $block_id Unique ID for the block instance.
+	 * @param object $instance The block instance.
+	 * @return string CSS styles.
+	 */
+	public static function transform_style( $block, $block_id, $instance ) {
+		$transform = ! empty( $instance->attributes['advancedStyling']['transform']['normal'] ) ? $instance->attributes['advancedStyling']['transform']['normal'] : array();
+
+		if ( ! empty( $block['attrs']['advancedStyling']['transform']['normal'] ) ) {
+			$transform = wp_parse_args( $block['attrs']['advancedStyling']['transform']['normal'], $transform );
+		}
+
+		$custom_breakpoints = ! empty( $block['attrs']['customBlockBreakpoints'] ) && is_array( $block['attrs']['customBlockBreakpoints'] )
+			? $block['attrs']['customBlockBreakpoints']
+			: array();
+
+		$css = '';
+
+		if ( ! empty( $transform ) ) {
+			$css .= Dynamic_Styles::get_transform_with_media( '.' . $block_id, $transform, $custom_breakpoints );
+		}
+
+		// Hover/Active/Focus-within variants — see position_style() above for
+		// why this runs regardless of whether the Normal bucket was empty.
+		$css .= Dynamic_Styles::get_state_variants_css(
+			'.' . $block_id,
+			$block['attrs'] ?? array(),
+			$instance->attributes,
+			'transform',
+			$custom_breakpoints,
+			function ( $sel, $bucket, $cbp ) {
+				return Dynamic_Styles::get_transform_with_media( $sel, $bucket, $cbp );
+			}
+		);
+
+		return $css;
+	}
+
+	/**
+	 * Generates dynamic effects styles (opacity, filter, backdrop-filter) for
+	 * the block, including any block-level custom breakpoints.
+	 *
+	 * @param array  $block    The block settings.
+	 * @param string $block_id Unique ID for the block instance.
+	 * @param object $instance The block instance.
+	 * @return string CSS styles.
+	 */
+	public static function effects_style( $block, $block_id, $instance ) {
+		$effects = ! empty( $instance->attributes['advancedStyling']['effects']['normal'] ) ? $instance->attributes['advancedStyling']['effects']['normal'] : array();
+
+		if ( ! empty( $block['attrs']['advancedStyling']['effects']['normal'] ) ) {
+			$effects = wp_parse_args( $block['attrs']['advancedStyling']['effects']['normal'], $effects );
+		}
+
+		$custom_breakpoints = ! empty( $block['attrs']['customBlockBreakpoints'] ) && is_array( $block['attrs']['customBlockBreakpoints'] )
+			? $block['attrs']['customBlockBreakpoints']
+			: array();
+
+		$css = '';
+
+		if ( ! empty( $effects ) ) {
+			$css .= Dynamic_Styles::get_effects_with_media( '.' . $block_id, $effects, $custom_breakpoints );
+		}
+
+		// Hover/Active/Focus-within variants — see position_style() above for
+		// why this runs regardless of whether the Normal bucket was empty.
+		$css .= Dynamic_Styles::get_state_variants_css(
+			'.' . $block_id,
+			$block['attrs'] ?? array(),
+			$instance->attributes,
+			'effects',
+			$custom_breakpoints,
+			function ( $sel, $bucket, $cbp ) {
+				return Dynamic_Styles::get_effects_with_media( $sel, $bucket, $cbp );
+			}
+		);
+
+		return $css;
+	}
+
+	/**
+	 * Generates dynamic color styles (background-color, color) for the
+	 * block, including any block-level custom breakpoints.
+	 *
+	 * @param array  $block    The block settings.
+	 * @param string $block_id Unique ID for the block instance.
+	 * @param object $instance The block instance.
+	 * @return string CSS styles.
+	 */
+	public static function colors_style( $block, $block_id, $instance ) {
+		$colors = ! empty( $instance->attributes['advancedStyling']['colors']['normal'] ) ? $instance->attributes['advancedStyling']['colors']['normal'] : array();
+
+		if ( ! empty( $block['attrs']['advancedStyling']['colors']['normal'] ) ) {
+			$colors = wp_parse_args( $block['attrs']['advancedStyling']['colors']['normal'], $colors );
+		}
+
+		$custom_breakpoints = ! empty( $block['attrs']['customBlockBreakpoints'] ) && is_array( $block['attrs']['customBlockBreakpoints'] )
+			? $block['attrs']['customBlockBreakpoints']
+			: array();
+
+		$css = '';
+
+		if ( ! empty( $colors ) ) {
+			$css .= Dynamic_Styles::get_colors_with_media( '.' . $block_id, $colors, $custom_breakpoints );
+		}
+
+		// Hover/Active/Focus-within variants — see position_style() above for
+		// why this runs regardless of whether the Normal bucket was empty.
+		$css .= Dynamic_Styles::get_state_variants_css(
+			'.' . $block_id,
+			$block['attrs'] ?? array(),
+			$instance->attributes,
+			'colors',
+			$custom_breakpoints,
+			function ( $sel, $bucket, $cbp ) {
+				return Dynamic_Styles::get_colors_with_media( $sel, $bucket, $cbp );
+			}
+		);
+
+		return $css;
+	}
+
+	/**
+	 * Generates dynamic `transition-duration`/`transition-timing-function`/
+	 * `transition-delay` CSS for the block, including any block-level custom
+	 * breakpoints. Normal-only — unlike position/transform/effects/colors,
+	 * this deliberately does NOT call get_state_variants_css(): `transition`
+	 * must live on the resting selector to animate a state change in both
+	 * directions (entering AND leaving :hover/:active/:focus-within), so it
+	 * has no Hover/Active/Focus bucket of its own to read.
+	 *
+	 * @param array  $block    The block settings.
+	 * @param string $block_id Unique ID for the block instance.
+	 * @param object $instance The block instance.
+	 * @return string CSS styles.
+	 */
+	public static function transition_style( $block, $block_id, $instance ) {
+		$transition = ! empty( $instance->attributes['advancedStyling']['transition']['normal'] ) ? $instance->attributes['advancedStyling']['transition']['normal'] : array();
+
+		if ( ! empty( $block['attrs']['advancedStyling']['transition']['normal'] ) ) {
+			$transition = wp_parse_args( $block['attrs']['advancedStyling']['transition']['normal'], $transition );
+		}
+
+		if ( empty( $transition ) ) {
 			return '';
 		}
 
@@ -159,7 +340,123 @@ class Dynamic_Block_Classname {
 			? $block['attrs']['customBlockBreakpoints']
 			: array();
 
-		return Dynamic_Styles::get_position_with_media( '.' . $block_id, $position, $custom_breakpoints );
+		return Dynamic_Styles::get_transition_with_media( '.' . $block_id, $transition, $custom_breakpoints );
+	}
+
+	/**
+	 * Generates dynamic `box-shadow` CSS for the block, including any
+	 * block-level custom breakpoints. State-crossed like colors_style() —
+	 * box-shadow-on-hover is a common effect.
+	 *
+	 * @param array  $block    The block settings.
+	 * @param string $block_id Unique ID for the block instance.
+	 * @param object $instance The block instance.
+	 * @return string CSS styles.
+	 */
+	public static function box_shadow_style( $block, $block_id, $instance ) {
+		$box_shadow = ! empty( $instance->attributes['advancedStyling']['boxShadow']['normal'] ) ? $instance->attributes['advancedStyling']['boxShadow']['normal'] : array();
+
+		if ( ! empty( $block['attrs']['advancedStyling']['boxShadow']['normal'] ) ) {
+			$box_shadow = wp_parse_args( $block['attrs']['advancedStyling']['boxShadow']['normal'], $box_shadow );
+		}
+
+		$custom_breakpoints = ! empty( $block['attrs']['customBlockBreakpoints'] ) && is_array( $block['attrs']['customBlockBreakpoints'] )
+			? $block['attrs']['customBlockBreakpoints']
+			: array();
+
+		$css = '';
+
+		if ( ! empty( $box_shadow ) ) {
+			$css .= Dynamic_Styles::get_box_shadow_with_media( '.' . $block_id, $box_shadow, $custom_breakpoints );
+		}
+
+		// Hover/Active/Focus-within variants — see position_style() above for why this runs regardless of whether the Normal bucket was empty.
+		$css .= Dynamic_Styles::get_state_variants_css(
+			'.' . $block_id,
+			$block['attrs'] ?? array(),
+			$instance->attributes,
+			'boxShadow',
+			$custom_breakpoints,
+			function ( $sel, $bucket, $cbp ) {
+				return Dynamic_Styles::get_box_shadow_with_media( $sel, $bucket, $cbp );
+			}
+		);
+
+		return $css;
+	}
+
+	/**
+	 * Generates dynamic `flex-grow`/`flex-shrink`/`flex-basis`/`align-self`/
+	 * `order`/`cursor` CSS for the block, including any block-level custom
+	 * breakpoints. Normal-only — see get_layout_with_media()'s docblock for
+	 * why this has no Hover/Active/Focus variant.
+	 *
+	 * @param array  $block    The block settings.
+	 * @param string $block_id Unique ID for the block instance.
+	 * @param object $instance The block instance.
+	 * @return string CSS styles.
+	 */
+	public static function layout_style( $block, $block_id, $instance ) {
+		$layout = ! empty( $instance->attributes['advancedStyling']['layout']['normal'] ) ? $instance->attributes['advancedStyling']['layout']['normal'] : array();
+
+		if ( ! empty( $block['attrs']['advancedStyling']['layout']['normal'] ) ) {
+			$layout = wp_parse_args( $block['attrs']['advancedStyling']['layout']['normal'], $layout );
+		}
+
+		if ( empty( $layout ) ) {
+			return '';
+		}
+
+		$custom_breakpoints = ! empty( $block['attrs']['customBlockBreakpoints'] ) && is_array( $block['attrs']['customBlockBreakpoints'] )
+			? $block['attrs']['customBlockBreakpoints']
+			: array();
+
+		return Dynamic_Styles::get_layout_with_media( '.' . $block_id, $layout, $custom_breakpoints );
+	}
+
+	/**
+	 * Generates dynamic `flex-direction`/`flex-wrap`/`gap`/`align-items`/
+	 * `justify-content` CSS for the block — the CONTAINER side of flex/grid
+	 * layout (how this block lays out its children), as opposed to
+	 * layout_style() above (the CHILD side). State-crossed like colors_style()
+	 * — these fields share the same resolved Display value the "Position"
+	 * section's Display field already supports per state.
+	 *
+	 * @param array  $block    The block settings.
+	 * @param string $block_id Unique ID for the block instance.
+	 * @param object $instance The block instance.
+	 * @return string CSS styles.
+	 */
+	public static function container_layout_style( $block, $block_id, $instance ) {
+		$container_layout = ! empty( $instance->attributes['advancedStyling']['containerLayout']['normal'] ) ? $instance->attributes['advancedStyling']['containerLayout']['normal'] : array();
+
+		if ( ! empty( $block['attrs']['advancedStyling']['containerLayout']['normal'] ) ) {
+			$container_layout = wp_parse_args( $block['attrs']['advancedStyling']['containerLayout']['normal'], $container_layout );
+		}
+
+		$custom_breakpoints = ! empty( $block['attrs']['customBlockBreakpoints'] ) && is_array( $block['attrs']['customBlockBreakpoints'] )
+			? $block['attrs']['customBlockBreakpoints']
+			: array();
+
+		$css = '';
+
+		if ( ! empty( $container_layout ) ) {
+			$css .= Dynamic_Styles::get_container_layout_with_media( '.' . $block_id, $container_layout, $custom_breakpoints );
+		}
+
+		// Hover/Active/Focus-within variants — see position_style() above for why this runs regardless of whether the Normal bucket was empty.
+		$css .= Dynamic_Styles::get_state_variants_css(
+			'.' . $block_id,
+			$block['attrs'] ?? array(),
+			$instance->attributes,
+			'containerLayout',
+			$custom_breakpoints,
+			function ( $sel, $bucket, $cbp ) {
+				return Dynamic_Styles::get_container_layout_with_media( $sel, $bucket, $cbp );
+			}
+		);
+
+		return $css;
 	}
 }
 

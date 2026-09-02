@@ -1,0 +1,116 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "gutenify/hover-card",
+  "category": "gutenify",
+  "apiVersion": 3,
+  "title": "Hover Card",
+  "version": "2",
+  "attributes": {
+    "animation": {
+      "type": "string",
+      "default": "slide-top-bottom"
+    },
+    "triggerMode": {
+      "type": "string",
+      "default": "hover"
+    },
+    "animationDuration": {
+      "type": "number",
+      "default": 0.5
+    },
+    "animationDelay": {
+      "type": "number",
+      "default": 0
+    },
+    "animationEasing": {
+      "type": "string",
+      "default": "ease"
+    }
+  },
+  "allowedBlocks": [
+    "gutenify/hover-card-normal",
+    "gutenify/hover-card-hover"
+  ],
+  "supports": {
+    "__experimentalOnEnter": true,
+    "__experimentalOnMerge": true,
+    "__experimentalSettings": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true,
+    "ariaLabel": true,
+    "html": false,
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true,
+      "__experimentalDefaultControls": {
+        "backgroundImage": true
+      }
+    },
+    "color": {
+      "gradients": true,
+      "heading": true,
+      "button": true,
+      "link": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true
+      }
+    },
+    "shadow": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": true,
+      "blockGap": true,
+      "__experimentalDefaultControls": {
+        "padding": true,
+        "blockGap": true
+      }
+    },
+    "dimensions": {
+      "minHeight": true
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "file:./view-script.js"
+  ]
+}

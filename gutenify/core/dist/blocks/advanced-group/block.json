@@ -18,6 +18,14 @@
     "customBlockBreakpoints": {
       "type": "array",
       "default": []
+    },
+    "tagName": {
+      "type": "string",
+      "default": "div"
+    },
+    "advancedStyling": {
+      "type": "object",
+      "default": {}
     }
   },
   "supports": {

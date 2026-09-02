@@ -1,97 +1,337 @@
 # Copyright (c) 2026 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Site Templates 1.6.6\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Starter Templates 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-30T04:12:38+00:00\n"
+"POT-Creation-Date: 2026-09-02T07:19:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
 
 #. Plugin Name of the plugin
-#: gutenify.php
-msgid "Gutenify - Visual Site Builder Blocks & Site Templates"
+#: gutenify.php:3
+msgid "Gutenify - Visual Site Builder Blocks & Starter Templates"
 msgstr ""
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
-#: gutenify.php
+#: gutenify.php:7
+#: gutenify.php:6
 msgid "https://www.gutenify.com"
 msgstr ""
 
 #. Description of the plugin
-#: gutenify.php
-msgid "Gutenify - Visual Site Builder Blocks & Site Templates is a collection of Gutenberg Advance Fullsite Editing Blocks & site templates that is compatible with WordPress Full Site Editing to help you create the website you always wanted."
+#: gutenify.php:4
+msgid "Gutenify - Visual Site Builder Blocks & Starter Templates is a collection of Gutenberg Advance Fullsite Editing Blocks & starter templates that is compatible with WordPress Full Site Editing to help you create the website you always wanted."
 msgstr ""
 
 #. Author of the plugin
-#: gutenify.php
+#: gutenify.php:5
 #: core/inc/admin/class-menu.php:58
+#: svn_folder/tags/0.0.1/inc/class-blocks-loader.php:30
+#: svn_folder/tags/0.0.2/inc/class-blocks-loader.php:30
+#: svn_folder/tags/0.0.3/inc/class-blocks-loader.php:30
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:56
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:58
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:58
+#: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:58
+#: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:58
+#: svn_folder/trunk/core/inc/admin/class-menu.php:58
 msgid "Gutenify"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:57
 #: core/inc/admin/class-menu.php:69
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:54
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:66
+#: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:54
+#: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:66
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:54
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:66
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:55
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:57
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:69
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:57
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:69
+#: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:57
+#: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:69
+#: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:57
+#: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:69
+#: svn_folder/trunk/core/inc/admin/class-menu.php:57
+#: svn_folder/trunk/core/inc/admin/class-menu.php:69
 msgid "Gutenify: Getting Started"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:70
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:67
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:68
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:70
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:70
+#: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:70
+#: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:70
+#: svn_folder/trunk/core/inc/admin/class-menu.php:70
 msgid "Getting Started"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:79
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:76
+#: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:76
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:76
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:79
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:79
+#: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:79
+#: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:79
+#: svn_folder/trunk/core/inc/admin/class-menu.php:79
 msgid "Gutenify Demo Importer"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:80
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:77
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:78
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:80
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:80
+#: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:80
+#: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:80
+#: svn_folder/trunk/core/inc/admin/class-menu.php:80
 msgid "Demo Importer"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:89
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:100
+#: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:100
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:100
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:87
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:89
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:89
+#: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:89
+#: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:89
+#: svn_folder/trunk/core/inc/admin/class-menu.php:89
 msgid "Gutenify Settings"
 msgstr ""
 
 #: core/inc/admin/class-menu.php:90
+#: svn_folder/tags/1.5.4/core/inc/admin/class-menu.php:101
+#: svn_folder/tags/1.5.5/core/inc/admin/class-menu.php:101
+#: svn_folder/tags/1.5.6/core/inc/admin/class-menu.php:101
+#: svn_folder/tags/1.5.7/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.5.8/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.5.9/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.6.0/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.6.1/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.6.2/core/inc/admin/class-menu.php:88
+#: svn_folder/tags/1.6.3/core/inc/admin/class-menu.php:90
+#: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:90
+#: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:90
+#: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:90
+#: svn_folder/trunk/core/inc/admin/class-menu.php:90
 msgid "Settings"
 msgstr ""
 
 #: core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.0.1/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.0.2/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.0.3/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.0.4/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.0.5/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.0.6/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.0.7/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.0.8/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.0.9/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.0/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.1/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.2/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.3/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.4/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.5/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.6/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.7/inc/get-dynamic-blocks.php:69
+#: svn_folder/tags/1.1.8/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.1.9/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.0/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.1/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.2/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.3/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.4/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.5/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.6/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.7/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.8/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.2.9/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.0/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.1/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.2/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.3/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.4/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.5/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.6/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.7/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.8/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.3.9/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.0/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.1/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.1/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.2/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.2/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.3/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.3/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.5/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.5/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.6/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.6/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.7/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.7/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.8/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.8/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.4.9/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.4.9/core/inc/get-dynamic-blocks.php:64
+#: svn_folder/tags/1.5.0/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.5.1/core/inc/class-blocks.php:16
+#: svn_folder/tags/1.5.2/core/inc/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.3/core/inc/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.4/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.5/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.6/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.7/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.8/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.5.9/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.0/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.1/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.2/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.3/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.4/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.5/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.6.6/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:400
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:400
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:400
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:400
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:400
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:400
 msgid "Templates not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:426
 #: core/inc/rest-api/class-rest.php:477
 #: core/inc/rest-api/class-rest.php:641
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:426
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:477
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:641
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:426
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:477
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:641
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:426
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:477
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:641
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:426
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:477
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:641
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:426
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:477
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:641
 msgid "Template data not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:492
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:492
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:492
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:492
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:492
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:492
 msgid "Settings data not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:584
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:584
 msgid "Template kit not found."
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:653
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:653
 msgid "Error creating Kit"
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:741
 #: core/inc/rest-api/class-rest.php:783
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:740
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:782
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:740
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:782
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:740
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:782
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:741
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:783
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:741
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:783
 msgid "Error listing demo"
 msgstr ""
 
 #: core/inc/rest-api/class-rest.php:912
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:911
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:911
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:911
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:912
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:912
 msgid "Error demo set pages."
 msgstr ""
 
@@ -111,6 +351,79 @@ msgstr ""
 
 #: core/src/blocks/post-carousel/index.php:97
 #: core/src/blocks/post-list/index.php:185
+#: svn_folder/tags/1.0.1/src/blocks/post-carousel/index.php:149
+#: svn_folder/tags/1.0.2/src/blocks/post-carousel/index.php:149
+#: svn_folder/tags/1.0.2/src/blocks/post-list/index.php:152
+#: svn_folder/tags/1.0.3/src/blocks/post-carousel/index.php:149
+#: svn_folder/tags/1.0.3/src/blocks/post-list/index.php:152
+#: svn_folder/tags/1.0.4/src/blocks/post-carousel/index.php:149
+#: svn_folder/tags/1.0.4/src/blocks/post-list/index.php:168
+#: svn_folder/tags/1.0.4/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.0.5/src/blocks/post-carousel/index.php:149
+#: svn_folder/tags/1.0.5/src/blocks/post-list/index.php:168
+#: svn_folder/tags/1.0.5/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.0.6/src/blocks/post-carousel/index.php:150
+#: svn_folder/tags/1.0.6/src/blocks/post-list/index.php:168
+#: svn_folder/tags/1.0.6/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.0.7/src/blocks/post-carousel/index.php:150
+#: svn_folder/tags/1.0.7/src/blocks/post-list/index.php:168
+#: svn_folder/tags/1.0.7/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.0.8/src/blocks/post-carousel/index.php:150
+#: svn_folder/tags/1.0.8/src/blocks/post-list/index.php:168
+#: svn_folder/tags/1.0.8/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.0.9/src/blocks/post-carousel/index.php:150
+#: svn_folder/tags/1.0.9/src/blocks/post-list/index.php:168
+#: svn_folder/tags/1.0.9/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.0/src/blocks/post-carousel/index.php:150
+#: svn_folder/tags/1.1.0/src/blocks/post-list/index.php:172
+#: svn_folder/tags/1.1.0/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.1/src/blocks/post-carousel/index.php:174
+#: svn_folder/tags/1.1.1/src/blocks/post-list/index.php:172
+#: svn_folder/tags/1.1.1/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.2/src/blocks/post-carousel/index.php:174
+#: svn_folder/tags/1.1.2/src/blocks/post-list/index.php:172
+#: svn_folder/tags/1.1.2/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.3/src/blocks/post-carousel/index.php:174
+#: svn_folder/tags/1.1.3/src/blocks/post-list/index.php:172
+#: svn_folder/tags/1.1.3/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.4/src/blocks/post-carousel/index.php:174
+#: svn_folder/tags/1.1.4/src/blocks/post-list/index.php:172
+#: svn_folder/tags/1.1.4/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.5/src/blocks/post-carousel/index.php:174
+#: svn_folder/tags/1.1.5/src/blocks/post-list/index.php:172
+#: svn_folder/tags/1.1.5/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.6/src/blocks/post-carousel/index.php:174
+#: svn_folder/tags/1.1.6/src/blocks/post-list/index.php:172
+#: svn_folder/tags/1.1.6/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.7/src/blocks/post-carousel/index.php:174
+#: svn_folder/tags/1.1.7/src/blocks/post-list/index.php:172
+#: svn_folder/tags/1.1.7/src/blocks/wc-product-list/index copy.php:169
+#: svn_folder/tags/1.1.8/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.1.8/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.1.9/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.1.9/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.0/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.0/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.1/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.1/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.2/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.2/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.3/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.3/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.4/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.4/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.5/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.5/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.6/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.6/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.7/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.7/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.8/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.8/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.2.9/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.2.9/inc/blocks/post-list.php:172
+#: svn_folder/tags/1.3.0/inc/blocks/post-carousel.php:174
+#: svn_folder/tags/1.3.0/inc/blocks/post-list.php:172
 msgctxt "placeholder when a post has no title"
 msgid "(no title)"
 msgstr ""
@@ -344,10 +657,12 @@ msgid "Toggle to enable slider navigation."
 msgstr ""
 
 #: core/src/blocks/image-marquee/edit.js:55
+#: core/src/blocks/marquee/edit.js:113
 msgid "Marquee Settings"
 msgstr ""
 
 #: core/src/blocks/image-marquee/edit.js:57
+#: core/src/blocks/marquee/edit.js:115
 msgid "Direction"
 msgstr ""
 
@@ -679,175 +994,128 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:25
-msgid "Add popup content..."
+#: core/src/blocks/marquee/edit.js:107
+msgid "Add Marquee Item"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:103
-msgid "Hide Content"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:103
-msgid "Show Content"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:108
-msgid "Popup Settings"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:110
-msgid "Animation"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:113
-msgid "Fade"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:114
-msgid "Zoom In"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:115
-msgid "Zoom Out"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:116
-msgid "Slide"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:121
-msgid "Show Close Button"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:126
-msgid "Show Content in Editor"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:129
-msgid "Toggle visibility of the popup content in the editor."
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:132
-msgid "Close on Background Click"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:142
-msgid "Close Button Color"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:149
-msgid "Icon Settings"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:153
-msgid "Button Icon"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:167
-msgid "Select Icon"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:177
-msgid "Remove"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:193
-msgid "Icon Position"
-msgstr ""
-
-#: core/src/blocks/popup/edit.js:196
+#: core/src/blocks/marquee/edit.js:118
 msgid "Left"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:197
+#: core/src/blocks/marquee/edit.js:119
 msgid "Right"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:202
-msgid "Icon Size (px)"
+#: core/src/blocks/marquee/edit.js:120
+msgid "Up"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:212
-msgid "Content Settings"
+#: core/src/blocks/marquee/edit.js:121
+msgid "Down"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:214
-msgid "Max Width (px)"
+#: core/src/blocks/marquee/edit.js:126
+msgid "Speed (px per second)"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:220
-msgid "Set the maximum width of the popup content."
+#: core/src/blocks/marquee/edit.js:137
+msgid "How many pixels the marquee travels each second."
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:224
-msgid "Button Settings"
+#: core/src/blocks/marquee/edit.js:140
+msgid "Gap Between Items"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:230
-msgid "Normal"
+#: core/src/blocks/marquee/edit.js:145
+msgid "Item Alignment"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:235
-msgid "Hover"
+#: core/src/blocks/marquee/edit.js:148
+msgid "Start"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:245
-msgid "Normal Colors"
+#: core/src/blocks/marquee/edit.js:149
+msgid "Center"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:252
-#: core/src/blocks/popup/edit.js:277
-msgid "Text Color"
+#: core/src/blocks/marquee/edit.js:150
+msgid "End"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:257
-#: core/src/blocks/popup/edit.js:282
-msgid "Background Color"
+#: core/src/blocks/marquee/edit.js:151
+msgid "Stretch"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:262
-#: core/src/blocks/popup/edit.js:287
-msgid "Border Color"
+#: core/src/blocks/marquee/edit.js:157
+msgid "Marquee Height"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:270
-msgid "Hover Colors"
+#: core/src/blocks/marquee/edit.js:160
+msgid "Visible height of the vertical marquee."
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:299
-msgid "Border Radius (px)"
+#: core/src/blocks/marquee/edit.js:164
+msgid "Fade Edges"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:306
-msgid "Padding"
+#: core/src/blocks/marquee/edit.js:167
+msgid "Softly fade items in and out at the marquee edges."
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:311
-msgid "Border Width (px)"
+#: core/src/blocks/marquee/edit.js:171
+msgid "Fade Size"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:318
-msgid "Enable Pulse Effect"
+#: core/src/blocks/marquee/edit.js:177
+msgid "Playback & Interaction"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:324
-msgid "Pulse Settings"
+#: core/src/blocks/marquee/edit.js:179
+msgid "Playback"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:331
-msgid "Pulse Color"
+#: core/src/blocks/marquee/edit.js:182
+msgid "Continuous Loop"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:336
-msgid "Pulse Duration (s)"
+#: core/src/blocks/marquee/edit.js:183
+msgid "Bounce Back & Forth"
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:344
-msgid "Pulse Size (px)"
+#: core/src/blocks/marquee/edit.js:186
+msgid "Loop repeats items seamlessly. Bounce scrolls to the end, then reverses."
 msgstr ""
 
-#: core/src/blocks/popup/edit.js:386
-msgid "Open Popup"
+#: core/src/blocks/marquee/edit.js:189
+msgid "On Hover"
+msgstr ""
+
+#: core/src/blocks/marquee/edit.js:192
+msgid "Do Nothing"
+msgstr ""
+
+#: core/src/blocks/marquee/edit.js:193
+msgid "Pause"
+msgstr ""
+
+#: core/src/blocks/marquee/edit.js:194
+msgid "Slow Down"
+msgstr ""
+
+#: core/src/blocks/marquee/edit.js:199
+msgid "Pause on Keyboard Focus"
+msgstr ""
+
+#: core/src/blocks/marquee/edit.js:202
+msgid "Pause when a link or button inside the marquee receives keyboard focus."
+msgstr ""
+
+#: core/src/blocks/marquee/edit.js:205
+msgid "Respect Reduced Motion"
+msgstr ""
+
+#: core/src/blocks/marquee/edit.js:208
+msgid "Show a static, scrollable row for visitors whose device requests reduced motion."
 msgstr ""
 
 #: core/src/blocks/post-carousel/edit.js:169
@@ -927,6 +1195,28 @@ msgstr ""
 msgid "Card Spacing (Gap)"
 msgstr ""
 
+#. translators: %s: plugin name
+#: core/src/non-blocks/admin/rating-notice/index.js:36
+#, js-format
+msgid "Enjoying %s?"
+msgstr ""
+
+#: core/src/non-blocks/admin/rating-notice/index.js:41
+msgid "You've been using it for over a week now. If it's working well for you, a quick rating helps others discover it too."
+msgstr ""
+
+#: core/src/non-blocks/admin/rating-notice/index.js:55
+msgid "★ Rate this plugin"
+msgstr ""
+
+#: core/src/non-blocks/admin/rating-notice/index.js:62
+msgid "Remind me in 7 days"
+msgstr ""
+
+#: core/src/non-blocks/admin/rating-notice/index.js:69
+msgid "Don't show again"
+msgstr ""
+
 #: core/src/non-blocks/components/customizer-panel/alert-kit-apply.js:87
 msgid " Options"
 msgstr ""
@@ -995,6 +1285,18 @@ msgstr ""
 msgid "Templates: %s"
 msgstr ""
 
+#: svn_folder/tags/0.0.1/assets/google-maps_admin.js:1
+#: svn_folder/tags/0.0.1/src/components/blocks/count-down/GutenifyCountDownInspectorControls.js:29
+#: svn_folder/tags/0.0.1/src/components/blocks/google-maps/GutenifyCountDownInspectorControls.js:14
+#: svn_folder/tags/0.0.2/assets/google-maps_admin.js:1
+#: svn_folder/tags/0.0.2/src/components/blocks/count-down/GutenifyCountDownInspectorControls.js:29
+#: svn_folder/tags/0.0.2/src/components/blocks/google-maps/GutenifyCountDownInspectorControls.js:14
+#: svn_folder/tags/0.0.3/assets/google-maps_admin.js:1
+#: svn_folder/tags/0.0.3/src/components/blocks/count-down/GutenifyCountDownInspectorControls.js:29
+#: svn_folder/tags/0.0.3/src/components/blocks/google-maps/GutenifyCountDownInspectorControls.js:14
+msgid "General"
+msgstr ""
+
 #: core/src/blocks/advance-slide-item/block.json
 msgctxt "block title"
 msgid "Advance slide item"
@@ -1036,6 +1338,7 @@ msgid "back to top"
 msgstr ""
 
 #: core/src/blocks/back-to-top/block.json
+#: core/src/blocks/marquee/block.json
 msgctxt "block keyword"
 msgid "scroll"
 msgstr ""
@@ -1159,6 +1462,21 @@ msgctxt "block title"
 msgid "Grid"
 msgstr ""
 
+#: core/src/blocks/hover-card-hover/block.json
+msgctxt "block title"
+msgid "Hover Card Hover"
+msgstr ""
+
+#: core/src/blocks/hover-card-normal/block.json
+msgctxt "block title"
+msgid "Hover Card Normal"
+msgstr ""
+
+#: core/src/blocks/hover-card/block.json
+msgctxt "block title"
+msgid "Hover Card"
+msgstr ""
+
 #: core/src/blocks/icon-v2/block.json
 #: core/src/blocks/icon/block.json
 msgctxt "block title"
@@ -1186,6 +1504,7 @@ msgid "Icon"
 msgstr ""
 
 #: core/src/blocks/image-marquee-item/block.json
+#: core/src/blocks/marquee-item/block.json
 msgctxt "block title"
 msgid "Marquee Item"
 msgstr ""
@@ -1230,6 +1549,41 @@ msgctxt "block title"
 msgid "Map"
 msgstr ""
 
+#: core/src/blocks/marquee-item/block.json
+msgctxt "block description"
+msgid "A single marquee item. Add any blocks inside."
+msgstr ""
+
+#: core/src/blocks/marquee/block.json
+msgctxt "block title"
+msgid "Marquee"
+msgstr ""
+
+#: core/src/blocks/marquee/block.json
+msgctxt "block description"
+msgid "Continuously scrolling marquee. Add any blocks inside each item — logos, text, images, buttons."
+msgstr ""
+
+#: core/src/blocks/marquee/block.json
+msgctxt "block keyword"
+msgid "marquee"
+msgstr ""
+
+#: core/src/blocks/marquee/block.json
+msgctxt "block keyword"
+msgid "ticker"
+msgstr ""
+
+#: core/src/blocks/marquee/block.json
+msgctxt "block keyword"
+msgid "logos"
+msgstr ""
+
+#: core/src/blocks/marquee/block.json
+msgctxt "block keyword"
+msgid "carousel"
+msgstr ""
+
 #: core/src/blocks/masonry/block.json
 msgctxt "block title"
 msgid "Masonry"
@@ -1252,7 +1606,7 @@ msgstr ""
 
 #: core/src/blocks/popup/block.json
 msgctxt "block description"
-msgid "Display a button that opens a popup with custom content."
+msgid "A trigger button that opens a popup with any blocks inside, for showing extra content without leaving the page."
 msgstr ""
 
 #: core/src/blocks/post-carousel/block.json
@@ -1528,6 +1882,11 @@ msgctxt "block title"
 msgid "WooCommerce Product Carousel"
 msgstr ""
 
+#: core/src/blocks/wc-product-images-slider/block.json
+msgctxt "block title"
+msgid "WooCommerce Product Images Slider"
+msgstr ""
+
 #: core/src/blocks/wc-product-list/block.json
 msgctxt "block title"
 msgid "WooCommerce Product List"
@@ -1566,6 +1925,16 @@ msgstr ""
 #: core/src/blocks/wc-product-list/block.json
 msgctxt "block keyword"
 msgid "WooCommerce Product"
+msgstr ""
+
+#: svn_folder/tags/1.1.2/src/blocks/advance-slider/block.json
+#: svn_folder/tags/1.1.3/src/blocks/advance-slider/block.json
+#: svn_folder/tags/1.1.4/src/blocks/advance-slider/block.json
+#: svn_folder/tags/1.1.5/src/blocks/advance-slider/block.json
+#: svn_folder/tags/1.1.6/src/blocks/advance-slider/block.json
+#: svn_folder/tags/1.1.7/src/blocks/advance-slider/block.json
+msgctxt "block title"
+msgid "Advance Slider"
 msgstr ""
 
 #: core/src/non-blocks/components/customizer-panel/theme.json

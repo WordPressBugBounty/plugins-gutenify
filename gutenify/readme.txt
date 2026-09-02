@@ -1,22 +1,23 @@
-=== Gutenify - Visual Site Builder Blocks & Site Templates ===
+=== Gutenify - Visual Site Builder Blocks & Starter Templates ===
 Contributors: codeyatri
-Tags: block, blocks, editor, gutenberg, gutenberg blocks
+Tags: gutenberg blocks, page builder, site builder, block editor, full site editing, woocommerce blocks
 Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 7.0
-Requires PHP: 5.5
-Stable tag: 1.6.6
+Requires PHP: 7.4
+Stable tag: 1.7.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Gutenify is a free WordPress plugin which allows you to add different block effortlessly in your site.
+Gutenify is a free WordPress plugin with 40+ Gutenberg blocks and ready-made starter templates for building your site visually, without code.
 
 == Description ==
-[Gutenify - Visual Site Builder & Site Templates](https://gutenify.com/) is a collection of Gutenberg Advance Fullsite Editing Blocks & site templates that is compatible with WordPress Full Site Editing to help you create the website you always wanted.
-Gutenify is a free WordPress plugin which allows you to add different block effortlessly in your site. With a collection of page building WordPress blocks for the new WordPress block editor you can build your site very quickly.
+[Gutenify - Visual Site Builder & Starter Templates](https://gutenify.com/) is a free collection of advanced Gutenberg blocks and starter templates, fully compatible with WordPress Full Site Editing, to help you build the website you've always wanted.
 
-> **🏆 [Site Demos](https://gutenify.com/site-demos/)**
-> Site Demos are pre built demo that can help setup your site within few clicks in minutes. To use our demo you will have to import our pre-build demos with few simple clicks, after that you will get set of sample pages that can be easily edited by using default WordPress editor. For more info on Site Demos, checkout our [documentation](https://gutenify.com/documentations/import-demo-templates/)
+With 40+ page-building blocks for the WordPress block editor — including WooCommerce blocks, interactive blocks like Popup and Hover Card, and layout blocks like Container and Grid — you can build a complete site quickly, without touching code.
+
+> **🏆 [Starter Templates](https://gutenify.com/site-demos/)**
+> Starter Templates are pre built demo that can help setup your site within few clicks in minutes. To use our demo you will have to import our pre-build demos with few simple clicks, after that you will get set of sample pages that can be easily edited by using default WordPress editor. For more info on Starter Templates, checkout our [documentation](https://gutenify.com/documentations/import-demo-templates/)
 
 > **🎉 Patterns**
 > Patterns are in built section which can be easily added on page/posts. You can also create your own patterns and add sections accordingly for future use. With the help of patterns, you can easily add pre-built sections to your page in few clicks. For more info on patterns, checkout our [documentation](https://gutenify.com/documentations/what-are-templates-how-do-we-add-templates-in-our-page-posts/)
@@ -25,10 +26,10 @@ Gutenify is a free WordPress plugin which allows you to add different block effo
 > You can manage your custom patterns in once place and reuse them whenever you want. You can save sections as pattern while you are building page/ posts and categorise them. This gives you ability to filter patterns and reuse them in other posts/ pages.
 
 Each block from Gutenify offers many customizable flexible option to create unique looking block. Most of the blocks have customizable color options, spacing option, design, border option, margin-padding, additional CSS and much more.
-With Site Demos, you will be able to import pre built demos that can setup pages in your site instantly.
+With Starter Templates, you will be able to import pre built demos that can setup pages in your site instantly.
 
-== 💁‍ Block We Offer ==
-We currently offer following blocks in our Free Plugins.
+== 💁 Block We Offer ==
+We currently offer the following blocks in our free plugin. A few (noted below) require Gutenify PRO or a supporting theme to activate — everything else is free to use.
 
 = 👉 Stacking Cards =
 Stacking Cards block allows you to create an engaging, interactive layout where cards dynamically stack on top of each other as the user scrolls down the page. It includes customizable offset, spacing, and multiple stacking animation modes like scale and fade.
@@ -36,14 +37,20 @@ Stacking Cards block allows you to create an engaging, interactive layout where 
 = 👉 Countdown Timer =
 Countdown Timer block helps you create urgency and drive conversions by displaying a dynamic countdown clock. Features include customizable styles, evergreen timers (PRO), smart sync, and precise control over the layout and expiration actions.
 
-= 👉 Hover Card (PRO) =
-Hover Card block lets you build highly interactive cards that reveal more information when users hover over them. Perfect for showcasing team members, services, or portfolios with advanced animation effects and full design control.
+= 👉 Hover Card =
+Hover Card block lets you build highly interactive cards that reveal more information when users hover or tap over them, with several entrance animations. Perfect for showcasing team members, services, or portfolios with full design control. Available with Gutenify PRO, or unlocked automatically if your theme supports it.
+
+= 👉 Popup =
+Popup block adds a trigger button that opens a modal with any blocks inside — great for showing extra content, forms, or offers without leaving the page. Fully customizable trigger button, animations, and modal position. Available with Gutenify PRO, or unlocked automatically if your theme supports it.
 
 = 👉 WooCommerce Product Carousel =
-WooCommerce Product Carousel block allows to disply products in slider format. You can control which product to disply based on category, tags and other parameters. Also you can do customizaton on the look.
+WooCommerce Product Carousel block allows to display products in slider format. You can control which product to display based on category, tags and other parameters. Also you can do customization on the look.
 
 = 👉 WooCommerce Product List =
 The WooCommerce Product List block displays products in a grid layout. Based on category, tags, and other parameters, you may choose which products to display. You can also personalize the appearance.
+
+= 👉 WooCommerce Product Images Slider =
+Showcase a single product's full image gallery as a rich slider on the product page, with zoom, fullscreen lightbox, thumbnails, and automatic syncing when a shopper picks a different variation. Available with Gutenify PRO, or unlocked automatically if your theme supports it.
 
 = 👉 Advance Slider =
 Showcase beautiful slider on your homepage or any other pages using Slider Block. You can add any block as slider element so you can have almost any type of element as slider. Currently you will only be able to view the slider contents after addition in front end due to limitations of the Block Editor.
@@ -54,19 +61,19 @@ Post Carousel is another great option offered by Gutenify. Showcase your Posts i
 
 = 👉 Post List =
 
-Post List block gives unique looks your blog page. With Post List block you can have advance functionality in backend and frontend. You can also change design as per requirement.
+Post List block gives your blog page a unique look. With Post List block you can have advanced functionality in backend and frontend. You can also change design as per requirement.
 
 = 👉 Icon =
 
-Want to show icon in your post/ page or anywhere? Simple add this block and choose from wide verity of icons or if you have image you can upload it.
+Want to show an icon in your post/ page or anywhere? Simply add this block and choose from a wide variety of icons, or upload your own image.
 
 = 👉 FAQs =
 
-FAQs block helps you to disply questions and answers in your website. With accordion functionality you can easily add FAQ as you need and its also very customizable.
+FAQs block helps you display questions and answers on your website. With accordion functionality you can easily add as many FAQs as you need, and it's also very customizable.
 
 = 👉 Team =
 
-Team is another useful option to introduce your team members. You can add picture, name, position and introduction of you team member and their social media links. You can edit blocks in Styles: Default, Rounded,Borders and Frame, Image Settings: Alt Text, Advanced option for Padding, Margin, HTML Anchor, Additional CSS.
+Team is another useful option to introduce your team members. You can add a picture, name, position, and introduction for your team member along with their social media links. You can edit blocks in Styles: Default, Rounded, Borders and Frame, Image Settings: Alt Text, Advanced option for Padding, Margin, HTML Anchor, Additional CSS.
 
 = 👉 Maps =
 
@@ -74,7 +81,7 @@ Maps is a very handy option, you can add your business location just by entering
 
 = 👉 Testimonials =
 
-Gutenify offers option to add testimonials in your website. Testimonials is a great marketing technique to establish trust with your products or services. Adding testimonial section helps to verify your credibility by showing that real people have had a positive experience with your business. You can share positive feedback of you customer add their photo, edit layout, image dimension, text color, background color of each section.
+Gutenify offers an option to add testimonials to your website. Testimonials are a great marketing technique to establish trust in your products or services. Adding a testimonial section helps verify your credibility by showing that real people have had a positive experience with your business. You can share your customer's positive feedback along with their photo, and edit layout, image dimensions, text color, and background color of each section.
 
 = 👉 Services =
 
@@ -82,7 +89,7 @@ Services option in Gutenify can be used to show service you offer to your audien
 
 = 👉 Buttons =
 
-Buttons is another exiting option offered by Gutenify, using buttons you can add you own unique looking button in your page and post. Here you can find option for colors, typography, advance option like padding, margins. Customized as desired and add links to your button or add link of page or post you want to redirect.
+Buttons is another exciting option offered by Gutenify — add your own uniquely styled button to your page or post. Here you'll find options for colors, typography, and advanced options like padding and margins. Customize it as desired and link your button to any page or post you want to redirect to.
 
 = 👉 Section Title =
 
@@ -100,20 +107,32 @@ Info Box is another option offered by Gutenify, you can add any sort of informat
 
 With Grid block you can display any block in grid format. You want to add icons, text, post in grid format? This block will help in very easy way.
 
+= 👉 Container =
+
+Container block is a flexible layout wrapper for grouping any other blocks together, with options to control max width and full-width stretching — a simple building block for structuring your page sections.
+
+= 👉 Gallery Carousel =
+
+Gallery Carousel block turns a set of images into a smooth, customizable carousel — control columns, spacing, autoplay, loop, navigation arrows, and pagination to fit your page.
+
+= 👉 Notice Bar =
+
+Notice Bar block displays a customizable notification or announcement bar on your site — useful for promotions, alerts, or important messages you want every visitor to see.
+
 = 👉 Count Up =
 
 “Count up” block allows numbers incrementally increase from a starting value to an ending value, often animated to highlight statistics or achievements on websites and digital platforms.
 
 > **✨ [Gutenify Pro](https://gutenify.com/pricing/)**
-> If you want more advance features in blocks, Premium Site Demos and Patterns then checkout our [Gutenify Pro](https://gutenify.com/pricing/), its packed with dozens of cool features inside. With Gutenify Pro you will get:
- - Access to all Pro Site Demos
+> If you want more advance features in blocks, Premium Starter Templates and Patterns then checkout our [Gutenify Pro](https://gutenify.com/pricing/), its packed with dozens of cool features inside. With Gutenify Pro you will get:
+ - Access to all Pro Starter Templates
  - Access to all Pro Patterns
  - Advanced Blocks
  - Advanced Options
  - & Many more.
 
 === Supported Themes ===
-All blocks offered by Gutenify plugin should work with all themes that support core blocks. Our Site Demos are fully supported by all Full Site Editing themes. For best results, please use themes listed here: [https://gutenify.com/themes/](https://gutenify.com/themes/)
+All blocks offered by Gutenify plugin should work with all themes that support core blocks. Our Starter Templates are fully supported by all Full Site Editing themes. For best results, please use themes listed here: [https://gutenify.com/themes/](https://gutenify.com/themes/)
 
 Currently, following themes fully support Gutenify Plugin:
 
@@ -126,7 +145,6 @@ Currently, following themes fully support Gutenify Plugin:
 * [Gutenify Photography](https://gutenify.com/themes/gutenify-photography)
 * [Gutenify Corporate](https://gutenify.com/themes/gutenify-corporate)
 * [Gutenify Agency](https://gutenify.com/themes/gutenify-agency)
-* [Gutenify Finance](https://gutenify.com/themes/gutenify-finance)
 * [Gutenify Finance](https://gutenify.com/themes/gutenify-finance)
 * [Gutenify Photoshot](https://gutenify.com/themes/gutenify-photoshot/)
 
@@ -163,7 +181,7 @@ Please report security bugs found in the source code of the Gutenify plugin thro
 
 = How to add Blocks in your theme using Gutenify? =
 
-Gutenify Plugin allows you to create your own block sections in your page or post. Here are the steps how you add it:
+Gutenify Plugin allows you to create your own block sections in your page or post. Here are the steps to add it:
 
 * Install and Activate Gutenify
 * Click on the Page or Post the place where you want to add Gutenify Blocks
@@ -177,24 +195,27 @@ Gutenify Plugin allows you to create your own block sections in your page or pos
 Patterns are in built section which can be easily added on page/posts. You can also create your own patterns and add sections accordingly for future use. With the help of patterns, you can easily add pre-built sections to your page in few clicks. Use following steps to add Patterns to your Page/Post.
 * Install and Activate Gutenify
 * Click on any page or post you want to add patterns
-* On top you will find "Import Pattern”, you will see lists of patterns
+* On top you will find "Import Pattern", you will see lists of patterns
 * Click to choose the patterns you want to add in your pages
 * Click “Publish” to Save
 * More info: [https://gutenify.com/documentations/what-are-templates-how-do-we-add-templates-in-our-page-posts/](https://gutenify.com/documentations/what-are-templates-how-do-we-add-templates-in-our-page-posts/)
 
-= What are Site Demos and how to import Site Demos =
-Gutenify has pre-build Site Demos for your site which will give your website a base structure. To use our Site Demo you will have to import our pre-build templates with few simple clicks as shown below, after that you will get set of sample pages that can be easily edited by using default WordPress editor.
+= What are Starter Templates and how to import Starter Templates =
+Gutenify has pre-build Starter Templates for your site which will give your website a base structure. To use our Starter Template you will have to import our pre-build templates with few simple clicks as shown below, after that you will get set of sample pages that can be easily edited by using default WordPress editor.
 
-Before importing demo you to your site you can see demo which will show how your website will look.
-You will get more demo option in premium version, however you can see demos of demos that are available in premium version in the free version as well.
+Before importing a template to your site, you can preview it to see how your website will look. More templates are available in the premium version, but you can preview those premium templates from the free version too.
 
-Note: Please take a backup your site before importing Site Demo.
+Note: Please take a backup of your site before importing a Starter Template.
 * Install and Activate Gutenify
-* Go to “Gutenify => Demo Importer”, there you will find different demos
-* Click on the Demo that matches your site, before importing demo we recommend you to click on "Demo” which will give you idea about how your theme will look after importing demo
-( Click on “Demo import" button, it will open popup, then click "Start Import" button to initiate import.)
+* Go to "Gutenify => Demo Importer", there you will find different demos
+* Click on the Demo that matches your site — before importing, we recommend clicking "Demo" first to get an idea of how your theme will look after importing
+( Click the "Demo import" button, it will open a popup, then click "Start Import" to begin the import.)
 * If you change the theme of your WordPress site, please re-import the demo. Changing the theme after importing can cause unwanted design issues.
 * More info: [https://gutenify.com/documentations/import-demo-templates/](https://gutenify.com/documentations/import-demo-templates/)
+
+= Do I need Gutenify PRO to use the Popup, Hover Card, and Product Images Slider blocks? =
+
+These blocks are PRO features, but you don't need to purchase Gutenify PRO to use them if your active theme declares support for them — many Gutenify-compatible themes unlock these blocks automatically. Otherwise, they require an active Gutenify PRO license.
 
 [FAQs and documentations](https://gutenify.com/documentations/)
 
@@ -202,8 +223,8 @@ Note: Please take a backup your site before importing Site Demo.
 For support, [go to our support page](https://gutenify.com/product-support/).
 
 == Screenshots ==
-1. Gutenify Site Demo
-2. Gutenify Site Demos
+1. Gutenify Starter Template
+2. Gutenify Starter Templates
 3. Gutenify Demo import popup
 4. Pattern Gallery
 5. Design settings
@@ -212,6 +233,16 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-08-24 - version 1.7.0 =
+* Added a "rate us" admin notice shown after 7+ days of active use, dismissible or snoozable for another 7 days.
+* Added Popup block: a trigger button that opens a modal with any blocks inside. Requires Gutenify PRO, or a theme that declares support for it.
+* Added Hover Card block: reveal extra content on hover or tap, with several entrance animations. Requires Gutenify PRO, or a theme that declares support for it.
+* Added WooCommerce Product Images Slider block: a gallery slider with zoom, lightbox, thumbnails, and variation sync. Requires Gutenify PRO, or a theme that declares support for it.
+* Fixed WooCommerce Product Images Slider: Border Color, Width, and Radius settings had no visible effect on the frontend.
+* Count Up block: improved accessibility (screen reader support, reduced-motion) and SEO-friendly rendering. Added decimal value support.
+* Added block transition controls (duration, timing, delay) with responsive support.
+* Synced updated block icons and custom panel styles.
 
 = 2026-07-29 - version 1.6.6 =
 * Remove extra scripts on widget.

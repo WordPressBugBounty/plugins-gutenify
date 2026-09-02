@@ -56,7 +56,7 @@ class Demo_Importer_V2 {
 			: array();
 			$deps[]            = $plugin_main_slug . '-global-inline-handle';
 			$deps[]            = 'updates';
-			$ver               = isset( $asset_file_values['version'] ) ? sanitize_text_field( $asset_file_values['version'] ) : '1.6.6';
+			$ver               = isset( $asset_file_values['version'] ) ? sanitize_text_field( $asset_file_values['version'] ) : '1.7.0';
 
 			wp_register_script( self::$handle, esc_url( $base_url . 'dist/non-blocks/admin/pages/demo-importer-v2/index.js' ), $deps, $ver, true );
 			wp_register_style( self::$handle, esc_url( $base_url . 'dist/non-blocks/admin/pages/demo-importer-v2/index.css' ), array( 'wp-components' ), $ver );

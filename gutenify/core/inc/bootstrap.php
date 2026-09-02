@@ -82,6 +82,7 @@ $required_files = array(
 	// Admin page interfaces.
 	'dist/non-blocks/admin/pages/getting-started/index.php',
 	'dist/non-blocks/admin/pages/settings/index.php',
+	'dist/non-blocks/admin/rating-notice/index.php',
 
 	// Optionally excluded files for future use.
 	/**

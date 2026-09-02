@@ -272,9 +272,18 @@ class Rest_Demo_Importer_V2 {
 	 * fonts, which makes the imported style references (e.g. `var(--wp--
 	 * preset--font-family--inter)`) still resolve.
 	 *
-	 * Note: actual font FILES (woff2, etc.) are not transferred. If a demo
-	 * font's `fontFace` entries reference files hosted on the demo site,
-	 * those URLs will still need to be reachable from the user's site.
+	 * Note: actual font FILES (woff2, etc.) are not transferred. A `theme`
+	 * font's `src` is normally supplied by the *demo* site's own theme.json
+	 * at export time, not carried in this payload — so once moved into
+	 * `custom` (which WP_Font_Face requires to be self-sufficient) it often
+	 * has no usable `src` at all. Passing that straight to
+	 * WP_Theme_JSON/WP_Font_Face trips a core `_doing_it_wrong()` notice on
+	 * every `wp_head` ("Font src must be a non-empty string or an array of
+	 * strings") and can corrupt the stored global-styles JSON on save. Every
+	 * fontFace we keep is filtered down to entries with a real `src` first;
+	 * a family left with none keeps its name (harmless as a plain font
+	 * fallback) but drops `fontFace` entirely rather than passing through a
+	 * value core will reject at print time.
 	 */
 	private static function merge_demo_theme_fonts_into_custom( $settings ) {
 		if ( ! is_array( $settings ) ) {
@@ -282,26 +291,36 @@ class Rest_Demo_Importer_V2 {
 		}
 		$theme_fonts = isset( $settings['typography']['fontFamilies']['theme'] )
 			? $settings['typography']['fontFamilies']['theme']
-			: null;
-		if ( empty( $theme_fonts ) ) {
-			return $settings;
-		}
+			: array();
 
 		$custom_fonts = isset( $settings['typography']['fontFamilies']['custom'] )
 			? (array) $settings['typography']['fontFamilies']['custom']
 			: array();
 
+		if ( empty( $theme_fonts ) && empty( $custom_fonts ) ) {
+			return $settings;
+		}
+
+		// Demo payloads can ship broken fontFace/src data in EITHER bucket —
+		// not just fonts moved here from `theme` below. Seen in practice: a
+		// demo's `custom` bucket already contained Oswald/Playfair Display
+		// entries with no `src` at all (patterns-only fonts the demo relies
+		// on, apparently never meant to carry local font files). Sanitize
+		// every entry we keep, regardless of which bucket it started in.
+		foreach ( $custom_fonts as $key => $font ) {
+			$custom_fonts[ $key ] = self::drop_unusable_font_faces( (array) $font );
+		}
+
 		// Slugs already in custom take precedence — don't duplicate them.
 		$seen_slugs = array();
 		foreach ( $custom_fonts as $font ) {
-			$font = (array) $font;
 			if ( ! empty( $font['slug'] ) ) {
 				$seen_slugs[] = $font['slug'];
 			}
 		}
 
 		foreach ( (array) $theme_fonts as $font ) {
-			$font = (array) $font;
+			$font = self::drop_unusable_font_faces( (array) $font );
 			$slug = ! empty( $font['slug'] ) ? $font['slug'] : '';
 			if ( empty( $slug ) || in_array( $slug, $seen_slugs, true ) ) {
 				continue;
@@ -315,6 +334,51 @@ class Rest_Demo_Importer_V2 {
 			$settings['typography']['fontFamilies']['custom'] = array_values( $custom_fonts );
 		}
 		return $settings;
+	}
+
+	/**
+	 * Strips any `fontFace` entry that has no usable `src` from a font
+	 * family definition, and drops the `fontFace` key entirely if nothing
+	 * survives. WP_Font_Face::validate_font_face_declarations() requires
+	 * `src` to be a non-empty string or array of strings — anything else
+	 * (missing, null, empty array/string) trips a core `_doing_it_wrong()`
+	 * notice on every `wp_head`. A family with no `fontFace` at all is
+	 * still valid (it just renders as a plain named font-family fallback).
+	 *
+	 * @param array $font A single font-family definition.
+	 * @return array The same definition with unusable fontFace entries removed.
+	 */
+	private static function drop_unusable_font_faces( $font ) {
+		if ( empty( $font['fontFace'] ) || ! is_array( $font['fontFace'] ) ) {
+			return $font;
+		}
+
+		$usable = array();
+		foreach ( $font['fontFace'] as $face ) {
+			$face = (array) $face;
+			$src  = isset( $face['src'] ) ? $face['src'] : null;
+
+			if ( is_string( $src ) && '' !== $src ) {
+				$usable[] = $face;
+				continue;
+			}
+			if ( is_array( $src ) ) {
+				$src = array_values( array_filter( $src, 'is_string' ) );
+				$src = array_values( array_filter( $src, 'strlen' ) );
+				if ( ! empty( $src ) ) {
+					$face['src'] = $src;
+					$usable[]    = $face;
+				}
+			}
+		}
+
+		if ( empty( $usable ) ) {
+			unset( $font['fontFace'] );
+		} else {
+			$font['fontFace'] = $usable;
+		}
+
+		return $font;
 	}
 
 	public static function import_global_styles( \WP_REST_Request $req ) {
@@ -413,10 +477,25 @@ class Rest_Demo_Importer_V2 {
 		return $content;
 	}
 
+	/**
+	 * Rewrites `"theme":"<old_theme>"` references in a template/template-part's
+	 * content to the active theme's stylesheet slug.
+	 *
+	 * `$old_theme` comes straight from demo data and isn't guaranteed to be a
+	 * clean theme slug — seen in practice: a WooCommerce-provided template
+	 * part tagged `"theme":"woocommerce/woocommerce"` (a plugin basename, not
+	 * a theme slug). The `/` in that value broke the regex delimiter here,
+	 * `preg_replace()` returned null on the bad pattern, and the null then
+	 * silently became that item's entire `post_content` — the imported
+	 * template part existed but rendered as nothing. `preg_quote()` neutralizes
+	 * any regex-special characters in `$old_theme`; if `$content` was already
+	 * null before this runs, `strval()` is a safe no-op replace target rather
+	 * than propagating the null further into `create_post()` -> `wp_kses_post()`.
+	 */
 	private static function replace_theme_name( $old_theme, $content ) {
 		$theme   = wp_get_theme()->get_stylesheet();
-		$pattern = '/"theme":"' . $old_theme . '"/m';
-		$content = preg_replace( $pattern, '"theme":"' . $theme . '"', $content );
+		$pattern = '/"theme":"' . preg_quote( (string) $old_theme, '/' ) . '"/m';
+		$content = preg_replace( $pattern, '"theme":"' . $theme . '"', (string) $content );
 
 		return $content;
 	}
