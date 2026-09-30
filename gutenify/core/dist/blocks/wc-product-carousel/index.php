@@ -103,17 +103,17 @@ class WC_Product_Carousel {
 				echo '<div class="gutenify--wc-product--item-wrapper">';
 
 				echo '<div class="gutenify--wc-product--thumb">';
-				echo '<a class="image-hover-zoom" href="' . $permalink . '" tabindex="-1">';
+				echo '<a class="image-hover-zoom" href="' . esc_url( $permalink ) . '" tabindex="-1">';
 				echo woocommerce_get_product_thumbnail();
 				echo '</a>'; // Product thumb link
-				echo $product->is_on_sale() ? '<div class="gutenify--wc-product--onsale"><span aria-hidden="true">Sale</span><span class="screen-reader-text">Product on sale</span></div>' : '';
+				echo $product->is_on_sale() ? '<div class="gutenify--wc-product--onsale"><span aria-hidden="true">' . esc_html__( 'Sale', 'gutenify' ) . '</span><span class="screen-reader-text">' . esc_html__( 'Product on sale', 'gutenify' ) . '</span></div>' : '';
 				echo '</div>'; // Product thumb
 
 
 				echo '<div class="gutenify--wc-product--item-content">';
 				echo '<h3 class="gutenify--wc-product--title">';
-				echo '<a rel="bookmark" href="' . $permalink . '" tabindex="-1">';
-				echo $product->get_name();
+				echo '<a rel="bookmark" href="' . esc_url( $permalink ) . '" tabindex="-1">';
+				echo esc_html( $product->get_name() );
 				echo '</a>'; // Product title link
 				echo '</h3>'; // Product title
 
@@ -254,96 +254,3 @@ class WC_Product_Carousel {
 
 WC_Product_Carousel::init();
 
-function gutenify_render_wc_product_carousel_block( $attributes, $content, $props ) {
-	if ( ! class_exists( 'woocommerce' ) ) {
-		return '';
-	}
-
-	$constants = \gutenify\Helpers::plugin_constants();
-	$plugin_main_slug = $constants['plugin_main_slug'];
-	$plugin_main_camel_case_name = $constants['plugin_main_camel_case_name'];
-
-
-
-	$query = $attributes['query'];
-	$args  = array(
-		'post_status' => 'publish',
-		'post_type'   => 'product',
-	);
-
-	if ( ! empty( $query['numberOfItems'] ) ) {
-		$args['posts_per_page'] = $query['numberOfItems'];
-	}
-	if ( ! empty( $query['orderBy'] ) ) {
-		$args['orderby'] = $query['orderBy'];
-	}
-	if ( ! empty( $query['order'] ) ) {
-		$args['order'] = strtoupper( $query['order'] );
-	}
-
-	if ( ! empty( $query['tax']['product_cat'] ) ) {
-		$args['tax_query'][] = array(
-			'taxonomy' => 'product_cat',
-			'field'    => 'id',
-			'terms'    => $query['tax']['product_cat'],
-		);
-	}
-	if ( ! empty( $query['tax']['product_tag'] ) ) {
-		$args['tax_query'][] = array(
-			'taxonomy' => 'product_tag',
-			'field'    => 'id',
-			'terms'    => $query['tax']['product_tag'],
-		);
-	}
-	$posts = new WP_Query( $args );
-
-	ob_start();
-	if ( $posts->have_posts() ) {
-
-		while ( $posts->have_posts() ) {
-			$posts->the_post();
-			$product   = wc_get_product( get_the_ID() );
-			$permalink = get_the_permalink( $product->get_id() );
-			echo '<div class="gutenify--wc-product--item swiper-slide">';
-			echo '<div class="gutenify--wc-product--item-wrapper">';
-
-			echo '<div class="gutenify--wc-product--thumb">';
-			echo '<a class="image-hover-zoom" href="' . $permalink . '" tabindex="-1">';
-			echo woocommerce_get_product_thumbnail();
-			echo '</a>'; // Product thumb link
-			echo $product->is_on_sale() ? '<div class="gutenify--wc-product--onsale"><span aria-hidden="true">Sale</span><span class="screen-reader-text">Product on sale</span></div>' : '';
-			echo '</div>'; // Product thumb
-
-
-			echo '<div class="gutenify--wc-product--item-content">';
-			echo '<h3 class="gutenify--wc-product--title">';
-			echo '<a rel="bookmark" href="' . $permalink . '" tabindex="-1">';
-			echo $product->get_name();
-			echo '</a>'; // Product title link
-			echo '</h3>'; // Product title
-
-			echo '<div class="gutenify--wc-product--price">';
-			echo $product->get_price_html();
-			echo '</div>'; // Product price
-
-			echo '<div class="wp-block-button wc-block-grid__product-add-to-cart">';
-			echo gutenify_wc_get_add_to_cart( $product );
-
-			echo '</div>'; // Product add to cart wrapper
-			echo '</div>'; // .gutenify--wc-product--item-content
-
-			echo '</div>'; // Product individual wrapper
-			echo '</div>'; // Product individual wrapper
-		}
-
-		wp_reset_postdata();
-	}
-
-	$result = ob_get_clean();
-	return $result;
-}
-
-
-
-
-// add_action('render_block', 'gutenify_wc_product_carousel_render_block', 200, 2);

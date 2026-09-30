@@ -545,6 +545,7 @@ class Rest_Demo_Importer_V2 {
 			$old_theme = ! empty( $data['theme'] ) ? $data['theme'] : '';
 			$content   = str_replace( '/' . $old_theme . '/', '/', $data['post_content'] );
 		}
+
 		// Create post object.
 		$my_post = array(
 			'post_title'   => wp_strip_all_tags( $data['post_title'] ),
@@ -581,6 +582,25 @@ class Rest_Demo_Importer_V2 {
 
 			update_post_meta( $post_id, '_is_' . $plugin_main_function_prefix . '_demo_imported', true );
 			update_post_meta( $post_id, '_' . $plugin_main_function_prefix . '_demo_imported_data', $data );
+
+			// Demo content still references the remote demo site's own media
+			// (uploads on its own domain, offloaded to S3/CDN, or a theme's
+			// own bundled assets). Queue this post for the background
+			// sideload pass (see Image_Sideload_Queue) instead of blocking
+			// this request on downloading them now — nav content never has
+			// images worth queuing.
+			//
+			// The trigger fires here, inline, rather than from import()'s
+			// caller: import_templates() ends in wp_send_json(), which
+			// terminates the request immediately, so any code after its
+			// call site in import() never runs. Firing once per created
+			// post is cheap (a near-zero-timeout non-blocking request) and
+			// safe to repeat — the queue worker's own lock skips a run if
+			// one is already in flight.
+			if ( 'wp_navigation' !== $type ) {
+				Image_Sideload_Queue::enqueue_post( $post_id );
+				Image_Sideload_Queue::trigger_async();
+			}
 			// if ( ! empty( $data['area'] ) ) {
 			// $result = wp_set_post_terms( $post_id, 'wp_template_part_area', _filter_block_template_part_area( $data['area'] ) );
 			// error_log( print_r( $result, true ) );
@@ -596,9 +616,19 @@ class Rest_Demo_Importer_V2 {
 	/**
 	 * Get all demos.
 	 *
-	 * @return void
+	 * Cached for a day, same as this class's sibling `get_demo_categories()`
+	 * in class-rest.php — without this, every visit to the demo-importer
+	 * page hit the remote API fresh. The cache stores the raw (pre theme-
+	 * filter) list + pagination headers, keyed by the request URL (which
+	 * already varies by the theme_category filter); the requires_active_theme
+	 * filter below is applied AFTER the cache read, not before, so a change
+	 * of active theme is reflected immediately rather than waiting out the
+	 * cache lifetime.
+	 *
+	 * @param \WP_REST_Request|null $request Optional; supports `force=true` to bypass the cache.
+	 * @return \WP_REST_Response
 	 */
-	public static function get_demos() {
+	public static function get_demos( $request = null ) {
 		$constants                   = Helpers::plugin_constants();
 		$plugin_main_slug            = $constants['plugin_main_slug'];
 		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
@@ -613,25 +643,79 @@ class Rest_Demo_Importer_V2 {
 		}
 		$url = add_query_arg( $filters, $demo_import_base_url . '/wp-json/liger/v1/demos' );
 
-		// [TODO] Update url.
-		$json_data = wp_remote_get(
-			$url,
-			array(
-				'timeout' => 10,
-				'headers' => array(
-					'liger_hkey' => 'sskdfjks3qw4sdfjs',
-				),
-			)
-		);
+		$options   = $request instanceof \WP_REST_Request ? (array) $request->get_params() : array();
+		$cache_key = 'gutenify_demos_' . md5( $url );
+		$cached    = ( empty( $options['force'] ) || 'false' === $options['force'] ) ? get_transient( $cache_key ) : false;
 
-		$total_pages = ! empty( $json_data['headers']['x-total-pages'] ) ? absint( $json_data['headers']['x-total-pages'] ) : 0;
-		$total_posts = ! empty( $json_data['headers']['x-total-posts'] ) ? absint( $json_data['headers']['x-total-posts'] ) : 0;
-		
-		try {
-			$json = json_decode( $json_data['body'] );
-			$json = ! empty( $json ) ? $json : array();
-		} catch ( Exception $ex ) {
-			$json = array();
+		if ( is_array( $cached ) && isset( $cached['json'], $cached['total_pages'], $cached['total_posts'] ) ) {
+			$json        = $cached['json'];
+			$total_pages = $cached['total_pages'];
+			$total_posts = $cached['total_posts'];
+		} else {
+			$json_data = wp_remote_get(
+				$url,
+				array(
+					'timeout' => 10,
+					'headers' => array(
+						'liger_hkey' => 'sskdfjks3qw4sdfjs',
+					),
+				)
+			);
+
+			// wp_remote_get() returns a WP_Error (not a response array) on a
+			// connection failure/timeout — reading `$json_data['body']` on that
+			// is a fatal "Cannot use object of type WP_Error as array", which
+			// the try/catch below never actually caught (that's a PHP Error,
+			// not an Exception). Guard here instead of relying on the catch.
+			if ( is_wp_error( $json_data ) ) {
+				$response = new \WP_REST_Response( array() );
+				$response->header( 'X-Total-Pages', 0 );
+				$response->header( 'X-Total-Posts', 0 );
+				return $response;
+			}
+
+			$total_pages = ! empty( $json_data['headers']['x-total-pages'] ) ? absint( $json_data['headers']['x-total-pages'] ) : 0;
+			$total_posts = ! empty( $json_data['headers']['x-total-posts'] ) ? absint( $json_data['headers']['x-total-posts'] ) : 0;
+
+			try {
+				$json = json_decode( $json_data['body'] );
+				$json = ! empty( $json ) ? $json : array();
+			} catch ( Exception $ex ) {
+				$json = array();
+			}
+
+			set_transient(
+				$cache_key,
+				array(
+					'json'        => $json,
+					'total_pages' => $total_pages,
+					'total_posts' => $total_posts,
+				),
+				DAY_IN_SECONDS
+			);
+		}
+
+		// Demos flagged requires_active_theme only list when their tagged
+		// theme (template_theme) matches this site's actual active theme.
+		// Demos without the flag are unaffected.
+		if ( ! empty( $json ) ) {
+			$active_theme_slug = get_stylesheet();
+			$json               = array_values(
+				array_filter(
+					(array) $json,
+					function ( $demo ) use ( $active_theme_slug ) {
+						if ( empty( $demo->requires_active_theme ) ) {
+							return true;
+						}
+						foreach ( (array) $demo->template_theme as $term ) {
+							if ( ! empty( $term->slug ) && $term->slug === $active_theme_slug ) {
+								return true;
+							}
+						}
+						return false;
+					}
+				)
+			);
 		}
 
 		// wp_send_json( $json );
@@ -665,6 +749,14 @@ class Rest_Demo_Importer_V2 {
 					),
 				)
 			);
+			// Same WP_Error guard as get_demos() above — wp_remote_get()
+			// returning a WP_Error on failure means `$json_data['body']`
+			// would otherwise fatal instead of falling through to an empty
+			// result.
+			if ( is_wp_error( $json_data ) ) {
+				wp_send_json( array() );
+				return;
+			}
 			try {
 				$json = json_decode( $json_data['body'] );
 				$json = ! empty( $json ) ? $json : array();

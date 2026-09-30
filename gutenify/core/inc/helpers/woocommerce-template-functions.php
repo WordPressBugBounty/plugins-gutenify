@@ -40,17 +40,17 @@ function gutenify_get_wc_product_item( $product_id ) {
 		echo '<div class="gutenify--wc-product--item-wrapper">';
 
 		echo '<div class="gutenify--wc-product--thumb">';
-		echo '<a class="image-zoom-hover" href="' . $permalink . '" tabindex="-1">';
+		echo '<a class="image-zoom-hover" href="' . esc_url( $permalink ) . '" tabindex="-1">';
 		echo woocommerce_get_product_thumbnail();
 		echo '</a>'; // Product thumb link
-		echo $product->is_on_sale() ? '<div class="gutenify--wc-product--onsale"><span aria-hidden="true">Sale</span><span class="screen-reader-text">Product on sale</span></div>' : '';
+		echo $product->is_on_sale() ? '<div class="gutenify--wc-product--onsale"><span aria-hidden="true">' . esc_html__( 'Sale', 'gutenify' ) . '</span><span class="screen-reader-text">' . esc_html__( 'Product on sale', 'gutenify' ) . '</span></div>' : '';
 
 		echo '</div>'; // Product thumb
 		echo '<div class="gutenify--wc-product--item-content">';
 
 		echo '<h3 class="gutenify--wc-product--title">';
-		echo '<a rel="bookmark" href="' . $permalink . '" tabindex="-1">';
-		echo $product->get_name();
+		echo '<a rel="bookmark" href="' . esc_url( $permalink ) . '" tabindex="-1">';
+		echo esc_html( $product->get_name() );
 		echo '</a>'; // Product title link
 		echo '</h3>'; // Product title
 

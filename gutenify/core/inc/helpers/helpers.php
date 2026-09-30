@@ -12,12 +12,6 @@ defined( 'ABSPATH' ) || exit;
  *
  * @package Gutenify
  */
-function gutenify_is_pro_active() {
-	$constants                   = \gutenify\Helpers::plugin_constants();
-	$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
-	return apply_filters( $plugin_main_function_prefix . '_pro_activation_status', false );
-}
-
 /**
  * Settings.
  *
@@ -45,20 +39,6 @@ function gutenify_update_settings( $new_settings ) {
 	update_option( 'gutenify_settings', $settings );
 	return $settings;
 }
-
-add_filter(
-	'block_editor_settings_all',
-	function ( $args ) {
-		$args['__experimentalFeatures']['typography']['fontFamilies']['theme'][] = array(
-			'fontFamily' => '"Gilda Display", serif 1',
-			'name'       => 'Gilda Display1',
-			'slug'       => 'gilda-display1',
-		);
-		return $args;
-	},
-	9
-);
-
 
 function gutenify_get_block_asset_file_values( $path ) {
 	$asset_path = $path;

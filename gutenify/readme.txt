@@ -1,11 +1,11 @@
 === Gutenify - Visual Site Builder Blocks & Starter Templates ===
-Contributors: codeyatri
+Contributors: codeyatri, racase, anilbasnet
 Tags: gutenberg blocks, page builder, site builder, block editor, full site editing, woocommerce blocks
 Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.7.0
+Stable tag: 1.8.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -233,6 +233,28 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-09-30 - version 1.8.0 =
+* Added Single Product Gallery block: displays the current WooCommerce product's images with desktop layouts, a lightbox, and a mobile slider.
+* Added Term Thumbnail block: displays the current taxonomy term's thumbnail image, for use inside a Terms Query Loop.
+* Added Aspect Ratio, Scale, and Focal Point controls to the Single Product Gallery and Term Thumbnail blocks, matching the core Image block's own controls. Both default to a square crop so a new gallery or term grid displays evenly right away.
+* Added a "Close on overlay click" option to the Single Product Gallery block's lightbox.
+* Fixed WooCommerce Product Images Slider: clicking the lightbox overlay to close it never worked, since the click-target check never matched any of the slider's own elements.
+* Fixed Social Share block: sharing could throw a JavaScript error when an icon was stored in a certain format, and a disabled network could stop every share link after it from working. Share links are now properly encoded, and the broken email link now works.
+* Fixed unescaped product name and link output in the WooCommerce Product Carousel block and the shared product template it uses with WooCommerce Product List.
+* Fixed the Demo Importer: a failed network request while loading the demo list previously caused a fatal error; it now fails gracefully. The demo list is also cached now, matching how the categories list already behaved.
+* Improved performance: the Custom CSS panel and Settings page's code editors now load only when actually opened, reducing the editor's JavaScript significantly.
+* Reduced page weight in the Count Up block by removing a duplicated copy of its animation library and unused legacy files.
+* Redesigned the "Add Pattern" browser (formerly "Add Template") to match the Demo Importer's visual style: separated your own saved patterns from the pattern library, added an "All" tab, Pro/Free filtering, and fixed a pagination visibility bug.
+* Renamed the editor toolbar's "Add Template" button to "Add Pattern" with a matching icon and style.
+* Images referenced by an imported pattern now download in the background instead of blocking the editor while the pattern is inserted.
+* Popup block: "Hide button text" now fully hides the label in the editor, not just dims it.
+* Removed unused kit-related REST endpoints.
+* Demo Importer: demos flagged to require a specific active theme now only list when that theme is active.
+
+= 2026-09-05 - version 1.7.1 =
+* Fixed Count Up block: reduced-motion viewers saw the final value appear with no feedback at all; it now fades in instead of appearing instantly.
+* Fixed Count Up block: counters added before the 1.7.0 markup refactor never animated on the frontend unless the page was manually re-saved. The frontend script now recognizes and animates the older markup shape too, with no re-save required.
 
 = 2026-08-24 - version 1.7.0 =
 * Added a "rate us" admin notice shown after 7+ days of active use, dismissible or snoozable for another 7 days.

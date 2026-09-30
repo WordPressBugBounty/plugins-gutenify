@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/filter-sidebar",
+  "version": "1",
+  "title": "Filter Sidebar",
+  "category": "gutenify",
+  "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M4 4H20L14 12V20H10V12Z' fill='#2196f3'/></svg>",
+  "description": "Open native WooCommerce product filters in an accessible off-canvas drawer.",
+  "keywords": [
+    "filter",
+    "drawer",
+    "sidebar",
+    "WooCommerce"
+  ],
+  "textdomain": "gutenify",
+  "attributes": {
+    "position": {
+      "type": "string",
+      "default": "left"
+    },
+    "drawerWidth": {
+      "type": "integer",
+      "default": 380
+    },
+    "showBackdrop": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeOnBackdrop": {
+      "type": "boolean",
+      "default": true
+    },
+    "showActiveCount": {
+      "type": "boolean",
+      "default": true
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Filter"
+    },
+    "drawerTitle": {
+      "type": "string",
+      "default": "Filters"
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "file:./view-script.js"
+  ]
+}

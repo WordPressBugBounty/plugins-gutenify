@@ -68,6 +68,9 @@ class Helpers {
 			'stacking-card-item',
 			'marquee',
 			'marquee-item',
+			'term-thumbnail',
+			'advanced-search',
+			'single-product-gallery',
 			// 'back-to-top',
 			// 'image-marquee',
 			// 'image-marquee-item',
@@ -89,6 +92,21 @@ class Helpers {
 		// advanced-group is still in development; only enable it when WP_DEBUG is on.
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 			$blocks[] = 'advanced-group';
+
+			// category-list and filter-sidebar: ported from an unrelated
+			// plugin's source ("Firefly Blocks Pro" by ffthemes) that was
+			// dropped into src/blocks wholesale — namespace/category/
+			// textdomain/asset paths rewritten to this framework's own
+			// conventions, PHP registration classes added, and fatal
+			// references to a nonexistent Firefly_Blocks_Pro_* class
+			// replaced with native WooCommerce/WP calls. Still gated
+			// behind WP_DEBUG — keep here until they've had a full
+			// editorial/QA pass (copy, icons, WC edge cases) rather than
+			// shipping to every site automatically. advanced-search and
+			// single-product-gallery share this same porting origin but
+			// have moved up into the always-active list above.
+			$blocks[] = 'category-list';
+			$blocks[] = 'filter-sidebar';
 		}
 
 		// These PRO-origin blocks ship in this lite framework but stay
@@ -197,5 +215,142 @@ class Helpers {
 		$plugin_main_function_prefix = $constants['plugin_main_function_prefix'];
 		$plugin_main_slug            = $constants['plugin_main_slug'];
 		return function_exists( $plugin_main_function_prefix . '_pro' ) || current_theme_supports( $plugin_main_slug . '-pro-blocks' );
+	}
+
+	/**
+	 * Finds every remote image URL in content matching either rule
+	 * `sideload_remote_images()` acts on. Split out so callers that only
+	 * need to know "are there any left" (e.g. the background import queue
+	 * deciding whether a retry is needed) don't have to duplicate the
+	 * pattern logic.
+	 *
+	 * @param string $content       Raw content (HTML + block comments).
+	 * @param string $remote_source See sideload_remote_images().
+	 * @return string[] Unique matched URLs, empty array if none.
+	 */
+	private static function find_remote_image_urls( $content, $remote_source ) {
+		$patterns = array(
+			// Any host, but a standard uploads/ path (offloaded media / CDN).
+			'#https?://[^\s"\'\\\\)]+/wp-content/uploads/[^\s"\'\\\\)]+\.(?:png|jpe?g|gif|webp|svg)#i',
+		);
+
+		$remote_host = wp_parse_url( $remote_source, PHP_URL_HOST );
+		$remote_host = $remote_host ? $remote_host : $remote_source;
+
+		if ( $remote_host ) {
+			$host_parts  = explode( '.', $remote_host );
+			$root_domain = implode( '.', array_slice( $host_parts, -2 ) );
+
+			if ( $root_domain ) {
+				// Same registrable domain as the source, any path (theme assets, etc).
+				$patterns[] = '#https?://[a-z0-9.-]*' . preg_quote( $root_domain, '#' ) . '/[^\s"\'\\\\)]+\.(?:png|jpe?g|gif|webp|svg)#i';
+			}
+		}
+
+		$urls = array();
+		foreach ( $patterns as $pattern ) {
+			preg_match_all( $pattern, (string) $content, $matches );
+			$urls = array_merge( $urls, $matches[0] );
+		}
+
+		return array_unique( $urls );
+	}
+
+	/**
+	 * Whether content still has at least one image matching
+	 * sideload_remote_images()'s rules — i.e. one that either failed to
+	 * download on a previous pass, or was never processed at all.
+	 *
+	 * @param string $content       Raw content (HTML + block comments).
+	 * @param string $remote_source See sideload_remote_images().
+	 * @return bool
+	 */
+	public static function has_remote_images( $content, $remote_source = '' ) {
+		return ! empty( self::find_remote_image_urls( $content, $remote_source ) );
+	}
+
+	/**
+	 * Download every image referenced from a remote source (a single
+	 * template/kit import, or a full demo-site import) into this site's own
+	 * Media Library, and rewrite the content to point at the local copies
+	 * instead of the remote site. Covers plain HTML (src="...",
+	 * background-image:url(...)) as well as the same URL when it appears
+	 * JSON-escaped inside a Gutenberg block comment's attributes (e.g.
+	 * wp:gutenify/icon {"url":"https:\/\/...").
+	 *
+	 * Shared by the single-template importer (Gutenify_Rest::get_template_data())
+	 * and the full demo-site importer (Rest_Demo_Importer_V2::create_post()) —
+	 * both pull content from the same remote source and need the same fix.
+	 *
+	 * Two independent match rules cover both ways a demo/template source's
+	 * media can be hosted, since either can appear in the same content:
+	 *  - Same domain as the source (any path) — a theme's own bundled
+	 *    assets, e.g. demo.gutenify.com/<slug>/wp-content/themes/<slug>/
+	 *    assets/images/main-banner.jpg, which never lives under uploads/.
+	 *  - Any host, but under a standard /wp-content/uploads/ path — covers
+	 *    media library uploads offloaded to a different host entirely via
+	 *    an offload plugin (e.g. WP Offload Media to S3 —
+	 *    demo-gutenify-com.s3.amazonaws.com/wp-content/uploads/...) or a CDN.
+	 *
+	 * @param string $content        Raw content (HTML + block comments).
+	 * @param string $remote_source  A URL or bare domain identifying the
+	 *                               remote source; only its registrable
+	 *                               domain (last two labels) is used, so
+	 *                               any subdomain of it (api., demo., a
+	 *                               per-demo subdomain, etc.) is covered.
+	 * @return string
+	 */
+	public static function sideload_remote_images( $content, $remote_source = '' ) {
+		$urls = self::find_remote_image_urls( $content, $remote_source );
+
+		if ( empty( $urls ) ) {
+			return $content;
+		}
+
+		$current_host = wp_parse_url( home_url(), PHP_URL_HOST );
+
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+
+		// Persists for the lifetime of the PHP process, so a single request
+		// that processes many posts sharing the same image (a logo/banner
+		// reused across pages during a full demo import) downloads it once.
+		static $already_sideloaded = array();
+
+		foreach ( $urls as $url ) {
+			// Already local (e.g. re-processing already-imported content) — skip.
+			if ( $current_host && wp_parse_url( $url, PHP_URL_HOST ) === $current_host ) {
+				continue;
+			}
+
+			if ( isset( $already_sideloaded[ $url ] ) ) {
+				$local_url = $already_sideloaded[ $url ];
+			} else {
+				$attachment_id = media_sideload_image( html_entity_decode( $url ), 0, null, 'id' );
+
+				if ( is_wp_error( $attachment_id ) ) {
+					continue;
+				}
+
+				$local_url = wp_get_attachment_url( $attachment_id );
+
+				if ( ! $local_url ) {
+					continue;
+				}
+
+				$already_sideloaded[ $url ] = $local_url;
+			}
+
+			$content = str_replace( $url, $local_url, $content );
+
+			$content = str_replace(
+				str_replace( '/', '\/', $url ),
+				str_replace( '/', '\/', $local_url ),
+				$content
+			);
+		}
+
+		return $content;
 	}
 }

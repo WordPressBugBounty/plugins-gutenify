@@ -1,14 +1,14 @@
 # Copyright (c) 2026 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Starter Templates 1.7.0\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Starter Templates 1.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-02T07:19:13+00:00\n"
+"POT-Creation-Date: 2026-09-30T06:28:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -49,6 +49,7 @@ msgstr ""
 #: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:58
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:58
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:58
+#: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:58
 #: svn_folder/trunk/core/inc/admin/class-menu.php:58
 msgid "Gutenify"
 msgstr ""
@@ -81,6 +82,8 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:69
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:57
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:69
+#: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:57
+#: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:69
 #: svn_folder/trunk/core/inc/admin/class-menu.php:57
 #: svn_folder/trunk/core/inc/admin/class-menu.php:69
 msgid "Gutenify: Getting Started"
@@ -100,6 +103,7 @@ msgstr ""
 #: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:70
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:70
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:70
+#: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:70
 #: svn_folder/trunk/core/inc/admin/class-menu.php:70
 msgid "Getting Started"
 msgstr ""
@@ -118,6 +122,7 @@ msgstr ""
 #: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:79
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:79
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:79
+#: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:79
 #: svn_folder/trunk/core/inc/admin/class-menu.php:79
 msgid "Gutenify Demo Importer"
 msgstr ""
@@ -136,6 +141,7 @@ msgstr ""
 #: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:80
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:80
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:80
+#: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:80
 #: svn_folder/trunk/core/inc/admin/class-menu.php:80
 msgid "Demo Importer"
 msgstr ""
@@ -154,6 +160,7 @@ msgstr ""
 #: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:89
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:89
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:89
+#: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:89
 #: svn_folder/trunk/core/inc/admin/class-menu.php:89
 msgid "Gutenify Settings"
 msgstr ""
@@ -172,6 +179,7 @@ msgstr ""
 #: svn_folder/tags/1.6.4/core/inc/admin/class-menu.php:90
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:90
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:90
+#: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:90
 #: svn_folder/trunk/core/inc/admin/class-menu.php:90
 msgid "Settings"
 msgstr ""
@@ -250,22 +258,33 @@ msgstr ""
 #: svn_folder/tags/1.6.4/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.5/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.6/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.7.0/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
 
-#: core/inc/rest-api/class-rest.php:400
+#: core/inc/helpers/woocommerce-template-functions.php:46
+#: core/src/blocks/wc-product-carousel/index.php:109
+msgid "Sale"
+msgstr ""
+
+#: core/inc/helpers/woocommerce-template-functions.php:46
+#: core/src/blocks/wc-product-carousel/index.php:109
+msgid "Product on sale"
+msgstr ""
+
+#: core/inc/rest-api/class-rest.php:345
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:400
 #: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:400
 #: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:400
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:400
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:400
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:400
 msgid "Templates not found."
 msgstr ""
 
-#: core/inc/rest-api/class-rest.php:426
-#: core/inc/rest-api/class-rest.php:477
-#: core/inc/rest-api/class-rest.php:641
+#: core/inc/rest-api/class-rest.php:371
+#: core/inc/rest-api/class-rest.php:447
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:426
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:477
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:641
@@ -278,41 +297,26 @@ msgstr ""
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:426
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:477
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:641
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:426
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:477
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:641
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:426
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:477
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:641
 msgid "Template data not found."
 msgstr ""
 
-#: core/inc/rest-api/class-rest.php:492
+#: core/inc/rest-api/class-rest.php:462
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:492
 #: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:492
 #: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:492
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:492
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:492
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:492
 msgid "Settings data not found."
 msgstr ""
 
-#: core/inc/rest-api/class-rest.php:584
-#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:584
-#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:584
-#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:584
-#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:584
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:584
-msgid "Template kit not found."
-msgstr ""
-
-#: core/inc/rest-api/class-rest.php:653
-#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:653
-#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:653
-#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:653
-#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:653
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:653
-msgid "Error creating Kit"
-msgstr ""
-
-#: core/inc/rest-api/class-rest.php:741
-#: core/inc/rest-api/class-rest.php:783
+#: core/inc/rest-api/class-rest.php:578
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:740
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:782
 #: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:740
@@ -321,19 +325,54 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:782
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:741
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:783
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:741
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:783
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:741
 #: svn_folder/trunk/core/inc/rest-api/class-rest.php:783
 msgid "Error listing demo"
 msgstr ""
 
-#: core/inc/rest-api/class-rest.php:912
-#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:911
-#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:911
-#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:911
-#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:912
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:912
-msgid "Error demo set pages."
+#: core/src/blocks/advanced-search/render.php:5
+msgid "Search products…"
 msgstr ""
+
+#: core/src/blocks/advanced-search/render.php:14
+#: core/src/blocks/category-list/edit.js:58
+#: core/src/non-blocks/components/template-browser/index.js:279
+msgid "Categories"
+msgstr ""
+
+#: core/src/blocks/advanced-search/render.php:14
+msgid "View all results"
+msgstr ""
+
+#: core/src/blocks/advanced-search/render.php:14
+msgid "No products found."
+msgstr ""
+
+#: core/src/blocks/advanced-search/render.php:14
+msgid "Searching…"
+msgstr ""
+
+#: core/src/blocks/advanced-search/render.php:14
+msgid "Search could not be completed."
+msgstr ""
+
+#: core/src/blocks/advanced-search/render.php:15
+#: core/src/blocks/advanced-search/edit.js:96
+msgid "Search products"
+msgstr ""
+
+#: core/src/blocks/category-list/render.php:40
+msgid "Select one or more product categories."
+msgstr ""
+
+#: core/src/blocks/category-list/render.php:86
+#, php-format
+msgid "%s product"
+msgid_plural "%s products"
+msgstr[0] ""
+msgstr[1] ""
 
 #: core/src/blocks/notice-bar/index.php:200
 msgid "Two buttons"
@@ -428,6 +467,75 @@ msgctxt "placeholder when a post has no title"
 msgid "(no title)"
 msgstr ""
 
+#: core/src/blocks/single-product-gallery/render.php:40
+msgid "The gallery will appear when this block has a WooCommerce product context."
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/render.php:88
+msgid "This product does not have gallery images yet."
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/render.php:147
+#, php-format
+msgid "Open product image %1$d of %2$d"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/render.php:161
+msgid "Image"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/render.php:164
+msgid "of"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/render.php:169
+msgid "Choose product image"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/render.php:175
+#, php-format
+msgid "Show image %d"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/render.php:112
+msgid "This block must be placed inside a Terms Query Loop (Term Template) so it can receive a term."
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/render.php:121
+msgid "This term could not be found."
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/render.php:224
+msgid "This term does not have a thumbnail image."
+msgstr ""
+
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:584
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:584
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:584
+msgid "Template kit not found."
+msgstr ""
+
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:653
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:653
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:653
+msgid "Error creating Kit"
+msgstr ""
+
+#: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:911
+#: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:911
+#: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:911
+#: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:912
+#: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:912
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:912
+msgid "Error demo set pages."
+msgstr ""
+
 #: core/src/blocks/advance-slider/inspector/tab-content.js:58
 #: core/src/blocks/gallery-carousel/inspector/tab-content.js:135
 #: core/src/blocks/slider/inspector/tab-content.js:76
@@ -478,6 +586,34 @@ msgstr ""
 msgid "absolute"
 msgstr ""
 
+#: core/src/blocks/advanced-search/edit.js:25
+msgid "Search settings"
+msgstr ""
+
+#: core/src/blocks/advanced-search/edit.js:29
+msgid "Placeholder"
+msgstr ""
+
+#: core/src/blocks/advanced-search/edit.js:36
+msgid "Minimum characters"
+msgstr ""
+
+#: core/src/blocks/advanced-search/edit.js:48
+msgid "Result limit"
+msgstr ""
+
+#: core/src/blocks/advanced-search/edit.js:57
+msgid "Debounce delay (milliseconds)"
+msgstr ""
+
+#: core/src/blocks/advanced-search/edit.js:70
+msgid "Show category matches"
+msgstr ""
+
+#: core/src/blocks/advanced-search/edit.js:80
+msgid "Show “View all results”"
+msgstr ""
+
 #: core/src/blocks/back-to-top/edit.js:44
 msgid "Back to Top"
 msgstr ""
@@ -499,6 +635,7 @@ msgid "How far the visitor must scroll down before the button appears."
 msgstr ""
 
 #: core/src/blocks/back-to-top/inspector/tab-content.js:44
+#: core/src/blocks/filter-sidebar/edit.js:60
 msgid "Position"
 msgstr ""
 
@@ -540,6 +677,79 @@ msgstr ""
 
 #: core/src/blocks/back-to-top/inspector/tab-style.js:108
 msgid "Ring Track"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:62
+msgid "Add category"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:84
+msgid "Category"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:93
+msgid "Move category up"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:106
+msgid "Move category down"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:124
+msgid "Remove"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:130
+msgid "Include selected categories’ children"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:142
+#: core/src/blocks/countdown-timer/edit.js:385
+msgid "Layout"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:146
+msgid "Display"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:150
+msgid "Grid"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:154
+msgid "List"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:165
+msgid "Desktop columns"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:177
+msgid "Tablet columns"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:189
+msgid "Mobile columns"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:205
+msgid "Content"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:209
+msgid "Show image"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:216
+msgid "Show name"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:223
+msgid "Show description"
+msgstr ""
+
+#: core/src/blocks/category-list/edit.js:230
+msgid "Show product count"
 msgstr ""
 
 #: core/src/blocks/countdown-timer/edit.js:218
@@ -629,16 +839,66 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: core/src/blocks/countdown-timer/edit.js:385
-msgid "Layout"
-msgstr ""
-
 #: core/src/blocks/countdown-timer/edit.js:402
 msgid "Item Settings"
 msgstr ""
 
 #: core/src/blocks/countdown-timer/edit.js:438
 msgid "Label Style"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:56
+msgid "Drawer settings"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:64
+#: core/src/blocks/marquee/edit.js:118
+msgid "Left"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:68
+#: core/src/blocks/marquee/edit.js:119
+msgid "Right"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:77
+msgid "Width"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:87
+msgid "Show backdrop"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:94
+msgid "Close when backdrop is clicked"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:105
+msgid "Show active filter count"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:116
+msgid "Labels"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:120
+msgid "Button label"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:127
+msgid "Drawer title"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:142
+msgid "Filter"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:151
+msgid "Filters"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/edit.js:156
+msgid "Close filters"
 msgstr ""
 
 #: core/src/blocks/gallery-carousel/inspector/tab-content.js:111
@@ -998,14 +1258,6 @@ msgstr ""
 msgid "Add Marquee Item"
 msgstr ""
 
-#: core/src/blocks/marquee/edit.js:118
-msgid "Left"
-msgstr ""
-
-#: core/src/blocks/marquee/edit.js:119
-msgid "Right"
-msgstr ""
-
 #: core/src/blocks/marquee/edit.js:120
 msgid "Up"
 msgstr ""
@@ -1147,6 +1399,137 @@ msgstr ""
 msgid "Toggle to show the suffix."
 msgstr ""
 
+#: core/src/blocks/single-product-gallery/edit.js:32
+#: core/src/blocks/term-thumbnail/edit.js:37
+msgid "Original"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:33
+#: core/src/blocks/term-thumbnail/edit.js:38
+msgid "Square - 1:1"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:34
+#: core/src/blocks/term-thumbnail/edit.js:39
+msgid "Standard - 4:3"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:35
+#: core/src/blocks/term-thumbnail/edit.js:40
+msgid "Portrait - 3:4"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:36
+#: core/src/blocks/term-thumbnail/edit.js:41
+msgid "Classic - 3:2"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:38
+#: core/src/blocks/term-thumbnail/edit.js:43
+msgid "Classic Portrait - 2:3"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:41
+#: core/src/blocks/term-thumbnail/edit.js:46
+msgid "Wide - 16:9"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:42
+#: core/src/blocks/term-thumbnail/edit.js:47
+msgid "Tall - 9:16"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:44
+#: core/src/blocks/term-thumbnail/edit.js:49
+msgid "Custom"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:136
+msgid "Add a WooCommerce product with images to preview this gallery in the template editor."
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:145
+msgid "Loading product gallery…"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:166
+msgid "Gallery settings"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:170
+msgid "Desktop layout"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:174
+msgid "Stack"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:178
+msgid "2-column grid"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:185
+msgid "3-column grid"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:192
+msgid "Feature and grid"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:199
+msgid "Featured + gallery column"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:211
+#: core/src/blocks/term-thumbnail/edit.js:199
+msgid "Aspect ratio"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:220
+#: core/src/blocks/term-thumbnail/edit.js:208
+msgid "Scale"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:229
+#: core/src/blocks/term-thumbnail/edit.js:217
+msgid "Cover"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:233
+#: core/src/blocks/term-thumbnail/edit.js:221
+msgid "Contain"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:240
+#: core/src/blocks/term-thumbnail/edit.js:228
+msgid "Fill"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:247
+#: core/src/blocks/term-thumbnail/edit.js:235
+msgid "Focal point"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:259
+msgid "Enable lightbox"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:267
+msgid "Close on overlay click"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:280
+msgid "Show mobile dots"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:289
+msgid "Sale badge"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/edit.js:293
+msgid "Show sale badge"
+msgstr ""
+
 #: core/src/blocks/stacking-card-item/edit.js:41
 msgid "Card Settings"
 msgstr ""
@@ -1195,6 +1578,55 @@ msgstr ""
 msgid "Card Spacing (Gap)"
 msgstr ""
 
+#: core/src/blocks/term-thumbnail/edit.js:25
+msgid "Thumbnail"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:26
+msgid "Medium"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:27
+msgid "Large"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:28
+msgid "Full Size"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:169
+msgid "Term Thumbnail"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:170
+msgid "This block displays the current taxonomy term’s thumbnail image. Place it inside a Terms Query Loop → Term Template block so it can receive a term."
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:183
+msgid "Image settings"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:187
+msgid "Image size"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:247
+msgid "Link to term archive"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:255
+msgid "Open in new tab"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:263
+#: core/src/blocks/term-thumbnail/edit.js:271
+msgid "Overlay"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/edit.js:277
+msgid "Opacity"
+msgstr ""
+
 #. translators: %s: plugin name
 #: core/src/non-blocks/admin/rating-notice/index.js:36
 #, js-format
@@ -1217,72 +1649,121 @@ msgstr ""
 msgid "Don't show again"
 msgstr ""
 
-#: core/src/non-blocks/components/customizer-panel/alert-kit-apply.js:87
-msgid " Options"
+#: core/src/non-blocks/components/template-browser/index.js:292
+msgid "All Categories"
 msgstr ""
 
-#: core/src/non-blocks/components/customizer-panel/alert-kit-apply.js:94
-msgid "Please choose following options you want to apply."
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/index.js:102
-msgid "Gutenify Template Kits"
-msgstr ""
-
-#: core/src/non-blocks/components/template-browser/index.js:145
-msgid "-- Select Category --"
-msgstr ""
-
-#: core/src/non-blocks/components/template-browser/index.js:339
-msgid "Templates"
+#: core/src/non-blocks/components/template-browser/index.js:391
+msgid "Previous"
 msgstr ""
 
 #: core/src/non-blocks/components/template-browser/index.js:407
-msgid "Templates from the theme."
+#, js-format
+msgid "Page %d"
 msgstr ""
 
-#: core/src/non-blocks/components/template-browser/index.js:413
+#: core/src/non-blocks/components/template-browser/index.js:428
+msgid "Next"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:607
+msgid "Pattern imported. Images are importing in the background."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:622
+msgid "Pattern imported."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:712
+#: core/src/non-blocks/components/template-browser/index.js:969
+msgid "All"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:715
 msgid "Theme"
 msgstr ""
 
-#: core/src/non-blocks/components/template-browser/index.js:431
-msgid "Simple blocks to construct your page."
+#: core/src/non-blocks/components/template-browser/index.js:732
+#: core/src/non-blocks/components/template-browser/index.js:950
+msgid "My Patterns"
 msgstr ""
 
-#: core/src/non-blocks/components/template-browser/index.js:437
-msgid "Blocks"
+#: core/src/non-blocks/components/template-browser/index.js:792
+msgid "Patterns"
 msgstr ""
 
-#: core/src/non-blocks/components/template-browser/index.js:455
-msgid "Pre-designed ready to use pages."
-msgstr ""
-
-#: core/src/non-blocks/components/template-browser/index.js:461
-msgid "Pages"
-msgstr ""
-
-#: core/src/non-blocks/components/template-browser/index.js:479
-msgid "My Templates."
-msgstr ""
-
-#: core/src/non-blocks/components/template-browser/index.js:485
-msgid "My Templates"
-msgstr ""
-
-#: core/src/non-blocks/components/template-browser/index.js:527
-#: core/src/non-blocks/components/template-browser/index.js:543
-msgid "No templates found."
-msgstr ""
-
-#: core/src/non-blocks/components/template-browser/index.js:536
-#: core/src/non-blocks/components/template-browser/index.js:770
-#: core/src/non-blocks/extend/toolbar-templates-button/index.js:34
-msgid "Add Template"
-msgstr ""
-
-#: core/src/non-blocks/components/template-browser/index.js:566
+#: core/src/non-blocks/components/template-browser/index.js:796
 #, js-format
-msgid "Templates: %s"
+msgid "%d Patterns"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:825
+msgid "Refresh List"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:863
+msgid "Search Patterns..."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:878
+msgid "Clear search"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:898
+msgid "Pattern Library"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:931
+msgid "Your Patterns"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:960
+msgid "Filter by Type"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:976
+#: core/src/non-blocks/components/template-browser/index.js:1113
+msgid "Pro"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:983
+#: core/src/non-blocks/components/template-browser/index.js:1117
+msgid "Free"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:1026
+msgid "You haven't saved any patterns of your own yet."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:1030
+msgid "No patterns found."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:1041
+#: core/src/non-blocks/components/template-browser/index.js:1223
+#: core/src/non-blocks/extend/toolbar-templates-button/index.js:25
+msgid "Add Pattern"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:1134
+msgid "Preview"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:1183
+#: core/src/non-blocks/components/template-browser/index.js:1261
+msgid "Import"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:1198
+msgid "No patterns found matching your selection."
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:1208
+msgid "Clear Filters"
+msgstr ""
+
+#: core/src/non-blocks/components/template-browser/index.js:1246
+msgid "Back to Patterns"
 msgstr ""
 
 #: svn_folder/tags/0.0.1/assets/google-maps_admin.js:1
@@ -1320,6 +1801,42 @@ msgstr ""
 #: core/src/blocks/advanced-group/block.json
 msgctxt "block description"
 msgid "Group blocks together with advanced CSS positioning controls (relative, absolute, fixed, sticky)."
+msgstr ""
+
+#: core/src/blocks/advanced-search/block.json
+msgctxt "block title"
+msgid "Advanced Product Search"
+msgstr ""
+
+#: core/src/blocks/advanced-search/block.json
+msgctxt "block description"
+msgid "Search WooCommerce products, SKUs, categories, and tags with live results."
+msgstr ""
+
+#: core/src/blocks/advanced-search/block.json
+#: core/src/blocks/search-toggle/block.json
+msgctxt "block keyword"
+msgid "search"
+msgstr ""
+
+#: core/src/blocks/advanced-search/block.json
+#: core/src/blocks/category-list/block.json
+#: core/src/blocks/single-product-gallery/block.json
+msgctxt "block keyword"
+msgid "product"
+msgstr ""
+
+#: core/src/blocks/advanced-search/block.json
+msgctxt "block keyword"
+msgid "SKU"
+msgstr ""
+
+#: core/src/blocks/advanced-search/block.json
+#: core/src/blocks/category-list/block.json
+#: core/src/blocks/filter-sidebar/block.json
+#: core/src/blocks/wc-product-list/block.json
+msgctxt "block keyword"
+msgid "WooCommerce"
 msgstr ""
 
 #: core/src/blocks/back-to-top/block.json
@@ -1361,6 +1878,28 @@ msgstr ""
 #: core/src/blocks/buttons/block.json
 msgctxt "block title"
 msgid "Buttons"
+msgstr ""
+
+#: core/src/blocks/category-list/block.json
+msgctxt "block title"
+msgid "Product Category List"
+msgstr ""
+
+#: core/src/blocks/category-list/block.json
+msgctxt "block description"
+msgid "Display selected WooCommerce product categories in a responsive grid or list."
+msgstr ""
+
+#: core/src/blocks/category-list/block.json
+#: core/src/blocks/term-thumbnail/block.json
+msgctxt "block keyword"
+msgid "category"
+msgstr ""
+
+#: core/src/blocks/category-list/block.json
+#: core/src/blocks/term-thumbnail/block.json
+msgctxt "block keyword"
+msgid "taxonomy"
 msgstr ""
 
 #: core/src/blocks/container/block.json
@@ -1445,6 +1984,31 @@ msgstr ""
 #: core/src/blocks/faqs/block.json
 msgctxt "block title"
 msgid "Faqs"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/block.json
+msgctxt "block title"
+msgid "Filter Sidebar"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/block.json
+msgctxt "block description"
+msgid "Open native WooCommerce product filters in an accessible off-canvas drawer."
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/block.json
+msgctxt "block keyword"
+msgid "filter"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/block.json
+msgctxt "block keyword"
+msgid "drawer"
+msgstr ""
+
+#: core/src/blocks/filter-sidebar/block.json
+msgctxt "block keyword"
+msgid "sidebar"
 msgstr ""
 
 #: core/src/blocks/gallery-carousel/block.json
@@ -1661,11 +2225,6 @@ msgstr ""
 
 #: core/src/blocks/search-toggle/block.json
 msgctxt "block keyword"
-msgid "search"
-msgstr ""
-
-#: core/src/blocks/search-toggle/block.json
-msgctxt "block keyword"
 msgid "toggle"
 msgstr ""
 
@@ -1722,6 +2281,31 @@ msgstr ""
 #: core/src/blocks/service/block.json
 msgctxt "block keyword"
 msgid "Services"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/block.json
+msgctxt "block title"
+msgid "Single Product Gallery"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/block.json
+msgctxt "block description"
+msgid "Display the current WooCommerce product gallery with desktop layouts, a lightbox, and a mobile slider."
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/block.json
+msgctxt "block keyword"
+msgid "gallery"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/block.json
+msgctxt "block keyword"
+msgid "woocommerce"
+msgstr ""
+
+#: core/src/blocks/single-product-gallery/block.json
+msgctxt "block keyword"
+msgid "lightbox"
 msgstr ""
 
 #: core/src/blocks/slide-item/block.json
@@ -1840,6 +2424,31 @@ msgctxt "block keyword"
 msgid "Browser"
 msgstr ""
 
+#: core/src/blocks/term-thumbnail/block.json
+msgctxt "block title"
+msgid "Term Thumbnail"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/block.json
+msgctxt "block description"
+msgid "Display the current taxonomy term's thumbnail image. Intended for use inside core's Terms Query Loop → Term Template."
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/block.json
+msgctxt "block keyword"
+msgid "term"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/block.json
+msgctxt "block keyword"
+msgid "thumbnail"
+msgstr ""
+
+#: core/src/blocks/term-thumbnail/block.json
+msgctxt "block keyword"
+msgid "image"
+msgstr ""
+
 #: core/src/blocks/testimonial/block.json
 msgctxt "block title"
 msgid "Testimonial"
@@ -1914,11 +2523,6 @@ msgstr ""
 
 #: core/src/blocks/wc-product-list/block.json
 msgctxt "block keyword"
-msgid "WooCommerce"
-msgstr ""
-
-#: core/src/blocks/wc-product-list/block.json
-msgctxt "block keyword"
 msgid "WooCommerce Products"
 msgstr ""
 
@@ -1935,214 +2539,4 @@ msgstr ""
 #: svn_folder/tags/1.1.7/src/blocks/advance-slider/block.json
 msgctxt "block title"
 msgid "Advance Slider"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Blank"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Page (Large Header)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Page (No Title)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Single Post (No Separators)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Custom template name"
-msgid "Page (No Separators)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Foreground and background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Foreground and secondary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Foreground and tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Primary and background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Primary and secondary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Duotone name"
-msgid "Primary and tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Vertical secondary to tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Vertical secondary to background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Vertical tertiary to background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal primary to foreground"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal secondary to background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal background to secondary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal tertiary to background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Gradient name"
-msgid "Diagonal background to tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Foreground"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Background"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Primary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Secondary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Tertiary"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Color name"
-msgid "Boulder"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "System Font"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Source Serif Pro"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Gilda Display"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Nunito Sans"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Lato Sans Serif"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Roboto Sans Serif"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font family name"
-msgid "Poppins Sans Serif"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Small"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Normal"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Medium"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Large"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Huge"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Gigantic"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Font size name"
-msgid "Colossal"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Template part name"
-msgid "Header"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Template part name"
-msgid "Header (Dark)"
-msgstr ""
-
-#: core/src/non-blocks/components/customizer-panel/theme.json
-msgctxt "Template part name"
-msgid "Footer"
 msgstr ""

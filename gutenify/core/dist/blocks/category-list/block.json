@@ -1,0 +1,83 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/category-list",
+  "version": "1",
+  "title": "Product Category List",
+  "category": "gutenify",
+  "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='2' y='2' width='9' height='9' rx='1.5' fill='#2196f3'/><rect x='13' y='2' width='9' height='9' rx='1.5' fill='#2196f3'/><rect x='2' y='13' width='9' height='9' rx='1.5' fill='#2196f3'/><rect x='13' y='13' width='9' height='9' rx='1.5' fill='#2196f3'/></svg>",
+  "description": "Display selected WooCommerce product categories in a responsive grid or list.",
+  "keywords": [
+    "category",
+    "product",
+    "taxonomy",
+    "WooCommerce"
+  ],
+  "textdomain": "gutenify",
+  "attributes": {
+    "categoryIds": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "integer"
+      }
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid"
+    },
+    "desktopColumns": {
+      "type": "integer",
+      "default": 4
+    },
+    "tabletColumns": {
+      "type": "integer",
+      "default": 2
+    },
+    "mobileColumns": {
+      "type": "integer",
+      "default": 1
+    },
+    "showImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "showName": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDescription": {
+      "type": "boolean",
+      "default": false
+    },
+    "showCount": {
+      "type": "boolean",
+      "default": false
+    },
+    "includeChildren": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ],
+  "render": "file:./render.php"
+}

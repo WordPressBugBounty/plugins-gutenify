@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/advanced-search",
+  "version": "1",
+  "title": "Advanced Product Search",
+  "category": "gutenify",
+  "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><circle cx='10' cy='10' r='7' stroke='#2196f3' stroke-width='2'/><path d='M15 15L20 20' stroke='#2196f3' stroke-width='2' stroke-linecap='round'/></svg>",
+  "description": "Search WooCommerce products, SKUs, categories, and tags with live results.",
+  "keywords": [
+    "search",
+    "product",
+    "SKU",
+    "WooCommerce"
+  ],
+  "textdomain": "gutenify",
+  "attributes": {
+    "placeholder": {
+      "type": "string",
+      "default": "Search products…"
+    },
+    "minimumCharacters": {
+      "type": "integer",
+      "default": 2
+    },
+    "resultLimit": {
+      "type": "integer",
+      "default": 6
+    },
+    "debounceDelay": {
+      "type": "integer",
+      "default": 300
+    },
+    "showCategories": {
+      "type": "boolean",
+      "default": true
+    },
+    "showViewAll": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "file:./view-script.js"
+  ],
+  "render": "file:./render.php"
+}

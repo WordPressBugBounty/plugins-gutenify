@@ -56,6 +56,7 @@ $required_files = array(
 	// REST API endpoints.
 	'inc/rest-api/class-rest.php',
 	'inc/rest-api/class-rest-demo-importer-v2.php',
+	'inc/rest-api/class-image-sideload-queue.php',
 
 	// Demo importing tools.
 	// 'inc/depricated/demo-importer.php', // [TODO: Depricated].

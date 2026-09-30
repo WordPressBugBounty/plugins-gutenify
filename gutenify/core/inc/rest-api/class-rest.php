@@ -9,8 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require GUTENIFY_BASE_DIR . 'core/' . 'inc/rest-api/class-template-kits.php';
-
 /**
  * Class Gutenify_Rest
  */
@@ -89,39 +87,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 		// Get Templates.
 		register_rest_route(
 			$namespace,
-			'/get_template_kit/',
-			array(
-				'methods'             => WP_REST_Server::READABLE,
-				'callback'            => array( $this, 'get_template_kit' ),
-				'permission_callback' => array( $this, 'update_settings_permission' ),
-			)
-		);
-
-		// Get Templates.
-		register_rest_route(
-			$namespace,
-			'/get_template_kit_data/',
-			array(
-				'methods'             => WP_REST_Server::READABLE,
-				'callback'            => array( $this, 'get_template_kit_data' ),
-				'permission_callback' => array( $this, 'update_settings_permission' ),
-			)
-		);
-
-		// Add Kit.
-		register_rest_route(
-			$namespace,
-			'/create_kit/',
-			array(
-				'methods'             => WP_REST_Server::EDITABLE,
-				'callback'            => array( $this, 'create_kit' ),
-				'permission_callback' => array( $this, 'update_settings_permission' ),
-			)
-		);
-
-		// Get Templates.
-		register_rest_route(
-			$namespace,
 			'/get_site_options/',
 			array(
 				'methods'             => WP_REST_Server::READABLE,
@@ -163,26 +128,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 			)
 		);
 
-		// Get Demos.
-		register_rest_route(
-			$namespace,
-			'/get_theme_demo_list/',
-			array(
-				'methods'             => WP_REST_Server::READABLE,
-				'callback'            => array( $this, 'get_theme_demo_list' ),
-				'permission_callback' => array( $this, 'update_settings_permission' ),
-			)
-		);
-
-		register_rest_route(
-			$namespace,
-			'/get_theme_import_demo_set_pages/',
-			array(
-				'methods'             => WP_REST_Server::EDITABLE,
-				'callback'            => array( $this, 'get_theme_import_demo_set_pages' ),
-				'permission_callback' => array( $this, 'update_settings_permission' ),
-			)
-		);
 	}
 
 	/**
@@ -198,7 +143,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		$plugin_main_version          = $constants['plugin_main_version'];
 		$plugin_main_post_type_prefix = $constants['plugin_main_post_type_prefix'];
 
-		$api_site  = defined( 'GUTENIFY_API_URL' ) ? GUTENIFY_API_URL : 'https://api.gutenify.com/';
+		$api_site  = defined( 'GUTENIFY_API_URL' ) ? GUTENIFY_API_URL : 'https://demo.gutenify.com/';
 		$url       = $api_site . 'wp-json/gutenify-library/v1/get_library/';
 		$templates = get_transient( 'gutenify_remote_templates', false );
 
@@ -416,7 +361,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 		$plugin_main_version          = $constants['plugin_main_version'];
 		$plugin_main_post_type_prefix = $constants['plugin_main_post_type_prefix'];
 
-		$api_site      = defined( 'GUTENIFY_API_URL' ) ? GUTENIFY_API_URL : 'https://api.gutenify.com/';
+		$api_site      = defined( 'GUTENIFY_API_URL' ) ? GUTENIFY_API_URL : 'https://demo.gutenify.com/';
 		$url           = $api_site . 'wp-json/gutenify-library/v1/get_library_data/';
 		$id            = $request->get_param( 'id' );
 		$type          = $request->get_param( 'type' );
@@ -426,10 +371,13 @@ class Gutenify_Rest extends WP_REST_Controller {
 			return $this->error( 'no_template_data', __( 'Template data not found.', 'gutenify' ) );
 		}
 
-		$id = absint( $id );
+		$id   = absint( $id );
+		$fast = ! empty( $request->get_param( 'fast' ) );
+
 		switch ( $type ) {
 			case 'remote':
-				$template_data = get_transient( 'gutenify_template_' . $type . '_' . $id, false );
+				$cache_key     = 'gutenify_template_' . $type . '_' . $id;
+				$template_data = get_transient( $cache_key, false );
 
 				if ( ! $template_data ) {
 					$url = add_query_arg(
@@ -452,7 +400,20 @@ class Gutenify_Rest extends WP_REST_Controller {
 
 						if ( $new_template_data && isset( $new_template_data['response'] ) && is_array( $new_template_data['response'] ) ) {
 							$template_data = $new_template_data['response'];
-							set_transient( 'gutenify_template_' . $type . '_' . $id, $template_data, DAY_IN_SECONDS );
+
+							if ( $fast ) {
+								// Editor-insert fast path: return the raw
+								// content immediately with remote image URLs
+								// still in place, so the click isn't blocked
+								// on every image's download. Deliberately
+								// NOT cached — the client follows up with a
+								// non-fast request (see 'needs_sideload'
+								// below) that does the real sideload and
+								// caches the result once it's actually done.
+							} elseif ( ! empty( $template_data['content'] ) ) {
+								$template_data['content'] = \gutenify\Helpers::sideload_remote_images( $template_data['content'], $api_site );
+								set_transient( $cache_key, $template_data, DAY_IN_SECONDS );
+							}
 						}
 					}
 				}
@@ -472,6 +433,15 @@ class Gutenify_Rest extends WP_REST_Controller {
 		}
 
 		if ( is_array( $template_data ) ) {
+			// Tells the client whether this response still has remote image
+			// URLs left to resolve — true for a 'fast' response, and also
+			// true if a normal (non-fast) sideload pass didn't fully
+			// succeed (e.g. one image's download failed). The editor uses
+			// this to decide whether a background follow-up + block-patch
+			// is needed at all.
+			$template_data['needs_sideload'] = ! empty( $template_data['content'] )
+				&& \gutenify\Helpers::has_remote_images( $template_data['content'], $api_site );
+
 			return $this->success( $template_data );
 		} else {
 			return $this->error( 'no_template_data', __( 'Template data not found.', 'gutenify' ) );
@@ -518,139 +488,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 		}
 
 		return $this->success( true );
-	}
-
-	/**
-	 * Get templates.
-	 *
-	 * @return mixed
-	 */
-	public function get_template_kit( WP_REST_Request $request ) {
-		$api_site  = defined( 'GUTENIFY_API_URL' ) ? GUTENIFY_API_URL : 'https://api.gutenify.com/';
-		$url       = $api_site . 'wp-json/gutenify-library/v1/get_kit_library/';
-		$templates = get_transient( 'gutenify_remote_template_kits', false );
-		$data      = $request->get_params();
-
-		if ( ! empty( $data['reset'] ) && 'true' === $data['reset'] ) {
-			$templates = array();
-		}
-
-		/*
-		 * Get remote templates.
-		 */
-		if ( ! $templates ) {
-			$requested_templates = wp_remote_get(
-				add_query_arg(
-					array(
-						'gutenify_version' => '2.19.3',
-						'gutenify_pro' => false,
-						'gutenify_pro_version' => null,
-					),
-					$url
-				)
-			);
-
-			if ( ! is_wp_error( $requested_templates ) ) {
-				$new_templates = wp_remote_retrieve_body( $requested_templates );
-				$new_templates = json_decode( $new_templates, true );
-
-				if ( $new_templates && isset( $new_templates['response'] ) && is_array( $new_templates['response'] ) ) {
-					$templates = $new_templates['response'];
-					set_transient( 'gutenify_remote_template_kits', $templates, DAY_IN_SECONDS );
-				}
-			}
-		}
-
-		// Remove Pro templates from array, cause for now there is no way to check if pro addon is activated.
-		if ( $templates ) {
-			foreach ( $templates as $k => $template ) {
-				$is_pro = false;
-
-				if ( isset( $template['types'] ) && is_array( $template['types'] ) ) {
-					foreach ( $template['types'] as $type ) {
-						$is_pro = $is_pro || 'pro' === $type['slug'];
-					}
-				}
-
-				if ( $is_pro ) {
-					unset( $templates[ $k ] );
-				}
-			}
-		}
-
-		if ( is_array( $templates ) ) {
-			return $this->success( $templates );
-		} else {
-			return $this->error( 'no_template_kits', __( 'Template kit not found.' . $url, 'gutenify' ) );
-		}
-	}
-
-	public function get_template_kit_data( WP_REST_Request $request ) {
-		$api_site      = defined( 'GUTENIFY_API_URL' ) ? GUTENIFY_API_URL : 'https://api.gutenify.com/';
-		$url           = $api_site . 'wp-json/gutenify-library/v1/get_kit_library_data/';
-		$id            = $request->get_param( 'id' );
-		$type          = $request->get_param( 'type' );
-		$template_data = false;
-		switch ( $type ) {
-			case 'remote':
-				$template_data = get_transient( 'gutenify_template_kit_' . $type . '_' . $id, false );
-
-				if ( ! $template_data ) {
-					$requested_template_data = wp_remote_get(
-						add_query_arg(
-							apply_filters(
-								'gutenify_rest_template_data_url_args',
-								array(
-									'id' => $id,
-									'gutenify_version' => GUTENIFY_VERSION,
-									'gutenify_site' => site_url( '/' ),
-								)
-							),
-							$url
-						)
-					);
-
-					if ( ! is_wp_error( $requested_template_data ) ) {
-						$new_template_data = wp_remote_retrieve_body( $requested_template_data );
-						$new_template_data = json_decode( $new_template_data, true );
-
-						if ( $new_template_data && isset( $new_template_data['response'] ) && is_array( $new_template_data['response'] ) ) {
-							$template_data = $new_template_data['response'];
-							set_transient( 'gutenify_template_' . $type . '_' . $id, $template_data, DAY_IN_SECONDS );
-						}
-					}
-				}
-				break;
-			case 'local':
-				$post = get_post( $id );
-
-				if ( $post && 'gutenify_template' === $post->post_type && 'publish' === $post->post_status ) {
-					$template_data = array(
-						'id'      => $post->ID,
-						'title'   => $post->post_title,
-						'content' => $post->post_content,
-					);
-				}
-
-				break;
-		}
-
-		if ( is_array( $template_data ) ) {
-			return $this->success( $template_data );
-		} else {
-			return $this->error( 'no_template_data', __( 'Template data not found.', 'gutenify' ) );
-		}
-	}
-
-	public function create_kit( WP_REST_Request $request ) {
-		$data                                     = $request->get_params();
-		$gutenify_template_kits = new Gutenify_Template_Kits();
-		$response                                 = $gutenify_template_kits->add_kit( $data );
-
-		if ( $response ) {
-			return $this->success( $response );
-		}
-		return $this->error( 'error_creating_kit', __( 'Error creating Kit', 'gutenify' ) );
 	}
 
 	public function get_site_options() {
@@ -771,145 +608,6 @@ class Gutenify_Rest extends WP_REST_Controller {
 			}
 		}
 		return $this->success( json_decode( $demo_categories ) );
-	}
-
-	public function get_theme_demo_list( WP_REST_Request $request ) {
-		$options   = (array) $request->get_params();
-		$demo_list = false;
-		if ( empty( $options['force'] ) || 'false' === $options['force'] ) {
-			$demo_list = get_transient( 'gutenify_demo_import_list', false );
-		}
-		if ( false === $demo_list ) {
-			$error = $this->error( 'error_demo_list', __( 'Error listing demo', 'gutenify' ) );
-
-			try {
-				$url = 'https://demo.gutenify.com/wp-json/demo-api/v1/get_demos';
-				/** @var array|WP_Error $response */
-				$response = wp_remote_get(
-					$url,
-					array(
-						'timeout'     => 120,
-						'httpversion' => '1.1',
-						'headers'     => array(
-							'Accept' => 'application/json',
-						),
-					)
-				);
-				if ( ( ! is_wp_error( $response ) ) && ( 200 === wp_remote_retrieve_response_code( $response ) ) ) {
-					if ( $body = wp_remote_retrieve_body( $response ) ) {
-						$responseBody = json_decode( $body );
-						$themes       = array();
-						if ( ! empty( $responseBody ) && ! empty( $responseBody->response ) ) {
-							$themes = (array) $responseBody->response;
-						}
-						set_transient( 'gutenify_demo_import_list', json_encode( $themes ), DAY_IN_SECONDS );
-						return $this->success( $themes );
-					}
-					return $error;
-				}
-			} catch ( Exception $ex ) {
-				return $error;
-			}
-		}
-		return $this->success( json_decode( $demo_list ) );
-	}
-
-
-	public function get_theme_import_demo_set_pages( WP_REST_Request $request ) {
-		$options = (array) $request->get_params();
-
-		if ( ! empty( $options['name'] ) ) {
-			$name  = $options['name'];
-			$theme = wp_get_theme();
-
-			// Set Header
-			$args    = array(
-				'post_type'      => 'wp_template_part',
-				'post_name__in'  => array( 'header' ),
-				'posts_per_page' => 1,
-			);
-			$headers = get_posts( $args );
-			if ( ! empty( $headers ) ) {
-				$post_data = $headers[0];
-				wp_set_post_terms( $post_data->ID, 'header', 'wp_template_part_area' );
-				wp_set_post_terms( $post_data->ID, $theme->template, 'wp_theme' );
-			}
-
-			// Set Footer
-			$args['post_name__in'] = array( 'footer' );
-			$footers               = get_posts( $args );
-			if ( ! empty( $footers ) ) {
-				$post_data = $footers[0];
-				wp_set_post_terms( $post_data->ID, 'footer', 'wp_template_part_area' );
-				wp_set_post_terms( $post_data->ID, $theme->template, 'wp_theme' );
-			}
-
-			// Set Sidebar
-			$args['post_name__in'] = array( 'sidebar' );
-			$sidebars              = get_posts( $args );
-			if ( ! empty( $sidebars ) ) {
-				$post_data = $sidebars[0];
-				// wp_set_post_terms( $post_data->ID, 'footer', 'wp_template_part_area' );
-				wp_set_post_terms( $post_data->ID, $theme->template, 'wp_theme' );
-			}
-
-			$imported_posts = get_transient( '_transient_pt_importer_data' );
-			// $imported_posts = get_option( '_pt_importer_data' );
-
-			$args = array(
-				'post_type'      => 'wp_template',
-				// 'post_name__in' => array( 'header' ),
-				'posts_per_page' => -1,
-				'tax_query'      => array(
-					array(
-						'taxonomy' => 'wp_theme',
-						'field'    => 'slug',
-						'terms'    => $theme->template,
-						'operator' => 'NOT IN',
-					),
-				),
-			);
-
-			if ( false !== $imported_posts && ! empty( $imported_posts['mapping']['post'] ) ) {
-				$post_ids         = $imported_posts['mapping']['post'];
-				$args['post__in'] = $post_ids;
-			}
-
-			$templates = get_posts( $args );
-
-			if ( ! empty( $templates ) ) {
-				$do_not_duplicate = array();
-				$patterns         = array( '/(\"theme\"\:\".*\")/' );
-				$replace          = array( '"theme":"' . $theme->template . '"' );
-
-				foreach ( $templates as $template ) {
-					if ( ! in_array( $template->post_name, $do_not_duplicate ) ) {
-						$count   = 0;
-						$content = preg_replace( $patterns, $replace, $template->post_content, -1, $count );
-
-						$data = array(
-							'ID'           => $template->ID,
-							'post_content' => $content,
-						);
-
-						wp_update_post( $data );
-						wp_set_post_terms( $template->ID, $theme->template, 'wp_theme' );
-						$do_not_duplicate[] = $template->post_name;
-					}
-				}
-			}
-
-			return $this->success(
-				array(
-					'name'           => $name,
-					'headers'        => $headers,
-					'templates'      => $templates,
-					'args'           => $args,
-					'imported_posts' => $imported_posts,
-				)
-			);
-		}
-		$error = $this->error( 'error_demo_set_pages', __( 'Error demo set pages.', 'gutenify' ) );
 	}
 
 	/**

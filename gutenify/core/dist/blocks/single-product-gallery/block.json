@@ -1,0 +1,91 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gutenify/single-product-gallery",
+  "version": "1",
+  "title": "Single Product Gallery",
+  "category": "gutenify",
+  "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><rect x='5' y='2' width='15' height='15' rx='2' stroke='#2196f3' stroke-width='2'/><rect x='2' y='7' width='15' height='15' rx='2' fill='#2196f3'/></svg>",
+  "description": "Display the current WooCommerce product gallery with desktop layouts, a lightbox, and a mobile slider.",
+  "keywords": [
+    "product",
+    "gallery",
+    "woocommerce",
+    "lightbox"
+  ],
+  "textdomain": "gutenify",
+  "usesContext": [
+    "postId",
+    "postType"
+  ],
+  "attributes": {
+    "previewProductId": {
+      "type": "integer",
+      "default": 0
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid-2"
+    },
+    "aspectRatio": {
+      "type": "string",
+      "default": "1"
+    },
+    "scale": {
+      "type": "string",
+      "default": "cover"
+    },
+    "focalPoint": {
+      "type": "object",
+      "default": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enableLightbox": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeLightboxOnOverlayClick": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDots": {
+      "type": "boolean",
+      "default": true
+    },
+    "showSaleBadge": {
+      "type": "boolean",
+      "default": true
+    },
+    "saleBadgeAlign": {
+      "type": "string",
+      "default": "right"
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "anchor": true,
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ],
+  "viewScript": [
+    "file:./view-script.js"
+  ],
+  "render": "file:./render.php"
+}
