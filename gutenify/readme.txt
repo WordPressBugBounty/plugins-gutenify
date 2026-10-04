@@ -5,7 +5,7 @@ Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.8.0
+Stable tag: 1.9.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -233,6 +233,14 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-10-04 - version 1.9.0 =
+* Added icon, hover animation and press options to the core Button block: choose an icon and its position, size and spacing, hide the text for an icon-only button, and animate hover with motion, background (darken, lighten, sweep) and icon nudge effects. On WordPress 7.1+ the hover options follow the editor's State dropdown.
+* Added a "Link" option to the core Group block, making the whole group clickable. It works inside Query Loops by linking to each post, with new tab and nofollow options and an accessible link name.
+* Gutenify Buttons and Button blocks are now hidden from the inserter on WordPress 7.1+, with one-click conversion to the core Buttons block. Existing content keeps working. The Info Box, Service and Notice Bar blocks and the built-in patterns now use core buttons.
+* Improved Hover Card accessibility: keyboard users can now reveal the content (Tab, or Enter/Space for tap cards), Escape dismisses it, a visible focus ring was added, reduced-motion preferences are respected, and a card with an ARIA label is announced as a group. Existing Hover Card blocks are unchanged.
+* Fixed a fatal error ("Call to undefined function wptt_get_webfont_url") that could occur when a theme's fonts were loaded.
+* Fixed core buttons with the Fill style losing their border color and width.
 
 = 2026-09-30 - version 1.8.0 =
 * Added Single Product Gallery block: displays the current WooCommerce product's images with desktop layouts, a lightbox, and a mobile slider.

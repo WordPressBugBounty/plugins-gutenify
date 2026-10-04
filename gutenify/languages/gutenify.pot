@@ -1,14 +1,14 @@
 # Copyright (c) 2026 Gutenify. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Starter Templates 1.8.0\n"
+"Project-Id-Version: Gutenify - Visual Site Builder Blocks & Starter Templates 1.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenify\n"
 "Last-Translator: inf@gutenify.com\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-30T06:28:47+00:00\n"
+"POT-Creation-Date: 2026-10-04T16:56:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: gutenify\n"
@@ -50,6 +50,7 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:58
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:58
 #: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:58
+#: svn_folder/tags/1.8.0/core/inc/admin/class-menu.php:58
 #: svn_folder/trunk/core/inc/admin/class-menu.php:58
 msgid "Gutenify"
 msgstr ""
@@ -84,6 +85,8 @@ msgstr ""
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:69
 #: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:57
 #: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:69
+#: svn_folder/tags/1.8.0/core/inc/admin/class-menu.php:57
+#: svn_folder/tags/1.8.0/core/inc/admin/class-menu.php:69
 #: svn_folder/trunk/core/inc/admin/class-menu.php:57
 #: svn_folder/trunk/core/inc/admin/class-menu.php:69
 msgid "Gutenify: Getting Started"
@@ -104,6 +107,7 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:70
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:70
 #: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:70
+#: svn_folder/tags/1.8.0/core/inc/admin/class-menu.php:70
 #: svn_folder/trunk/core/inc/admin/class-menu.php:70
 msgid "Getting Started"
 msgstr ""
@@ -123,6 +127,7 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:79
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:79
 #: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:79
+#: svn_folder/tags/1.8.0/core/inc/admin/class-menu.php:79
 #: svn_folder/trunk/core/inc/admin/class-menu.php:79
 msgid "Gutenify Demo Importer"
 msgstr ""
@@ -142,6 +147,7 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:80
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:80
 #: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:80
+#: svn_folder/tags/1.8.0/core/inc/admin/class-menu.php:80
 #: svn_folder/trunk/core/inc/admin/class-menu.php:80
 msgid "Demo Importer"
 msgstr ""
@@ -161,6 +167,7 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:89
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:89
 #: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:89
+#: svn_folder/tags/1.8.0/core/inc/admin/class-menu.php:89
 #: svn_folder/trunk/core/inc/admin/class-menu.php:89
 msgid "Gutenify Settings"
 msgstr ""
@@ -180,6 +187,7 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/admin/class-menu.php:90
 #: svn_folder/tags/1.6.6/core/inc/admin/class-menu.php:90
 #: svn_folder/tags/1.7.0/core/inc/admin/class-menu.php:90
+#: svn_folder/tags/1.8.0/core/inc/admin/class-menu.php:90
 #: svn_folder/trunk/core/inc/admin/class-menu.php:90
 msgid "Settings"
 msgstr ""
@@ -259,17 +267,22 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.6.6/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/tags/1.7.0/core/inc/blocks/class-blocks-categories.php:42
+#: svn_folder/tags/1.8.0/core/inc/blocks/class-blocks-categories.php:42
 #: svn_folder/trunk/core/inc/blocks/class-blocks-categories.php:42
 msgid "Gutenify Blocks"
 msgstr ""
 
 #: core/inc/helpers/woocommerce-template-functions.php:46
 #: core/src/blocks/wc-product-carousel/index.php:109
+#: svn_folder/tags/1.8.0/core/inc/helpers/woocommerce-template-functions.php:46
+#: svn_folder/trunk/core/inc/helpers/woocommerce-template-functions.php:46
 msgid "Sale"
 msgstr ""
 
 #: core/inc/helpers/woocommerce-template-functions.php:46
 #: core/src/blocks/wc-product-carousel/index.php:109
+#: svn_folder/tags/1.8.0/core/inc/helpers/woocommerce-template-functions.php:46
+#: svn_folder/trunk/core/inc/helpers/woocommerce-template-functions.php:46
 msgid "Product on sale"
 msgstr ""
 
@@ -279,7 +292,8 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:400
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:400
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:400
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:400
+#: svn_folder/tags/1.8.0/core/inc/rest-api/class-rest.php:345
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:345
 msgid "Templates not found."
 msgstr ""
 
@@ -300,9 +314,10 @@ msgstr ""
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:426
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:477
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:641
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:426
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:477
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:641
+#: svn_folder/tags/1.8.0/core/inc/rest-api/class-rest.php:371
+#: svn_folder/tags/1.8.0/core/inc/rest-api/class-rest.php:447
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:371
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:447
 msgid "Template data not found."
 msgstr ""
 
@@ -312,7 +327,8 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:492
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:492
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:492
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:492
+#: svn_folder/tags/1.8.0/core/inc/rest-api/class-rest.php:462
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:462
 msgid "Settings data not found."
 msgstr ""
 
@@ -327,8 +343,8 @@ msgstr ""
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:783
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:741
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:783
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:741
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:783
+#: svn_folder/tags/1.8.0/core/inc/rest-api/class-rest.php:578
+#: svn_folder/trunk/core/inc/rest-api/class-rest.php:578
 msgid "Error listing demo"
 msgstr ""
 
@@ -509,12 +525,17 @@ msgstr ""
 msgid "This term does not have a thumbnail image."
 msgstr ""
 
+#: core/src/non-blocks/extend/block-link/index.php:124
+#: core/src/blocks/post-carousel/edit.js:169
+#: core/src/blocks/post-list/edit.js:157
+msgid "Read more"
+msgstr ""
+
 #: svn_folder/tags/1.6.3/core/inc/rest-api/class-rest.php:584
 #: svn_folder/tags/1.6.4/core/inc/rest-api/class-rest.php:584
 #: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:584
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:584
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:584
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:584
 msgid "Template kit not found."
 msgstr ""
 
@@ -523,7 +544,6 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:653
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:653
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:653
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:653
 msgid "Error creating Kit"
 msgstr ""
 
@@ -532,7 +552,6 @@ msgstr ""
 #: svn_folder/tags/1.6.5/core/inc/rest-api/class-rest.php:911
 #: svn_folder/tags/1.6.6/core/inc/rest-api/class-rest.php:912
 #: svn_folder/tags/1.7.0/core/inc/rest-api/class-rest.php:912
-#: svn_folder/trunk/core/inc/rest-api/class-rest.php:912
 msgid "Error demo set pages."
 msgstr ""
 
@@ -1368,11 +1387,6 @@ msgstr ""
 
 #: core/src/blocks/marquee/edit.js:208
 msgid "Show a static, scrollable row for visitors whose device requests reduced motion."
-msgstr ""
-
-#: core/src/blocks/post-carousel/edit.js:169
-#: core/src/blocks/post-list/edit.js:157
-msgid "Read more"
 msgstr ""
 
 #: core/src/blocks/section-title/inspector/tab-content.js:65

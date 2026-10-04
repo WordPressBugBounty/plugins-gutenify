@@ -1,6 +1,8 @@
 <?php
 /**
- * [TODO: Depricate this class.].
+ * Outputs each block's auto-injected "{slug}Styles" attribute (added by
+ * Class_Extend_Attributes to every block's metadata) as inline frontend CSS,
+ * for every block not in its own exclude list below.
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

@@ -10,7 +10,7 @@ class Style_Helpers {
 	public static function value_has_unit( $val ) {
 		$val       = strtolower( $val );
 		$units     = array();
-		$all_units = array( 'px', 'rem' );
+		$all_units = array( 'px', '%', 'em', 'rem', 'vw', 'vh' );
 		foreach ( $all_units as $key => $unit ) {
 			if ( false !== strpos( $val, $unit ) ) {
 				$units[] = $unit;

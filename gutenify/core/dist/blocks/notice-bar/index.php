@@ -213,11 +213,11 @@ class Notice_Bar{
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:gutenify/buttons -->
-<div class="wp-block-gutenify-buttons wp-block-buttons"><!-- wp:gutenify/button {"text":"Buy Now"} -->
-<div class="wp-block-gutenify-button"><a class="gutenify-button-link wp-block-button__link"><span>Buy Now</span></a></div>
-<!-- /wp:gutenify/button --></div>
-<!-- /wp:gutenify/buttons --></div>
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"style":{"border":{"radius":"0px"}}} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" style="border-radius:0px">Buy Now</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group -->
 <!-- /wp:gutenify/notice-bar -->',
 			)
@@ -240,11 +240,11 @@ class Notice_Bar{
 <p>Welcome to the wordpress world.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
-<!-- wp:gutenify/buttons -->
-<div class="wp-block-gutenify-buttons wp-block-buttons"><!-- wp:gutenify/button {"text":"Buy Now"} -->
-<div class="wp-block-gutenify-button"><a class="gutenify-button-link wp-block-button__link"><span>Buy Now</span></a></div>
-<!-- /wp:gutenify/button --></div>
-<!-- /wp:gutenify/buttons --></div>
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"style":{"border":{"radius":"0px"}}} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" style="border-radius:0px">Buy Now</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group -->
 <!-- /wp:gutenify/notice-bar -->',
 			)

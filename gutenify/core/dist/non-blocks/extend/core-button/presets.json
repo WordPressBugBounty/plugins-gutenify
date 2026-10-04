@@ -1,0 +1,24 @@
+{
+	"defaults": {
+		"duration": 250,
+		"tintStrength": 20,
+		"easing": "ease",
+		"iconSize": "1em",
+		"iconGap": "0.5em"
+	},
+	"limits": {
+		"duration": [ 50, 1500 ],
+		"tintStrength": [ 5, 40 ],
+		"iconSvgMax": 20000
+	},
+	"motion": [ "lift", "grow", "press", "tilt" ],
+	"background": [ "darken", "lighten", "sweep-left", "sweep-bottom" ],
+	"nudge": [ "auto", "right", "left", "up", "down", "up-right" ],
+	"easing": {
+		"ease": "ease",
+		"ease-out": "ease-out",
+		"ease-in-out": "ease-in-out",
+		"linear": "linear",
+		"bounce": "cubic-bezier(0.34,1.56,0.64,1)"
+	}
+}

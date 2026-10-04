@@ -54,7 +54,7 @@ class Hover_Card{
 			$class_names[] = 'gutenify-hover-card-trigger-tap';
 		}
 
-		$wrapper_attributes = get_block_wrapper_attributes( array(
+		$wrapper_args = array(
 			'class' => implode( ' ', $class_names ),
 			'style' => sprintf(
 				'--gutenify-hover-card-duration:%ss;--gutenify-hover-card-delay:%ss;--gutenify-hover-card-easing:%s;',
@@ -62,7 +62,14 @@ class Hover_Card{
 				$delay,
 				$easing
 			),
-		) );
+		);
+
+		// A named group lets screen readers announce the card as one unit; an unnamed one is just noise.
+		if ( ! empty( $attributes['ariaLabel'] ) ) {
+			$wrapper_args['role'] = 'group';
+		}
+
+		$wrapper_attributes = get_block_wrapper_attributes( $wrapper_args );
 		$output = sprintf( '<div %s>', $wrapper_attributes );
 		$output .= $content;
 		$output .= '</div>';

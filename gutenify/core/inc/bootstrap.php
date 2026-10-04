@@ -31,17 +31,16 @@ $required_files = array(
 	'inc/helpers/class-style-helpers.php',
 	'inc/helpers/class-dynamic-styles.php',
 	'inc/helpers/class-typography-helpers.php',
-	'inc/depricated/styles.php', // [TODO: Depricated].
 	'inc/class-assets.php',
 	'inc/helpers/class-post-list.php',
-	'inc/depricated/helpers/typography-helpers.php', // [TODO: Depricated].
+	'inc/depricated/helpers/typography-helpers.php', // Live: font_families() feeds the admin font picker; see REFACTOR-FINDINGS.md for the "runs on every admin page" optimization still open.
 
 	// WooCommerce support.
 	'inc/helpers/woocommerce-template-functions.php',
 
 	// Gutenberg block handling.
 	'inc/blocks/class-blocks-categories.php',
-	'inc/blocks/class-block-inline-styles.php',
+	'inc/blocks/class-block-inline-styles.php', // Live: outputs the per-block auto-injected "Styles" attribute as inline CSS.
 	'inc/blocks/class-block-assets.php',
 	'inc/blocks/class-block-editor-assets.php',
 	'inc/blocks/class-extend-attributes.php',
@@ -58,16 +57,13 @@ $required_files = array(
 	'inc/rest-api/class-rest-demo-importer-v2.php',
 	'inc/rest-api/class-image-sideload-queue.php',
 
-	// Demo importing tools.
-	// 'inc/depricated/demo-importer.php', // [TODO: Depricated].
-
 	// Admin interface and backend logic.
 	'inc/admin/class-menu.php',
 	'inc/admin/class-demo-importer-v2.php',
 	'inc/admin/class-register-templates-post-type.php',
 
 	// Interface definitions and wrappers.
-	'inc/depricated/interfaces/class-main-class-wrapper.php', // [TODO: depricated]
+	'inc/depricated/interfaces/class-main-class-wrapper.php', // Live: base class extended by Toolbar_Templates_Button.
 
 	// React-based non-block components and admin pages.
 	'dist/non-blocks/components/index.php',
@@ -79,6 +75,8 @@ $required_files = array(
 	'dist/non-blocks/extend/block-custom-css/index.php',
 	'dist/non-blocks/extend/sliders/index.php',
 	'dist/non-blocks/extend/aos/index.php',
+	'dist/non-blocks/extend/core-button/index.php',
+	'dist/non-blocks/extend/block-link/index.php',
 
 	// Admin page interfaces.
 	'dist/non-blocks/admin/pages/getting-started/index.php',

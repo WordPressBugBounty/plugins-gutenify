@@ -95,6 +95,14 @@ class Typography_Helpers {
 				// Combine all font queries separated by '&'.
 				$final_font_settings = implode( '&', $font_settings );
 
+				// The loader is not part of the bootstrap list, so load it before first use.
+				if ( ! function_exists( 'wptt_get_webfont_url' ) ) {
+					$webfont_file = GUTENIFY_BASE_DIR . 'core/' . 'inc/lib/wptt-webfont-loader.php';
+					if ( file_exists( $webfont_file ) ) {
+						require_once $webfont_file;
+					}
+				}
+
 				// Enqueue Google Fonts stylesheet.
 				wp_enqueue_style( 'gutenify-bundle', esc_url( wptt_get_webfont_url( "https://fonts.googleapis.com/css2?{$final_font_settings}&display=swap" ) ), array(), $version );
 			}
