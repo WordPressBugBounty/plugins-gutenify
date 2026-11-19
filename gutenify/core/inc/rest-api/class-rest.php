@@ -160,7 +160,7 @@ class Gutenify_Rest extends WP_REST_Controller {
 			$requested_templates = wp_remote_get(
 				add_query_arg(
 					array(
-						'gutenify_version' => '2.19.3',
+						'gutenify_version' => GUTENIFY_VERSION,
 						'gutenify_pro' => false,
 						'gutenify_pro_version' => null,
 					),

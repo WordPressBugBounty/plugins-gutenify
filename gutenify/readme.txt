@@ -3,9 +3,9 @@ Contributors: codeyatri, racase, anilbasnet
 Tags: gutenberg blocks, page builder, site builder, block editor, full site editing, woocommerce blocks
 Donate link: https://gutenify.com/
 Requires at least: 6.4
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -233,6 +233,16 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-11-19 - version 1.9.1 =
+* Tested up to WordPress 7.1.
+* Fixed the Demo Importer failing to load demo content with a "rest_forbidden" (401) error on some hosts. The importer now sends its request header in a form that web servers no longer strip.
+* Fixed the Demo Importer reporting "Congratulations!" for an import that never ran when the demo server returned an error. It now stops and shows the server's reason instead.
+* Fixed the Demo Importer staying on "Loading..." forever when a request failed, and a failed theme activation leaving the install step stuck. Both now show an error message.
+* Fixed the Demo Importer saving an error response as the demo list for a full day. Failed responses are no longer cached.
+* Improved Demo Importer security: activating a theme now requires the Switch Themes permission and confirms the theme is installed before switching.
+* Fixed a "dependencies that are not registered" notice being logged on page loads when the frontend stylesheet had not been built.
+* Fixed the pattern library request sending an outdated plugin version instead of the installed one.
 
 = 2026-10-04 - version 1.9.0 =
 * Added icon, hover animation and press options to the core Button block: choose an icon and its position, size and spacing, hide the text for an icon-only button, and animate hover with motion, background (darken, lighten, sweep) and icon nudge effects. On WordPress 7.1+ the hover options follow the editor's State dropdown.

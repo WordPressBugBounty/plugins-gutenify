@@ -58,7 +58,10 @@ class Gutenify_block_inline_styles {
 	public static function add_inline_styles() {
 		global $wp_styles;
 		$handle = 'gutenify-block-inline-handle';
-		$deps   = array( 'gutenify-frontend' );
+		// The frontend style is only registered when its built index.css exists,
+		// so depend on it only when present (an unregistered dependency makes
+		// WordPress log a _doing_it_wrong notice on every request).
+		$deps = wp_style_is( 'gutenify-frontend', 'registered' ) ? array( 'gutenify-frontend' ) : array();
 		wp_register_style( $handle, false, $deps );
 		wp_enqueue_style( $handle );
 		wp_add_inline_style( $handle, self::$all_styles );

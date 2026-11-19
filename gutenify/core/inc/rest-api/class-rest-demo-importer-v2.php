@@ -65,7 +65,7 @@ class Rest_Demo_Importer_V2 {
 			array(
 				'methods'             => 'POST',
 				'callback'            => array( __CLASS__, 'activate_theme' ),
-				'permission_callback' => array( __CLASS__, 'update_settings_permission' ),
+				'permission_callback' => array( __CLASS__, 'switch_theme_permission' ),
 			)
 		);
 
@@ -87,6 +87,17 @@ class Rest_Demo_Importer_V2 {
 	 */
 	public static function update_settings_permission() {
 		return current_user_can( 'manage_options' );
+	}
+
+	/**
+	 * Permission for switching the active theme.
+	 *
+	 * Activating a theme is a `switch_themes` action, not a `manage_options` one.
+	 *
+	 * @return bool
+	 */
+	public static function switch_theme_permission() {
+		return current_user_can( 'switch_themes' );
 	}
 
 	public static function import( \WP_REST_Request $req ) {
@@ -657,7 +668,9 @@ class Rest_Demo_Importer_V2 {
 				array(
 					'timeout' => 10,
 					'headers' => array(
-						'liger_hkey' => 'sskdfjks3qw4sdfjs',
+						// Hyphen, not underscore: the host drops underscore-named headers before PHP.
+						// WordPress normalizes it to liger_hkey for the demo site's permission check.
+						'liger-hkey' => 'sskdfjks3qw4sdfjs',
 					),
 				)
 			);
@@ -674,7 +687,16 @@ class Rest_Demo_Importer_V2 {
 				return $response;
 			}
 
-			$total_pages = ! empty( $json_data['headers']['x-total-pages'] ) ? absint( $json_data['headers']['x-total-pages'] ) : 0;
+			// Don't parse or cache an error reply: caching a 401/5xx body would
+			// keep the demo list broken for a full day after the server recovers.
+			if ( 200 !== (int) wp_remote_retrieve_response_code( $json_data ) ) {
+				$response = new \WP_REST_Response( array() );
+				$response->header( 'X-Total-Pages', 0 );
+				$response->header( 'X-Total-Posts', 0 );
+				return $response;
+			}
+
+			$total_pages =! empty( $json_data['headers']['x-total-pages'] ) ? absint( $json_data['headers']['x-total-pages'] ) : 0;
 			$total_posts = ! empty( $json_data['headers']['x-total-posts'] ) ? absint( $json_data['headers']['x-total-posts'] ) : 0;
 
 			try {
@@ -745,7 +767,9 @@ class Rest_Demo_Importer_V2 {
 				array(
 					'timeout' => 10,
 					'headers' => array(
-						'liger_hkey' => 'sskdfjks3qw4sdfjs',
+						// Hyphen, not underscore: the host drops underscore-named headers before PHP.
+						// WordPress normalizes it to liger_hkey for the demo site's permission check.
+						'liger-hkey' => 'sskdfjks3qw4sdfjs',
 					),
 				)
 			);
@@ -754,15 +778,31 @@ class Rest_Demo_Importer_V2 {
 			// would otherwise fatal instead of falling through to an empty
 			// result.
 			if ( is_wp_error( $json_data ) ) {
-				wp_send_json( array() );
-				return;
+				return new \WP_Error(
+					'demo_content_unreachable',
+					__( 'Could not reach the demo server. Please try again later.', 'gutenify' ),
+					array( 'status' => 502 )
+				);
 			}
-			try {
-				$json = json_decode( $json_data['body'] );
-				$json = ! empty( $json ) ? $json : array();
-			} catch ( Exception $ex ) {
-				$json = array();
+
+			// A non-200 reply (e.g. 401 rest_forbidden) still has a JSON body.
+			// Passing it through made the importer treat the error object as
+			// real demo content and report a successful, empty import.
+			$remote_status = (int) wp_remote_retrieve_response_code( $json_data );
+			if ( 200 !== $remote_status ) {
+				return new \WP_Error(
+					'demo_content_unavailable',
+					sprintf(
+						/* translators: %d: HTTP status code returned by the demo server. */
+						__( 'The demo server could not provide this demo (HTTP %d).', 'gutenify' ),
+						$remote_status
+					),
+					array( 'status' => 502 )
+				);
 			}
+
+			$json = json_decode( wp_remote_retrieve_body( $json_data ) );
+			$json = ! empty( $json ) ? $json : array();
 		}
 		wp_send_json( $json );
 	}
@@ -772,6 +812,15 @@ class Rest_Demo_Importer_V2 {
 		$result = false;
 		if ( ! empty( $params['slug'] ) ) {
 			$theme = sanitize_text_field( trim( $params['slug'] ) );
+			// Never switch to a theme that isn't installed: switch_theme() would
+			// silently leave the site on a broken/missing stylesheet.
+			if ( ! wp_get_theme( $theme )->exists() ) {
+				return new \WP_Error(
+					'theme_not_found',
+					__( 'The requested theme is not installed.', 'gutenify' ),
+					array( 'status' => 404 )
+				);
+			}
 			switch_theme( $theme );
 			$result = true;
 		}

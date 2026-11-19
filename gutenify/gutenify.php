@@ -5,10 +5,10 @@
  * Author: Gutenify
  * Author URI: https://www.gutenify.com
  * Plugin URI: https://www.gutenify.com
- * Version: 1.9.0
+ * Version: 1.9.1
  * Text Domain: gutenify
  * Domain Path: /languages
- * Tested up to: 7.0
+ * Tested up to: 7.1
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * License: GPLv3
@@ -22,7 +22,7 @@
 defined('ABSPATH') || exit;
 
 // Define constants.
-define('GUTENIFY_VERSION', '1.9.0');
+define('GUTENIFY_VERSION', '1.9.1');
 define('GUTENIFY_BASE_DIR', plugin_dir_path(__FILE__));
 define('GUTENIFY_BASE_URL', trailingslashit(plugin_dir_url(__FILE__)));
 define('GUTENIFY_BASE_FILE', __FILE__);
