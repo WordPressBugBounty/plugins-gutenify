@@ -56,6 +56,9 @@ class Assets {
 					'font_families'            => gutenify_font_families(),
 					'wp_version'               => $wp_version,
 					'active_blocks'            => Helpers::active_blocks(),
+					// Whether this user may change the global header/body/footer code. Saving it needs
+					// unfiltered_html (see update_settings()), which manage_options alone does not grant.
+					'can_edit_custom_code'     => current_user_can( 'unfiltered_html' ),
 				)
 			);
 

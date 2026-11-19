@@ -484,6 +484,35 @@ class Gutenify_Rest extends WP_REST_Controller {
 
 		if ( is_array( $new_settings ) ) {
 			$current_settings = get_option( 'gutenify_settings', array() );
+
+			if ( ! is_array( $current_settings ) ) {
+				$current_settings = array();
+			}
+
+			// The three global code boxes are printed raw on every front-end page, so
+			// changing them is equivalent to editing unfiltered HTML. manage_options
+			// alone is not enough: multisite site admins and sites running
+			// DISALLOW_UNFILTERED_HTML do not have unfiltered_html. A user without it may
+			// still save the other settings, because the settings page posts every value
+			// each time, so only a *changed* code value is refused.
+			if ( ! current_user_can( 'unfiltered_html' ) ) {
+				foreach ( array( 'global_header_code', 'global_body_open_code', 'global_footer_code' ) as $code_key ) {
+					if ( ! array_key_exists( $code_key, $new_settings ) ) {
+						continue;
+					}
+
+					$current_value = isset( $current_settings[ $code_key ] ) ? (string) $current_settings[ $code_key ] : '';
+
+					if ( (string) $new_settings[ $code_key ] !== $current_value ) {
+						return new WP_Error(
+							'rest_cannot_edit_custom_code',
+							__( 'You need the unfiltered_html capability to change the global custom code.', 'gutenify' ),
+							array( 'status' => rest_authorization_required_code() )
+						);
+					}
+				}
+			}
+
 			update_option( 'gutenify_settings', array_merge( $current_settings, $new_settings ) );
 		}
 

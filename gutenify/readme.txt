@@ -5,7 +5,7 @@ Donate link: https://gutenify.com/
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -233,6 +233,11 @@ For support, [go to our support page](https://gutenify.com/product-support/).
 Before updating plugin please check ["our latest release notes"](http://gutenify.com/).
 
 == Changelog ==
+
+= 2026-11-19 - version 1.9.2 =
+* Security: updated DOMPurify, the library that sanitizes SVG icons in the editor, to 3.4.18, which fixes several sanitization bypasses.
+* Security: changing the Global Header Code, Global Body Open Code and Global Footer Code settings now requires the unfiltered_html capability, which multisite site admins and sites with unfiltered HTML disabled do not have. For those accounts the code boxes are shown read-only, and all other settings still save normally.
+* Fixed the Settings page Save button staying on a spinner with no message when a save was rejected. The error is now shown.
 
 = 2026-11-19 - version 1.9.1 =
 * Tested up to WordPress 7.1.
